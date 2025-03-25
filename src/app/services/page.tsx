@@ -32,7 +32,7 @@ export default function ServicesPage() {
                                 <li>• Biological age calculation</li>
                                 <li>• Personalized improvement roadmap</li>
                             </ul>
-                            <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                            <button className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 transition-colors">
                                 Learn More
                             </button>
                         </div>
@@ -57,7 +57,7 @@ export default function ServicesPage() {
                                 <li>• Behavioral pattern recognition</li>
                                 <li>• Adaptive intervention strategies</li>
                             </ul>
-                            <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                            <button className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 transition-colors">
                                 Explore Coaching
                             </button>
                         </div>
@@ -65,7 +65,7 @@ export default function ServicesPage() {
                 </div>
             </section>
 
-            <section className="mb-12 bg-blue-50 p-8 rounded-lg">
+            <section className="mb-12 bg-teal-50 p-8 rounded-lg">
                 <h2 className="text-2xl font-semibold mb-8">
                     ENTERPRISE SOLUTIONS
                 </h2>

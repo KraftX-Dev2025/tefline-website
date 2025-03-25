@@ -9,7 +9,7 @@ export default function VisionMissionPage() {
 
             <section className="mb-12">
                 <h2 className="text-2xl font-semibold mb-4">VISION TEFLINE</h2>
-                <div className="p-8 bg-blue-50 rounded-lg shadow-md transform rotate-1 hover:rotate-0 transition-transform">
+                <div className="p-8 bg-teal-50 rounded-lg shadow-md transform rotate-1 hover:rotate-0 transition-transform">
                     <p className="text-xl">
                         To become a force multiplier in modern healthcare by
                         setting a definitive wellness benchmark through

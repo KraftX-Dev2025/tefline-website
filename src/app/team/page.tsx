@@ -23,7 +23,7 @@ export default function TeamPage() {
                                 <h3 className="text-xl font-semibold">
                                     {member.name}
                                 </h3>
-                                <p className="text-blue-800">{member.role}</p>
+                                <p className="text-teal-800">{member.role}</p>
                                 <p className="text-gray-600 mb-4">
                                     {member.secondaryRole}
                                 </p>
@@ -34,7 +34,7 @@ export default function TeamPage() {
                 ))}
             </div>
 
-            <section className="bg-blue-50 p-8 rounded-lg mb-12">
+            <section className="bg-teal-50 p-8 rounded-lg mb-12">
                 <h2 className="text-2xl font-semibold mb-6">Team Dynamics</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>

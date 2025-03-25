@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Footer() {
     return (
-        <footer className="bg-blue-900 dark:bg-blue-950 text-white py-8">
+        <footer className="bg-teal-900 dark:bg-teal-950 text-white py-8">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div>
@@ -33,7 +33,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/about"
-                                    className="hover:text-blue-200"
+                                    className="hover:text-teal-200"
                                 >
                                     About
                                 </Link>
@@ -41,7 +41,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/team"
-                                    className="hover:text-blue-200"
+                                    className="hover:text-teal-200"
                                 >
                                     Team
                                 </Link>
@@ -49,7 +49,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/contact"
-                                    className="hover:text-blue-200"
+                                    className="hover:text-teal-200"
                                 >
                                     Contact
                                 </Link>
@@ -57,7 +57,7 @@ export function Footer() {
                         </ul>
                     </div>
                 </div>
-                <div className="mt-8 pt-4 border-t border-blue-800 dark:border-blue-700 text-center">
+                <div className="mt-8 pt-4 border-t border-teal-800 dark:border-teal-700 text-center">
                     <p>Copyright © 2025 Tefline</p>
                 </div>
             </div>

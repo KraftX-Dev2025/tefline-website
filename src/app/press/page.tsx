@@ -67,7 +67,7 @@ export default function PressPage() {
                 </div>
             </section>
 
-            <section className="mb-12 bg-blue-50 p-8 rounded-lg">
+            <section className="mb-12 bg-teal-50 p-8 rounded-lg">
                 <h2 className="text-2xl font-semibold mb-6">Latest News</h2>
                 <div className="space-y-6">
                     <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -107,7 +107,7 @@ export default function PressPage() {
                             Official logos, color palette, and typography
                             guidelines
                         </p>
-                        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                        <button className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 transition-colors">
                             Download Pack
                         </button>
                     </div>
@@ -117,7 +117,7 @@ export default function PressPage() {
                             Detailed biographies and headshots of Tefline's
                             leadership team
                         </p>
-                        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                        <button className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 transition-colors">
                             Download Bios
                         </button>
                     </div>
@@ -127,7 +127,7 @@ export default function PressPage() {
                             High-resolution screenshots and product
                             visualizations
                         </p>
-                        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                        <button className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 transition-colors">
                             Browse Gallery
                         </button>
                     </div>

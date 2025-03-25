@@ -46,7 +46,7 @@ export default function InvestPage() {
                 </div>
             </section>
 
-            <section className="mb-12 bg-blue-50 p-8 rounded-lg">
+            <section className="mb-12 bg-teal-50 p-8 rounded-lg">
                 <h2 className="text-2xl font-semibold mb-6">WHY INVEST NOW?</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -104,10 +104,10 @@ export default function InvestPage() {
 
             <section className="mb-12">
                 <h2 className="text-2xl font-semibold mb-6">FUNDING ROADMAP</h2>
-                <div className="border-l-4 border-blue-600 pl-6">
+                <div className="border-l-4 border-teal-600 pl-6">
                     <div className="mb-8">
                         <h3 className="text-xl font-semibold">Seed Round</h3>
-                        <p className="text-blue-800 font-semibold">
+                        <p className="text-teal-800 font-semibold">
                             Q1-Q2 2025 (CURRENT OPPORTUNITY)
                         </p>
                         <p className="text-xl font-bold mb-2">
@@ -124,7 +124,7 @@ export default function InvestPage() {
                 </div>
             </section>
 
-            <section className="mb-12 bg-gradient-to-r from-blue-900 to-blue-700 text-white p-8 rounded-lg">
+            <section className="mb-12 bg-gradient-to-r from-teal-900 to-teal-700 text-white p-8 rounded-lg">
                 <h2 className="text-2xl font-semibold mb-6">RIDE THE WAVE</h2>
                 <p className="text-xl mb-4">
                     Wellness Intelligence is a trillion-dollar wave! And the
@@ -136,7 +136,7 @@ export default function InvestPage() {
                         Secure your early stake in the future of AI-driven
                         wellness—before the rest of the world catches up.
                     </p>
-                    <button className="mt-4 bg-white text-blue-900 px-6 py-3 rounded-md font-semibold hover:bg-blue-50 transition-colors">
+                    <button className="mt-4 bg-white text-teal-900 px-6 py-3 rounded-md font-semibold hover:bg-teal-50 transition-colors">
                         Connect With Our Investment Team
                     </button>
                 </div>

@@ -36,7 +36,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            <section className="mb-12 bg-blue-50 p-8 rounded-lg">
+            <section className="mb-12 bg-teal-50 p-8 rounded-lg">
                 <h2 className="text-2xl font-semibold mb-4">OUR APPROACH</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div className="bg-white p-6 rounded-lg shadow-sm">

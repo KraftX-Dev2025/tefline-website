@@ -12,58 +12,58 @@ export default function ProgramsPage() {
                     LIFELONG LEARNING: THE EVOLVING MONTHLY MODULES
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">January</h3>
-                        <p className="text-blue-800">Stability Foundation</p>
+                        <p className="text-teal-800">Stability Foundation</p>
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">February</h3>
-                        <p className="text-blue-800">Strength Conditioning</p>
+                        <p className="text-teal-800">Strength Conditioning</p>
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">March</h3>
-                        <p className="text-blue-800">Movement Nutrition</p>
+                        <p className="text-teal-800">Movement Nutrition</p>
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">April</h3>
-                        <p className="text-blue-800">Athletic Vitality</p>
+                        <p className="text-teal-800">Athletic Vitality</p>
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">May</h3>
-                        <p className="text-blue-800">Culinary Medicine</p>
+                        <p className="text-teal-800">Culinary Medicine</p>
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">June</h3>
-                        <p className="text-blue-800">Social Health</p>
+                        <p className="text-teal-800">Social Health</p>
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">July</h3>
-                        <p className="text-blue-800">Resilience Quotient</p>
+                        <p className="text-teal-800">Resilience Quotient</p>
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">August</h3>
-                        <p className="text-blue-800">Restorative Resurgence</p>
+                        <p className="text-teal-800">Restorative Resurgence</p>
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">September</h3>
-                        <p className="text-blue-800">Behavioral Science</p>
+                        <p className="text-teal-800">Behavioral Science</p>
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">October</h3>
-                        <p className="text-blue-800">Aesthetic Wellness</p>
+                        <p className="text-teal-800">Aesthetic Wellness</p>
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">November</h3>
-                        <p className="text-blue-800">Emotional Intelligence</p>
+                        <p className="text-teal-800">Emotional Intelligence</p>
                     </div>
-                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-teal-600">
                         <h3 className="font-semibold">December</h3>
-                        <p className="text-blue-800">Longevity Blueprint</p>
+                        <p className="text-teal-800">Longevity Blueprint</p>
                     </div>
                 </div>
             </section>
 
-            <section className="mb-12 bg-blue-50 p-8 rounded-lg">
+            <section className="mb-12 bg-teal-50 p-8 rounded-lg">
                 <h2 className="text-2xl font-semibold mb-6">
                     FILM CERTIFICATION
                 </h2>

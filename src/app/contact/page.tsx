@@ -15,10 +15,10 @@ export default function ContactPage() {
 
                     <div className="space-y-6">
                         <div className="flex items-start space-x-4">
-                            <div className="bg-blue-100 p-3 rounded-full">
+                            <div className="bg-teal-100 p-3 rounded-full">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6 text-blue-600"
+                                    className="h-6 w-6 text-teal-600"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -47,10 +47,10 @@ export default function ContactPage() {
                         </div>
 
                         <div className="flex items-start space-x-4">
-                            <div className="bg-blue-100 p-3 rounded-full">
+                            <div className="bg-teal-100 p-3 rounded-full">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6 text-blue-600"
+                                    className="h-6 w-6 text-teal-600"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -70,10 +70,10 @@ export default function ContactPage() {
                         </div>
 
                         <div className="flex items-start space-x-4">
-                            <div className="bg-blue-100 p-3 rounded-full">
+                            <div className="bg-teal-100 p-3 rounded-full">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6 text-blue-600"
+                                    className="h-6 w-6 text-teal-600"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -102,14 +102,14 @@ export default function ContactPage() {
                             for corporates and communities. Contact us to
                             schedule a session for your organization.
                         </p>
-                        <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors">
+                        <button className="bg-teal-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-teal-700 transition-colors">
                             Book a Masterclass
                         </button>
                     </div>
                 </div>
 
                 <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div className="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-6">
+                    <div className="bg-gradient-to-r from-teal-900 to-teal-700 text-white p-6">
                         <h2 className="text-2xl font-semibold">
                             Send Us a Message
                         </h2>
@@ -167,7 +167,7 @@ export default function ContactPage() {
 
                         <button
                             type="submit"
-                            className="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 transition-colors"
+                            className="bg-teal-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-700 transition-colors"
                         >
                             Submit
                         </button>
@@ -175,7 +175,7 @@ export default function ContactPage() {
                 </div>
             </div>
 
-            <section className="bg-blue-50 p-8 rounded-lg">
+            <section className="bg-teal-50 p-8 rounded-lg">
                 <h2 className="text-2xl font-semibold mb-6">Find Us</h2>
                 <div className="bg-gray-300 h-64 rounded-lg flex items-center justify-center">
                     <p className="text-gray-600">
