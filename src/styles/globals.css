@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
     --primary-blue: #3d52a0;
@@ -7,7 +8,7 @@
 }
 
 body {
-    @apply text-gray-800;
+    @apply text-gray-800 bg-white dark:text-gray-200 dark:bg-gray-900 transition-colors duration-200;
 }
 
 h1,
@@ -16,5 +17,5 @@ h3,
 h4,
 h5,
 h6 {
-    @apply font-semibold text-blue-900;
+    @apply font-semibold text-blue-900 dark:text-blue-300;
 }
