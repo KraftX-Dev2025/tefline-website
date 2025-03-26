@@ -75,7 +75,7 @@ export function Header() {
         <header
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${
                 isScrolled
-                    ? "bg-slate-900/90 backdrop-blur-md py-2 shadow-lg"
+                    ? "bg-teal-800/80 backdrop-blur-md py-2 shadow-lg"
                     : "bg-transparent py-4"
             }`}
         >
@@ -96,7 +96,7 @@ export function Header() {
                                 <span className="text-2xl font-bold bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
                                     TEFLINE
                                 </span>
-                                <span className="hidden sm:inline-block ml-2 text-xs text-teal-300 tracking-widest">
+                                <span className="hidden sm:inline-block ml-2 text-xs text-teal-300/90 tracking-widest font-light">
                                     LIFESTYLE MEDICINE
                                 </span>
                             </div>
@@ -106,7 +106,7 @@ export function Header() {
                     {/* Desktop Navigation */}
                     <div className="hidden lg:block">
                         <NavigationMenu className="animate-fadeIn">
-                            <NavigationMenuList className="gap-1 bg-slate-800/30 backdrop-blur-md p-1 rounded-lg border border-white/10">
+                            <NavigationMenuList className="gap-1 bg-teal-700/40 backdrop-blur-md p-1 rounded-lg border border-teal-600/20">
                                 {navLinks.map((link, index) => (
                                     <motion.div
                                         key={link.href}
@@ -128,7 +128,7 @@ export function Header() {
                                                         "text-white hover:text-teal-200 transition-colors",
                                                         pathname ===
                                                             link.href &&
-                                                            "bg-slate-700/60 text-teal-200"
+                                                            "bg-teal-600/50 text-teal-100"
                                                     )}
                                                 >
                                                     {link.label}
@@ -149,7 +149,7 @@ export function Header() {
                         className="hidden md:block"
                     >
                         <Button
-                            className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white"
+                            className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white shadow-md shadow-teal-900/20"
                             asChild
                         >
                             <Link href="/contact" className="flex items-center">
@@ -169,14 +169,14 @@ export function Header() {
                                 <Button
                                     variant="ghost"
                                     size="icon"
-                                    className="text-white"
+                                    className="text-white hover:bg-teal-700/50"
                                 >
                                     <Menu className="h-6 w-6" />
                                 </Button>
                             </SheetTrigger>
                             <SheetContent
                                 side="right"
-                                className="bg-slate-900 text-white border-slate-700 w-[300px] sm:w-[350px] p-0 overflow-hidden transition-transform duration-500 ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 [&>button]:hidden"
+                                className="bg-teal-900 text-white border-teal-800 w-[300px] sm:w-[350px] p-0 overflow-hidden transition-transform duration-500 ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 [&>button]:hidden"
                             >
                                 <motion.div
                                     initial={{ opacity: 0, x: 50 }}
@@ -196,7 +196,7 @@ export function Header() {
                                         <Button
                                             variant="ghost"
                                             size="icon"
-                                            className="text-slate-400 hover:text-white"
+                                            className="text-teal-400 hover:text-white hover:bg-teal-800/70"
                                             onClick={() =>
                                                 setIsMobileMenuOpen(false)
                                             }
@@ -245,8 +245,8 @@ export function Header() {
                                                                     className={`flex items-center py-2 px-3 rounded-md transition-colors ${
                                                                         pathname ===
                                                                         link.href
-                                                                            ? "bg-slate-800 text-teal-300"
-                                                                            : "hover:bg-slate-800 text-slate-300 hover:text-white"
+                                                                            ? "bg-teal-800 text-teal-300"
+                                                                            : "hover:bg-teal-800/70 text-teal-300 hover:text-white"
                                                                     }`}
                                                                     onClick={() =>
                                                                         setIsMobileMenuOpen(
@@ -267,7 +267,7 @@ export function Header() {
 
                                     {/* Mobile Social Links */}
                                     <motion.div
-                                        className="mt-8 pt-6 border-t border-slate-700"
+                                        className="mt-8 pt-6 border-t border-teal-800"
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{
@@ -275,13 +275,13 @@ export function Header() {
                                             delay: 0.4,
                                         }}
                                     >
-                                        <p className="text-sm text-slate-400 mb-4">
+                                        <p className="text-sm text-teal-400 mb-4">
                                             Connect with us
                                         </p>
                                         <div className="flex space-x-4">
                                             <motion.a
                                                 href="#"
-                                                className="text-slate-400 hover:text-teal-300 transition-colors"
+                                                className="text-teal-400 hover:text-teal-300 transition-colors"
                                                 whileHover={{
                                                     scale: 1.15,
                                                     rotate: 5,
@@ -291,7 +291,7 @@ export function Header() {
                                             </motion.a>
                                             <motion.a
                                                 href="#"
-                                                className="text-slate-400 hover:text-teal-300 transition-colors"
+                                                className="text-teal-400 hover:text-teal-300 transition-colors"
                                                 whileHover={{
                                                     scale: 1.15,
                                                     rotate: 5,
@@ -301,7 +301,7 @@ export function Header() {
                                             </motion.a>
                                             <motion.a
                                                 href="#"
-                                                className="text-slate-400 hover:text-teal-300 transition-colors"
+                                                className="text-teal-400 hover:text-teal-300 transition-colors"
                                                 whileHover={{
                                                     scale: 1.15,
                                                     rotate: 5,

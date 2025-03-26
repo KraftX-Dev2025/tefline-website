@@ -1,12 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-    motion,
-    useScroll,
-    useTransform,
-    AnimatePresence,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { JSX, SVGProps, useRef, useState } from "react";
 import { teamMembers } from "@/lib/constants/team";
 import {
@@ -17,15 +12,14 @@ import {
     Shield,
     Network,
     Zap,
-    ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
 
 export default function TeamPage() {
     // For parallax effects
-    const heroRef = useRef(null);
+    const pageRef = useRef(null);
     const { scrollYProgress } = useScroll({
-        target: heroRef,
+        target: pageRef,
         offset: ["start start", "end start"],
     });
 
@@ -81,63 +75,25 @@ export default function TeamPage() {
         },
     };
 
-    const [activeCard, setActiveCard] = useState(NaN);
+    const [activeCard, setActiveCard] = useState<number | null>(null);
 
     return (
-        <div className="min-h-screen overflow-hidden bg-gradient-to-b from-teal-800 to-teal-600">
-            {/* Hero Section */}
-            <section
-                ref={heroRef}
-                className="relative py-32 flex items-center justify-center overflow-hidden"
-            >
-                {/* Background Gradients */}
+        <div
+            ref={pageRef}
+            className="min-h-screen bg-gradient-to-b from-teal-800 to-teal-700 overflow-hidden"
+        >
+            {/* Integrated Hero & Team Section */}
+            <section className="relative pt-32 pb-24 px-4">
+                {/* Background Elements */}
                 <motion.div
                     className="absolute inset-0 z-0"
                     style={{ y: backgroundY }}
                 >
-                    {/* Main gradient */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-teal-800 to-teal-600"></div>
-
                     {/* Blurred gradient circles */}
                     <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-cyan-500/20 blur-[120px] opacity-60"></div>
                     <div className="absolute bottom-0 left-1/4 w-[30rem] h-[30rem] rounded-full bg-teal-300/20 blur-[100px] opacity-60"></div>
                     <div className="absolute top-1/3 left-0 w-[25rem] h-[25rem] rounded-full bg-orange-400/10 blur-[80px] opacity-70"></div>
                 </motion.div>
-
-                {/* Content */}
-                <div className="container mx-auto px-4 relative z-20">
-                    <motion.div
-                        className="text-center max-w-3xl mx-auto"
-                        initial="hidden"
-                        animate="visible"
-                        variants={staggerContainer}
-                    >
-                        <motion.div
-                            variants={fadeIn}
-                            className="mb-3 py-1 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-100 text-sm font-medium inline-flex items-center"
-                        >
-                            <Users className="w-4 h-4 mr-2" />
-                            Our Leadership
-                        </motion.div>
-                        <motion.h1
-                            className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight"
-                            variants={fadeIn}
-                        >
-                            TEAM{" "}
-                            <span className="bg-gradient-to-r from-cyan-300 to-teal-200 bg-clip-text text-transparent">
-                                TEFLINE
-                            </span>
-                        </motion.h1>
-                        <motion.p
-                            className="text-lg md:text-xl text-teal-50 leading-relaxed"
-                            variants={fadeIn}
-                        >
-                            Meet the visionaries behind Tefline's mission to
-                            redefine healthcare through lifestyle medicine and
-                            AI intelligence.
-                        </motion.p>
-                    </motion.div>
-                </div>
 
                 {/* Floating DNA-like particles */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
@@ -163,17 +119,44 @@ export default function TeamPage() {
                         />
                     ))}
                 </div>
-            </section>
 
-            {/* Team Members Grid Section */}
-            <section className="py-16 md:py-24 px-4 relative bg-teal-600">
-                {/* Blurred gradient background */}
-                <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-100 rounded-full opacity-40 blur-[100px]"></div>
-                <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-cyan-100 rounded-full opacity-40 blur-[80px]"></div>
-
-                <div className="container mx-auto relative z-10 mb-16">
+                <div className="container mx-auto relative z-20">
+                    {/* Hero Content */}
                     <motion.div
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                        className="text-center max-w-3xl mx-auto mb-20"
+                        initial="hidden"
+                        animate="visible"
+                        variants={staggerContainer}
+                    >
+                        <motion.div
+                            variants={fadeIn}
+                            className="mb-3 py-1.5 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-100 text-sm font-medium inline-flex items-center shadow-lg"
+                        >
+                            <Users className="w-4 h-4 mr-2" />
+                            Our Leadership
+                        </motion.div>
+                        <motion.h1
+                            className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight"
+                            variants={fadeIn}
+                        >
+                            TEAM{" "}
+                            <span className="bg-gradient-to-r from-cyan-300 to-teal-200 bg-clip-text text-transparent">
+                                TEFLINE
+                            </span>
+                        </motion.h1>
+                        <motion.p
+                            className="text-lg md:text-xl text-teal-50 leading-relaxed"
+                            variants={fadeIn}
+                        >
+                            Meet the visionaries behind Tefline's mission to
+                            redefine healthcare through lifestyle medicine and
+                            AI intelligence.
+                        </motion.p>
+                    </motion.div>
+
+                    {/* Team Cards Grid */}
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
@@ -188,150 +171,117 @@ export default function TeamPage() {
                                 whileInView="visible"
                                 whileHover="hover"
                                 viewport={{ once: true, margin: "-50px" }}
+                                className="h-full"
                                 onMouseEnter={() => setActiveCard(index)}
-                                onMouseLeave={() => setActiveCard(NaN)}
-                                className="relative"
+                                onMouseLeave={() => setActiveCard(null)}
                             >
-                                <Link href={`/team/${member.slug}`}>
-                                    <div className="relative bg-teal-50/80 backdrop-blur-md rounded-xl overflow-hidden border border-teal-200 group h-full transition-all duration-300 shadow-md hover:shadow-lg">
-                                        {/* Animated gradient border */}
+                                <Link
+                                    href={`/team/${member.slug}`}
+                                    className="block h-full"
+                                >
+                                    <div className="relative group h-full bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 border border-white/20 hover:border-white/30">
+                                        {/* Shimmering background effect */}
                                         <div
-                                            className={`absolute inset-0 bg-gradient-to-tr ${member.theme.from} ${member.theme.via} ${member.theme.to} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                                            className={`absolute inset-0 bg-gradient-to-tr ${member.theme.from} ${member.theme.to} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                                         ></div>
-                                        <div className="absolute inset-0.5 bg-slate-200/90 rounded-[0.65rem]"></div>
 
-                                        {/* Pulse effect when hovered */}
-                                        <AnimatePresence>
-                                            {activeCard === index && (
-                                                <motion.div
-                                                    className={`absolute inset-0 bg-${member.theme.from}/10 z-0 rounded-xl`}
-                                                    initial={{
-                                                        opacity: 0,
-                                                        scale: 0.8,
-                                                    }}
-                                                    animate={{
-                                                        opacity: 1,
-                                                        scale: 1,
-                                                    }}
-                                                    exit={{
-                                                        opacity: 0,
-                                                        scale: 1.2,
-                                                    }}
-                                                    transition={{
-                                                        duration: 0.5,
-                                                    }}
-                                                />
-                                            )}
-                                        </AnimatePresence>
-
-                                        <div className="relative z-10 p-6">
-                                            <div className="flex flex-col items-center">
-                                                <div className="mb-4 relative">
+                                        {/* Card content */}
+                                        <div className="relative z-10 p-6 flex flex-col h-full">
+                                            {/* Profile Image */}
+                                            <div className="flex justify-center mb-5">
+                                                <div className="relative">
                                                     <div
-                                                        className={`w-32 h-32 rounded-full overflow-hidden bg-gradient-to-tr ${member.theme.from} ${member.theme.via} ${member.theme.to} p-0.5`}
+                                                        className={`w-32 h-32 rounded-full overflow-hidden bg-gradient-to-tr ${member.theme.from} ${member.theme.to} p-0.5 shadow-lg`}
                                                     >
-                                                        <div className="w-full h-full rounded-full overflow-hidden">
+                                                        <div className="w-full h-full rounded-full overflow-hidden bg-gray-100">
                                                             <Image
                                                                 src="/placeholder.webp"
                                                                 alt={
                                                                     member.name
                                                                 }
-                                                                className="w-full h-full object-cover filter saturate-0 group-hover:saturate-100 transition-all duration-500"
+                                                                className="w-full h-full object-cover filter group-hover:saturate-100 transition-all duration-500"
                                                                 width={400}
                                                                 height={400}
                                                             />
                                                         </div>
                                                     </div>
 
-                                                    {/* Tech-inspired circular elements */}
-                                                    <motion.div
-                                                        className={`absolute -top-1 -right-1 w-6 h-6 rounded-full bg-gradient-to-tr ${member.theme.from} ${member.theme.to} p-0.5 z-0`}
-                                                        animate={{
-                                                            rotate:
-                                                                activeCard ===
-                                                                index
-                                                                    ? 360
-                                                                    : 0,
-                                                        }}
-                                                        transition={{
-                                                            duration: 10,
-                                                            repeat: Infinity,
-                                                            ease: "linear",
-                                                        }}
-                                                    >
-                                                        <div className="w-full h-full rounded-full bg-teal-50"></div>
-                                                    </motion.div>
-                                                    <div
-                                                        className={`absolute -bottom-1 -left-1 w-4 h-4 rounded-full bg-gradient-to-tr ${member.theme.from} ${member.theme.to} p-0.5 z-0`}
-                                                    >
-                                                        <div className="w-full h-full rounded-full bg-teal-50"></div>
-                                                    </div>
+                                                    {/* Decorative elements */}
+                                                    {activeCard === index && (
+                                                        <>
+                                                            <motion.div
+                                                                className={`absolute -top-1 -right-1 w-6 h-6 rounded-full bg-gradient-to-tr ${member.theme.from} ${member.theme.to} shadow-md`}
+                                                                animate={{
+                                                                    rotate: 360,
+                                                                }}
+                                                                transition={{
+                                                                    duration: 10,
+                                                                    repeat: Infinity,
+                                                                    ease: "linear",
+                                                                }}
+                                                            />
+                                                            <motion.div
+                                                                className={`absolute -bottom-1 -left-1 w-4 h-4 rounded-full bg-gradient-to-tr ${member.theme.from} ${member.theme.to} shadow-md`}
+                                                            />
+                                                        </>
+                                                    )}
                                                 </div>
+                                            </div>
 
-                                                <h3
-                                                    className={`text-xl font-bold text-teal-900 group-hover:${member.theme.textColor} transition-colors`}
-                                                >
+                                            {/* Member Details */}
+                                            <div className="text-center mb-4">
+                                                <h3 className="text-xl font-bold text-white group-hover:text-teal-200 transition-colors">
                                                     {member.name}
                                                 </h3>
                                                 <p
-                                                    className={`text-sm mt-1 font-medium ${member.theme.textColor}`}
+                                                    className={`text-sm font-medium mt-1 ${member.theme.textColor}`}
                                                 >
                                                     {member.role}
                                                 </p>
-                                                <p className="text-slate-500 text-xs mb-4 italic">
+                                                <p className="text-teal-300/80 text-xs mb-4 italic">
                                                     {member.secondaryRole}
                                                 </p>
-                                                <p className="text-slate-600 text-sm text-center mb-6">
-                                                    {member.shortBio}
-                                                </p>
+                                            </div>
 
-                                                <div
-                                                    className={`flex items-center ${member.theme.textColor} text-sm group-hover:text-teal-900 transition-colors`}
+                                            {/* Member Bio */}
+                                            <p className="text-teal-200/90 text-sm text-center mb-6 flex-grow">
+                                                {member.shortBio}
+                                            </p>
+
+                                            {/* Read More Link */}
+                                            <div className="mt-auto text-center">
+                                                <span
+                                                    className={`inline-flex items-center ${member.theme.textColor} text-sm group-hover:text-white transition-colors`}
                                                 >
-                                                    <span className="mr-1">
-                                                        Read Full Bio
-                                                    </span>
-                                                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                                </div>
+                                                    Read Full Bio
+                                                    <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                                                </span>
                                             </div>
                                         </div>
+
+                                        {/* Connector lines between cards */}
+                                        {index < teamMembers.length - 1 &&
+                                            index !== 1 && (
+                                                <motion.div
+                                                    className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-teal-400/70 to-transparent z-0"
+                                                    initial={{
+                                                        scaleX: 0,
+                                                        opacity: 0,
+                                                    }}
+                                                    whileInView={{
+                                                        scaleX: 1,
+                                                        opacity: 0.6,
+                                                    }}
+                                                    viewport={{ once: true }}
+                                                    transition={{
+                                                        delay:
+                                                            0.5 + index * 0.2,
+                                                        duration: 0.8,
+                                                    }}
+                                                />
+                                            )}
                                     </div>
                                 </Link>
-
-                                {/* Connector lines between cards */}
-                                {index < teamMembers.length - 1 &&
-                                    index !== 1 && (
-                                        <motion.div
-                                            className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-teal-400 to-transparent z-0"
-                                            initial={{ scaleX: 0, opacity: 0 }}
-                                            whileInView={{
-                                                scaleX: 1,
-                                                opacity: 0.5,
-                                            }}
-                                            viewport={{ once: true }}
-                                            transition={{
-                                                delay: 0.5 + index * 0.2,
-                                                duration: 0.8,
-                                            }}
-                                        />
-                                    )}
-
-                                {/* Vertical connector for mobile */}
-                                {(index === 0 || index === 2) && (
-                                    <motion.div
-                                        className="block lg:hidden absolute -bottom-4 left-1/2 h-8 w-0.5 bg-gradient-to-b from-teal-400 to-transparent z-0"
-                                        initial={{ scaleY: 0, opacity: 0 }}
-                                        whileInView={{
-                                            scaleY: 1,
-                                            opacity: 0.5,
-                                        }}
-                                        viewport={{ once: true }}
-                                        transition={{
-                                            delay: 0.5 + index * 0.2,
-                                            duration: 0.8,
-                                        }}
-                                    />
-                                )}
                             </motion.div>
                         ))}
                     </motion.div>
@@ -563,109 +513,6 @@ export default function TeamPage() {
                                 </div>
                             </motion.div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Call to Action */}
-            <section className="py-16 md:py-24 relative overflow-hidden">
-                {/* Background image with overlay */}
-                <div className="absolute inset-0 bg-[url('/placeholder.webp')] bg-cover bg-center opacity-40 z-0"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-700 to-blue-700 opacity-80 z-0"></div>
-
-                {/* Animated particles */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-full">
-                        {Array.from({ length: 15 }).map((_, i) => (
-                            <motion.div
-                                key={i}
-                                className="absolute rounded-full bg-white/10"
-                                style={{
-                                    width: Math.random() * 10 + 5 + "px",
-                                    height: Math.random() * 10 + 5 + "px",
-                                    top: Math.random() * 100 + "%",
-                                    left: Math.random() * 100 + "%",
-                                }}
-                                animate={{
-                                    y: [0, -100],
-                                    opacity: [0, 1, 0],
-                                }}
-                                transition={{
-                                    duration: Math.random() * 8 + 8,
-                                    repeat: Infinity,
-                                    delay: Math.random() * 5,
-                                    ease: "linear",
-                                }}
-                            />
-                        ))}
-                    </div>
-                </div>
-
-                {/* Content */}
-                <div className="max-w-5xl mx-auto relative z-10 px-4">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-8"
-                    >
-                        <div className="inline-flex items-center bg-white/10 backdrop-blur-md text-teal-50 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-white/10 shadow-lg">
-                            <Sparkles className="w-4 h-4 mr-2" />
-                            Transform your life
-                        </div>
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">
-                            Join Our Vision for Modern Healthcare
-                        </h2>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-white text-base md:text-lg text-center space-y-6 mb-8 md:mb-10"
-                    >
-                        <p>
-                            Connect with our team and discover how Tefline is
-                            transforming the future of wellness through
-                            innovative technology and evidence-based approaches.
-                        </p>
-                    </motion.div>
-
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            transition={{
-                                type: "spring",
-                                stiffness: 400,
-                                damping: 10,
-                            }}
-                        >
-                            <Link
-                                href="/contact"
-                                className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] hover:from-[#ea580c] hover:to-[#d97706] text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center group shadow-lg shadow-[#f97316]/20"
-                            >
-                                Get In Touch
-                                <ExternalLink className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                        </motion.div>
-
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            transition={{
-                                type: "spring",
-                                stiffness: 400,
-                                damping: 10,
-                            }}
-                        >
-                            <Link
-                                href="/about"
-                                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center"
-                            >
-                                Learn More About Us
-                            </Link>
-                        </motion.div>
                     </div>
                 </div>
             </section>

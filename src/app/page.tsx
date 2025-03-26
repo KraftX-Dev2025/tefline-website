@@ -23,7 +23,6 @@ export default function Home() {
     });
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     // Animation variants
     const fadeIn = {
@@ -63,15 +62,6 @@ export default function Home() {
                 staggerChildren: 0.1,
                 delayChildren: 0.1,
             },
-        },
-    };
-
-    const scaleIn = {
-        hidden: { opacity: 0, scale: 0.9 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: { duration: 0.3, ease: "easeOut" },
         },
     };
 
@@ -140,7 +130,6 @@ export default function Home() {
                                 <span className="relative z-10 bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
                                     Lifestyle Medicine
                                 </span>
-                                <span className="absolute bottom-2 left-0 w-full h-3 bg-orange-400/30 rounded-lg -z-10"></span>
                             </span>
                         </motion.h1>
                         <motion.p
@@ -714,7 +703,7 @@ export default function Home() {
                                     stats: ["10M+", "Data Points"],
                                     link: "/services",
                                 },
-                            ].map((module, index) => (
+                            ].map((module) => (
                                 <motion.div
                                     key={module.title}
                                     initial={{ opacity: 0, y: 20 }}

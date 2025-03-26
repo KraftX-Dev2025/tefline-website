@@ -86,7 +86,7 @@ export function Footer() {
     };
 
     return (
-        <footer className="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white pt-20 pb-8 overflow-hidden">
+        <footer className="bg-gradient-to-b from-teal-900 via-teal-900 to-teal-950 text-white pt-20 pb-8 overflow-hidden">
             <motion.div
                 className="container mx-auto px-4"
                 variants={footerAnimation}
@@ -98,30 +98,30 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                     {/* Company Info */}
                     <motion.div variants={cardAnimation}>
-                        <Card className="bg-slate-800/50 border-slate-700 text-white h-full">
+                        <Card className="bg-teal-800/50 border-teal-700 text-white h-full shadow-lg shadow-teal-900/30">
                             <CardHeader className="pb-2">
                                 <div className="flex items-center mb-2">
                                     <div className="bg-gradient-to-r from-teal-500 to-cyan-500 p-2 rounded-lg mr-3">
                                         <Brain className="h-6 w-6 text-white" />
                                     </div>
-                                    <CardTitle className="text-xl text-teal-200">
+                                    <CardTitle className="text-xl text-white">
                                         TEFLINE
                                     </CardTitle>
                                 </div>
-                                <CardDescription className="text-slate-300">
+                                <CardDescription className="text-white">
                                     The Epicenter For Lifestyle Medicine
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>
-                                <p className="text-slate-300 mb-6">
+                                <p className="text-white mb-6">
                                     Redefining modern healthcare with
                                     evidence-informed wellness and agentic
                                     intelligence to optimize your healthspan.
                                 </p>
                                 <div className="flex flex-col space-y-4">
                                     <div className="flex items-start">
-                                        <MapPin className="h-5 w-5 text-teal-400 mr-3 mt-0.5 flex-shrink-0" />
-                                        <p className="text-sm text-slate-300">
+                                        <MapPin className="h-5 w-5 text-teal-300 mr-3 mt-0.5 flex-shrink-0" />
+                                        <p className="text-sm text-white">
                                             Embassy Golf Links Business Park,
                                             Cinnabar Hills, Bangalore - 560071
                                         </p>
@@ -130,14 +130,14 @@ export function Footer() {
                                         <Mail className="h-5 w-5 text-teal-400 mr-3 flex-shrink-0" />
                                         <a
                                             href="mailto:team@tefline.org"
-                                            className="text-sm text-slate-300 hover:text-teal-300 transition-colors"
+                                            className="text-sm text-white hover:text-teal-200 transition-colors"
                                         >
                                             team@tefline.org
                                         </a>
                                     </div>
                                     <div className="flex items-center">
                                         <Phone className="h-5 w-5 text-teal-400 mr-3 flex-shrink-0" />
-                                        <p className="text-sm text-slate-300">
+                                        <p className="text-sm text-white">
                                             +91 98451 71490
                                         </p>
                                     </div>
@@ -148,9 +148,9 @@ export function Footer() {
 
                     {/* Quick Links */}
                     <motion.div variants={cardAnimation}>
-                        <Card className="bg-slate-800/50 border-slate-700 text-white h-full">
+                        <Card className="bg-teal-800/50 border-teal-700 text-white h-full shadow-lg shadow-teal-900/30">
                             <CardHeader>
-                                <CardTitle className="text-xl text-teal-200">
+                                <CardTitle className="text-xl text-white">
                                     Quick Links
                                 </CardTitle>
                             </CardHeader>
@@ -164,7 +164,7 @@ export function Footer() {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className="flex items-center text-slate-300 hover:text-teal-300 py-1.5 transition-colors"
+                                                className="flex items-center text-white hover:text-teal-200 py-1.5 transition-colors"
                                             >
                                                 <ArrowRight className="h-3.5 w-3.5 mr-2 text-teal-500" />
                                                 {link.label}
@@ -178,12 +178,12 @@ export function Footer() {
 
                     {/* Newsletter */}
                     <motion.div variants={cardAnimation}>
-                        <Card className="bg-slate-800/50 border-slate-700 text-white h-full">
+                        <Card className="bg-teal-800/50 border-teal-700 text-white h-full shadow-lg shadow-teal-900/30">
                             <CardHeader>
-                                <CardTitle className="text-xl text-teal-200">
+                                <CardTitle className="text-xl text-teal-300">
                                     Subscribe to Our Newsletter
                                 </CardTitle>
-                                <CardDescription className="text-slate-300">
+                                <CardDescription className="text-white">
                                     Stay updated with the latest in lifestyle
                                     medicine
                                 </CardDescription>
@@ -197,7 +197,7 @@ export function Footer() {
                                         <Input
                                             type="email"
                                             placeholder="Enter your email"
-                                            className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus-visible:ring-teal-400"
+                                            className="bg-teal-700/50 border-teal-600 text-white placeholder:text-teal-400 focus-visible:ring-teal-400"
                                             value={email}
                                             onChange={(e: {
                                                 target: {
@@ -233,7 +233,7 @@ export function Footer() {
                                         <div className="flex space-x-4">
                                             <motion.a
                                                 href="#"
-                                                className="bg-slate-700 hover:bg-teal-600 p-2 rounded-full text-white transition-colors"
+                                                className="bg-teal-700 hover:bg-teal-600 p-2 rounded-full text-white transition-colors shadow-md"
                                                 whileHover={
                                                     socialAnimation.hover
                                                 }
@@ -242,7 +242,7 @@ export function Footer() {
                                             </motion.a>
                                             <motion.a
                                                 href="#"
-                                                className="bg-slate-700 hover:bg-teal-600 p-2 rounded-full text-white transition-colors"
+                                                className="bg-teal-700 hover:bg-teal-600 p-2 rounded-full text-white transition-colors shadow-md"
                                                 whileHover={
                                                     socialAnimation.hover
                                                 }
@@ -251,7 +251,7 @@ export function Footer() {
                                             </motion.a>
                                             <motion.a
                                                 href="#"
-                                                className="bg-slate-700 hover:bg-teal-600 p-2 rounded-full text-white transition-colors"
+                                                className="bg-teal-700 hover:bg-teal-600 p-2 rounded-full text-white transition-colors shadow-md"
                                                 whileHover={
                                                     socialAnimation.hover
                                                 }
@@ -273,50 +273,50 @@ export function Footer() {
                 >
                     <div>
                         <div className="flex justify-center mb-4">
-                            <div className="bg-gradient-to-r from-teal-600 to-teal-400 p-3 rounded-full">
+                            <div className="bg-gradient-to-r from-teal-600 to-teal-400 p-3 rounded-full shadow-lg shadow-teal-900/30">
                                 <Brain className="h-6 w-6 text-white" />
                             </div>
                         </div>
                         <h3 className="text-lg font-semibold text-teal-200 mb-2">
                             Wellness Intelligence™
                         </h3>
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-white">
                             Powered by advanced AI to optimize your health
                             journey
                         </p>
                     </div>
                     <div>
                         <div className="flex justify-center mb-4">
-                            <div className="bg-gradient-to-r from-teal-600 to-teal-400 p-3 rounded-full">
+                            <div className="bg-gradient-to-r from-teal-600 to-teal-400 p-3 rounded-full shadow-lg shadow-teal-900/30">
                                 <Shield className="h-6 w-6 text-white" />
                             </div>
                         </div>
                         <h3 className="text-lg font-semibold text-teal-200 mb-2">
                             Evidence-Informed
                         </h3>
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-white">
                             Protocols backed by rigorous scientific research
                         </p>
                     </div>
                     <div>
                         <div className="flex justify-center mb-4">
-                            <div className="bg-gradient-to-r from-teal-600 to-teal-400 p-3 rounded-full">
+                            <div className="bg-gradient-to-r from-teal-600 to-teal-400 p-3 rounded-full shadow-lg shadow-teal-900/30">
                                 <Globe className="h-6 w-6 text-white" />
                             </div>
                         </div>
                         <h3 className="text-lg font-semibold text-teal-200 mb-2">
                             Global Community
                         </h3>
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-white">
                             Join thousands improving their health worldwide
                         </p>
                     </div>
                 </motion.div>
 
-                <Separator className="bg-slate-800 mb-8" />
+                <Separator className="bg-teal-800 mb-8" />
 
                 {/* Bottom Section */}
-                <div className="flex flex-col md:flex-row justify-between items-center text-sm text-slate-400">
+                <div className="flex flex-col md:flex-row justify-between items-center text-sm text-teal-400">
                     <p>
                         © {new Date().getFullYear()} Tefline. All rights
                         reserved.

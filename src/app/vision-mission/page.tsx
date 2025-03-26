@@ -22,7 +22,6 @@ export default function VisionMissionPage() {
     });
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     // Animation variants
     const fadeIn = {
@@ -678,7 +677,7 @@ export default function VisionMissionPage() {
                                 iconBg: "bg-gradient-to-r from-orange-500 to-orange-400",
                                 delay: 0.8,
                             },
-                        ].map((item, index) => (
+                        ].map((item) => (
                             <div key={item.id} className="relative pl-12 mb-12">
                                 {/* Icon circle */}
                                 <motion.div
