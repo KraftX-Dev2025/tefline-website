@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
@@ -8,18 +8,18 @@ import { teamMembers } from "@/lib/constants/team";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
-export default function TeamMemberPage({
-    params,
-}: {
-    params: { slug: string };
-}) {
-    const { slug } = params;
+type Params = Promise<{ slug: string }>;
+
+export default function TeamMemberPage(props: { params: Params }) {
+    const params = use(props.params);
     const [activeTab, setActiveTab] = useState<
         "bio" | "achievements" | "vision"
     >("bio");
 
     // Find the team member with the matching slug
-    const teamMember = teamMembers.find((member) => member.slug === slug);
+    const teamMember = teamMembers.find(
+        (member) => member.slug === params.slug
+    );
 
     // If no team member is found, show 404
     if (!teamMember) {
