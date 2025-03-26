@@ -3,7 +3,6 @@ import {
     LucideIcon,
     Linkedin,
     Mail,
-    BookOpen,
     FlaskConical,
     Brain,
     BarChart,

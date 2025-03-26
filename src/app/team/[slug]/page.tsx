@@ -5,7 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
 import { teamMembers } from "@/lib/constants/team";
-import { ArrowLeft, ExternalLink, LucideIcon } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 export default function TeamMemberPage({
