@@ -6,7 +6,7 @@ h3,
 h4,
 h5,
 h6 {
-    @apply font-semibold text-teal-900 dark:text-teal-300;
+    @apply font-semibold;
 }
 
 @keyframes fadeIn {
@@ -19,4 +19,120 @@ h6 {
 }
 .animate-fadeIn {
     animation: fadeIn 0.5s ease-out;
+}
+
+/* Gradient text effect */
+.gradient-text {
+    @apply bg-clip-text text-transparent;
+}
+
+/* Team member profiles specific styles */
+.team-profile-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.team-profile-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.team-profile-card:hover::before {
+    opacity: 1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+}
+
+/* Animated border effect */
+.animated-border {
+    position: relative;
+}
+
+.animated-border::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease;
+}
+
+.animated-border:hover::after {
+    width: 100%;
+}
+
+/* For blue theme */
+.blue-theme .animated-border::after {
+    background: linear-gradient(to right, #2563eb, #60a5fa);
+}
+
+/* For teal theme */
+.teal-theme .animated-border::after {
+    background: linear-gradient(to right, #0d9488, #5eead4);
+}
+
+/* For indigo theme */
+.indigo-theme .animated-border::after {
+    background: linear-gradient(to right, #4f46e5, #818cf8);
+}
+
+/* For purple theme */
+.purple-theme .animated-border::after {
+    background: linear-gradient(to right, #7e22ce, #c084fc);
+}
+
+/* Image hover effect */
+.profile-image {
+    transition: transform 0.5s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+/* Custom scrollbar for the biography section */
+.biography-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.biography-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.biography-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.biography-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
