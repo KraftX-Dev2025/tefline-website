@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
 import { teamMembers } from "@/lib/constants/team";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, LucideIcon } from "lucide-react";
+import Image from "next/image";
 
 export default function TeamMemberPage({
     params,
@@ -30,8 +31,8 @@ export default function TeamMemberPage({
         const baseColor = teamMember.theme.from.split("-")[1]; // Extract "blue" from "from-blue-600"
         return {
             gradientBg: `bg-gradient-to-b ${teamMember.theme.from} ${teamMember.theme.to}`,
-            accentBg: `${teamMember.theme.accent}`,
-            text: teamMember.theme.text,
+            accentBg: `${teamMember.theme.accentBg}`,
+            text: teamMember.theme.textColor,
             border: `border-${baseColor}-300`,
             tabHighlight: `bg-${baseColor}-500`,
         };
@@ -73,10 +74,12 @@ export default function TeamMemberPage({
                             <div
                                 className={`w-48 h-48 rounded-full mb-6 border-4 border-white/20 overflow-hidden transition-transform duration-300 hover:scale-105`}
                             >
-                                <img
+                                <Image
                                     src="/placeholder.webp"
                                     alt={teamMember.name}
                                     className="w-full h-full object-cover"
+                                    width={400}
+                                    height={400}
                                 />
                             </div>
 
@@ -93,21 +96,19 @@ export default function TeamMemberPage({
 
                             {/* Quick Stats */}
                             <div className="mt-8 w-full grid grid-cols-2 gap-3">
-                                {getQuickStats(teamMember.slug).map(
-                                    (stat, index) => (
-                                        <div
-                                            key={stat.label}
-                                            className="bg-white/10 rounded-lg p-3 text-center hover:bg-white/15 transition-colors duration-200"
-                                        >
-                                            <p className="text-lg font-bold text-white">
-                                                {stat.value}
-                                            </p>
-                                            <p className="text-xs text-white/80">
-                                                {stat.label}
-                                            </p>
-                                        </div>
-                                    )
-                                )}
+                                {getQuickStats(teamMember.slug).map((stat) => (
+                                    <div
+                                        key={stat.label}
+                                        className="bg-white/10 rounded-lg p-3 text-center hover:bg-white/15 transition-colors duration-200"
+                                    >
+                                        <p className="text-lg font-bold text-white">
+                                            {stat.value}
+                                        </p>
+                                        <p className="text-xs text-white/80">
+                                            {stat.label}
+                                        </p>
+                                    </div>
+                                ))}
                             </div>
 
                             {/* Contact buttons */}
@@ -378,10 +379,12 @@ export default function TeamMemberPage({
                                                 )} group h-full`}
                                             >
                                                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex-shrink-0 border border-gray-200 group-hover:border-white/20">
-                                                    <img
+                                                    <Image
                                                         src="/placeholder.webp"
                                                         alt={member.name}
                                                         className="w-full h-full object-cover"
+                                                        width={400}
+                                                        height={400}
                                                     />
                                                 </div>
                                                 <div className="overflow-hidden">
@@ -451,9 +454,12 @@ function generateExpertiseTags(slug: string): string[] {
 // Helper function to get tag color based on theme
 function getTagColor(theme: {
     from: string;
+    via: string;
     to: string;
-    text: string;
-    accent: string;
+    textColor: string;
+    lightBg: string;
+    glowClass: string;
+    accentBg?: string;
 }): string {
     // Extract color family from theme
     const colorFamily = theme.from.split("-")[1]; // e.g., "blue" from "from-blue-600"

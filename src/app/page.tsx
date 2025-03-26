@@ -13,6 +13,7 @@ import {
     ChevronRight,
 } from "lucide-react";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function Home() {
     // For parallax effects
@@ -23,7 +24,6 @@ export default function Home() {
     });
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     // Animation variants
     const fadeIn = {
@@ -66,19 +66,6 @@ export default function Home() {
         },
     };
 
-    const cardHover = {
-        rest: { scale: 1, y: 0 },
-        hover: {
-            scale: 1.03,
-            y: -5,
-            transition: {
-                type: "spring",
-                stiffness: 400,
-                damping: 17,
-            },
-        },
-    };
-
     const buttonHover = {
         rest: { scale: 1 },
         hover: {
@@ -88,15 +75,6 @@ export default function Home() {
                 stiffness: 400,
                 damping: 10,
             },
-        },
-    };
-
-    const scaleIn = {
-        hidden: { opacity: 0, scale: 0.9 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: { duration: 0.5, ease: "easeOut" },
         },
     };
 
@@ -294,10 +272,12 @@ export default function Home() {
                                 <div className="absolute top-4 -left-4 w-full h-full bg-[#06b6d4]/20 rounded-2xl"></div>
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-slate-800/30 shadow-xl border border-slate-700 p-3">
-                                    <img
+                                    <Image
                                         src="/placeholder.webp"
                                         alt="Health Technology"
                                         className="w-full h-auto object-cover rounded-xl"
+                                        width={400}
+                                        height={400}
                                     />
                                     {/* Floating badge */}
                                     <div className="absolute bottom-10 -right-6 bg-slate-800/80 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-cyan-300 text-sm font-medium border border-slate-700">
@@ -334,10 +314,12 @@ export default function Home() {
                                 <div className="absolute top-4 -right-4 w-full h-full bg-[#f97316]/20 rounded-2xl"></div>
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto overflow-hidden rounded-2xl backdrop-blur-sm bg-slate-800/30 shadow-xl border border-slate-700 p-3">
-                                    <img
+                                    <Image
                                         src="/placeholder.webp"
                                         alt="Lifestyle Medicine"
                                         className="w-full h-auto object-cover rounded-xl"
+                                        width={400}
+                                        height={400}
                                     />
                                     {/* Floating badge */}
                                     <div className="absolute top-10 -left-6 bg-slate-800/80 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-cyan-300 text-sm font-medium border border-slate-700">
@@ -769,7 +751,7 @@ export default function Home() {
                                     stats: ["10M+", "Data Points"],
                                     link: "/services",
                                 },
-                            ].map((module, index) => (
+                            ].map((module) => (
                                 <motion.div
                                     key={module.title}
                                     initial={{ opacity: 0, y: 20 }}
@@ -1230,10 +1212,12 @@ export default function Home() {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={fadeInRight}
                         >
-                            <img
+                            <Image
                                 src="/placeholder.webp"
                                 alt="Health Technology"
                                 className="w-full h-auto object-cover rounded-xl"
+                                width={400}
+                                height={400}
                             />
                         </motion.div>
                     </div>

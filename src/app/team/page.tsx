@@ -15,11 +15,11 @@ import {
     ChevronRight,
     Sparkles,
     Shield,
-    UserCog,
     Network,
     Zap,
     ExternalLink,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function TeamPage() {
     // For parallax effects
@@ -30,7 +30,6 @@ export default function TeamPage() {
     });
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     // Animation variants
     const fadeIn = {
@@ -252,12 +251,14 @@ export default function TeamPage() {
                                                         className={`w-32 h-32 rounded-full overflow-hidden bg-gradient-to-tr ${member.theme.from} ${member.theme.via} ${member.theme.to} p-0.5`}
                                                     >
                                                         <div className="w-full h-full rounded-full overflow-hidden">
-                                                            <img
+                                                            <Image
                                                                 src="/placeholder.webp"
                                                                 alt={
                                                                     member.name
                                                                 }
                                                                 className="w-full h-full object-cover filter saturate-0 group-hover:saturate-100 transition-all duration-500"
+                                                                width={400}
+                                                                height={400}
                                                             />
                                                         </div>
                                                     </div>

@@ -12,6 +12,7 @@ import {
     ChevronRight,
 } from "lucide-react";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function AboutPage() {
     // For parallax effects
@@ -22,7 +23,6 @@ export default function AboutPage() {
     });
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     // Animation variants
     const fadeIn = {
@@ -61,19 +61,6 @@ export default function AboutPage() {
             transition: {
                 staggerChildren: 0.15,
                 delayChildren: 0.2,
-            },
-        },
-    };
-
-    const cardHover = {
-        rest: { scale: 1, y: 0 },
-        hover: {
-            scale: 1.03,
-            y: -5,
-            transition: {
-                type: "spring",
-                stiffness: 400,
-                damping: 17,
             },
         },
     };
@@ -172,10 +159,12 @@ export default function AboutPage() {
                                 <div className="absolute top-4 -left-4 w-full h-full bg-teal-200 rounded-2xl"></div>
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-white/80 shadow-xl border border-white/70 p-3">
-                                    <img
+                                    <Image
                                         src="/placeholder.webp"
                                         alt="Founders meeting"
                                         className="w-full h-auto object-cover rounded-xl"
+                                        width={600}
+                                        height={600}
                                     />
                                     {/* Floating badge */}
                                     <div className="absolute bottom-10 -right-6 bg-white/90 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-teal-800 text-sm font-medium border border-teal-100">

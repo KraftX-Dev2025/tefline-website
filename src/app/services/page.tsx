@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function ServicesPage() {
     return (
         <div className="container mx-auto py-16 px-4">
@@ -13,10 +15,12 @@ export default function ServicesPage() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img
+                        <Image
                             src="/placeholder.webp"
                             alt="Wellness Assessment"
                             className="w-full h-48 object-cover"
+                            width={400}
+                            height={400}
                         />
                         <div className="p-6">
                             <h3 className="text-xl font-semibold mb-2">
@@ -39,10 +43,12 @@ export default function ServicesPage() {
                     </div>
 
                     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                        <img
+                        <Image
                             src="/placeholder.webp"
                             alt="AI Coaching"
                             className="w-full h-48 object-cover"
+                            width={400}
+                            height={400}
                         />
                         <div className="p-6">
                             <h3 className="text-xl font-semibold mb-2">

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function InvestPage() {
     return (
         <div className="container mx-auto py-16 px-4">
@@ -37,10 +39,12 @@ export default function InvestPage() {
                         </p>
                     </div>
                     <div>
-                        <img
+                        <Image
                             src="/placeholder.webp"
                             alt="Investment opportunity"
                             className="rounded-lg w-full"
+                            width={400}
+                            height={400}
                         />
                     </div>
                 </div>
