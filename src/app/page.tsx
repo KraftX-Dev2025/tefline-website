@@ -13,7 +13,6 @@ import {
     ChevronRight,
 } from "lucide-react";
 import { useRef } from "react";
-import Image from "next/image";
 
 export default function Home() {
     // For parallax effects
@@ -24,11 +23,12 @@ export default function Home() {
     });
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     // Animation variants
     const fadeIn = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
     };
 
     const fadeInLeft = {
@@ -37,7 +37,7 @@ export default function Home() {
             opacity: 1,
             x: 0,
             transition: {
-                duration: 0.6,
+                duration: 0.4,
                 ease: "easeOut",
             },
         },
@@ -49,7 +49,7 @@ export default function Home() {
             opacity: 1,
             x: 0,
             transition: {
-                duration: 0.6,
+                duration: 0.4,
                 ease: "easeOut",
             },
         },
@@ -60,26 +60,23 @@ export default function Home() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.2,
+                staggerChildren: 0.1,
+                delayChildren: 0.1,
             },
         },
     };
 
-    const buttonHover = {
-        rest: { scale: 1 },
-        hover: {
-            scale: 1.05,
-            transition: {
-                type: "spring",
-                stiffness: 400,
-                damping: 10,
-            },
+    const scaleIn = {
+        hidden: { opacity: 0, scale: 0.9 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: { duration: 0.3, ease: "easeOut" },
         },
     };
 
     return (
-        <div className="overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
+        <div className="overflow-hidden bg-gradient-to-b from-teal-700 to-teal-600">
             {/* Hero Section */}
             <section
                 ref={ref}
@@ -91,12 +88,12 @@ export default function Home() {
                     style={{ y: backgroundY }}
                 >
                     {/* Main gradient */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#0f172a] to-[#172554]"></div>
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-teal-800 to-teal-600"></div>
 
                     {/* Blurred gradient circles */}
-                    <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-[#0ea5e9]/20 blur-[120px] opacity-60"></div>
-                    <div className="absolute bottom-0 left-1/4 w-[30rem] h-[30rem] rounded-full bg-[#06b6d4]/20 blur-[100px] opacity-60"></div>
-                    <div className="absolute top-1/3 left-0 w-[25rem] h-[25rem] rounded-full bg-[#f97316]/10 blur-[80px] opacity-70"></div>
+                    <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-cyan-500/20 blur-[120px] opacity-60"></div>
+                    <div className="absolute bottom-0 left-1/4 w-[30rem] h-[30rem] rounded-full bg-teal-300/20 blur-[100px] opacity-60"></div>
+                    <div className="absolute top-1/3 left-0 w-[25rem] h-[25rem] rounded-full bg-orange-400/10 blur-[80px] opacity-70"></div>
                 </motion.div>
 
                 {/* Wave pattern overlay */}
@@ -104,7 +101,7 @@ export default function Home() {
                     <svg
                         viewBox="0 0 1200 120"
                         preserveAspectRatio="none"
-                        className="w-full h-20 text-slate-800"
+                        className="w-full h-20 text-teal-600"
                     >
                         <path
                             d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
@@ -129,7 +126,7 @@ export default function Home() {
                     >
                         <motion.div
                             variants={fadeIn}
-                            className="mb-3 py-1 px-4 bg-slate-800/50 backdrop-blur-md rounded-full text-cyan-300 text-sm font-medium inline-flex items-center"
+                            className="mb-3 py-1 px-4 bg-teal-600/50 backdrop-blur-md rounded-full text-teal-200 text-sm font-medium inline-flex items-center"
                         >
                             <Sparkles className="w-4 h-4 mr-2" />
                             Redefining Modern Healthcare
@@ -140,14 +137,14 @@ export default function Home() {
                         >
                             The Epicenter For{" "}
                             <span className="relative inline-block">
-                                <span className="relative z-10 bg-gradient-to-r from-cyan-300 to-teal-200 bg-clip-text text-transparent">
+                                <span className="relative z-10 bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
                                     Lifestyle Medicine
                                 </span>
-                                <span className="absolute bottom-2 left-0 w-full h-3 bg-[#f97316]/30 rounded-lg -z-10"></span>
+                                <span className="absolute bottom-2 left-0 w-full h-3 bg-orange-400/30 rounded-lg -z-10"></span>
                             </span>
                         </motion.h1>
                         <motion.p
-                            className="text-xl md:text-2xl mb-10 text-slate-300 leading-relaxed"
+                            className="text-xl md:text-2xl mb-10 text-teal-100 leading-relaxed"
                             variants={fadeIn}
                         >
                             Blending evidence-informed wellness with agentic
@@ -158,62 +155,49 @@ export default function Home() {
                             variants={fadeIn}
                             className="flex flex-col sm:flex-row gap-4"
                         >
-                            <motion.div
-                                variants={buttonHover}
-                                initial="rest"
-                                whileHover="hover"
+                            <Link
+                                href="/programs"
+                                className="bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-600 hover:to-orange-500 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 inline-flex items-center group shadow-lg shadow-orange-500/20 hover:scale-105 hover:-translate-y-1"
                             >
-                                <Link
-                                    href="/programs"
-                                    className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] hover:from-[#ea580c] hover:to-[#d97706] text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center group shadow-lg shadow-[#f97316]/20"
-                                >
-                                    Discover Wellness Intelligence™
-                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                            </motion.div>
-                            <motion.div
-                                variants={buttonHover}
-                                initial="rest"
-                                whileHover="hover"
+                                Discover Wellness Intelligence™
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+                            </Link>
+                            <Link
+                                href="/about"
+                                className="bg-teal-600/50 backdrop-blur-sm hover:bg-teal-500/50 text-white border border-white/20 px-8 py-4 rounded-lg font-semibold transition-all duration-200 inline-flex items-center hover:scale-105 hover:-translate-y-1"
                             >
-                                <Link
-                                    href="/about"
-                                    className="bg-slate-800/50 backdrop-blur-sm hover:bg-slate-700/50 text-white border border-white/20 px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center"
-                                >
-                                    Learn About Us
-                                </Link>
-                            </motion.div>
+                                Learn About Us
+                            </Link>
                         </motion.div>
                     </motion.div>
 
                     {/* Floating badges */}
                     <motion.div
-                        className="hidden md:flex absolute left-10 top-1/3 bg-slate-800/50 backdrop-blur-md px-4 py-2 rounded-lg text-cyan-300 items-center"
+                        className="hidden md:flex absolute left-10 top-1/3 bg-teal-600/50 backdrop-blur-md px-4 py-2 rounded-lg text-teal-200 items-center"
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 1, duration: 0.8 }}
                     >
-                        <Heart className="w-5 h-5 mr-2 text-[#f97316]" />
+                        <Heart className="w-5 h-5 mr-2 text-orange-400" />
                         <span>Evidence-Based Approach</span>
                     </motion.div>
 
                     <motion.div
-                        className="hidden md:flex absolute right-10 top-2/3 bg-slate-800/50 backdrop-blur-md px-4 py-2 rounded-lg text-cyan-300 items-center"
+                        className="hidden md:flex absolute right-10 top-2/3 bg-teal-600/50 backdrop-blur-md px-4 py-2 rounded-lg text-teal-200 items-center"
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 1.3, duration: 0.8 }}
                     >
-                        <Brain className="w-5 h-5 mr-2 text-[#f97316]" />
+                        <Brain className="w-5 h-5 mr-2 text-orange-400" />
                         <span>Powered by Agentic Intelligence</span>
                     </motion.div>
                 </div>
             </section>
-
             {/* Your Lifeline Section */}
-            <section className="py-24 px-4 relative overflow-hidden bg-slate-900">
+            <section className="py-24 px-4 relative overflow-hidden bg-white">
                 {/* Blurred gradient background */}
-                <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#0ea5e9]/20 rounded-full opacity-50 blur-[100px]"></div>
-                <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-[#06b6d4]/20 rounded-full opacity-50 blur-[80px]"></div>
+                <div className="absolute -top-40 -left-40 w-96 h-96 bg-cyan-500/10 rounded-full opacity-30 blur-[100px]"></div>
+                <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-teal-400/10 rounded-full opacity-30 blur-[80px]"></div>
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -223,18 +207,18 @@ export default function Home() {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={fadeInLeft}
                         >
-                            <div className="inline-flex items-center bg-slate-800/70 text-cyan-300 px-4 py-1 rounded-full text-sm font-medium mb-6">
+                            <div className="inline-flex items-center bg-teal-100 text-teal-700 px-4 py-1 rounded-full text-sm font-medium mb-6">
                                 <Sparkles className="w-4 h-4 mr-2" />
                                 Your Path to Optimal Health
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-teal-700 leading-tight">
                                 YOUR{" "}
-                                <span className="bg-gradient-to-r from-cyan-300 to-teal-200 bg-clip-text text-transparent">
+                                <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
                                     LIFELINE
                                 </span>{" "}
                                 to Long-Term Wellness
                             </h2>
-                            <p className="text-slate-300 mb-8 leading-relaxed text-lg">
+                            <p className="text-slate-700 mb-8 leading-relaxed text-lg">
                                 Tefline is a healthtech startup that is
                                 redefining modern healthcare by blending
                                 evidence-informed wellness with agentic
@@ -242,22 +226,15 @@ export default function Home() {
                                 holds you accountable; optimizing healthspan is
                                 the surest path to extending lifespan.
                             </p>
-                            <motion.div
-                                variants={buttonHover}
-                                initial="rest"
-                                whileHover="hover"
-                                className="inline-block"
+                            <Link
+                                href="/about"
+                                className="inline-flex items-center text-teal-600 font-semibold group px-5 py-2 rounded-lg border border-teal-200 hover:bg-teal-50 transition-all duration-200 hover:scale-105"
                             >
-                                <Link
-                                    href="/about"
-                                    className="inline-flex items-center text-cyan-300 font-semibold group px-5 py-2 rounded-lg border border-slate-700 hover:bg-slate-800/50 transition-colors"
-                                >
-                                    Learn More About Our Approach
-                                    <div className="ml-2 w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors">
-                                        <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                                    </div>
-                                </Link>
-                            </motion.div>
+                                Learn More About Our Approach
+                                <div className="ml-2 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-200">
+                                    <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
+                                </div>
+                            </Link>
                         </motion.div>
                         <motion.div
                             initial="hidden"
@@ -268,21 +245,19 @@ export default function Home() {
                         >
                             <div className="relative w-full max-w-md">
                                 {/* Image decoration */}
-                                <div className="absolute top-8 -left-8 w-full h-full bg-[#f97316]/20 rounded-2xl"></div>
-                                <div className="absolute top-4 -left-4 w-full h-full bg-[#06b6d4]/20 rounded-2xl"></div>
+                                <div className="absolute top-8 -left-8 w-full h-full bg-orange-400/10 rounded-2xl"></div>
+                                <div className="absolute top-4 -left-4 w-full h-full bg-teal-400/10 rounded-2xl"></div>
                                 {/* Main image with glass effect */}
-                                <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-slate-800/30 shadow-xl border border-slate-700 p-3">
-                                    <Image
+                                <div className="relative w-full h-auto rounded-2xl bg-white shadow-xl border border-teal-100 p-3">
+                                    <img
                                         src="/placeholder.webp"
                                         alt="Health Technology"
                                         className="w-full h-auto object-cover rounded-xl"
-                                        width={400}
-                                        height={400}
                                     />
                                     {/* Floating badge */}
-                                    <div className="absolute bottom-10 -right-6 bg-slate-800/80 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-cyan-300 text-sm font-medium border border-slate-700">
+                                    <div className="absolute bottom-10 -right-6 bg-white shadow-lg py-2 px-4 rounded-lg text-teal-600 text-sm font-medium border border-teal-100">
                                         <div className="flex items-center">
-                                            <Heart className="w-4 h-4 mr-2 text-[#f97316]" />
+                                            <Heart className="w-4 h-4 mr-2 text-orange-500" />
                                             Optimizing Healthspan
                                         </div>
                                     </div>
@@ -292,12 +267,11 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-
             {/* Lifestyle Medicine Section */}
-            <section className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-slate-800 to-slate-900">
+            <section className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-teal-600 to-teal-700">
                 {/* Blurred gradient background */}
-                <div className="absolute top-0 right-0 w-96 h-96 bg-[#f97316]/10 rounded-full opacity-30 blur-[120px]"></div>
-                <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#06b6d4]/20 rounded-full opacity-40 blur-[100px]"></div>
+                <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full opacity-30 blur-[120px]"></div>
+                <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-400/20 rounded-full opacity-40 blur-[100px]"></div>
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -310,21 +284,19 @@ export default function Home() {
                         >
                             <div className="relative w-full max-w-md">
                                 {/* Image decoration */}
-                                <div className="absolute top-8 -right-8 w-full h-full bg-[#06b6d4]/20 rounded-2xl"></div>
-                                <div className="absolute top-4 -right-4 w-full h-full bg-[#f97316]/20 rounded-2xl"></div>
+                                <div className="absolute top-8 -right-8 w-full h-full bg-teal-400/20 rounded-2xl"></div>
+                                <div className="absolute top-4 -right-4 w-full h-full bg-orange-400/20 rounded-2xl"></div>
                                 {/* Main image with glass effect */}
-                                <div className="relative w-full h-auto overflow-hidden rounded-2xl backdrop-blur-sm bg-slate-800/30 shadow-xl border border-slate-700 p-3">
-                                    <Image
+                                <div className="relative w-full h-auto overflow-hidden rounded-2xl backdrop-blur-sm bg-teal-600/30 shadow-xl border border-teal-500 p-3">
+                                    <img
                                         src="/placeholder.webp"
                                         alt="Lifestyle Medicine"
                                         className="w-full h-auto object-cover rounded-xl"
-                                        width={400}
-                                        height={400}
                                     />
                                     {/* Floating badge */}
-                                    <div className="absolute top-10 -left-6 bg-slate-800/80 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-cyan-300 text-sm font-medium border border-slate-700">
+                                    <div className="absolute top-10 -left-6 bg-teal-600/80 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-teal-200 text-sm font-medium border border-teal-500">
                                         <div className="flex items-center">
-                                            <Sparkles className="w-4 h-4 mr-2 text-[#f97316]" />
+                                            <Sparkles className="w-4 h-4 mr-2 text-orange-400" />
                                             12 Monthly Modules
                                         </div>
                                     </div>
@@ -338,17 +310,17 @@ export default function Home() {
                             variants={fadeInLeft}
                             className="order-1 lg:order-2"
                         >
-                            <div className="inline-flex items-center bg-slate-800/70 text-[#f97316] px-4 py-1 rounded-full text-sm font-medium mb-6">
+                            <div className="inline-flex items-center bg-teal-600/70 text-orange-300 px-4 py-1 rounded-full text-sm font-medium mb-6">
                                 <Zap className="w-4 h-4 mr-2" />
                                 Comprehensive Wellness Approach
                             </div>
                             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">
-                                <span className="bg-gradient-to-r from-cyan-300 to-teal-200 bg-clip-text text-transparent">
+                                <span className="bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
                                     LIFESTYLE MEDICINE
                                 </span>{" "}
                                 Through AI-Driven Intelligence
                             </h2>
-                            <p className="text-slate-300 mb-8 leading-relaxed text-lg">
+                            <p className="text-teal-100 mb-8 leading-relaxed text-lg">
                                 Tefline's flagship initiative, RxLifeMed, is
                                 your lifelong companion offering curated content
                                 spanning twelve evolving monthly modules in
@@ -356,41 +328,33 @@ export default function Home() {
                                 deep dives, weekly check-ins and everything in
                                 between, incl. The Doctor is IN.
                             </p>
-                            <p className="text-slate-300 mb-8 leading-relaxed text-lg">
+                            <p className="text-teal-100 mb-8 leading-relaxed text-lg">
                                 Particularly potent is patent-pending Lifestyle
                                 Social, a tribe outreach platform that acts as a
                                 springboard for social connections.
                             </p>
-                            <motion.div
-                                variants={buttonHover}
-                                initial="rest"
-                                whileHover="hover"
-                                className="inline-block"
+                            <Link
+                                href="/programs"
+                                className="inline-flex items-center text-teal-200 font-semibold group px-5 py-2 rounded-lg border border-teal-500 hover:bg-teal-600/50 transition-all duration-200 hover:scale-105"
                             >
-                                <Link
-                                    href="/programs"
-                                    className="inline-flex items-center text-cyan-300 font-semibold group px-5 py-2 rounded-lg border border-slate-700 hover:bg-slate-800/50 transition-colors"
-                                >
-                                    Learn More About RxLifeMed
-                                    <div className="ml-2 w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors">
-                                        <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                                    </div>
-                                </Link>
-                            </motion.div>
+                                Learn More About RxLifeMed
+                                <div className="ml-2 w-5 h-5 rounded-full bg-teal-600 flex items-center justify-center group-hover:bg-teal-500 transition-colors duration-200">
+                                    <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
+                                </div>
+                            </Link>
                         </motion.div>
                     </div>
                 </div>
             </section>
-
             {/* Features counter section */}
-            <section className="py-16 bg-gradient-to-r from-[#0f172a] to-[#172554] text-white relative overflow-hidden">
+            <section className="py-16 bg-teal-50 text-teal-700 relative overflow-hidden">
                 {/* Animated background particles */}
                 <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-full">
                         {Array.from({ length: 20 }).map((_, i) => (
                             <motion.div
                                 key={i}
-                                className="absolute rounded-full bg-white/10"
+                                className="absolute rounded-full bg-teal-500/10"
                                 style={{
                                     width: Math.random() * 8 + 4 + "px",
                                     height: Math.random() * 8 + 4 + "px",
@@ -421,10 +385,10 @@ export default function Home() {
                             viewport={{ once: true }}
                             className="text-center"
                         >
-                            <h3 className="text-5xl font-bold mb-2 bg-gradient-to-r from-cyan-300 to-teal-200 bg-clip-text text-transparent">
+                            <h3 className="text-5xl font-bold mb-2 bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
                                 87%
                             </h3>
-                            <p className="text-slate-300">
+                            <p className="text-slate-700">
                                 of users report improved energy levels within 60
                                 days
                             </p>
@@ -437,10 +401,10 @@ export default function Home() {
                             viewport={{ once: true }}
                             className="text-center"
                         >
-                            <h3 className="text-5xl font-bold mb-2 bg-gradient-to-r from-cyan-300 to-teal-200 bg-clip-text text-transparent">
+                            <h3 className="text-5xl font-bold mb-2 bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
                                 92%
                             </h3>
-                            <p className="text-slate-300">
+                            <p className="text-slate-700">
                                 retention rate among corporate wellness program
                                 participants
                             </p>
@@ -453,10 +417,10 @@ export default function Home() {
                             viewport={{ once: true }}
                             className="text-center"
                         >
-                            <h3 className="text-5xl font-bold mb-2 bg-gradient-to-r from-cyan-300 to-teal-200 bg-clip-text text-transparent">
+                            <h3 className="text-5xl font-bold mb-2 bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
                                 3.2
                             </h3>
-                            <p className="text-slate-300">
+                            <p className="text-slate-700">
                                 years average biological age reduction after 12
                                 months
                             </p>
@@ -469,19 +433,18 @@ export default function Home() {
                             viewport={{ once: true }}
                             className="text-center"
                         >
-                            <h3 className="text-5xl font-bold mb-2 bg-gradient-to-r from-cyan-300 to-teal-200 bg-clip-text text-transparent">
+                            <h3 className="text-5xl font-bold mb-2 bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
                                 72%
                             </h3>
-                            <p className="text-slate-300">
+                            <p className="text-slate-700">
                                 reduction in lifestyle-related health complaints
                             </p>
                         </motion.div>
                     </div>
                 </div>
             </section>
-
             {/* Wellness Intelligence Section - Dark Flowing Dashboard */}
-            <section className="py-32 px-4 relative overflow-hidden bg-gradient-to-b from-[#0f172a] to-[#172554] text-white">
+            <section className="py-32 px-4 relative overflow-hidden bg-gradient-to-b bg-teal-700 text-white">
                 {/* Subtle particle background */}
                 <div className="absolute inset-0 opacity-30">
                     <div className="absolute top-0 right-0 w-full h-full bg-[url('/dots.png')] bg-repeat opacity-10"></div>
@@ -489,9 +452,9 @@ export default function Home() {
 
                 {/* Glowing orbs background */}
                 <div className="absolute inset-0 z-0">
-                    <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-[#3b82f6]/20 blur-[100px]"></div>
-                    <div className="absolute bottom-1/3 left-1/3 w-72 h-72 rounded-full bg-[#06b6d4]/20 blur-[100px]"></div>
-                    <div className="absolute top-1/2 left-1/4 w-56 h-56 rounded-full bg-[#14b8a6]/20 blur-[100px]"></div>
+                    <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-cyan-500/20 blur-[100px]"></div>
+                    <div className="absolute bottom-1/3 left-1/3 w-72 h-72 rounded-full bg-teal-400/20 blur-[100px]"></div>
+                    <div className="absolute top-1/2 left-1/4 w-56 h-56 rounded-full bg-teal-500/20 blur-[100px]"></div>
                 </div>
 
                 {/* Flowing background curves */}
@@ -545,11 +508,11 @@ export default function Home() {
                             >
                                 <stop
                                     offset="0%"
-                                    stopColor="rgba(14, 165, 233, 0.4)"
+                                    stopColor="rgba(20, 184, 166, 0.4)"
                                 />
                                 <stop
                                     offset="100%"
-                                    stopColor="rgba(56, 189, 248, 0)"
+                                    stopColor="rgba(45, 212, 191, 0)"
                                 />
                             </linearGradient>
                             <linearGradient
@@ -561,11 +524,11 @@ export default function Home() {
                             >
                                 <stop
                                     offset="0%"
-                                    stopColor="rgba(20, 184, 166, 0.4)"
+                                    stopColor="rgba(13, 148, 136, 0.4)"
                                 />
                                 <stop
                                     offset="100%"
-                                    stopColor="rgba(13, 148, 136, 0)"
+                                    stopColor="rgba(15, 118, 110, 0)"
                                 />
                             </linearGradient>
                             <linearGradient
@@ -596,14 +559,14 @@ export default function Home() {
                         viewport={{ once: true }}
                         className="text-center mb-24 max-w-3xl mx-auto"
                     >
-                        <div className="inline-flex items-center bg-slate-800/50 backdrop-blur-lg text-cyan-300 px-5 py-2 rounded-full text-sm font-medium mb-8 border border-slate-700">
+                        <div className="inline-flex items-center bg-teal-800/50 backdrop-blur-lg text-teal-200 px-5 py-2 rounded-full text-sm font-medium mb-8 border border-teal-700">
                             <Brain className="w-4 h-4 mr-2" />
                             Powered by Intelligence
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-300 to-teal-200 bg-clip-text text-transparent">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
                             WELLNESS INTELLIGENCE™
                         </h2>
-                        <p className="text-slate-300 leading-relaxed text-lg md:text-xl">
+                        <p className="text-teal-100 leading-relaxed text-lg md:text-xl">
                             A fusion of wellness wisdom, behavioral science and
                             cutting-edge technology—an alchemy of insight and
                             innovation poised to shape the future of modern
@@ -617,15 +580,15 @@ export default function Home() {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ duration: 0.3 }}
                             viewport={{ once: true }}
                             className="relative z-10 mx-auto mb-20 max-w-lg"
                         >
-                            <div className="bg-slate-800/50 backdrop-blur-md border border-slate-700 rounded-2xl p-6 shadow-[0_0_30px_rgba(6,182,212,0.15)] hover:shadow-[0_0_40px_rgba(6,182,212,0.25)] transition-all duration-500 overflow-hidden">
-                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#06b6d4] to-[#14b8a6]"></div>
+                            <div className="bg-teal-800/50 backdrop-blur-md border border-teal-700 rounded-2xl p-6 shadow-[0_0_30px_rgba(20,184,166,0.15)] hover:shadow-[0_0_40px_rgba(20,184,166,0.25)] transition-all duration-500 overflow-hidden">
+                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 to-teal-400"></div>
                                 <div className="flex items-center mb-6">
-                                    <div className="p-3 rounded-full bg-slate-700/50 mr-4 glow-pulse-cyan">
-                                        <div className="p-2 rounded-full bg-gradient-to-r from-[#06b6d4] to-[#14b8a6]">
+                                    <div className="p-3 rounded-full bg-teal-700/50 mr-4 glow-pulse-teal">
+                                        <div className="p-2 rounded-full bg-gradient-to-r from-teal-500 to-teal-400">
                                             <Brain className="h-6 w-6 text-white" />
                                         </div>
                                     </div>
@@ -633,7 +596,7 @@ export default function Home() {
                                         <h2 className="text-lg font-bold text-white">
                                             Wellness Intelligence™ Hub
                                         </h2>
-                                        <p className="text-sm text-slate-400">
+                                        <p className="text-sm text-teal-300">
                                             Your command center for holistic
                                             health
                                         </p>
@@ -641,35 +604,35 @@ export default function Home() {
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-4 mb-6">
-                                    <div className="bg-slate-700/50 rounded-lg p-4 text-center border border-slate-600/50">
-                                        <div className="text-xl font-bold text-cyan-300">
+                                    <div className="bg-teal-700/50 rounded-lg p-4 text-center border border-teal-600/50">
+                                        <div className="text-xl font-bold text-teal-200">
                                             87%
                                         </div>
-                                        <div className="text-xs text-slate-400">
+                                        <div className="text-xs text-teal-300">
                                             User Energy Improvement
                                         </div>
                                     </div>
-                                    <div className="bg-slate-700/50 rounded-lg p-4 text-center border border-slate-600/50">
-                                        <div className="text-xl font-bold text-teal-300">
+                                    <div className="bg-teal-700/50 rounded-lg p-4 text-center border border-teal-600/50">
+                                        <div className="text-xl font-bold text-cyan-200">
                                             3.2 yrs
                                         </div>
-                                        <div className="text-xs text-slate-400">
+                                        <div className="text-xs text-teal-300">
                                             Biological Age Reduction
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="relative h-16 w-full rounded-lg overflow-hidden mb-6 border border-slate-700/80">
-                                    <div className="absolute inset-0 bg-slate-800/80 rounded-lg"></div>
+                                <div className="relative h-16 w-full rounded-lg overflow-hidden mb-6 border border-teal-700/80">
+                                    <div className="absolute inset-0 bg-teal-800/80 rounded-lg"></div>
                                     <motion.div
                                         initial={{ width: 0 }}
                                         whileInView={{ width: "75%" }}
                                         transition={{
-                                            duration: 1.5,
-                                            delay: 0.5,
+                                            duration: 1,
+                                            delay: 0.3,
                                         }}
                                         viewport={{ once: true }}
-                                        className="absolute top-0 left-0 h-full rounded-lg bg-gradient-to-r from-[#06b6d4]/80 to-[#14b8a6]/80"
+                                        className="absolute top-0 left-0 h-full rounded-lg bg-gradient-to-r from-teal-500/80 to-teal-400/80"
                                     ></motion.div>
                                     <div className="absolute inset-0 flex items-center justify-center text-xs font-semibold text-white">
                                         Wellness Score: 75%
@@ -679,10 +642,10 @@ export default function Home() {
                                 <div className="flex justify-center">
                                     <Link
                                         href="/services"
-                                        className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#06b6d4]/20 text-cyan-300 text-sm font-medium hover:bg-[#06b6d4]/30 transition-all duration-300 border border-[#06b6d4]/30 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+                                        className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-teal-500/20 text-teal-200 text-sm font-medium hover:bg-teal-500/30 transition-all duration-200 border border-teal-500/30 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:scale-105"
                                     >
                                         Explore Intelligence Hub
-                                        <ArrowRight className="ml-2 h-4 w-4" />
+                                        <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                                     </Link>
                                 </div>
                             </div>
@@ -698,10 +661,10 @@ export default function Home() {
                                     icon: (
                                         <Globe className="h-5 w-5 text-white" />
                                     ),
-                                    color: "from-[#14b8a6] to-[#10b981]",
+                                    color: "from-teal-500 to-teal-400",
                                     glowColor: "glow-teal",
                                     delay: 0.3,
-                                    lightColor: "bg-[#14b8a6]/10",
+                                    lightColor: "bg-teal-500/10",
                                     textColor: "text-teal-300",
                                     stats: ["1,200+", "Resources"],
                                     link: "/services",
@@ -713,10 +676,10 @@ export default function Home() {
                                     icon: (
                                         <Zap className="h-5 w-5 text-white" />
                                     ),
-                                    color: "from-[#f97316] to-[#f59e0b]",
+                                    color: "from-orange-500 to-orange-400",
                                     glowColor: "glow-orange",
                                     delay: 0.5,
-                                    lightColor: "bg-[#f97316]/10",
+                                    lightColor: "bg-orange-500/10",
                                     textColor: "text-orange-300",
                                     stats: ["Daily", "Updates"],
                                     link: "/services",
@@ -728,11 +691,11 @@ export default function Home() {
                                     icon: (
                                         <Brain className="h-5 w-5 text-white" />
                                     ),
-                                    color: "from-[#06b6d4] to-[#3b82f6]",
-                                    glowColor: "glow-blue",
+                                    color: "from-teal-500 to-cyan-500",
+                                    glowColor: "glow-cyan",
                                     delay: 0.7,
-                                    lightColor: "bg-[#06b6d4]/10",
-                                    textColor: "text-cyan-300",
+                                    lightColor: "bg-teal-500/10",
+                                    textColor: "text-teal-200",
                                     stats: ["24/7", "Support"],
                                     link: "/services",
                                 },
@@ -743,45 +706,40 @@ export default function Home() {
                                     icon: (
                                         <BarChart className="h-5 w-5 text-white" />
                                     ),
-                                    color: "from-[#6366f1] to-[#8b5cf6]",
-                                    glowColor: "glow-purple",
+                                    color: "from-cyan-500 to-teal-400",
+                                    glowColor: "glow-cyan",
                                     delay: 0.9,
-                                    lightColor: "bg-[#6366f1]/10",
-                                    textColor: "text-indigo-300",
+                                    lightColor: "bg-cyan-500/10",
+                                    textColor: "text-cyan-200",
                                     stats: ["10M+", "Data Points"],
                                     link: "/services",
                                 },
-                            ].map((module) => (
+                            ].map((module, index) => (
                                 <motion.div
                                     key={module.title}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{
-                                        duration: 0.5,
-                                        delay: module.delay,
+                                        duration: 0.3,
+                                        delay: module.delay / 2, // Faster animations
                                     }}
                                     viewport={{ once: true }}
-                                    whileHover={{ y: -5 }}
                                     className="group h-full" // Add h-full to ensure equal height
                                 >
                                     <Link
                                         href={module.link}
-                                        className="block h-full"
+                                        className="block h-full transform transition-all duration-200 hover:-translate-y-2"
                                     >
-                                        {" "}
-                                        {/* Add h-full here too */}
                                         <div
-                                            className={`h-full flex flex-col bg-slate-800/50 backdrop-blur-md border border-slate-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 ${module.glowColor}`}
+                                            className={`h-full flex flex-col bg-teal-800/50 backdrop-blur-md border border-teal-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-200 ${module.glowColor}`}
                                         >
                                             <div
                                                 className={`h-1.5 w-full bg-gradient-to-r ${module.color}`}
                                             ></div>
                                             <div className="p-6 flex flex-col flex-grow">
-                                                {" "}
-                                                {/* Use flex-col and flex-grow */}
                                                 <div className="flex items-center mb-4">
                                                     <div
-                                                        className={`p-2 rounded-full bg-gradient-to-r ${module.color} mr-3 group-hover:scale-110 transition-transform duration-300`}
+                                                        className={`p-2 rounded-full bg-gradient-to-r ${module.color} mr-3 transform transition-transform duration-200 group-hover:scale-110`}
                                                     >
                                                         {module.icon}
                                                     </div>
@@ -791,21 +749,19 @@ export default function Home() {
                                                         {module.title}
                                                     </h3>
                                                 </div>
-                                                <p className="text-sm text-slate-400 mb-4">
+                                                <p className="text-sm text-teal-200 mb-4">
                                                     {module.description}
                                                 </p>
                                                 <div className="flex justify-between items-center mt-auto">
-                                                    {" "}
-                                                    {/* Add mt-auto to push to bottom */}
                                                     <div
-                                                        className={`${module.lightColor} rounded-lg px-3 py-2 text-center border border-slate-700/50`}
+                                                        className={`${module.lightColor} rounded-lg px-3 py-2 text-center border border-teal-700/50`}
                                                     >
                                                         <div
                                                             className={`text-sm font-bold ${module.textColor}`}
                                                         >
                                                             {module.stats[0]}
                                                         </div>
-                                                        <div className="text-xs text-slate-400">
+                                                        <div className="text-xs text-teal-300">
                                                             {module.stats[1]}
                                                         </div>
                                                     </div>
@@ -816,7 +772,7 @@ export default function Home() {
                                                             Explore
                                                         </span>
                                                         <ArrowRight
-                                                            className={`ml-1 h-4 w-4 ${module.textColor} group-hover:translate-x-1 transition-transform`}
+                                                            className={`ml-1 h-4 w-4 ${module.textColor} transform transition-transform duration-200 group-hover:translate-x-1`}
                                                         />
                                                     </div>
                                                 </div>
@@ -842,7 +798,7 @@ export default function Home() {
                                 strokeDasharray="6 6"
                                 initial={{ pathLength: 0, opacity: 0 }}
                                 whileInView={{ pathLength: 1, opacity: 0.8 }}
-                                transition={{ duration: 1, delay: 1 }}
+                                transition={{ duration: 0.7, delay: 0.5 }}
                                 viewport={{ once: true }}
                             />
 
@@ -854,7 +810,7 @@ export default function Home() {
                                 strokeDasharray="6 6"
                                 initial={{ pathLength: 0, opacity: 0 }}
                                 whileInView={{ pathLength: 1, opacity: 0.8 }}
-                                transition={{ duration: 1, delay: 1.2 }}
+                                transition={{ duration: 0.7, delay: 0.6 }}
                                 viewport={{ once: true }}
                             />
 
@@ -866,7 +822,7 @@ export default function Home() {
                                 strokeDasharray="6 6"
                                 initial={{ pathLength: 0, opacity: 0 }}
                                 whileInView={{ pathLength: 1, opacity: 0.8 }}
-                                transition={{ duration: 1, delay: 1.4 }}
+                                transition={{ duration: 0.7, delay: 0.7 }}
                                 viewport={{ once: true }}
                             />
 
@@ -878,7 +834,7 @@ export default function Home() {
                                 strokeDasharray="6 6"
                                 initial={{ pathLength: 0, opacity: 0 }}
                                 whileInView={{ pathLength: 1, opacity: 0.8 }}
-                                transition={{ duration: 1, delay: 1.6 }}
+                                transition={{ duration: 0.7, delay: 0.8 }}
                                 viewport={{ once: true }}
                             />
 
@@ -896,7 +852,7 @@ export default function Home() {
                                     />
                                     <stop
                                         offset="100%"
-                                        stopColor="rgba(16, 185, 129, 0.1)"
+                                        stopColor="rgba(45, 212, 191, 0.1)"
                                     />
                                 </linearGradient>
                                 <linearGradient
@@ -912,7 +868,7 @@ export default function Home() {
                                     />
                                     <stop
                                         offset="100%"
-                                        stopColor="rgba(245, 158, 11, 0.1)"
+                                        stopColor="rgba(251, 146, 60, 0.1)"
                                     />
                                 </linearGradient>
                                 <linearGradient
@@ -928,7 +884,7 @@ export default function Home() {
                                     />
                                     <stop
                                         offset="100%"
-                                        stopColor="rgba(14, 165, 233, 0.1)"
+                                        stopColor="rgba(103, 232, 249, 0.1)"
                                     />
                                 </linearGradient>
                                 <linearGradient
@@ -940,11 +896,11 @@ export default function Home() {
                                 >
                                     <stop
                                         offset="0%"
-                                        stopColor="rgba(99, 102, 241, 0.8)"
+                                        stopColor="rgba(20, 184, 166, 0.8)"
                                     />
                                     <stop
                                         offset="100%"
-                                        stopColor="rgba(139, 92, 246, 0.1)"
+                                        stopColor="rgba(45, 212, 191, 0.1)"
                                     />
                                 </linearGradient>
                             </defs>
@@ -967,9 +923,9 @@ export default function Home() {
                                     opacity: [0, 1, 0],
                                 }}
                                 transition={{
-                                    duration: 3,
+                                    duration: 2,
                                     repeat: Infinity,
-                                    repeatDelay: 2,
+                                    repeatDelay: 1,
                                 }}
                             />
 
@@ -977,7 +933,7 @@ export default function Home() {
                                 cx="600"
                                 cy="180"
                                 r="4"
-                                fill="#fdba74"
+                                fill="#fb923c"
                                 animate={{
                                     cx: [600, 1000],
                                     cy: [180, 250],
@@ -1013,7 +969,7 @@ export default function Home() {
                                 cx="600"
                                 cy="180"
                                 r="4"
-                                fill="#c4b5fd"
+                                fill="#99f6e4"
                                 animate={{
                                     cx: [600, 1000],
                                     cy: [180, 350],
@@ -1038,36 +994,32 @@ export default function Home() {
                     .glow-orange {
                         box-shadow: 0 0 15px 0 rgba(249, 115, 22, 0.3);
                     }
-                    .glow-blue {
+                    .glow-cyan {
                         box-shadow: 0 0 15px 0 rgba(6, 182, 212, 0.3);
                     }
-                    .glow-purple {
-                        box-shadow: 0 0 15px 0 rgba(124, 58, 237, 0.3);
+                    .glow-pulse-teal {
+                        animation: pulse-teal 2.5s infinite;
                     }
-                    .glow-pulse-cyan {
-                        animation: pulse-cyan 4s infinite;
-                    }
-                    @keyframes pulse-cyan {
+                    @keyframes pulse-teal {
                         0% {
-                            box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4);
+                            box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4);
                         }
                         70% {
-                            box-shadow: 0 0 0 10px rgba(6, 182, 212, 0);
+                            box-shadow: 0 0 0 10px rgba(20, 184, 166, 0);
                         }
                         100% {
-                            box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+                            box-shadow: 0 0 0 0 rgba(20, 184, 166, 0);
                         }
                     }
                 `}</style>
             </section>
-
             {/* Call to Action */}
-            <section className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-[#0f172a] to-[#172554] text-white">
+            <section className="py-24 px-4 relative overflow-hidden bg-white text-teal-700">
                 {/* Blurred gradient background */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-                    <div className="absolute top-1/3 left-1/4 w-[40rem] h-[40rem] rounded-full bg-[#14b8a6]/10 blur-[120px]"></div>
-                    <div className="absolute bottom-0 right-1/4 w-[30rem] h-[30rem] rounded-full bg-[#06b6d4]/10 blur-[100px]"></div>
-                    <div className="absolute top-1/3 right-0 w-[25rem] h-[25rem] rounded-full bg-[#f97316]/10 blur-[80px]"></div>
+                    <div className="absolute top-1/3 left-1/4 w-[40rem] h-[40rem] rounded-full bg-teal-500/5 blur-[120px]"></div>
+                    <div className="absolute bottom-0 right-1/4 w-[30rem] h-[30rem] rounded-full bg-teal-400/5 blur-[100px]"></div>
+                    <div className="absolute top-1/3 right-0 w-[25rem] h-[25rem] rounded-full bg-orange-400/5 blur-[80px]"></div>
                 </div>
 
                 {/* Wave pattern */}
@@ -1079,12 +1031,12 @@ export default function Home() {
                     >
                         <path
                             d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                            fill="white"
+                            fill="#0f766e"
                             opacity=".05"
                         />
                         <path
                             d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                            fill="white"
+                            fill="#0f766e"
                             opacity=".1"
                         />
                     </svg>
@@ -1098,50 +1050,37 @@ export default function Home() {
                         variants={fadeIn}
                         className="max-w-3xl mx-auto text-center"
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-teal-700 leading-tight">
                             Ready to transform your approach to wellness?
                         </h2>
-                        <p className="text-xl text-slate-300 mb-10 leading-relaxed">
+                        <p className="text-xl text-slate-700 mb-10 leading-relaxed">
                             Join the revolution in lifestyle medicine and
                             discover how Tefline can help you optimize your
                             healthspan for a longer, more vibrant life.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                            <motion.div
-                                variants={buttonHover}
-                                initial="rest"
-                                whileHover="hover"
+                            <Link
+                                href="/contact"
+                                className="bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-600 hover:to-orange-500 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 inline-flex items-center justify-center shadow-lg shadow-orange-500/20 w-full sm:w-auto hover:scale-105 hover:-translate-y-1"
                             >
-                                <Link
-                                    href="/contact"
-                                    className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] hover:from-[#ea580c] hover:to-[#d97706] text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center justify-center shadow-lg shadow-[#f97316]/20 w-full sm:w-auto"
-                                >
-                                    Book a Free Masterclass
-                                    <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </motion.div>
-                            <motion.div
-                                variants={buttonHover}
-                                initial="rest"
-                                whileHover="hover"
+                                Book a Free Masterclass
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Link>
+                            <Link
+                                href="/about"
+                                className="bg-teal-50 hover:bg-teal-100 text-teal-600 border border-teal-200 px-8 py-4 rounded-lg font-semibold transition-all duration-200 inline-flex items-center justify-center w-full sm:w-auto hover:scale-105 hover:-translate-y-1"
                             >
-                                <Link
-                                    href="/about"
-                                    className="bg-slate-800/50 hover:bg-slate-700/50 text-white border border-white/20 px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center justify-center w-full sm:w-auto backdrop-blur-sm"
-                                >
-                                    Learn More About Our Approach
-                                </Link>
-                            </motion.div>
+                                Learn More About Our Approach
+                            </Link>
                         </div>
                     </motion.div>
                 </div>
             </section>
-
             {/* Integrated Ecosystem Section */}
-            <section className="py-24 px-4 bg-gradient-to-br from-slate-900 to-slate-800 relative overflow-hidden">
+            <section className="py-24 px-4 bg-gradient-to-br from-teal-700 to-teal-600 relative overflow-hidden">
                 {/* Floating elements background */}
                 <motion.div
-                    className="absolute top-1/4 right-10 w-64 h-64 bg-[#06b6d4]/10 rounded-full"
+                    className="absolute top-1/4 right-10 w-64 h-64 bg-teal-400/10 rounded-full"
                     animate={{
                         y: [0, 20, 0],
                         opacity: [0.5, 0.3, 0.5],
@@ -1153,7 +1092,7 @@ export default function Home() {
                     }}
                 />
                 <motion.div
-                    className="absolute bottom-1/4 left-10 w-80 h-80 bg-[#3b82f6]/10 rounded-full"
+                    className="absolute bottom-1/4 left-10 w-80 h-80 bg-cyan-500/10 rounded-full"
                     animate={{
                         y: [0, -20, 0],
                         opacity: [0.5, 0.3, 0.5],
@@ -1174,23 +1113,23 @@ export default function Home() {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={fadeInLeft}
                         >
-                            <div className="inline-block mb-3 bg-slate-800/70 text-cyan-300 px-4 py-1 rounded-full font-medium text-sm">
+                            <div className="inline-block mb-3 bg-teal-600/70 text-teal-200 px-4 py-1 rounded-full font-medium text-sm">
                                 INTEGRATED ECOSYSTEM
                             </div>
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
                                 Simplicity in a world of{" "}
-                                <span className="bg-gradient-to-r from-[#06b6d4] to-[#3b82f6] bg-clip-text text-transparent">
+                                <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">
                                     wellness complexity
                                 </span>
                             </h2>
-                            <p className="text-slate-300 text-lg mb-6 leading-relaxed">
+                            <p className="text-teal-100 text-lg mb-6 leading-relaxed">
                                 With healthcare costs spiraling and wellness
                                 turning into a circus of buzzwords, Tefline
                                 delivers simplicity. It's not just another app
                                 chasing hype--it's a meticulously assembled
                                 ecosystem that drives meaningful outcomes.
                             </p>
-                            <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                            <p className="text-teal-100 text-lg mb-8 leading-relaxed">
                                 A cohesive constellation of evidence-informed
                                 protocols, AI-fueled guidance and
                                 community-driven support, united with a singular
@@ -1199,7 +1138,7 @@ export default function Home() {
                             </p>
                             <Link
                                 href="/about"
-                                className="inline-flex items-center justify-center text-white font-semibold bg-gradient-to-r from-[#06b6d4] to-[#3b82f6] hover:from-[#0891b2] hover:to-[#2563eb] py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+                                className="inline-flex items-center justify-center text-white font-semibold bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105 hover:-translate-y-1"
                             >
                                 Discover Our Approach
                                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -1212,12 +1151,10 @@ export default function Home() {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={fadeInRight}
                         >
-                            <Image
+                            <img
                                 src="/placeholder.webp"
                                 alt="Health Technology"
                                 className="w-full h-auto object-cover rounded-xl"
-                                width={400}
-                                height={400}
                             />
                         </motion.div>
                     </div>

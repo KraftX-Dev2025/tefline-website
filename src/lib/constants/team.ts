@@ -49,8 +49,8 @@ export const teamMembers: TeamMember[] = [
             "Now, with Tefline, he's engineering the next evolution of AI—one that doesn't just assist but augments human decision-making at scale. His leadership philosophy is built on first principles: challenge convention, anticipate the next frontier, and build with a vision that outlasts trends.",
         ],
         theme: {
-            from: "from-teal-500",
-            via: "via-teal-400",
+            from: "from-teal-500/80",
+            via: "via-teal-400/80",
             to: "to-cyan-500",
             textColor: "text-teal-400",
             lightBg: "teal-50",
@@ -85,8 +85,8 @@ export const teamMembers: TeamMember[] = [
             "A seasoned business development leader, Madhu has played a pivotal role in scaling corporate HR practices across India and the Asia-Pacific, earning recognition as a thought leader in human capital and compliance. Having spearheaded business expansion at a rapidly growing company that achieved a multimillion-dollar exit, he brings an invaluable mix of strategic foresight and executional prowess.",
         ],
         theme: {
-            from: "from-blue-500",
-            via: "via-blue-400",
+            from: "from-blue-500/80",
+            via: "via-blue-400/80",
             to: "to-indigo-500",
             textColor: "text-blue-400",
             lightBg: "blue-50",
@@ -121,8 +121,8 @@ export const teamMembers: TeamMember[] = [
             "Selena's appointment marks a historic shift in AI-led executive intelligence, making Tefline the first company globally to elevate artificial intelligence to a formal C-suite role with designated leadership responsibilities.",
         ],
         theme: {
-            from: "from-purple-500",
-            via: "via-fuchsia-500",
+            from: "from-purple-500/80",
+            via: "via-fuchsia-500/80",
             to: "to-violet-500",
             textColor: "text-purple-400",
             lightBg: "purple-50",
@@ -158,8 +158,8 @@ export const teamMembers: TeamMember[] = [
             "Under his guidance, the Medical Advisory Council conducts regular evidence reviews, ensuring that all wellness protocols meet the highest standards of medical validity.",
         ],
         theme: {
-            from: "from-orange-500",
-            via: "via-orange-400",
+            from: "from-orange-500/80",
+            via: "via-orange-400/80",
             to: "to-amber-500",
             textColor: "text-orange-400",
             lightBg: "orange-50",

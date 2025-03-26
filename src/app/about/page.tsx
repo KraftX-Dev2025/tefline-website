@@ -342,7 +342,7 @@ export default function AboutPage() {
             <section className="py-24 relative overflow-hidden">
                 {/* Background image with overlay */}
                 <div className="absolute inset-0 bg-[url('/placeholder.webp')] bg-cover bg-center opacity-40 z-0"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-900 to-blue-900 opacity-80 z-0"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-700 to-blue-700 opacity-80 z-0"></div>
 
                 {/* Content */}
                 <div className="max-w-5xl mx-auto relative z-10 px-4">
@@ -460,7 +460,7 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="bg-gradient-to-r from-teal-900 to-blue-900 rounded-2xl p-8 md:p-12 text-white shadow-xl"
+                        className="bg-gradient-to-r from-teal-700 to-blue-700/80 rounded-2xl p-8 md:p-12 text-white shadow-xl"
                     >
                         <h3 className="text-2xl font-bold mb-6">
                             INFORMED AUTHORITY
