@@ -6,8 +6,6 @@ export function formatDate(date: Date): string {
     }).format(date);
 }
 
-export function classNames(
-    ...classes: (string | boolean | undefined)[]
-): string {
+export function cn(...classes: (string | boolean | undefined)[]): string {
     return classes.filter(Boolean).join(" ");
 }
