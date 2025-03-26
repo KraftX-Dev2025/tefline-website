@@ -216,14 +216,16 @@ export default function TeamPage() {
                                 <Link href={`/team/${member.slug}`}>
                                     <div className="relative bg-slate-800/50 backdrop-blur-md rounded-xl overflow-hidden border border-slate-700 group h-full transition-all duration-300">
                                         {/* Animated gradient border */}
-                                        <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 via-teal-400 to-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        <div
+                                            className={`absolute inset-0 bg-gradient-to-tr ${member.theme.from} ${member.theme.via} ${member.theme.to} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                                        ></div>
                                         <div className="absolute inset-0.5 bg-slate-800 rounded-[0.65rem]"></div>
 
                                         {/* Pulse effect when hovered */}
                                         <AnimatePresence>
                                             {activeCard === index && (
                                                 <motion.div
-                                                    className="absolute inset-0 bg-cyan-500/10 z-0 rounded-xl"
+                                                    className={`absolute inset-0 bg-${member.theme.from}/10 z-0 rounded-xl`}
                                                     initial={{
                                                         opacity: 0,
                                                         scale: 0.8,
@@ -246,7 +248,9 @@ export default function TeamPage() {
                                         <div className="relative z-10 p-6">
                                             <div className="flex flex-col items-center">
                                                 <div className="mb-4 relative">
-                                                    <div className="w-32 h-32 rounded-full overflow-hidden bg-gradient-to-tr from-cyan-500 via-teal-400 to-cyan-300 p-0.5">
+                                                    <div
+                                                        className={`w-32 h-32 rounded-full overflow-hidden bg-gradient-to-tr ${member.theme.from} ${member.theme.via} ${member.theme.to} p-0.5`}
+                                                    >
                                                         <div className="w-full h-full rounded-full overflow-hidden">
                                                             <img
                                                                 src="/placeholder.webp"
@@ -260,7 +264,7 @@ export default function TeamPage() {
 
                                                     {/* Tech-inspired circular elements */}
                                                     <motion.div
-                                                        className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-gradient-to-tr from-cyan-400 to-teal-300 p-0.5 z-0"
+                                                        className={`absolute -top-1 -right-1 w-6 h-6 rounded-full bg-gradient-to-tr ${member.theme.from} ${member.theme.to} p-0.5 z-0`}
                                                         animate={{
                                                             rotate:
                                                                 activeCard ===
@@ -276,15 +280,21 @@ export default function TeamPage() {
                                                     >
                                                         <div className="w-full h-full rounded-full bg-slate-900"></div>
                                                     </motion.div>
-                                                    <div className="absolute -bottom-1 -left-1 w-4 h-4 rounded-full bg-gradient-to-tr from-teal-400 to-cyan-300 p-0.5 z-0">
+                                                    <div
+                                                        className={`absolute -bottom-1 -left-1 w-4 h-4 rounded-full bg-gradient-to-tr ${member.theme.from} ${member.theme.to} p-0.5 z-0`}
+                                                    >
                                                         <div className="w-full h-full rounded-full bg-slate-900"></div>
                                                     </div>
                                                 </div>
 
-                                                <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                                                <h3
+                                                    className={`text-xl font-bold text-white group-hover:${member.theme.textColor} transition-colors`}
+                                                >
                                                     {member.name}
                                                 </h3>
-                                                <p className="text-cyan-400 text-sm mt-1 font-medium">
+                                                <p
+                                                    className={`text-sm mt-1 font-medium ${member.theme.textColor}`}
+                                                >
                                                     {member.role}
                                                 </p>
                                                 <p className="text-slate-400 text-xs mb-4 italic">
@@ -294,7 +304,9 @@ export default function TeamPage() {
                                                     {member.shortBio}
                                                 </p>
 
-                                                <div className="flex items-center text-cyan-300 text-sm group-hover:text-white transition-colors">
+                                                <div
+                                                    className={`flex items-center ${member.theme.textColor} text-sm group-hover:text-white transition-colors`}
+                                                >
                                                     <span className="mr-1">
                                                         Read Full Bio
                                                     </span>
