@@ -77,13 +77,13 @@ export default function AboutPage() {
                     className="absolute inset-0 z-0"
                     style={{ y: backgroundY }}
                 >
-                    {/* Main teal gradient */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-teal-800 to-teal-600"></div>
+                    {/* Main teal gradient - Updated to match teal-400 to teal-600 */}
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-teal-500 to-teal-600"></div>
 
-                    {/* Blurred gradient circles */}
-                    <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-cyan-500/20 blur-[120px] opacity-60"></div>
-                    <div className="absolute bottom-0 left-1/4 w-[30rem] h-[30rem] rounded-full bg-teal-300/20 blur-[100px] opacity-60"></div>
-                    <div className="absolute top-1/3 left-0 w-[25rem] h-[25rem] rounded-full bg-orange-400/10 blur-[80px] opacity-70"></div>
+                    {/* Blurred gradient circles - Updated colors */}
+                    <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
+                    <div className="absolute bottom-0 left-1/4 w-[30rem] h-[30rem] rounded-full bg-teal-400/20 blur-[100px] opacity-60"></div>
+                    <div className="absolute top-1/3 left-0 w-[25rem] h-[25rem] rounded-full bg-amber-400/10 blur-[80px] opacity-70"></div>
                 </motion.div>
 
                 {/* Wave pattern overlay */}
@@ -140,9 +140,9 @@ export default function AboutPage() {
 
             {/* Our Story Section */}
             <section className="py-24 px-4 bg-white relative overflow-hidden">
-                {/* Blurred gradient background */}
-                <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-100 rounded-full opacity-50 blur-[100px]"></div>
-                <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-cyan-100 rounded-full opacity-50 blur-[80px]"></div>
+                {/* Blurred gradient background - Updated colors */}
+                <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-50 rounded-full opacity-50 blur-[100px]"></div>
+                <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-sky-50 rounded-full opacity-50 blur-[80px]"></div>
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -151,11 +151,10 @@ export default function AboutPage() {
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
                             variants={fadeInRight}
-                            className="flex justify-center"
+                            className="flex justify-center px-4 py-4"
                         >
-                            <div className="relative w-full max-w-md">
-                                {/* Image decoration */}
-                                <div className="absolute top-8 -left-8 w-full h-full bg-orange-100 rounded-2xl"></div>
+                            <div className="relative w-full max-w-xl">
+                                {/* Image decoration - Updated colors */}
                                 <div className="absolute top-4 -left-4 w-full h-full bg-teal-200 rounded-2xl"></div>
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-white/80 shadow-xl border border-white/70 p-3">
@@ -163,13 +162,13 @@ export default function AboutPage() {
                                         src="/placeholder.webp"
                                         alt="Founders meeting"
                                         className="w-full h-auto object-cover rounded-xl"
-                                        width={600}
-                                        height={600}
+                                        width={800}
+                                        height={800}
                                     />
-                                    {/* Floating badge */}
-                                    <div className="absolute bottom-10 -right-6 bg-white/90 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-teal-800 text-sm font-medium border border-teal-100">
+                                    {/* Floating badge - Updated colors */}
+                                    <div className="absolute bottom-10 -right-6 bg-white/90 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-teal-600 text-sm font-medium border border-teal-100">
                                         <div className="flex items-center">
-                                            <Sparkles className="w-4 h-4 mr-2 text-orange-500" />
+                                            <Sparkles className="w-4 h-4 mr-2 text-amber-500" />
                                             Founded in 2023
                                         </div>
                                     </div>
@@ -182,11 +181,11 @@ export default function AboutPage() {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={fadeInLeft}
                         >
-                            <div className="inline-flex items-center bg-teal-100 text-teal-800 px-4 py-1 rounded-full text-sm font-medium mb-6">
+                            <div className="inline-flex items-center bg-teal-100 text-teal-600 px-4 py-1 rounded-full text-sm font-medium mb-6">
                                 <FileCheck className="w-4 h-4 mr-2" />
                                 Our Beginning
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-teal-800 leading-tight">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-teal-600 leading-tight">
                                 OUR STORY
                             </h2>
                             <p className="text-slate-700 mb-6 leading-relaxed text-lg">
@@ -225,7 +224,7 @@ export default function AboutPage() {
                             >
                                 <Link
                                     href="/team"
-                                    className="inline-flex items-center text-teal-700 font-semibold group px-5 py-2 rounded-lg border border-teal-200 hover:bg-teal-50 transition-colors"
+                                    className="inline-flex items-center text-teal-600 font-semibold group px-5 py-2 rounded-lg border border-teal-200 hover:bg-teal-50 transition-colors"
                                 >
                                     Meet Our Team
                                     <div className="ml-2 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center group-hover:bg-teal-200 transition-colors">
@@ -239,9 +238,9 @@ export default function AboutPage() {
             </section>
 
             {/* Our Approach Section */}
-            <section className="py-24 px-4 bg-gradient-to-b from-teal-50/50 to-white relative overflow-hidden">
-                {/* Blurred gradient background */}
-                <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100 rounded-full opacity-30 blur-[120px]"></div>
+            <section className="py-24 px-4 bg-gradient-to-b from-teal-50 to-white relative overflow-hidden">
+                {/* Blurred gradient background - Updated colors */}
+                <div className="absolute top-0 right-0 w-96 h-96 bg-amber-100 rounded-full opacity-30 blur-[120px]"></div>
                 <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-100 rounded-full opacity-40 blur-[100px]"></div>
 
                 <div className="max-w-7xl mx-auto relative z-10">
@@ -252,11 +251,11 @@ export default function AboutPage() {
                         transition={{ duration: 0.6 }}
                         className="text-center mb-16"
                     >
-                        <div className="inline-flex items-center bg-orange-100 text-orange-800 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        <div className="inline-flex items-center bg-amber-100 text-amber-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
                             <CheckCircle className="w-4 h-4 mr-2" />
                             Our Framework
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-800 leading-tight">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600 leading-tight">
                             APPROACH TO WELLNESS
                         </h2>
                         <p className="text-slate-700 text-lg max-w-3xl mx-auto">
@@ -281,24 +280,24 @@ export default function AboutPage() {
                             {
                                 title: "Agentic Intelligence",
                                 icon: (
-                                    <Brain className="w-10 h-10 text-cyan-500" />
+                                    <Brain className="w-10 h-10 text-sky-500" />
                                 ),
                                 description:
                                     "Beyond passive tracking, our AI systems actively think alongside you. This agentic approach means our technology learns, adapts, and provides personalized guidance that evolves as you do—creating a truly intelligent wellness partnership.",
-                                color: "bg-cyan-50",
-                                border: "border-cyan-200",
-                                iconBg: "bg-cyan-100",
+                                color: "bg-sky-50",
+                                border: "border-sky-200",
+                                iconBg: "bg-sky-100",
                             },
                             {
                                 title: "Community Accountability",
                                 icon: (
-                                    <Users className="w-10 h-10 text-orange-500" />
+                                    <Users className="w-10 h-10 text-green-500" />
                                 ),
                                 description:
                                     "Sustainable change happens in community. Our Lifestyle Social platform connects you with accountability partners and like-minded individuals on similar health journeys, providing the social reinforcement crucial for lasting behavioral change.",
-                                color: "bg-orange-50",
-                                border: "border-orange-200",
-                                iconBg: "bg-orange-100",
+                                color: "bg-green-50",
+                                border: "border-green-200",
+                                iconBg: "bg-green-100",
                             },
                         ].map((pillar, index) => (
                             <motion.div
@@ -326,10 +325,10 @@ export default function AboutPage() {
                                 >
                                     {pillar.icon}
                                 </div>
-                                <h3 className="text-xl font-semibold mb-4 text-gray-800">
+                                <h3 className="text-xl font-semibold mb-4 text-slate-800">
                                     {pillar.title}
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-slate-700">
                                     {pillar.description}
                                 </p>
                             </motion.div>
@@ -342,7 +341,7 @@ export default function AboutPage() {
             <section className="py-24 relative overflow-hidden">
                 {/* Background image with overlay */}
                 <div className="absolute inset-0 bg-[url('/placeholder.webp')] bg-cover bg-center opacity-40 z-0"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-700 to-blue-700 opacity-80 z-0"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-teal-600 opacity-80 z-0"></div>
 
                 {/* Content */}
                 <div className="max-w-5xl mx-auto relative z-10 px-4">
@@ -399,8 +398,8 @@ export default function AboutPage() {
                         className="flex justify-center"
                     >
                         <Link
-                            href="/programs"
-                            className="bg-gradient-to-r from-[#f97316] to-[#f59e0b] hover:from-[#ea580c] hover:to-[#d97706] text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center group shadow-lg shadow-[#f97316]/20"
+                            href="/services"
+                            className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
                         >
                             Discover Our Programs
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -410,7 +409,7 @@ export default function AboutPage() {
             </section>
 
             {/* Partners & Credentials Section */}
-            <section className="py-24 px-4 bg-gray-50">
+            <section className="py-24 px-4 bg-teal-50">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -419,11 +418,11 @@ export default function AboutPage() {
                         transition={{ duration: 0.6 }}
                         className="text-center mb-16"
                     >
-                        <div className="inline-flex items-center bg-teal-100 text-teal-800 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        <div className="inline-flex items-center bg-teal-100 text-teal-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
                             <CheckCircle className="w-4 h-4 mr-2" />
                             Validation & Excellence
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-800 leading-tight">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600 leading-tight">
                             TRUSTED PARTNERSHIPS
                         </h2>
                         <p className="text-slate-700 text-lg max-w-3xl mx-auto">
@@ -460,7 +459,7 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="bg-gradient-to-r from-teal-700 to-blue-700/80 rounded-2xl p-8 md:p-12 text-white shadow-xl"
+                        className="bg-gradient-to-r from-teal-400 to-teal-600 rounded-2xl p-8 md:p-12 text-white shadow-xl"
                     >
                         <h3 className="text-2xl font-bold mb-6">
                             INFORMED AUTHORITY

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { navLinks } from "@/lib/constants/navigation";
 import { cn } from "@/lib/utils";
 
 import {
@@ -21,9 +20,11 @@ import {
     Brain,
     ChevronRight,
     X,
+    Facebook,
     Twitter,
     Linkedin,
     Instagram,
+    BrainCircuit,
 } from "lucide-react";
 
 export function Header() {
@@ -71,11 +72,21 @@ export function Header() {
         },
     };
 
+    // Navigation links
+    const navLinks = [
+        { name: "Home", href: "/" },
+        { name: "About", href: "/about" },
+        { name: "Services", href: "/services" },
+        { name: "Team", href: "/team" },
+        { name: "Invest", href: "/invest" },
+        { name: "Contact", href: "/contact" },
+    ];
+
     return (
         <header
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${
                 isScrolled
-                    ? "bg-teal-800/80 backdrop-blur-md py-2 shadow-lg"
+                    ? "bg-teal-900/85 backdrop-blur-md py-2 shadow-lg"
                     : "bg-transparent py-4"
             }`}
         >
@@ -89,15 +100,18 @@ export function Header() {
                         variants={logoAnimation}
                     >
                         <Link href="/" className="flex items-center">
-                            <div className="bg-gradient-to-r from-teal-500 to-cyan-500 p-2 rounded-lg mr-2">
-                                <Brain className="h-6 w-6 text-white" />
+                            <div className="bg-gradient-to-r from-teal-400 to-teal-600 p-2 rounded-lg mr-2">
+                                <BrainCircuit className="h-6 w-6 text-white" />
                             </div>
                             <div>
-                                <span className="text-2xl font-bold bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
+                                <span
+                                    className={`text-2xl font-bold bg-clip-text text-transparent ${
+                                        !isScrolled
+                                            ? "bg-teal-800"
+                                            : "bg-teal-50"
+                                    }`}
+                                >
                                     TEFLINE
-                                </span>
-                                <span className="hidden sm:inline-block ml-2 text-xs text-teal-300/90 tracking-widest font-light">
-                                    LIFESTYLE MEDICINE
                                 </span>
                             </div>
                         </Link>
@@ -106,7 +120,13 @@ export function Header() {
                     {/* Desktop Navigation */}
                     <div className="hidden lg:block">
                         <NavigationMenu className="animate-fadeIn">
-                            <NavigationMenuList className="gap-1 bg-teal-700/40 backdrop-blur-md p-1 rounded-lg border border-teal-600/20">
+                            <NavigationMenuList
+                                className={`gap-1  backdrop-blur-md p-1 rounded-lg border border-teal-700/20 transition-all duration-300 ${
+                                    !isScrolled
+                                        ? "bg-teal-800/40"
+                                        : "bg-teal-100/40"
+                                }`}
+                            >
                                 {navLinks.map((link, index) => (
                                     <motion.div
                                         key={link.href}
@@ -128,10 +148,10 @@ export function Header() {
                                                         "text-white hover:text-teal-200 transition-colors",
                                                         pathname ===
                                                             link.href &&
-                                                            "bg-teal-600/50 text-teal-100"
+                                                            "bg-teal-700/50 text-teal-200"
                                                     )}
                                                 >
-                                                    {link.label}
+                                                    {link.name}
                                                 </NavigationMenuLink>
                                             </Link>
                                         </NavigationMenuItem>
@@ -149,7 +169,7 @@ export function Header() {
                         className="hidden md:block"
                     >
                         <Button
-                            className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white shadow-md shadow-teal-900/20"
+                            className="bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md shadow-teal-900/20"
                             asChild
                         >
                             <Link href="/contact" className="flex items-center">
@@ -169,7 +189,7 @@ export function Header() {
                                 <Button
                                     variant="ghost"
                                     size="icon"
-                                    className="text-white hover:bg-teal-700/50"
+                                    className="text-white hover:bg-teal-800/50"
                                 >
                                     <Menu className="h-6 w-6" />
                                 </Button>
@@ -185,8 +205,8 @@ export function Header() {
                                     className="p-6"
                                 >
                                     <div className="flex items-center justify-between mb-8">
-                                        <div className="flex items-center text-teal-300">
-                                            <div className="bg-gradient-to-r from-teal-500 to-cyan-500 p-1.5 rounded-md mr-2">
+                                        <div className="flex items-center text-teal-200">
+                                            <div className="bg-gradient-to-r from-teal-400 to-teal-600 p-1.5 rounded-md mr-2">
                                                 <Brain className="h-5 w-5 text-white" />
                                             </div>
                                             <span className="font-bold">
@@ -196,7 +216,7 @@ export function Header() {
                                         <Button
                                             variant="ghost"
                                             size="icon"
-                                            className="text-teal-400 hover:text-white hover:bg-teal-800/70"
+                                            className="text-teal-300 hover:text-white hover:bg-teal-800/70"
                                             onClick={() =>
                                                 setIsMobileMenuOpen(false)
                                             }
@@ -245,8 +265,8 @@ export function Header() {
                                                                     className={`flex items-center py-2 px-3 rounded-md transition-colors ${
                                                                         pathname ===
                                                                         link.href
-                                                                            ? "bg-teal-800 text-teal-300"
-                                                                            : "hover:bg-teal-800/70 text-teal-300 hover:text-white"
+                                                                            ? "bg-teal-800 text-teal-200"
+                                                                            : "hover:bg-teal-800/70 text-teal-200 hover:text-white"
                                                                     }`}
                                                                     onClick={() =>
                                                                         setIsMobileMenuOpen(
@@ -254,8 +274,8 @@ export function Header() {
                                                                         )
                                                                     }
                                                                 >
-                                                                    <ChevronRight className="mr-2 h-4 w-4 text-teal-400" />
-                                                                    {link.label}
+                                                                    <ChevronRight className="mr-2 h-4 w-4 text-teal-300" />
+                                                                    {link.name}
                                                                 </Link>
                                                             </motion.div>
                                                         )
@@ -265,7 +285,7 @@ export function Header() {
                                         </AnimatePresence>
                                     </div>
 
-                                    {/* Mobile Social Links */}
+                                    {/* Mobile Contact Info */}
                                     <motion.div
                                         className="mt-8 pt-6 border-t border-teal-800"
                                         initial={{ opacity: 0, y: 20 }}
@@ -275,40 +295,28 @@ export function Header() {
                                             delay: 0.4,
                                         }}
                                     >
-                                        <p className="text-sm text-teal-400 mb-4">
+                                        <p className="text-sm text-teal-300 mb-4">
                                             Connect with us
                                         </p>
                                         <div className="flex space-x-4">
-                                            <motion.a
-                                                href="#"
-                                                className="text-teal-400 hover:text-teal-300 transition-colors"
-                                                whileHover={{
-                                                    scale: 1.15,
-                                                    rotate: 5,
-                                                }}
-                                            >
-                                                <Twitter className="h-5 w-5" />
-                                            </motion.a>
-                                            <motion.a
-                                                href="#"
-                                                className="text-teal-400 hover:text-teal-300 transition-colors"
-                                                whileHover={{
-                                                    scale: 1.15,
-                                                    rotate: 5,
-                                                }}
-                                            >
-                                                <Linkedin className="h-5 w-5" />
-                                            </motion.a>
-                                            <motion.a
-                                                href="#"
-                                                className="text-teal-400 hover:text-teal-300 transition-colors"
-                                                whileHover={{
-                                                    scale: 1.15,
-                                                    rotate: 5,
-                                                }}
-                                            >
-                                                <Instagram className="h-5 w-5" />
-                                            </motion.a>
+                                            {[
+                                                Facebook,
+                                                Twitter,
+                                                Linkedin,
+                                                Instagram,
+                                            ].map((Icon, index) => (
+                                                <motion.a
+                                                    key={index}
+                                                    href="#"
+                                                    className="text-teal-300 hover:text-white transition-colors"
+                                                    whileHover={{
+                                                        scale: 1.15,
+                                                        rotate: 5,
+                                                    }}
+                                                >
+                                                    <Icon className="h-5 w-5" />
+                                                </motion.a>
+                                            ))}
                                         </div>
                                     </motion.div>
 
@@ -323,7 +331,7 @@ export function Header() {
                                         }}
                                     >
                                         <Button
-                                            className="w-full bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white"
+                                            className="w-full bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white"
                                             asChild
                                         >
                                             <Link

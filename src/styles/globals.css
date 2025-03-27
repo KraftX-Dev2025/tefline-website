@@ -26,6 +26,27 @@ h6 {
     @apply bg-clip-text text-transparent;
 }
 
+.mask-image-gradient {
+    -webkit-mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 0.4) 20%,
+        rgba(0, 0, 0, 0.6) 30%,
+        rgba(0, 0, 0, 0.8) 40%,
+        rgba(0, 0, 0, 1) 50%
+    );
+    mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 0.4) 20%,
+        rgba(0, 0, 0, 0.6) 30%,
+        rgba(0, 0, 0, 0.8) 40%,
+        rgba(0, 0, 0, 1) 50%
+    );
+}
+
 /* Team member profiles specific styles */
 .team-profile-card {
     position: relative;

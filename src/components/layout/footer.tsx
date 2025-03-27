@@ -1,33 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { navLinks } from "@/lib/constants/navigation";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import {
-    Brain,
     Mail,
-    MapPin,
     Phone,
-    Send,
+    MapPin,
+    Facebook,
     Twitter,
     Linkedin,
     Instagram,
-    ArrowRight,
-    AlertCircle,
-    Globe,
-    Shield,
+    Send,
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export function Footer() {
     const [email, setEmail] = useState("");
@@ -35,315 +22,167 @@ export function Footer() {
 
     const handleSubscribe = (e: React.FormEvent) => {
         e.preventDefault();
-        if (email.trim() !== "") {
+        if (email) {
             setSubscribed(true);
             setEmail("");
             setTimeout(() => setSubscribed(false), 3000);
         }
     };
 
-    const footerAnimation = {
-        hidden: { opacity: 0, y: 20 },
-        show: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                staggerChildren: 0.1,
-            },
-        },
-    };
-
-    const cardAnimation = {
-        hidden: { opacity: 0, y: 20 },
-        show: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.4 },
-        },
-    };
-
-    const linkAnimation = {
-        hidden: { opacity: 0, x: -10 },
-        show: {
-            opacity: 1,
-            x: 0,
-            transition: { duration: 0.3 },
-        },
-        hover: {
-            x: 5,
-            color: "#5eead4",
-            transition: { duration: 0.2 },
-        },
-    };
-
-    const socialAnimation = {
-        hover: {
-            scale: 1.2,
-            rotate: 5,
-            transition: { duration: 0.2 },
-        },
-    };
-
     return (
-        <footer className="bg-gradient-to-b from-teal-900 via-teal-900 to-teal-950 text-white pt-20 pb-8 overflow-hidden">
-            <motion.div
-                className="container mx-auto px-4"
-                variants={footerAnimation}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.1 }}
-            >
-                {/* Footer Top with Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <footer className="bg-teal-900 text-white">
+            <div className="container mx-auto px-4 py-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Company Info */}
-                    <motion.div variants={cardAnimation}>
-                        <Card className="bg-teal-800/50 border-teal-700 text-white h-full shadow-lg shadow-teal-900/30">
-                            <CardHeader className="pb-2">
-                                <div className="flex items-center mb-2">
-                                    <div className="bg-gradient-to-r from-teal-500 to-cyan-500 p-2 rounded-lg mr-3">
-                                        <Brain className="h-6 w-6 text-white" />
-                                    </div>
-                                    <CardTitle className="text-xl text-white">
-                                        TEFLINE
-                                    </CardTitle>
-                                </div>
-                                <CardDescription className="text-white">
-                                    The Epicenter For Lifestyle Medicine
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-white mb-6">
-                                    Redefining modern healthcare with
-                                    evidence-informed wellness and agentic
-                                    intelligence to optimize your healthspan.
-                                </p>
-                                <div className="flex flex-col space-y-4">
-                                    <div className="flex items-start">
-                                        <MapPin className="h-5 w-5 text-teal-300 mr-3 mt-0.5 flex-shrink-0" />
-                                        <p className="text-sm text-white">
-                                            Embassy Golf Links Business Park,
-                                            Cinnabar Hills, Bangalore - 560071
-                                        </p>
-                                    </div>
-                                    <div className="flex items-center">
-                                        <Mail className="h-5 w-5 text-teal-400 mr-3 flex-shrink-0" />
-                                        <a
-                                            href="mailto:team@tefline.org"
-                                            className="text-sm text-white hover:text-teal-200 transition-colors"
-                                        >
-                                            team@tefline.org
-                                        </a>
-                                    </div>
-                                    <div className="flex items-center">
-                                        <Phone className="h-5 w-5 text-teal-400 mr-3 flex-shrink-0" />
-                                        <p className="text-sm text-white">
-                                            +91 98451 71490
-                                        </p>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </motion.div>
+                    <div className="space-y-4">
+                        <h3 className="text-xl font-bold mb-4 text-teal-200">
+                            TEFLINE
+                        </h3>
+                        <p className="text-sm text-teal-50/80">
+                            Redefining modern healthcare by blending
+                            evidence-informed wellness with agentic
+                            intelligence, all backed by a community which holds
+                            you accountable.
+                        </p>
+                        <div className="flex items-center space-x-2 text-sm text-teal-50/80">
+                            <MapPin className="w-4 h-4 text-teal-300" />
+                            <span>
+                                Embassy Golf Links Business Park, Cinnabar
+                                Hills, Bangalore - 560071
+                            </span>
+                        </div>
+                        <div className="flex items-center space-x-2 text-sm text-teal-50/80">
+                            <Mail className="w-4 h-4 text-teal-300" />
+                            <span>team@tefline.org</span>
+                        </div>
+                        <div className="flex items-center space-x-2 text-sm text-teal-50/80">
+                            <Phone className="w-4 h-4 text-teal-300" />
+                            <span>+91 98451 71490</span>
+                        </div>
+                        <div className="flex space-x-4 pt-2">
+                            {[Facebook, Twitter, Linkedin, Instagram].map(
+                                (Icon, index) => (
+                                    <motion.a
+                                        key={index}
+                                        href="#"
+                                        whileHover={{ y: -3 }}
+                                        className="text-teal-300 hover:text-white transition-colors"
+                                    >
+                                        <Icon className="w-5 h-5" />
+                                    </motion.a>
+                                )
+                            )}
+                        </div>
+                    </div>
 
                     {/* Quick Links */}
-                    <motion.div variants={cardAnimation}>
-                        <Card className="bg-teal-800/50 border-teal-700 text-white h-full shadow-lg shadow-teal-900/30">
-                            <CardHeader>
-                                <CardTitle className="text-xl text-white">
-                                    Quick Links
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="grid grid-cols-2 gap-2">
-                                    {navLinks.slice(0, 8).map((link) => (
-                                        <motion.div
-                                            key={link.href}
-                                            variants={linkAnimation}
-                                            whileHover="hover"
-                                        >
-                                            <Link
-                                                href={link.href}
-                                                className="flex items-center text-white hover:text-teal-200 py-1.5 transition-colors"
-                                            >
-                                                <ArrowRight className="h-3.5 w-3.5 mr-2 text-teal-500" />
-                                                {link.label}
-                                            </Link>
-                                        </motion.div>
-                                    ))}
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </motion.div>
+                    <div className="space-y-4">
+                        <h3 className="text-xl font-bold mb-4 text-teal-200">
+                            Quick Links
+                        </h3>
+                        <div className="grid grid-cols-2 gap-2">
+                            {[
+                                { name: "Home", href: "/" },
+                                { name: "About", href: "/about" },
+                                { name: "Services", href: "/services" },
+                                { name: "Team", href: "/team" },
+                                { name: "Invest", href: "/invest" },
+                                { name: "Contact", href: "/contact" },
+                                { name: "Wellness Vault", href: "#" },
+                                { name: "AIR Tenet", href: "#" },
+                                { name: "Cognitive Counselor", href: "#" },
+                                { name: "Lifestyle Digital", href: "#" },
+                            ].map((link) => (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className="text-sm text-teal-50/80 hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center"
+                                >
+                                    <span className="inline-block w-1 h-1 bg-teal-300 rounded-full mr-2"></span>
+                                    {link.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
 
                     {/* Newsletter */}
-                    <motion.div variants={cardAnimation}>
-                        <Card className="bg-teal-800/50 border-teal-700 text-white h-full shadow-lg shadow-teal-900/30">
-                            <CardHeader>
-                                <CardTitle className="text-xl text-teal-300">
-                                    Subscribe to Our Newsletter
-                                </CardTitle>
-                                <CardDescription className="text-white">
-                                    Stay updated with the latest in lifestyle
-                                    medicine
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <form
-                                    onSubmit={handleSubscribe}
-                                    className="space-y-4"
+                    <div className="space-y-4">
+                        <h3 className="text-xl font-bold mb-4 text-teal-200">
+                            Join Our Newsletter
+                        </h3>
+                        <p className="text-sm text-teal-50/80 mb-4">
+                            Subscribe to receive updates on wellness
+                            intelligence and exclusive insights.
+                        </p>
+                        <form onSubmit={handleSubscribe} className="relative">
+                            <Input
+                                type="email"
+                                placeholder="Your email address"
+                                className="bg-teal-800/50 border-teal-700 text-white placeholder:text-teal-400/60 pr-12"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                            <Button
+                                type="submit"
+                                size="sm"
+                                variant="ghost"
+                                className="absolute right-1 top-1/2 -translate-y-1/2 text-teal-300 hover:text-white hover:bg-transparent"
+                            >
+                                <Send className="w-4 h-4" />
+                            </Button>
+                        </form>
+                        {subscribed && (
+                            <motion.p
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0 }}
+                                className="text-xs text-teal-300 mt-2"
+                            >
+                                Thank you for subscribing!
+                            </motion.p>
+                        )}
+                        <div className="pt-4">
+                            <h4 className="text-teal-200 font-semibold text-sm mb-2">
+                                Get Our Free Masterclass
+                            </h4>
+                            <Button
+                                size="sm"
+                                className="bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md hover:shadow-lg transition-all duration-300"
+                                asChild
+                            >
+                                <Link href="/contact">Book Now</Link>
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="border-t border-teal-800">
+                <div className="container mx-auto px-4 py-4">
+                    <div className="flex flex-col md:flex-row justify-between items-center">
+                        <p className="text-xs text-teal-50/60 mb-4 md:mb-0">
+                            © 2025 Tefline. All rights reserved.
+                        </p>
+                        <div className="flex space-x-4">
+                            {[
+                                "Privacy Policy",
+                                "Terms of Service",
+                                "Cookie Policy",
+                            ].map((item, index) => (
+                                <Link
+                                    key={index}
+                                    href="#"
+                                    className="text-xs text-teal-50/60 hover:text-white transition-colors"
                                 >
-                                    <div className="flex space-x-2">
-                                        <Input
-                                            type="email"
-                                            placeholder="Enter your email"
-                                            className="bg-teal-700/50 border-teal-600 text-white placeholder:text-teal-400 focus-visible:ring-teal-400"
-                                            value={email}
-                                            onChange={(e: {
-                                                target: {
-                                                    value: SetStateAction<string>;
-                                                };
-                                            }) => setEmail(e.target.value)}
-                                            required
-                                        />
-                                        <Button
-                                            type="submit"
-                                            className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white"
-                                        >
-                                            <Send className="h-4 w-4" />
-                                        </Button>
-                                    </div>
-
-                                    {subscribed && (
-                                        <motion.div
-                                            className="flex items-center text-teal-300 text-sm"
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -10 }}
-                                        >
-                                            <AlertCircle className="h-4 w-4 mr-2" />
-                                            Thank you for subscribing!
-                                        </motion.div>
-                                    )}
-
-                                    <div className="pt-4">
-                                        <h4 className="text-sm font-medium text-teal-300 mb-3">
-                                            Connect With Us
-                                        </h4>
-                                        <div className="flex space-x-4">
-                                            <motion.a
-                                                href="#"
-                                                className="bg-teal-700 hover:bg-teal-600 p-2 rounded-full text-white transition-colors shadow-md"
-                                                whileHover={
-                                                    socialAnimation.hover
-                                                }
-                                            >
-                                                <Twitter className="h-4 w-4" />
-                                            </motion.a>
-                                            <motion.a
-                                                href="#"
-                                                className="bg-teal-700 hover:bg-teal-600 p-2 rounded-full text-white transition-colors shadow-md"
-                                                whileHover={
-                                                    socialAnimation.hover
-                                                }
-                                            >
-                                                <Linkedin className="h-4 w-4" />
-                                            </motion.a>
-                                            <motion.a
-                                                href="#"
-                                                className="bg-teal-700 hover:bg-teal-600 p-2 rounded-full text-white transition-colors shadow-md"
-                                                whileHover={
-                                                    socialAnimation.hover
-                                                }
-                                            >
-                                                <Instagram className="h-4 w-4" />
-                                            </motion.a>
-                                        </div>
-                                    </div>
-                                </form>
-                            </CardContent>
-                        </Card>
-                    </motion.div>
-                </div>
-
-                {/* Features */}
-                <motion.div
-                    variants={cardAnimation}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 mb-16 text-center"
-                >
-                    <div>
-                        <div className="flex justify-center mb-4">
-                            <div className="bg-gradient-to-r from-teal-600 to-teal-400 p-3 rounded-full shadow-lg shadow-teal-900/30">
-                                <Brain className="h-6 w-6 text-white" />
-                            </div>
+                                    {item}
+                                </Link>
+                            ))}
                         </div>
-                        <h3 className="text-lg font-semibold text-teal-200 mb-2">
-                            Wellness Intelligence™
-                        </h3>
-                        <p className="text-sm text-white">
-                            Powered by advanced AI to optimize your health
-                            journey
-                        </p>
-                    </div>
-                    <div>
-                        <div className="flex justify-center mb-4">
-                            <div className="bg-gradient-to-r from-teal-600 to-teal-400 p-3 rounded-full shadow-lg shadow-teal-900/30">
-                                <Shield className="h-6 w-6 text-white" />
-                            </div>
-                        </div>
-                        <h3 className="text-lg font-semibold text-teal-200 mb-2">
-                            Evidence-Informed
-                        </h3>
-                        <p className="text-sm text-white">
-                            Protocols backed by rigorous scientific research
-                        </p>
-                    </div>
-                    <div>
-                        <div className="flex justify-center mb-4">
-                            <div className="bg-gradient-to-r from-teal-600 to-teal-400 p-3 rounded-full shadow-lg shadow-teal-900/30">
-                                <Globe className="h-6 w-6 text-white" />
-                            </div>
-                        </div>
-                        <h3 className="text-lg font-semibold text-teal-200 mb-2">
-                            Global Community
-                        </h3>
-                        <p className="text-sm text-white">
-                            Join thousands improving their health worldwide
-                        </p>
-                    </div>
-                </motion.div>
-
-                <Separator className="bg-teal-800 mb-8" />
-
-                {/* Bottom Section */}
-                <div className="flex flex-col md:flex-row justify-between items-center text-sm text-teal-400">
-                    <p>
-                        © {new Date().getFullYear()} Tefline. All rights
-                        reserved.
-                    </p>
-
-                    <div className="flex mt-4 md:mt-0 space-x-6">
-                        <Link
-                            href="/privacy"
-                            className="hover:text-teal-300 transition-colors"
-                        >
-                            Privacy Policy
-                        </Link>
-                        <Link
-                            href="/terms"
-                            className="hover:text-teal-300 transition-colors"
-                        >
-                            Terms of Service
-                        </Link>
-                        <Link
-                            href="/cookies"
-                            className="hover:text-teal-300 transition-colors"
-                        >
-                            Cookie Policy
-                        </Link>
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </footer>
     );
 }
