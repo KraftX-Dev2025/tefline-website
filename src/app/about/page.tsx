@@ -5,8 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import {
     ArrowRight,
     CheckCircle,
-    Brain,
-    Users,
     Sparkles,
     FileCheck,
     ChevronRight,
@@ -87,7 +85,7 @@ export default function AboutPage() {
                 </motion.div>
 
                 {/* Wave pattern overlay */}
-                <div className="absolute bottom-0 left-0 w-full z-10">
+                <div className="absolute bottom-[0] left-0 w-full z-10">
                     <svg
                         viewBox="0 0 1200 120"
                         preserveAspectRatio="none"
@@ -105,6 +103,27 @@ export default function AboutPage() {
                         />
                     </svg>
                 </div>
+
+                {/* Scrolling indicator */}
+                <motion.div
+                    className="absolute bottom-30 left-1/2 transform -translate-x-1/2"
+                    animate={{
+                        y: [0, 10, 0],
+                        opacity: [0.5, 1, 0.5],
+                    }}
+                    transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatType: "loop",
+                    }}
+                >
+                    <div className="flex flex-col items-center text-white/70">
+                        <ChevronRight className="w-6 h-6 transform rotate-90" />
+                        <span className="text-xs font-medium">
+                            Scroll to explore
+                        </span>
+                    </div>
+                </motion.div>
 
                 {/* Content container */}
                 <div className="container mx-auto px-4 relative z-20 pt-28 pb-32">
@@ -233,106 +252,6 @@ export default function AboutPage() {
                                 </Link>
                             </motion.div>
                         </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Our Approach Section */}
-            <section className="py-24 px-4 bg-gradient-to-b from-teal-50 to-white relative overflow-hidden">
-                {/* Blurred gradient background - Updated colors */}
-                <div className="absolute top-0 right-0 w-96 h-96 bg-amber-100 rounded-full opacity-30 blur-[120px]"></div>
-                <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-100 rounded-full opacity-40 blur-[100px]"></div>
-
-                <div className="max-w-7xl mx-auto relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-16"
-                    >
-                        <div className="inline-flex items-center bg-amber-100 text-amber-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
-                            <CheckCircle className="w-4 h-4 mr-2" />
-                            Our Framework
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600 leading-tight">
-                            APPROACH TO WELLNESS
-                        </h2>
-                        <p className="text-slate-700 text-lg max-w-3xl mx-auto">
-                            Three pillars form the foundation of our wellness
-                            philosophy
-                        </p>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            {
-                                title: "Evidence-Informed Protocols",
-                                icon: (
-                                    <CheckCircle className="w-10 h-10 text-teal-500" />
-                                ),
-                                description:
-                                    "We filter through the noise of wellness trends to deliver only what's backed by rigorous scientific evidence. Our protocols are continuously updated as new research emerges, ensuring you receive the most effective interventions.",
-                                color: "bg-teal-50",
-                                border: "border-teal-200",
-                                iconBg: "bg-teal-100",
-                            },
-                            {
-                                title: "Agentic Intelligence",
-                                icon: (
-                                    <Brain className="w-10 h-10 text-sky-500" />
-                                ),
-                                description:
-                                    "Beyond passive tracking, our AI systems actively think alongside you. This agentic approach means our technology learns, adapts, and provides personalized guidance that evolves as you do—creating a truly intelligent wellness partnership.",
-                                color: "bg-sky-50",
-                                border: "border-sky-200",
-                                iconBg: "bg-sky-100",
-                            },
-                            {
-                                title: "Community Accountability",
-                                icon: (
-                                    <Users className="w-10 h-10 text-green-500" />
-                                ),
-                                description:
-                                    "Sustainable change happens in community. Our Lifestyle Social platform connects you with accountability partners and like-minded individuals on similar health journeys, providing the social reinforcement crucial for lasting behavioral change.",
-                                color: "bg-green-50",
-                                border: "border-green-200",
-                                iconBg: "bg-green-100",
-                            },
-                        ].map((pillar, index) => (
-                            <motion.div
-                                key={pillar.title}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, margin: "-50px" }}
-                                variants={{
-                                    hidden: { opacity: 0, y: 20 },
-                                    visible: {
-                                        opacity: 1,
-                                        y: 0,
-                                        transition: {
-                                            duration: 0.6,
-                                            delay: index * 0.2,
-                                        },
-                                    },
-                                }}
-                                whileHover={{ y: -5 }}
-                                transition={{ type: "spring", stiffness: 300 }}
-                                className={`${pillar.color} rounded-xl p-6 shadow-sm border ${pillar.border}`}
-                            >
-                                <div
-                                    className={`${pillar.iconBg} w-16 h-16 rounded-full flex items-center justify-center mb-6`}
-                                >
-                                    {pillar.icon}
-                                </div>
-                                <h3 className="text-xl font-semibold mb-4 text-slate-800">
-                                    {pillar.title}
-                                </h3>
-                                <p className="text-slate-700">
-                                    {pillar.description}
-                                </p>
-                            </motion.div>
-                        ))}
                     </div>
                 </div>
             </section>

@@ -104,6 +104,26 @@ export default function Home() {
                                 </Button>
                             </div>
                         </motion.div>
+                        {/* Scrolling indicator */}
+                        <motion.div
+                            className="absolute bottom-30 left-1/2 transform -translate-x-1/2"
+                            animate={{
+                                y: [0, 10, 0],
+                                opacity: [0.5, 1, 0.5],
+                            }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                repeatType: "loop",
+                            }}
+                        >
+                            <div className="flex flex-col items-center text-white/70">
+                                <ChevronRight className="w-6 h-6 transform rotate-90" />
+                                <span className="text-l font-medium">
+                                    Scroll to explore
+                                </span>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </motion.section>

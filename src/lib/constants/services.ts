@@ -59,28 +59,28 @@ export const enterpriseSolutions: EnterpriseSolution[] = [
     {
         title: "Corporate Wellness Programs",
         description:
-            "Comprehensive wellness initiatives designed to improve employee health, reduce healthcare costs, and boost productivity. Our programs integrate seamlessly with your existing benefits structure.",
+            "Comprehensive wellness initiatives to improve employee health, reduce healthcare costs, and boost productivity.",
         icon: "building",
         buttonText: "Request Information",
     },
     {
         title: "Healthcare Provider Integration",
         description:
-            "Tools and protocols that enable healthcare providers to incorporate lifestyle medicine into their practice. Bridge the gap between clinical care and daily wellness.",
+            "Tools and protocols enabling healthcare providers to incorporate lifestyle medicine into their clinical practice.",
         icon: "medical",
         buttonText: "Provider Solutions",
     },
     {
         title: "Wellness Intelligence™ API",
         description:
-            "Integrate our powerful wellness algorithms and AI capabilities into your own applications and platforms through our robust API services.",
+            "Integrate our powerful wellness algorithms and AI capabilities into your own applications and platforms.",
         icon: "code",
         buttonText: "API Documentation",
     },
     {
         title: "Corporate Training & Certification",
         description:
-            "Train your team in the principles of lifestyle medicine and wellness intelligence. Certification programs available for HR professionals, wellness coordinators, and healthcare staff.",
+            "Train your team in lifestyle medicine principles with certification programs for HR and healthcare staff.",
         icon: "certificate",
         buttonText: "Training Options",
     },
