@@ -42,7 +42,6 @@ export default function ContactPage() {
     const formRef = useRef<HTMLDivElement>(null);
     const contactInfoRef = useRef<HTMLDivElement>(null);
     const mapRef = useRef<HTMLDivElement>(null);
-    const officeRef = useRef<HTMLDivElement>(null);
 
     // Check if sections are in view
     const isFormInView = useInView(formRef, { once: true, amount: 0.3 });
@@ -51,7 +50,6 @@ export default function ContactPage() {
         amount: 0.3,
     });
     const isMapInView = useInView(mapRef, { once: true, amount: 0.3 });
-    const isOfficeInView = useInView(officeRef, { once: true, amount: 0.3 });
 
     // Handle form submission
     const handleSubmit = (e: React.FormEvent) => {

@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-
+import { useSession, signOut } from "next-auth/react";
 import {
     NavigationMenu,
     NavigationMenuItem,
@@ -13,21 +13,25 @@ import {
     NavigationMenuList,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import {
     Menu,
-    Brain,
+    BrainCircuit,
     ChevronRight,
+    LogOut,
+    User,
+    Brain,
     X,
     Facebook,
     Twitter,
     Linkedin,
     Instagram,
-    BrainCircuit,
 } from "lucide-react";
+import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
 
 export function Header() {
+    const { data: session } = useSession();
+
     const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -161,22 +165,53 @@ export function Header() {
                         </NavigationMenu>
                     </div>
 
-                    {/* CTA Button */}
+                    {/* Auth Buttons */}
                     <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="hidden md:block"
                     >
-                        <Button
-                            className="bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md shadow-teal-900/20"
-                            asChild
-                        >
-                            <Link href="/contact" className="flex items-center">
-                                <span>Book a Masterclass</span>
-                                <ChevronRight className="ml-1 h-4 w-4" />
-                            </Link>
-                        </Button>
+                        {session ? (
+                            <div className="flex items-center gap-2">
+                                <Button
+                                    variant="outline"
+                                    size="sm"
+                                    className="border-white/30 text-white hover:bg-white/10"
+                                    onClick={() =>
+                                        signOut({ callbackUrl: "/" })
+                                    }
+                                >
+                                    <LogOut className="mr-2 h-4 w-4" />
+                                    Logout
+                                </Button>
+                                <Button
+                                    variant="outline"
+                                    size="sm"
+                                    className="border-white/30 text-white hover:bg-white/10"
+                                    asChild
+                                >
+                                    <Link href="/dashboard">
+                                        <User className="mr-2 h-4 w-4" />
+                                        {session.user?.name?.split(" ")[0] ||
+                                            "User"}
+                                    </Link>
+                                </Button>
+                            </div>
+                        ) : (
+                            <Button
+                                className="bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md shadow-teal-900/20"
+                                asChild
+                            >
+                                <Link
+                                    href="/login"
+                                    className="flex items-center"
+                                >
+                                    <span>Login</span>
+                                    <ChevronRight className="ml-1 h-4 w-4" />
+                                </Link>
+                            </Button>
+                        )}
                     </motion.div>
 
                     {/* Mobile Menu Button */}
@@ -320,29 +355,63 @@ export function Header() {
                                         </div>
                                     </motion.div>
 
-                                    {/* Mobile CTA */}
+                                    {/* Auth Buttons */}
                                     <motion.div
-                                        className="mt-8"
-                                        initial={{ opacity: 0, y: 20 }}
+                                        initial={{ opacity: 0, y: -10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{
                                             duration: 0.5,
-                                            delay: 0.6,
+                                            delay: 0.3,
                                         }}
+                                        className="hidden md:block"
                                     >
-                                        <Button
-                                            className="w-full bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white"
-                                            asChild
-                                        >
-                                            <Link
-                                                href="/contact"
-                                                onClick={() =>
-                                                    setIsMobileMenuOpen(false)
-                                                }
+                                        {session ? (
+                                            <div className="flex items-center gap-2">
+                                                <div className="text-sm text-white mr-2">
+                                                    Hi,{" "}
+                                                    {session.user?.name?.split(
+                                                        " "
+                                                    )[0] || "User"}
+                                                </div>
+                                                <Button
+                                                    variant="outline"
+                                                    size="sm"
+                                                    className="border-white/30 text-white hover:bg-white/10"
+                                                    onClick={() =>
+                                                        signOut({
+                                                            callbackUrl: "/",
+                                                        })
+                                                    }
+                                                >
+                                                    <LogOut className="mr-2 h-4 w-4" />
+                                                    Logout
+                                                </Button>
+                                                <Button
+                                                    variant="outline"
+                                                    size="sm"
+                                                    className="border-white/30 text-white hover:bg-white/10"
+                                                    asChild
+                                                >
+                                                    <Link href="/dashboard">
+                                                        <User className="mr-2 h-4 w-4" />
+                                                        Dashboard
+                                                    </Link>
+                                                </Button>
+                                            </div>
+                                        ) : (
+                                            <Button
+                                                className="bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md shadow-teal-900/20"
+                                                asChild
                                             >
-                                                Book a Masterclass
-                                            </Link>
-                                        </Button>
+                                                <Link
+                                                    href="/login"
+                                                    className="flex items-center"
+                                                >
+                                                    <span>Login</span>
+                                                    <ChevronRight className="ml-1 h-4 w-4" />
+                                                </Link>
+                                            </Button>
+                                        )}
                                     </motion.div>
                                 </motion.div>
                             </SheetContent>
