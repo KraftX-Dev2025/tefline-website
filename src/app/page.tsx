@@ -147,12 +147,13 @@ export default function Home() {
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
                             variants={fadeIn}
                         >
-                            The Epicenter For{" "}
                             <span className="relative inline-block">
-                                <span className="relative z-10 bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
-                                    Lifestyle Medicine
+                                <span className="relative z-10 bg-gradient-to-l from-teal-300 to-cyan-200 bg-clip-text text-transparent">
+                                    The Epicenter For
                                 </span>
                             </span>
+                            <br></br>
+                            Lifestyle Medicine
                         </motion.h1>
                         <motion.p
                             className="text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
@@ -180,24 +181,6 @@ export default function Home() {
                                 >
                                     Discover Wellness Intelligence™
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                            </motion.div>
-                            <motion.div
-                                whileHover={{ scale: 1.05, y: -3 }}
-                                transition={{
-                                    type: "spring",
-                                    stiffness: 400,
-                                    damping: 10,
-                                }}
-                            >
-                                <Link
-                                    href="/about"
-                                    className="group px-8 py-4 rounded-lg backdrop-blur-sm bg-white/10 border border-white/20 hover:bg-white/20 transition-colors duration-300 inline-flex items-center text-white font-medium"
-                                >
-                                    Learn About Us
-                                    <div className="ml-2 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                                        <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                                    </div>
                                 </Link>
                             </motion.div>
                         </motion.div>
@@ -245,11 +228,13 @@ export default function Home() {
                                 Your Path to Optimal Health
                             </div>
                             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-teal-600 leading-tight">
-                                YOUR{" "}
-                                <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
-                                    LIFELINE
+                                <span className="bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">
+                                    Your{" "}
+                                </span>
+                                LIFELINE{" "}
+                                <span className="bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">
+                                    to Long-Term Wellness
                                 </span>{" "}
-                                to Long-Term Wellness
                             </h2>
                             <p className="text-slate-700 mb-8 leading-relaxed text-lg">
                                 Tefline is a healthtech startup that is
@@ -278,8 +263,7 @@ export default function Home() {
                         >
                             <div className="relative w-full max-w-md">
                                 {/* Image decoration */}
-                                <div className="absolute top-8 -left-8 w-full h-full bg-orange-100 rounded-2xl"></div>
-                                <div className="absolute top-4 -left-4 w-full h-full bg-teal-200 rounded-2xl"></div>
+                                <div className="absolute top-4 -left-4 w-full h-full bg-teal-100/80 rounded-2xl"></div>
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-white/80 shadow-xl border border-white/70 p-3">
                                     <Image
@@ -290,9 +274,9 @@ export default function Home() {
                                         className="w-full h-auto object-cover rounded-xl"
                                     />
                                     {/* Floating badge */}
-                                    <div className="absolute bottom-10 -right-6 bg-white/90 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-teal-600 text-sm font-medium border border-teal-100">
+                                    <div className="absolute bottom-10 -right-3 bg-orange-300/70 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-white text-sm font-medium border border-teal-500">
                                         <div className="flex items-center">
-                                            <Heart className="w-4 h-4 mr-2 text-orange-500" />
+                                            <Heart className="w-4 h-4 mr-2 text-white" />
                                             Optimizing Healthspan
                                         </div>
                                     </div>
@@ -320,8 +304,7 @@ export default function Home() {
                         >
                             <div className="relative w-full max-w-md">
                                 {/* Image decoration */}
-                                <div className="absolute top-8 -right-8 w-full h-full bg-teal-400/20 rounded-2xl"></div>
-                                <div className="absolute top-4 -right-4 w-full h-full bg-orange-400/20 rounded-2xl"></div>
+                                <div className="absolute top-4 -right-4 w-full h-full bg-teal-400/20 rounded-2xl"></div>
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-teal-600/30 shadow-xl border border-teal-500 p-3">
                                     <Image
@@ -332,9 +315,9 @@ export default function Home() {
                                         className="w-full h-auto object-cover rounded-xl"
                                     />
                                     {/* Floating badge */}
-                                    <div className="absolute top-10 -left-6 bg-teal-600/80 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-teal-200 text-sm font-medium border border-teal-500">
+                                    <div className="absolute top-10 -left-6 bg-orange-300/70 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-white text-sm font-medium border border-teal-500">
                                         <div className="flex items-center">
-                                            <Sparkles className="w-4 h-4 mr-2 text-orange-400" />
+                                            <Sparkles className="w-4 h-4 mr-2 text-white" />
                                             12 Monthly Modules
                                         </div>
                                     </div>
@@ -348,7 +331,7 @@ export default function Home() {
                             variants={fadeInLeft}
                             className="order-1 lg:order-2"
                         >
-                            <div className="inline-flex items-center bg-teal-600/70 text-orange-300 px-4 py-1 rounded-full text-sm font-medium mb-6">
+                            <div className="inline-flex items-center bg-teal-50/20 text-white px-4 py-1 rounded-full text-sm font-medium mb-6">
                                 <Zap className="w-4 h-4 mr-2" />
                                 Comprehensive Wellness Approach
                             </div>
@@ -373,7 +356,7 @@ export default function Home() {
                             </p>
                             <Link
                                 href="/services"
-                                className="inline-flex items-center text-teal-200 font-semibold group px-5 py-2 rounded-lg border border-teal-500 hover:bg-teal-600/50 transition-all duration-200 hover:scale-105"
+                                className="inline-flex items-center text-white font-semibold group px-5 py-2 rounded-lg border border-teal-500 hover:bg-teal-600/50 transition-all duration-200 hover:scale-105"
                             >
                                 Learn More About RxLifeMed
                                 <div className="ml-2 w-5 h-5 rounded-full bg-teal-600 flex items-center justify-center group-hover:bg-teal-500 transition-colors duration-200">
