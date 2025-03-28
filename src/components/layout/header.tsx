@@ -111,11 +111,7 @@ export function Header() {
                             </div>
                             <div>
                                 <span
-                                    className={`text-2xl font-bold bg-clip-text text-transparent transition-all duration-300 ${
-                                        !isScrolled
-                                            ? "bg-teal-800"
-                                            : "bg-teal-50"
-                                    }`}
+                                    className={`text-2xl font-bold bg-clip-text text-transparent transition-all duration-300 bg-teal-50`}
                                 >
                                     TEFLINE
                                 </span>

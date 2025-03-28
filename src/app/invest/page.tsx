@@ -114,7 +114,7 @@ export default function InvestPage() {
                 className="relative min-h-[70vh] flex items-center pt-16 pb-16"
                 style={{ opacity: heroOpacity, y: heroY }}
             >
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-teal-600/80" />
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 via-teal-700/80 to-teal-600" />
 
                 {/* Animated background elements */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -210,7 +210,7 @@ export default function InvestPage() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="hidden md:block"
                         >
-                            <div className="relative h-96 w-full p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 shadow-xl">
+                            <div className="relative h-96 w-full p-4 bg-white/30 backdrop-blur-md rounded-xl border border-white/20 shadow-xl">
                                 {/* Investment growth chart */}
                                 <div className="absolute inset-0 flex items-end p-6">
                                     <div className="relative w-full h-3/4">
@@ -1049,28 +1049,21 @@ export default function InvestPage() {
                                 </motion.div>
 
                                 <motion.div
-                                    initial={{ y: -20, opacity: 0 }}
-                                    animate={
-                                        isCtaInView ? { y: 0, opacity: 1 } : {}
-                                    }
-                                    transition={{ duration: 0.5, delay: 0.4 }}
-                                    whileHover={{
-                                        scale: 1.05,
-                                        transition: { duration: 0.2 },
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 400,
+                                        damping: 10,
                                     }}
+                                    className="flex justify-center"
                                 >
-                                    <Button
-                                        size="lg"
-                                        className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
-                                        asChild
+                                    <Link
+                                        href="/contact?investor=true"
+                                        className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
                                     >
-                                        <Link
-                                            href="/contact?investor=true"
-                                            className="px-8"
-                                        >
-                                            Connect With Our Investment Team
-                                        </Link>
-                                    </Button>
+                                        Connect With Our Investment Team
+                                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
                                 </motion.div>
                             </div>
                         </div>

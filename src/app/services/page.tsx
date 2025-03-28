@@ -9,17 +9,13 @@ import {
     CheckCircle,
     ChevronRight,
     ArrowRight,
-    Database,
-    Users,
     Code,
     Award,
     Building,
-    Zap,
     HeartPulse,
     Sparkles,
     TrendingUp,
     Target,
-    Shield,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -31,8 +27,6 @@ import {
 } from "@/lib/constants/services";
 
 export default function ServicesPage() {
-    // Refs for scroll animations
-    const heroRef = useRef<HTMLDivElement>(null);
     const individualRef = useRef<HTMLDivElement>(null);
     const enterpriseRef = useRef<HTMLDivElement>(null);
     const resultsRef = useRef<HTMLDivElement>(null);
@@ -68,8 +62,6 @@ export default function ServicesPage() {
         offset: ["start start", "end start"],
     });
 
-    const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
-    const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
     // Animation variants
@@ -132,7 +124,7 @@ export default function ServicesPage() {
                     style={{ y: backgroundY }}
                 >
                     {/* Main teal gradient - Updated to match teal-400 to teal-600 */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-teal-600 to-teal-700"></div>
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 via-teal-700/80 to-teal-600"></div>
 
                     {/* Blurred gradient circles - Updated colors */}
                     <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>

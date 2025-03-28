@@ -10,14 +10,11 @@ import {
     CheckCircle,
     ChevronRight,
     ArrowUpRight,
-    Lightbulb,
-    Zap,
-    BrainCircuit,
 } from "lucide-react";
 import { useRef } from "react";
 import Image from "next/image";
 
-export default function VisionPage() {
+export default function VisionMissionPage() {
     // For parallax effects
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -100,10 +97,10 @@ export default function VisionPage() {
                     className="absolute inset-0 z-0"
                     style={{ y: backgroundY }}
                 >
-                    {/* Main teal gradient */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-teal-600 to-teal-700"></div>
+                    {/* Main teal gradient - Updated to match teal-400 to teal-600 */}
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 via-teal-700/90 to-teal-600"></div>
 
-                    {/* Blurred gradient circles */}
+                    {/* Blurred gradient circles - Updated colors */}
                     <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
                     <div className="absolute bottom-0 left-1/4 w-[30rem] h-[30rem] rounded-full bg-teal-400/20 blur-[100px] opacity-60"></div>
                     <div className="absolute top-1/3 left-0 w-[25rem] h-[25rem] rounded-full bg-amber-400/10 blur-[80px] opacity-70"></div>
@@ -129,27 +126,6 @@ export default function VisionPage() {
                     </svg>
                 </div>
 
-                {/* Scrolling indicator */}
-                <motion.div
-                    className="absolute bottom-30 left-1/2 transform -translate-x-1/2"
-                    animate={{
-                        y: [0, 10, 0],
-                        opacity: [0.5, 1, 0.5],
-                    }}
-                    transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        repeatType: "loop",
-                    }}
-                >
-                    <div className="flex flex-col items-center text-white/70">
-                        <ChevronRight className="w-6 h-6 transform rotate-90" />
-                        <span className="text-xs font-medium">
-                            Scroll to explore
-                        </span>
-                    </div>
-                </motion.div>
-
                 {/* Content container */}
                 <div className="container mx-auto px-4 relative z-20 pt-28 pb-32">
                     <motion.div
@@ -169,18 +145,17 @@ export default function VisionPage() {
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
                             variants={fadeIn}
                         >
-                            Our{" "}
+                            Vision{" "}
                             <span className="relative z-10 bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
-                                Vision
-                            </span>{" "}
-                            & Mission
+                                Mission
+                            </span>
                         </motion.h1>
                         <motion.p
-                            className="text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
+                            className="text-lg sm:text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
                             variants={fadeIn}
                         >
-                            Transforming healthcare through evidence-informed
-                            wellness and agentic intelligence
+                            Discover our purpose, values, and the driving force
+                            behind Tefline's approach to lifestyle medicine
                         </motion.p>
 
                         <motion.div
@@ -234,14 +209,14 @@ export default function VisionPage() {
                                     <Image
                                         src="/placeholder.webp"
                                         alt="Vision illustration"
-                                        width={800}
-                                        height={600}
                                         className="w-full h-auto object-cover rounded-xl"
+                                        width={400}
+                                        height={400}
                                     />
                                     {/* Floating badge */}
                                     <div className="absolute bottom-10 -right-4 md:-right-6 bg-white/90 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-teal-800 text-sm font-medium border border-teal-100 flex items-center space-x-2">
                                         <Target className="w-4 h-4 text-orange-500" />
-                                        <span>Force Multiplier</span>
+                                        <span>Defining the Future</span>
                                     </div>
                                 </div>
                             </div>
@@ -256,7 +231,7 @@ export default function VisionPage() {
                                 <Target className="w-4 h-4 mr-2" />
                                 Our Vision
                             </div>
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-teal-900 leading-tight">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-teal-600 leading-tight">
                                 VISION TEFLINE
                             </h2>
                             <motion.div
@@ -275,8 +250,9 @@ export default function VisionPage() {
                                         force multiplier
                                     </span>{" "}
                                     in modern healthcare by setting a definitive
-                                    wellness benchmark through{" "}
+                                    wellness benchmark through
                                     <span className="text-teal-600 font-semibold">
+                                        {" "}
                                         evidence-informed lifestyle
                                         interventions
                                     </span>{" "}
@@ -287,22 +263,21 @@ export default function VisionPage() {
                                 <div className="bg-white p-5 md:p-6 rounded-xl shadow-sm border border-teal-100 hover:shadow-md transition-shadow">
                                     <div className="flex items-start">
                                         <div className="bg-orange-100 p-2 rounded-full mr-3 md:mr-4 mt-1">
-                                            <Lightbulb className="w-5 h-5 text-orange-500" />
+                                            <Sparkles className="w-5 h-5 text-orange-500" />
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-lg mb-2 text-teal-800">
                                                 Our Vision in Action
                                             </h3>
                                             <p className="text-slate-600 text-sm md:text-base">
-                                                At Tefline, we're committed to
-                                                redefining modern healthcare by
-                                                blending evidence-informed
-                                                wellness with agentic
-                                                intelligence, backed by a
-                                                supportive community. We believe
-                                                optimizing healthspan is the
-                                                surest path to extending
-                                                lifespan.
+                                                At Tefline, our vision guides
+                                                every innovation, protocol, and
+                                                interaction. We're committed to
+                                                not just improving healthcare,
+                                                but fundamentally transforming
+                                                how people think about and
+                                                engage with their own wellness
+                                                journey.
                                             </p>
                                         </div>
                                     </div>
@@ -332,7 +307,7 @@ export default function VisionPage() {
                                 <Compass className="w-4 h-4 mr-2" />
                                 Our Mission
                             </div>
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-teal-900 leading-tight">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-teal-600 leading-tight">
                                 MISSION STATEMENT
                             </h2>
                             <motion.div
@@ -388,9 +363,9 @@ export default function VisionPage() {
                                     <Image
                                         src="/placeholder.webp"
                                         alt="Mission illustration"
-                                        width={800}
-                                        height={600}
                                         className="w-full h-auto object-cover rounded-xl"
+                                        width={400}
+                                        height={400}
                                     />
                                     {/* Floating badge */}
                                     <div className="absolute top-10 -left-4 md:-left-6 bg-white/90 backdrop-blur-xl shadow-lg py-2 px-4 rounded-lg text-teal-800 text-sm font-medium border border-teal-100 flex items-center space-x-2">
@@ -404,7 +379,7 @@ export default function VisionPage() {
                 </div>
             </section>
 
-            {/* Monthly Modules Section */}
+            {/* Interactive Timeline Section */}
             <section
                 ref={timelineRef}
                 className="py-20 md:py-32 px-4 bg-white relative overflow-hidden"
@@ -423,15 +398,15 @@ export default function VisionPage() {
                     >
                         <div className="inline-flex items-center bg-cyan-100 text-cyan-800 px-4 py-1.5 rounded-full text-sm font-medium mb-4 shadow-sm">
                             <Sparkles className="w-4 h-4 mr-2" />
-                            Evolving Content
+                            Our Journey
                         </div>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-teal-900 leading-tight">
-                            LIFELONG{" "}
-                            <span className="text-cyan-600">LEARNING</span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-teal-600 leading-tight">
+                            JOURNEY TO{" "}
+                            <span className="text-cyan-600">IMPACT</span>
                         </h2>
                         <p className="text-slate-700 text-base md:text-lg max-w-3xl mx-auto">
-                            The evolving monthly modules of RxLifeMed guide your
-                            wellness journey throughout the year
+                            A transformative roadmap guiding our vision from
+                            ideation to execution
                         </p>
                     </motion.div>
 
@@ -452,10 +427,10 @@ export default function VisionPage() {
                         {[
                             {
                                 id: 1,
-                                month: "January-March",
-                                title: "Foundation Building",
+                                phase: "Phase 1",
+                                title: "Awareness",
                                 description:
-                                    "Start with stability foundation, strength conditioning, and movement nutrition to establish your wellness base.",
+                                    "Raising consciousness about the importance of lifestyle medicine and preventative wellness approaches.",
                                 icon: <Target className="w-6 h-6 text-white" />,
                                 iconBg: "bg-gradient-to-r from-teal-500 to-teal-400",
                                 position: "right",
@@ -463,23 +438,25 @@ export default function VisionPage() {
                             },
                             {
                                 id: 2,
-                                month: "April-June",
-                                title: "Physical Vitality",
+                                phase: "Phase 2",
+                                title: "Education",
                                 description:
-                                    "Focus on athletic vitality, culinary medicine, and social health to elevate your physical wellbeing.",
-                                icon: <Zap className="w-6 h-6 text-white" />,
+                                    "Providing evidence-informed knowledge and tools to empower individuals in their wellness journey.",
+                                icon: (
+                                    <Sparkles className="w-6 h-6 text-white" />
+                                ),
                                 iconBg: "bg-gradient-to-r from-cyan-500 to-cyan-400",
                                 position: "left",
                                 delay: 0.4,
                             },
                             {
                                 id: 3,
-                                month: "July-September",
-                                title: "Mental Resilience",
+                                phase: "Phase 3",
+                                title: "Integration",
                                 description:
-                                    "Develop resilience quotient, restorative resurgence, and behavioral science for mental fortitude.",
+                                    "Seamlessly incorporating lifestyle changes into daily routines with technological support.",
                                 icon: (
-                                    <BrainCircuit className="w-6 h-6 text-white" />
+                                    <CheckCircle className="w-6 h-6 text-white" />
                                 ),
                                 iconBg: "bg-gradient-to-r from-cyan-500 to-teal-400",
                                 position: "right",
@@ -487,10 +464,10 @@ export default function VisionPage() {
                             },
                             {
                                 id: 4,
-                                month: "October-December",
-                                title: "Holistic Integration",
+                                phase: "Phase 4",
+                                title: "Transformation",
                                 description:
-                                    "Integrate aesthetic wellness, emotional intelligence, and longevity blueprint for complete wellness.",
+                                    "Achieving measurable improvements in biological age, energy levels, and overall wellness.",
                                 icon: (
                                     <ArrowUpRight className="w-6 h-6 text-white" />
                                 ),
@@ -587,7 +564,7 @@ export default function VisionPage() {
                                         }`}
                                     >
                                         <span className="text-sm font-semibold text-gray-500">
-                                            {item.month}
+                                            {item.phase}
                                         </span>
                                         <h3
                                             className={`text-xl font-bold mb-2 ${
@@ -611,234 +588,241 @@ export default function VisionPage() {
                         ))}
                     </div>
 
-                    {/* Mobile Timeline - Card-Based Circular Approach */}
-                    <div className="md:hidden space-y-8">
-                        {/* Timeline connector */}
-                        <div className="absolute left-4 top-[15%] bottom-[15%] w-1 bg-gradient-to-b from-teal-400 via-cyan-400 to-orange-400 rounded-full"></div>
+                    {/* Vertical Timeline - Mobile */}
+                    <div className="md:hidden">
+                        <motion.div
+                            className="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-teal-400 via-cyan-400 to-orange-400 rounded-full"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{
+                                height: isTimelineInView ? "100%" : 0,
+                                opacity: isTimelineInView ? 1 : 0,
+                            }}
+                            transition={{ duration: 1.5, ease: "easeInOut" }}
+                            style={{
+                                height: "100%",
+                                top: "10%",
+                                bottom: "auto",
+                            }}
+                        />
 
+                        {/* Mobile Timeline Steps */}
                         {[
                             {
                                 id: 1,
-                                month: "January-March",
-                                title: "Foundation Building",
-                                modules: [
-                                    "Stability Foundation",
-                                    "Strength Conditioning",
-                                    "Movement Nutrition",
-                                ],
+                                phase: "Phase 1",
+                                title: "Awareness",
+                                description:
+                                    "Raising consciousness about the importance of lifestyle medicine and preventative wellness approaches.",
                                 icon: <Target className="w-5 h-5 text-white" />,
                                 iconBg: "bg-gradient-to-r from-teal-500 to-teal-400",
                                 delay: 0.2,
-                                color: "text-teal-600",
-                                borderColor: "border-teal-200",
-                                bgColor: "bg-teal-50",
                             },
                             {
                                 id: 2,
-                                month: "April-June",
-                                title: "Physical Vitality",
-                                modules: [
-                                    "Athletic Vitality",
-                                    "Culinary Medicine",
-                                    "Social Health",
-                                ],
-                                icon: <Zap className="w-5 h-5 text-white" />,
+                                phase: "Phase 2",
+                                title: "Education",
+                                description:
+                                    "Providing evidence-informed knowledge and tools to empower individuals in their wellness journey.",
+                                icon: (
+                                    <Sparkles className="w-5 h-5 text-white" />
+                                ),
                                 iconBg: "bg-gradient-to-r from-cyan-500 to-cyan-400",
                                 delay: 0.4,
-                                color: "text-cyan-600",
-                                borderColor: "border-cyan-200",
-                                bgColor: "bg-cyan-50",
                             },
                             {
                                 id: 3,
-                                month: "July-September",
-                                title: "Mental Resilience",
-                                modules: [
-                                    "Resilience Quotient",
-                                    "Restorative Resurgence",
-                                    "Behavioral Science",
-                                ],
+                                phase: "Phase 3",
+                                title: "Integration",
+                                description:
+                                    "Seamlessly incorporating lifestyle changes into daily routines with technological support.",
                                 icon: (
-                                    <BrainCircuit className="w-5 h-5 text-white" />
+                                    <CheckCircle className="w-5 h-5 text-white" />
                                 ),
                                 iconBg: "bg-gradient-to-r from-cyan-500 to-teal-400",
                                 delay: 0.6,
-                                color: "text-teal-600",
-                                borderColor: "border-teal-200",
-                                bgColor: "bg-teal-50",
                             },
                             {
                                 id: 4,
-                                month: "October-December",
-                                title: "Holistic Integration",
-                                modules: [
-                                    "Aesthetic Wellness",
-                                    "Emotional Intelligence",
-                                    "Longevity Blueprint",
-                                ],
+                                phase: "Phase 4",
+                                title: "Transformation",
+                                description:
+                                    "Achieving measurable improvements in biological age, energy levels, and overall wellness.",
                                 icon: (
                                     <ArrowUpRight className="w-5 h-5 text-white" />
                                 ),
                                 iconBg: "bg-gradient-to-r from-orange-500 to-orange-400",
                                 delay: 0.8,
-                                color: "text-orange-600",
-                                borderColor: "border-orange-200",
-                                bgColor: "bg-orange-50",
                             },
                         ].map((item) => (
-                            <motion.div
-                                key={item.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{
-                                    duration: 0.6,
-                                    delay: item.delay * 0.5,
-                                }}
-                                className="relative pl-12"
-                            >
-                                {/* Icon */}
-                                <div className="absolute left-0 top-4 z-10">
+                            <div key={item.id} className="relative pl-12 mb-12">
+                                {/* Icon circle */}
+                                <motion.div
+                                    className="absolute left-0 z-10"
+                                    initial={{ scale: 0, opacity: 0 }}
+                                    animate={{
+                                        scale: isTimelineInView ? 1 : 0,
+                                        opacity: isTimelineInView ? 1 : 0,
+                                    }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 200,
+                                        delay: item.delay,
+                                    }}
+                                >
                                     <div
-                                        className={`w-8 h-8 rounded-full ${item.iconBg} flex items-center justify-center shadow-md`}
+                                        className={`w-8 h-8 rounded-full ${item.iconBg} flex items-center justify-center shadow-md transform -translate-x-4`}
                                     >
                                         {item.icon}
                                     </div>
-                                </div>
+                                </motion.div>
 
-                                {/* Card */}
-                                <div
-                                    className={`rounded-xl shadow-md border ${item.borderColor} overflow-hidden`}
+                                {/* Connector line */}
+                                <motion.div
+                                    className="absolute left-0 top-4 h-0.5 w-8 bg-gradient-to-r from-teal-400 to-transparent"
+                                    initial={{ width: 0, opacity: 0 }}
+                                    animate={{
+                                        width: isTimelineInView ? "2rem" : 0,
+                                        opacity: isTimelineInView ? 1 : 0,
+                                    }}
+                                    transition={{
+                                        duration: 0.5,
+                                        delay: item.delay + 0.3,
+                                    }}
+                                />
+
+                                {/* Content */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{
+                                        opacity: isTimelineInView ? 1 : 0,
+                                        x: isTimelineInView ? 0 : 20,
+                                    }}
+                                    transition={{
+                                        duration: 0.5,
+                                        delay: item.delay,
+                                    }}
+                                    className={`bg-white p-5 rounded-xl shadow-md border ${
+                                        item.id === 1
+                                            ? "border-teal-200"
+                                            : item.id === 2
+                                            ? "border-cyan-200"
+                                            : item.id === 3
+                                            ? "border-teal-200"
+                                            : "border-orange-200"
+                                    }`}
                                 >
-                                    {/* Header */}
-                                    <div className={`p-4 ${item.bgColor}`}>
-                                        <span className="text-xs font-medium text-gray-500">
-                                            {item.month}
-                                        </span>
-                                        <h3
-                                            className={`text-lg font-bold ${item.color}`}
-                                        >
-                                            {item.title}
-                                        </h3>
-                                    </div>
-
-                                    {/* Module list */}
-                                    <div className="p-4 bg-white">
-                                        <ul className="space-y-2">
-                                            {item.modules.map((module, idx) => (
-                                                <li
-                                                    key={idx}
-                                                    className="flex items-start"
-                                                >
-                                                    <CheckCircle
-                                                        className={`w-4 h-4 ${item.color} mr-2 mt-0.5 flex-shrink-0`}
-                                                    />
-                                                    <span className="text-sm text-slate-700">
-                                                        {module}
-                                                    </span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </motion.div>
+                                    <span className="text-xs font-semibold text-gray-500">
+                                        {item.phase}
+                                    </span>
+                                    <h3
+                                        className={`text-lg font-bold mb-2 ${
+                                            item.id === 1
+                                                ? "text-teal-700"
+                                                : item.id === 2
+                                                ? "text-cyan-700"
+                                                : item.id === 3
+                                                ? "text-teal-700"
+                                                : "text-orange-700"
+                                        }`}
+                                    >
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-slate-600 text-sm">
+                                        {item.description}
+                                    </p>
+                                </motion.div>
+                            </div>
                         ))}
                     </div>
 
-                    {/* Monthly modules grid */}
+                    {/* Timeline Impact Cards */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.8 }}
-                        className="mt-16 md:mt-24 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6 md:p-8 border border-teal-100 shadow-md"
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16"
                     >
-                        <h3 className="text-xl md:text-2xl font-bold text-teal-700 mb-6 text-center">
-                            Twelve Monthly Modules of RxLifeMed
-                        </h3>
-
-                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
-                            {[
-                                {
-                                    month: "Jan",
-                                    program: "Stability Foundation",
-                                    color: "from-teal-500 to-teal-400",
-                                },
-                                {
-                                    month: "Feb",
-                                    program: "Strength Conditioning",
-                                    color: "from-teal-500 to-cyan-400",
-                                },
-                                {
-                                    month: "Mar",
-                                    program: "Movement Nutrition",
-                                    color: "from-cyan-500 to-teal-400",
-                                },
-                                {
-                                    month: "Apr",
-                                    program: "Athletic Vitality",
-                                    color: "from-cyan-500 to-cyan-400",
-                                },
-                                {
-                                    month: "May",
-                                    program: "Culinary Medicine",
-                                    color: "from-teal-500 to-teal-400",
-                                },
-                                {
-                                    month: "Jun",
-                                    program: "Social Health",
-                                    color: "from-teal-500 to-cyan-400",
-                                },
-                                {
-                                    month: "Jul",
-                                    program: "Resilience Quotient",
-                                    color: "from-cyan-500 to-teal-400",
-                                },
-                                {
-                                    month: "Aug",
-                                    program: "Restorative Resurgence",
-                                    color: "from-cyan-500 to-cyan-400",
-                                },
-                                {
-                                    month: "Sep",
-                                    program: "Behavioral Science",
-                                    color: "from-teal-500 to-teal-400",
-                                },
-                                {
-                                    month: "Oct",
-                                    program: "Aesthetic Wellness",
-                                    color: "from-orange-400 to-amber-300",
-                                },
-                                {
-                                    month: "Nov",
-                                    program: "Emotional Intelligence",
-                                    color: "from-orange-500 to-orange-400",
-                                },
-                                {
-                                    month: "Dec",
-                                    program: "Longevity Blueprint",
-                                    color: "from-amber-500 to-orange-400",
-                                },
-                            ].map((item, index) => (
-                                <motion.div
-                                    key={index}
-                                    whileHover={{ y: -5 }}
-                                    className="rounded-lg overflow-hidden shadow-sm bg-white border border-teal-100"
-                                >
-                                    <div
-                                        className={`h-1.5 w-full bg-gradient-to-r ${item.color}`}
-                                    ></div>
-                                    <div className="p-3 md:p-4">
-                                        <div className="text-xs font-bold text-teal-500 mb-1">
-                                            {item.month}
+                        {[
+                            {
+                                title: "Immediate Impact",
+                                period: "First 90 days",
+                                color: "from-teal-500 to-teal-400",
+                                textColor: "text-teal-800",
+                                bullets: [
+                                    "Comprehensive wellness assessment and personalized planning",
+                                    "AI-guided daily interventions and habit formation",
+                                ],
+                                iconColor: "text-teal-500",
+                            },
+                            {
+                                title: "Medium-Term Growth",
+                                period: "6-12 months",
+                                color: "from-cyan-500 to-cyan-400",
+                                textColor: "text-cyan-800",
+                                bullets: [
+                                    "Measurable biological age reduction and energy improvement",
+                                    "Community integration and social accountability",
+                                ],
+                                iconColor: "text-cyan-500",
+                            },
+                            {
+                                title: "Long-Term Vision",
+                                period: "1-3 years",
+                                color: "from-orange-500 to-orange-400",
+                                textColor: "text-orange-800",
+                                bullets: [
+                                    "Complete lifestyle transformation and wellness optimization",
+                                    "Becoming an advocate and mentor within the community",
+                                ],
+                                iconColor: "text-orange-500",
+                            },
+                        ].map((item, index) => (
+                            <motion.div
+                                key={index}
+                                whileHover={{ y: -10 }}
+                                transition={{ type: "spring", stiffness: 10 }}
+                                className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                            >
+                                <div
+                                    className={`h-2 w-full bg-gradient-to-r ${item.color}`}
+                                />
+                                <div className="p-5 md:p-6">
+                                    <div className="flex items-start mb-4">
+                                        <div
+                                            className={`bg-gradient-to-r ${item.color} p-2 md:p-3 rounded-lg mr-3 md:mr-4 group-hover:scale-110 transition-transform duration-300`}
+                                        >
+                                            <span className="font-bold text-white text-sm md:text-base">
+                                                {index + 1}
+                                            </span>
                                         </div>
-                                        <div className="text-sm text-slate-700 font-medium">
-                                            {item.program}
+                                        <div>
+                                            <h3
+                                                className={`font-bold text-lg md:text-xl ${item.textColor}`}
+                                            >
+                                                {item.title}
+                                            </h3>
+                                            <p className="text-xs md:text-sm text-slate-600">
+                                                {item.period}
+                                            </p>
                                         </div>
                                     </div>
-                                </motion.div>
-                            ))}
-                        </div>
+                                    <ul className="space-y-2 md:space-y-3 pl-2 md:pl-4">
+                                        {item.bullets.map((bullet, i) => (
+                                            <li
+                                                key={i}
+                                                className="text-slate-700 text-sm md:text-base flex items-start"
+                                            >
+                                                <CheckCircle
+                                                    className={`w-4 md:w-5 h-4 md:h-5 ${item.iconColor} mr-2 mt-0.5 flex-shrink-0`}
+                                                />
+                                                <span>{bullet}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </motion.div>
+                        ))}
                     </motion.div>
                 </div>
             </section>
@@ -890,7 +874,7 @@ export default function VisionPage() {
                             Join Our Vision
                         </div>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">
-                            BUILD YOUR BIOLOGICAL CAPITAL
+                            READY TO TRANSFORM YOUR APPROACH TO WELLNESS?
                         </h2>
                     </motion.div>
 
@@ -902,15 +886,9 @@ export default function VisionPage() {
                         className="text-white text-base md:text-lg text-center space-y-6 mb-8 md:mb-10"
                     >
                         <p>
-                            The lion's share of all healthcare spending is
-                            directed toward managing illness, perpetuating the
-                            misconception that health is simply the absence of
-                            disease. In reality, true wellness extends far
-                            beyond the point where sickness ends.
-                        </p>
-                        <p className="font-medium text-xl">
-                            Tefline is here to fix that. Build your biological
-                            capital like your life depends on it—it truly does.
+                            Be part of the lifestyle medicine revolution.
+                            Discover how Tefline's vision and mission can help
+                            you achieve optimal health and wellness.
                         </p>
                     </motion.div>
 
@@ -923,13 +901,23 @@ export default function VisionPage() {
                         }}
                         className="flex justify-center"
                     >
-                        <Link
-                            href="/contact"
-                            className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 10,
+                            }}
+                            className="flex justify-center"
                         >
-                            Start Your Wellness Journey
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                            <Link
+                                href="/contact"
+                                className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
+                            >
+                                Contact Us Today
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </motion.div>
                     </motion.div>
                 </div>
             </section>

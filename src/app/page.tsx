@@ -79,7 +79,7 @@ export default function Home() {
                     style={{ y: backgroundY }}
                 >
                     {/* Main teal gradient - aligned with other pages */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-teal-600 to-teal-700"></div>
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 via-teal-700/80 to-teal-600"></div>
 
                     {/* Blurred gradient circles */}
                     <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
@@ -192,7 +192,7 @@ export default function Home() {
                             >
                                 <Link
                                     href="/about"
-                                    className="group px-5 py-3 rounded-lg backdrop-blur-sm bg-white/10 border border-white/20 hover:bg-white/20 transition-colors duration-300 inline-flex items-center text-white font-medium"
+                                    className="group px-8 py-4 rounded-lg backdrop-blur-sm bg-white/10 border border-white/20 hover:bg-white/20 transition-colors duration-300 inline-flex items-center text-white font-medium"
                                 >
                                     Learn About Us
                                     <div className="ml-2 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
@@ -484,7 +484,7 @@ export default function Home() {
             </section>
 
             {/* Wellness Intelligence Section - Dynamic Dashboard */}
-            <section className="py-32 px-4 relative overflow-hidden bg-gradient-to-b from-teal-600 to-teal-700 text-white">
+            <section className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-teal-50 to-teal-700 text-white">
                 {/* Subtle particle background */}
                 <div className="absolute inset-0 opacity-30">
                     <div className="absolute top-0 right-0 w-full h-full bg-[url('/dots.png')] bg-repeat opacity-10"></div>
@@ -597,21 +597,15 @@ export default function Home() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="text-center mb-24 max-w-3xl mx-auto"
+                        className="text-center mb-8 max-w-3xl mx-auto"
                     >
-                        <div className="inline-flex items-center bg-teal-600/50 backdrop-blur-lg text-teal-200 px-5 py-2 rounded-full text-sm font-medium mb-8 border border-teal-500/50">
+                        <div className="inline-flex items-center bg-teal-600/50 backdrop-blur-lg text-white px-5 py-2 rounded-full text-sm font-medium mb-8 border border-teal-500/50">
                             <Brain className="w-4 h-4 mr-2" />
                             Powered by Intelligence
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-teal-600 bg-clip-text">
                             WELLNESS INTELLIGENCE™
                         </h2>
-                        <p className="text-teal-100 leading-relaxed text-lg md:text-xl">
-                            A fusion of wellness wisdom, behavioral science and
-                            cutting-edge technology—an alchemy of insight and
-                            innovation poised to shape the future of modern
-                            healthcare.
-                        </p>
                     </motion.div>
 
                     {/* Flowing Dashboard Layout */}
@@ -682,7 +676,7 @@ export default function Home() {
                                 <div className="flex justify-center">
                                     <Link
                                         href="/services"
-                                        className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-teal-500/20 text-teal-200 text-sm font-medium hover:bg-teal-500/30 transition-all duration-200 border border-teal-500/30 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:scale-105"
+                                        className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-teal-500/20 text-white text-sm font-medium hover:bg-teal-500/30 transition-all duration-200 border border-teal-500/30 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:scale-105"
                                     >
                                         Explore Intelligence Hub
                                         <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -771,7 +765,7 @@ export default function Home() {
                                         className="block h-full transform transition-all duration-200 hover:-translate-y-2"
                                     >
                                         <div
-                                            className={`h-full flex flex-col bg-teal-600/40 backdrop-blur-md border border-teal-500/50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-200 ${module.glowColor}`}
+                                            className={`h-full flex flex-col bg-teal-50/10 backdrop-blur-md border border-teal-500/50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-200 ${module.glowColor}`}
                                         >
                                             <div
                                                 className={`h-1.5 w-full bg-gradient-to-r ${module.color}`}
@@ -1074,7 +1068,7 @@ export default function Home() {
                         variants={fadeIn}
                         className="max-w-3xl mx-auto text-center"
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-teal-600 leading-tight">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-teal-700 leading-tight">
                             Ready to transform your approach to wellness?
                         </h2>
                         <p className="text-xl text-slate-700 mb-10 leading-relaxed">
@@ -1097,21 +1091,6 @@ export default function Home() {
                                 >
                                     Book a Free Masterclass
                                     <ArrowRight className="ml-2 w-5 h-5" />
-                                </Link>
-                            </motion.div>
-                            <motion.div
-                                whileHover={{ scale: 1.05, y: -3 }}
-                                transition={{
-                                    type: "spring",
-                                    stiffness: 400,
-                                    damping: 10,
-                                }}
-                            >
-                                <Link
-                                    href="/about"
-                                    className="bg-teal-50 hover:bg-teal-100 text-teal-600 border border-teal-200 px-8 py-4 rounded-lg font-semibold transition-all duration-300 inline-flex items-center justify-center w-full sm:w-auto"
-                                >
-                                    Learn More About Our Approach
                                 </Link>
                             </motion.div>
                         </div>

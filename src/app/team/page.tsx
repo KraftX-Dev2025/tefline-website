@@ -80,7 +80,7 @@ export default function TeamPage() {
     return (
         <div
             ref={pageRef}
-            className="min-h-screen bg-gradient-to-b from-teal-800 to-teal-700 overflow-hidden"
+            className="min-h-screen bg-gradient-to-b from-teal-600 via-teal-600 to-teal-800 overflow-hidden"
         >
             {/* Integrated Hero & Team Section */}
             <section className="relative pt-32 pb-24 px-4">
