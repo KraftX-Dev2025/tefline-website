@@ -22,6 +22,7 @@ export interface TeamMember {
         textColor: string;
         lightBg: string;
         glowClass: string;
+        hoverGradient: string;
         accentBg?: string; // For compatibility with existing code
     };
     contactButtons: Array<{
@@ -55,7 +56,9 @@ export const teamMembers: TeamMember[] = [
             textColor: "text-teal-400",
             lightBg: "teal-50",
             glowClass: "hover:shadow-teal-500/20",
-            accentBg: "bg-teal-500", // Added for compatibility
+            accentBg: "bg-teal-500",
+            hoverGradient:
+                "hover:from-teal-500/30 hover:via-teal-400/30 hover:to-cyan-500/20",
         },
         contactButtons: [
             {
@@ -91,7 +94,9 @@ export const teamMembers: TeamMember[] = [
             textColor: "text-blue-400",
             lightBg: "blue-50",
             glowClass: "hover:shadow-blue-500/20",
-            accentBg: "bg-blue-500", // Added for compatibility
+            accentBg: "bg-blue-500",
+            hoverGradient:
+                "hover:from-blue-500/30 hover:via-blue-400/30 hover:to-indigo-500/20",
         },
         contactButtons: [
             {
@@ -127,7 +132,9 @@ export const teamMembers: TeamMember[] = [
             textColor: "text-purple-400",
             lightBg: "purple-50",
             glowClass: "hover:shadow-purple-500/20",
-            accentBg: "bg-purple-500", // Added for compatibility
+            accentBg: "bg-purple-500",
+            hoverGradient:
+                "hover:from-purple-500/30 hover:via-fuchsia-500/30 hover:to-violet-500/20",
         },
         contactButtons: [
             {
@@ -164,7 +171,9 @@ export const teamMembers: TeamMember[] = [
             textColor: "text-orange-400",
             lightBg: "orange-50",
             glowClass: "hover:shadow-orange-500/20",
-            accentBg: "bg-orange-500", // Added for compatibility
+            accentBg: "bg-orange-500",
+            hoverGradient:
+                "hover:from-orange-500/30 hover:via-orange-400/30 hover:to-amber-500/20",
         },
         contactButtons: [
             {

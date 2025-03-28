@@ -759,7 +759,7 @@ export default function InvestPage() {
             {/* AI Leadership Section */}
             <section
                 ref={aiLeadershipRef}
-                className="py-24 bg-gradient-to-r from-teal-900 to-teal-700 text-white relative overflow-hidden"
+                className="py-24 bg-gradient-to-br from-teal-700 to-teal-500 text-white relative overflow-hidden"
             >
                 {/* Background pattern */}
                 <div className="absolute inset-0 bg-[url('/placeholder.webp')] opacity-10 mix-blend-overlay"></div>
