@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import {
     Mail,
@@ -11,7 +10,6 @@ import {
     Calendar,
     Send,
     CheckCircle,
-    ChevronRight,
     Building,
     Users,
     Zap,
@@ -20,7 +18,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 
 export default function ContactPage() {
     // Form state
