@@ -11,6 +11,8 @@ export async function middleware(req: NextRequest) {
         "/login",
         "/about",
         "/contact",
+        "/vision-mission",
+        "/press",
         "/team",
         "/services",
         "/invest",

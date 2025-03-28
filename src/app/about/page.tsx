@@ -76,7 +76,7 @@ export default function AboutPage() {
                     style={{ y: backgroundY }}
                 >
                     {/* Main teal gradient - Updated to match teal-400 to teal-600 */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-teal-500 to-teal-600"></div>
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-teal-600 to-teal-700"></div>
 
                     {/* Blurred gradient circles - Updated colors */}
                     <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
@@ -144,7 +144,10 @@ export default function AboutPage() {
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
                             variants={fadeIn}
                         >
-                            About Tefline
+                            About{" "}
+                            <span className="relative z-10 bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
+                                Tefline
+                            </span>
                         </motion.h1>
                         <motion.p
                             className="text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
@@ -240,17 +243,7 @@ export default function AboutPage() {
                                     damping: 10,
                                 }}
                                 className="inline-block"
-                            >
-                                <Link
-                                    href="/team"
-                                    className="inline-flex items-center text-teal-600 font-semibold group px-5 py-2 rounded-lg border border-teal-200 hover:bg-teal-50 transition-colors"
-                                >
-                                    Meet Our Team
-                                    <div className="ml-2 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center group-hover:bg-teal-200 transition-colors">
-                                        <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                                    </div>
-                                </Link>
-                            </motion.div>
+                            ></motion.div>
                         </motion.div>
                     </div>
                 </div>
@@ -258,9 +251,7 @@ export default function AboutPage() {
 
             {/* Biological Capital Section */}
             <section className="py-24 relative overflow-hidden">
-                {/* Background image with overlay */}
-                <div className="absolute inset-0 bg-[url('/placeholder.webp')] bg-cover bg-center opacity-40 z-0"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-teal-600 opacity-80 z-0"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-700 via-teal-700/70 to-teal-700 opacity-80 z-0"></div>
 
                 {/* Content */}
                 <div className="max-w-5xl mx-auto relative z-10 px-4">
@@ -378,7 +369,7 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="bg-gradient-to-r from-teal-400 to-teal-600 rounded-2xl p-8 md:p-12 text-white shadow-xl"
+                        className="bg-gradient-to-tl from-teal-400 via-teal-600 to-teal-600 rounded-2xl p-8 md:p-12 text-white shadow-xl"
                     >
                         <h3 className="text-2xl font-bold mb-6">
                             INFORMED AUTHORITY
@@ -393,7 +384,7 @@ export default function AboutPage() {
                         </p>
                         <Link
                             href="/team"
-                            className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/30 px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+                            className="inline-flex items-center bg-white/40 backdrop-blur-sm hover:bg-teal-700/90 hover:border-white/60 text-white border border-white/30 px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
                         >
                             Meet Our Advisory Team
                             <ArrowRight className="ml-2 w-5 h-5" />

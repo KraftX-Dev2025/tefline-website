@@ -80,8 +80,10 @@ export function Header() {
     const navLinks = [
         { name: "Home", href: "/" },
         { name: "About", href: "/about" },
-        { name: "Services", href: "/services" },
+        { name: "Vision", href: "/vision-mission" },
         { name: "Team", href: "/team" },
+        { name: "Services", href: "/services" },
+        { name: "Press", href: "/press" },
         { name: "Invest", href: "/invest" },
         { name: "Contact", href: "/contact" },
     ];
@@ -109,7 +111,7 @@ export function Header() {
                             </div>
                             <div>
                                 <span
-                                    className={`text-2xl font-bold bg-clip-text text-transparent ${
+                                    className={`text-2xl font-bold bg-clip-text text-transparent transition-all duration-300 ${
                                         !isScrolled
                                             ? "bg-teal-800"
                                             : "bg-teal-50"
