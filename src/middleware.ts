@@ -1,52 +1,115 @@
-import { NextResponse } from "next/server";
-import { getToken } from "next-auth/jwt";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { createServerClient } from "@supabase/ssr";
 
-export async function middleware(req: NextRequest) {
-    const path = req.nextUrl.pathname;
+// Define public paths that don't require authentication
+const publicPaths = [
+    "/",
+    "/login",
+    "/about",
+    "/contact",
+    "/vision-mission",
+    "/press",
+    "/team", // Note: only the main team page is public
+    "/services",
+    "/invest",
+];
 
-    // Define which routes are public (don't require authentication)
-    const publicPaths = [
-        "/",
-        "/login",
-        "/about",
-        "/contact",
-        "/vision-mission",
-        "/press",
-        "/team",
-        "/services",
-        "/invest",
-    ];
-    const isPublicPath = publicPaths.some(
-        (publicPath) => path === publicPath || path.startsWith("/api/auth/")
+// Define paths that require authentication
+const protectedPathPrefixes = [
+    "/dashboard",
+    "/team/", // Any specific team member page requires auth
+];
+
+export async function middleware(request: NextRequest) {
+    const path = request.nextUrl.pathname;
+
+    // Check if the path is protected
+    const isProtectedPath = protectedPathPrefixes.some((prefix) =>
+        path.startsWith(prefix)
     );
 
-    // If the path is public, don't require authentication
-    if (isPublicPath) {
+    // Check if the path is explicitly public
+    const isExplicitlyPublic = publicPaths.some(
+        (publicPath) => path === publicPath
+    );
+
+    // If the path is not protected and not an API route, allow access
+    if (!isProtectedPath || path.startsWith("/api/auth/")) {
         return NextResponse.next();
     }
 
-    // Check if the user is authenticated
-    const session = await getToken({
-        req,
-        secret: process.env.NEXTAUTH_SECRET,
+    // For protected routes, set up response and Supabase client
+    let response = NextResponse.next({
+        request: {
+            headers: request.headers,
+        },
     });
 
-    // If the user is not authenticated, redirect to login
-    if (!session) {
-        const url = new URL("/login", req.url);
-        url.searchParams.set("callbackUrl", encodeURI(req.url));
-        return NextResponse.redirect(url);
+    const supabase = createServerClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+            cookies: {
+                get(name: string) {
+                    return request.cookies.get(name)?.value;
+                },
+                set(name: string, value: string, options: any) {
+                    request.cookies.set({
+                        name,
+                        value,
+                        ...options,
+                    });
+                    response = NextResponse.next({
+                        request: {
+                            headers: request.headers,
+                        },
+                    });
+                    response.cookies.set({
+                        name,
+                        value,
+                        ...options,
+                    });
+                },
+                remove(name: string, options: any) {
+                    request.cookies.set({
+                        name,
+                        value: "",
+                        ...options,
+                        maxAge: 0,
+                    });
+                    response = NextResponse.next({
+                        request: {
+                            headers: request.headers,
+                        },
+                    });
+                    response.cookies.set({
+                        name,
+                        value: "",
+                        ...options,
+                        maxAge: 0,
+                    });
+                },
+            },
+        }
+    );
+
+    // Check if the user is authenticated
+    const {
+        data: { session },
+    } = await supabase.auth.getSession();
+
+    // If no session and trying to access protected route, redirect to login
+    if (!session && isProtectedPath) {
+        const redirectUrl = new URL("/login", request.url);
+        // Save the original URL to redirect back after login
+        redirectUrl.searchParams.set("redirectTo", request.nextUrl.pathname);
+        return NextResponse.redirect(redirectUrl);
     }
 
-    // If they are authenticated, proceed
-    return NextResponse.next();
+    return response;
 }
 
 // Configure which paths the middleware should run on
 export const config = {
-    matcher: [
-        // Apply to all paths except static files, images, etc.
-        "/((?!_next/static|_next/image|favicon.ico|.*\\.png$).*)",
-    ],
+    matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.png$).*)"],
 };
