@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/../utils/supabase/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
     const requestUrl = new URL(request.url);
@@ -10,8 +10,6 @@ export async function GET(request: NextRequest) {
         await supabase.auth.exchangeCodeForSession(code);
     }
 
-    // Redirect after authentication
-    const redirectTo =
-        requestUrl.searchParams.get("redirectTo") || "/dashboard";
-    return NextResponse.redirect(new URL(redirectTo, request.url));
+    // URL to redirect to after sign in process completes
+    return NextResponse.redirect(new URL("/dashboard", request.url));
 }

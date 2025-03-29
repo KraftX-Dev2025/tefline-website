@@ -1,4 +1,3 @@
-import AuthProvider from "@/providers/session-provider";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { Header } from "@/components/layout/header";
@@ -20,11 +19,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <AuthProvider>
-                    <Header />
-                    <main className="min-h-screen">{children}</main>
-                    <Footer />
-                </AuthProvider>
+                <Header />
+                <main className="min-h-screen">{children}</main>
+                <Footer />
             </body>
         </html>
     );

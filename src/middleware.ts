@@ -5,46 +5,37 @@ import { createServerClient } from "@supabase/ssr";
 const publicPaths = [
     "/",
     "/login",
+    "/register",
     "/about",
     "/contact",
     "/vision-mission",
     "/press",
-    "/team", // Note: only the main team page is public
+    "/team",
     "/services",
     "/invest",
+    "/auth/callback", // Allow callback access
 ];
 
 // Define paths that require authentication
-const protectedPathPrefixes = [
-    "/dashboard",
-    "/team/", // Any specific team member page requires auth
-];
+const protectedPathPrefixes = ["/dashboard", "/profile", "/settings"];
 
 export async function middleware(request: NextRequest) {
-    const path = request.nextUrl.pathname;
+    const { pathname } = request.nextUrl;
 
     // Check if the path is protected
     const isProtectedPath = protectedPathPrefixes.some((prefix) =>
-        path.startsWith(prefix)
+        pathname.startsWith(prefix)
     );
 
-    // Check if the path is explicitly public
-    const isExplicitlyPublic = publicPaths.some(
-        (publicPath) => path === publicPath
-    );
-
-    // If the path is not protected and not an API route, allow access
-    if (!isProtectedPath || path.startsWith("/api/auth/")) {
+    // If the path is explicitly public or it's not a protected path, allow access
+    if (publicPaths.includes(pathname) || !isProtectedPath) {
         return NextResponse.next();
     }
 
-    // For protected routes, set up response and Supabase client
-    let response = NextResponse.next({
-        request: {
-            headers: request.headers,
-        },
-    });
+    // For protected routes, create a response to modify
+    const response = NextResponse.next();
 
+    // Create a Supabase client
     const supabase = createServerClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -54,16 +45,6 @@ export async function middleware(request: NextRequest) {
                     return request.cookies.get(name)?.value;
                 },
                 set(name: string, value: string, options: any) {
-                    request.cookies.set({
-                        name,
-                        value,
-                        ...options,
-                    });
-                    response = NextResponse.next({
-                        request: {
-                            headers: request.headers,
-                        },
-                    });
                     response.cookies.set({
                         name,
                         value,
@@ -71,17 +52,6 @@ export async function middleware(request: NextRequest) {
                     });
                 },
                 remove(name: string, options: any) {
-                    request.cookies.set({
-                        name,
-                        value: "",
-                        ...options,
-                        maxAge: 0,
-                    });
-                    response = NextResponse.next({
-                        request: {
-                            headers: request.headers,
-                        },
-                    });
                     response.cookies.set({
                         name,
                         value: "",
@@ -102,14 +72,21 @@ export async function middleware(request: NextRequest) {
     if (!session && isProtectedPath) {
         const redirectUrl = new URL("/login", request.url);
         // Save the original URL to redirect back after login
-        redirectUrl.searchParams.set("redirectTo", request.nextUrl.pathname);
+        redirectUrl.searchParams.set("redirectTo", pathname);
         return NextResponse.redirect(redirectUrl);
     }
 
     return response;
 }
 
-// Configure which paths the middleware should run on
+// Configure the middleware to run on all paths except static files
 export const config = {
-    matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.png$).*)"],
+    matcher: [
+        /*
+         * Match all request paths except for:
+         * - Static files (css, js, images, etc.)
+         * - API routes that don't require authentication
+         */
+        "/((?!_next/static|_next/image|favicon.ico|public/|api/public/).*)",
+    ],
 };
