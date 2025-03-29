@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/../utils/supabase/client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { BrainCircuit, User, Mail, Lock, Loader2, Check } from "lucide-react";
 
 export default function RegisterForm() {
-    const router = useRouter();
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -22,6 +23,12 @@ export default function RegisterForm() {
 
         if (!name || !email || !password) {
             setError("All fields are required");
+            setLoading(false);
+            return;
+        }
+
+        if (password.length < 6) {
+            setError("Password must be at least 6 characters");
             setLoading(false);
             return;
         }
@@ -81,102 +88,137 @@ export default function RegisterForm() {
     };
 
     return (
-        <div className="w-full max-w-md p-8 bg-white rounded-xl shadow-md">
-            <h1 className="text-2xl font-bold text-gray-800 mb-6">
-                Create Account
-            </h1>
+        <div className="w-full max-w-md p-8 bg-white rounded-xl shadow-lg">
+            <div className="flex flex-col items-center mb-8">
+                <div className="bg-gradient-to-r from-teal-400 to-teal-600 p-3 rounded-full mb-4">
+                    <BrainCircuit className="h-8 w-8 text-white" />
+                </div>
+                <h1 className="text-2xl font-bold text-slate-800">
+                    Create Account
+                </h1>
+                <p className="text-slate-600 mt-1">
+                    Join the wellness intelligence revolution
+                </p>
+            </div>
 
             {error && (
-                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
                     {error}
                 </div>
             )}
 
             {message && (
-                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-                    {message}
+                <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6 flex items-start">
+                    <Check className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
+                    <span>{message}</span>
                 </div>
             )}
 
-            <form className="space-y-4" onSubmit={handleSignUp}>
-                <div>
+            <form className="space-y-5" onSubmit={handleSignUp}>
+                <div className="space-y-1">
                     <label
                         htmlFor="name"
-                        className="block text-sm font-medium text-gray-700"
+                        className="block text-sm font-medium text-slate-700"
                     >
                         Full Name
                     </label>
-                    <input
-                        id="name"
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                        required
-                    />
+                    <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <User className="h-5 w-5 text-slate-400" />
+                        </div>
+                        <Input
+                            id="name"
+                            type="text"
+                            placeholder="John Doe"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="pl-10"
+                            required
+                        />
+                    </div>
                 </div>
 
-                <div>
+                <div className="space-y-1">
                     <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-gray-700"
+                        className="block text-sm font-medium text-slate-700"
                     >
                         Email
                     </label>
-                    <input
-                        id="email"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                        required
-                    />
+                    <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <Mail className="h-5 w-5 text-slate-400" />
+                        </div>
+                        <Input
+                            id="email"
+                            type="email"
+                            placeholder="you@example.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="pl-10"
+                            required
+                        />
+                    </div>
                 </div>
 
-                <div>
+                <div className="space-y-1">
                     <label
                         htmlFor="password"
-                        className="block text-sm font-medium text-gray-700"
+                        className="block text-sm font-medium text-slate-700"
                     >
                         Password
                     </label>
-                    <input
-                        id="password"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                        required
-                    />
-                    <p className="text-xs text-gray-500 mt-1">
-                        Password must be at least 6 characters
+                    <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <Lock className="h-5 w-5 text-slate-400" />
+                        </div>
+                        <Input
+                            id="password"
+                            type="password"
+                            placeholder="••••••••"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="pl-10"
+                            required
+                        />
+                    </div>
+                    <p className="text-xs text-slate-500 mt-1">
+                        Must be at least 6 characters
                     </p>
                 </div>
 
-                <button
+                <Button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50"
+                    className="w-full bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white py-2 h-11"
                 >
-                    {loading ? "Creating account..." : "Sign Up"}
-                </button>
+                    {loading ? (
+                        <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Creating account...
+                        </>
+                    ) : (
+                        "Sign up"
+                    )}
+                </Button>
 
                 <div className="relative my-6">
                     <div className="absolute inset-0 flex items-center">
-                        <div className="w-full border-t border-gray-300"></div>
+                        <div className="w-full border-t border-slate-200"></div>
                     </div>
                     <div className="relative flex justify-center text-sm">
-                        <span className="px-2 bg-white text-gray-500">
+                        <span className="px-2 bg-white text-slate-500">
                             Or sign up with
                         </span>
                     </div>
                 </div>
 
-                <button
+                <Button
                     type="button"
+                    variant="outline"
                     onClick={handleGoogleSignUp}
                     disabled={loading}
-                    className="w-full flex justify-center items-center bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                    className="w-full"
                 >
                     <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24">
                         <path
@@ -185,16 +227,16 @@ export default function RegisterForm() {
                         />
                     </svg>
                     Google
-                </button>
+                </Button>
 
-                <div className="text-center mt-4">
-                    <p className="text-sm text-gray-600">
+                <div className="text-center mt-6">
+                    <p className="text-sm text-slate-600">
                         Already have an account?{" "}
                         <Link
                             href="/login"
-                            className="text-teal-600 hover:text-teal-500"
+                            className="font-medium text-teal-600 hover:text-teal-500"
                         >
-                            Log in
+                            Sign in
                         </Link>
                     </p>
                 </div>

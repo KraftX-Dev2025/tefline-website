@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { createServerClient } from "@supabase/ssr";
+import { createServerClient, type CookieOptions } from "@supabase/ssr";
+import { NextResponse, type NextRequest } from "next/server";
 
 // Define public paths that don't require authentication
 const publicPaths = [
@@ -17,7 +17,7 @@ const publicPaths = [
 ];
 
 // Define paths that require authentication
-const protectedPathPrefixes = ["/dashboard", "/profile", "/settings"];
+const protectedPathPrefixes = ["/profile", "/settings"];
 
 export async function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
@@ -35,35 +35,22 @@ export async function middleware(request: NextRequest) {
     // For protected routes, create a response to modify
     const response = NextResponse.next();
 
-    // Create a Supabase client
     const supabase = createServerClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
         {
             cookies: {
-                get(name: string) {
-                    return request.cookies.get(name)?.value;
+                get: (name: string) => request.cookies.get(name)?.value,
+                set: (name: string, value: string, options: CookieOptions) => {
+                    response.cookies.set({ name, value, ...options });
                 },
-                set(name: string, value: string, options: any) {
-                    response.cookies.set({
-                        name,
-                        value,
-                        ...options,
-                    });
-                },
-                remove(name: string, options: any) {
-                    response.cookies.set({
-                        name,
-                        value: "",
-                        ...options,
-                        maxAge: 0,
-                    });
+                remove: (name: string, options: CookieOptions) => {
+                    response.cookies.set({ name, value: "", ...options });
                 },
             },
         }
     );
 
-    // Check if the user is authenticated
     const {
         data: { session },
     } = await supabase.auth.getSession();

@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { createClient } from "@/../utils/supabase/client";
 import SignOutButton from "@/components/auth/signout-button";
 import { redirect } from "next/navigation";
+import { SupabaseUser } from "@/types/supabase";
 
 export default function ProfilePage() {
-    const [user, setUser] = useState<any>(null);
+    const [user, setUser] = useState<SupabaseUser | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -20,7 +21,7 @@ export default function ProfilePage() {
                 redirect("/login");
             }
 
-            setUser(user);
+            setUser(user as SupabaseUser);
             setLoading(false);
         }
 

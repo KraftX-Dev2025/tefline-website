@@ -189,7 +189,7 @@ export function Header() {
                                     className="border-white/30 text-white hover:bg-white/10"
                                     asChild
                                 >
-                                    <Link href="/dashboard">
+                                    <Link href="/profile">
                                         <User className="mr-2 h-4 w-4" />
                                         {session.user?.name?.split(" ")[0] ||
                                             "User"}
@@ -390,7 +390,7 @@ export function Header() {
                                                     className="border-white/30 text-white hover:bg-white/10"
                                                     asChild
                                                 >
-                                                    <Link href="/dashboard">
+                                                    <Link href="/profile">
                                                         <User className="mr-2 h-4 w-4" />
                                                         Dashboard
                                                     </Link>
