@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { useSession, signOut } from "next-auth/react";
+import { useAuth } from "@/providers/supabase-auth-provider";
 import {
     NavigationMenu,
     NavigationMenuItem,
@@ -28,10 +28,11 @@ import {
     Instagram,
 } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
+import { useRouter } from "next/navigation";
 
 export function Header() {
-    const { data: session } = useSession();
-
+    const { user, signOut } = useAuth();
+    const router = useRouter();
     const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -50,6 +51,30 @@ export function Header() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    // Handle signout
+    const handleSignOut = async () => {
+        try {
+            await signOut();
+            router.push("/");
+            router.refresh();
+        } catch (error) {
+            console.error("Error signing out:", error);
+        }
+    };
+
+    // Get user's first name
+    const getUserFirstName = () => {
+        if (!user) return "User";
+
+        // Get first name from user metadata if available
+        if (user.user_metadata?.full_name) {
+            return user.user_metadata.full_name.split(" ")[0];
+        }
+
+        // Otherwise use email or unique id as fallback
+        return user.email?.split("@")[0] || "User";
+    };
 
     // Logo animation
     const logoAnimation = {
@@ -123,7 +148,7 @@ export function Header() {
                     <div className="hidden lg:block">
                         <NavigationMenu className="animate-fadeIn">
                             <NavigationMenuList
-                                className={`gap-1  backdrop-blur-md p-1 rounded-lg border border-teal-700/20 transition-all duration-300 ${
+                                className={`gap-1 backdrop-blur-md p-1 rounded-lg border border-teal-700/20 transition-all duration-300 ${
                                     !isScrolled
                                         ? "bg-teal-800/40"
                                         : "bg-teal-100/40"
@@ -170,15 +195,13 @@ export function Header() {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="hidden md:block"
                     >
-                        {session ? (
+                        {user ? (
                             <div className="flex items-center gap-2">
                                 <Button
                                     variant="outline"
                                     size="sm"
                                     className="border-white/30 text-white hover:bg-white/10"
-                                    onClick={() =>
-                                        signOut({ callbackUrl: "/" })
-                                    }
+                                    onClick={handleSignOut}
                                 >
                                     <LogOut className="mr-2 h-4 w-4" />
                                     Logout
@@ -191,8 +214,7 @@ export function Header() {
                                 >
                                     <Link href="/profile">
                                         <User className="mr-2 h-4 w-4" />
-                                        {session.user?.name?.split(" ")[0] ||
-                                            "User"}
+                                        {getUserFirstName()}
                                     </Link>
                                 </Button>
                             </div>
@@ -353,58 +375,50 @@ export function Header() {
                                         </div>
                                     </motion.div>
 
-                                    {/* Auth Buttons */}
+                                    {/* Mobile Auth Buttons */}
                                     <motion.div
-                                        initial={{ opacity: 0, y: -10 }}
+                                        initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{
                                             duration: 0.5,
-                                            delay: 0.3,
+                                            delay: 0.5,
                                         }}
-                                        className="hidden md:block"
+                                        className="mt-6"
                                     >
-                                        {session ? (
-                                            <div className="flex items-center gap-2">
-                                                <div className="text-sm text-white mr-2">
-                                                    Hi,{" "}
-                                                    {session.user?.name?.split(
-                                                        " "
-                                                    )[0] || "User"}
+                                        {user ? (
+                                            <div className="flex flex-col gap-3">
+                                                <div className="text-sm text-teal-200">
+                                                    Hi, {getUserFirstName()}
                                                 </div>
-                                                <Button
-                                                    variant="outline"
-                                                    size="sm"
-                                                    className="border-white/30 text-white hover:bg-white/10"
-                                                    onClick={() =>
-                                                        signOut({
-                                                            callbackUrl: "/",
-                                                        })
-                                                    }
-                                                >
-                                                    <LogOut className="mr-2 h-4 w-4" />
-                                                    Logout
-                                                </Button>
-                                                <Button
-                                                    variant="outline"
-                                                    size="sm"
-                                                    className="border-white/30 text-white hover:bg-white/10"
-                                                    asChild
-                                                >
-                                                    <Link href="/profile">
-                                                        <User className="mr-2 h-4 w-4" />
-                                                        Dashboard
-                                                    </Link>
-                                                </Button>
+                                                <div className="flex gap-2">
+                                                    <Button
+                                                        variant="outline"
+                                                        size="sm"
+                                                        className="flex-1 border-white/30 text-white hover:bg-white/10"
+                                                        onClick={handleSignOut}
+                                                    >
+                                                        <LogOut className="mr-2 h-4 w-4" />
+                                                        Logout
+                                                    </Button>
+                                                    <Button
+                                                        variant="outline"
+                                                        size="sm"
+                                                        className="flex-1 border-white/30 text-white hover:bg-white/10"
+                                                        asChild
+                                                    >
+                                                        <Link href="/profile">
+                                                            <User className="mr-2 h-4 w-4" />
+                                                            Profile
+                                                        </Link>
+                                                    </Button>
+                                                </div>
                                             </div>
                                         ) : (
                                             <Button
-                                                className="bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md shadow-teal-900/20"
+                                                className="w-full bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md shadow-teal-900/20"
                                                 asChild
                                             >
-                                                <Link
-                                                    href="/login"
-                                                    className="flex items-center"
-                                                >
+                                                <Link href="/login">
                                                     <span>Login</span>
                                                     <ChevronRight className="ml-1 h-4 w-4" />
                                                 </Link>

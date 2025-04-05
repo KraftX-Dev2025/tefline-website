@@ -32,7 +32,6 @@ export async function middleware(request: NextRequest) {
         return NextResponse.next();
     }
 
-    // For protected routes, create a response to modify
     const response = NextResponse.next();
 
     const supabase = createServerClient(

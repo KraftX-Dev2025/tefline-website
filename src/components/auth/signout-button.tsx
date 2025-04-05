@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/../utils/supabase/client";
+import { useAuth } from "@/providers/supabase-auth-provider";
 import { Button } from "@/components/ui/button";
 import { LogOut, Loader2 } from "lucide-react";
 
@@ -14,13 +14,13 @@ export default function SignOutButton({
     variant?: "default" | "outline" | "secondary" | "ghost";
 }) {
     const router = useRouter();
+    const { signOut } = useAuth();
     const [isLoading, setIsLoading] = useState(false);
 
     const handleSignOut = async () => {
         setIsLoading(true);
         try {
-            const supabase = createClient();
-            await supabase.auth.signOut();
+            await signOut();
             router.push("/");
             router.refresh();
         } catch (error) {

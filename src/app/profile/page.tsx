@@ -1,34 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { createClient } from "@/../utils/supabase/client";
+import { useEffect } from "react";
+import { useAuth } from "@/providers/supabase-auth-provider";
 import SignOutButton from "@/components/auth/signout-button";
 import { redirect } from "next/navigation";
-import { SupabaseUser } from "@/types/supabase";
 
 export default function ProfilePage() {
-    const [user, setUser] = useState<SupabaseUser | null>(null);
-    const [loading, setLoading] = useState(true);
+    const { user, isLoading } = useAuth();
 
     useEffect(() => {
-        async function getUser() {
-            const supabase = createClient();
-            const {
-                data: { user },
-            } = await supabase.auth.getUser();
-
-            if (!user) {
-                redirect("/login");
-            }
-
-            setUser(user as SupabaseUser);
-            setLoading(false);
+        if (!isLoading && !user) {
+            redirect("/login");
         }
+    }, [user, isLoading]);
 
-        getUser();
-    }, []);
-
-    if (loading) {
+    if (isLoading) {
         return (
             <div className="flex items-center justify-center min-h-screen">
                 <div className="text-center">
