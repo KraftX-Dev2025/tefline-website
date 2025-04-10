@@ -1,12 +1,21 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { createClient } from "@/../utils/supabase/client";
-import { SupabaseUser } from "@/types/supabase";
+import { createClient } from "@/utils/supabase/client";
+
+type SupabaseUser = {
+    id: string;
+    email?: string;
+    user_metadata: {
+        name?: string;
+    };
+};
 
 type AuthContextType = {
     user: SupabaseUser | null;
     isLoading: boolean;
+    signUp: (email: string, password: string, name: string) => Promise<void>;
+    signIn: (email: string, password: string) => Promise<void>;
     signOut: () => Promise<void>;
 };
 
@@ -47,13 +56,36 @@ export function SupabaseAuthProvider({
         };
     }, []);
 
+    const signUp = async (email: string, password: string, name: string) => {
+        const supabase = createClient();
+        await supabase.auth.signUp({
+            email,
+            password,
+            options: {
+                data: {
+                    name,
+                },
+            },
+        });
+    };
+
+    const signIn = async (email: string, password: string) => {
+        const supabase = createClient();
+        await supabase.auth.signInWithPassword({
+            email,
+            password,
+        });
+    };
+
     const signOut = async () => {
         const supabase = createClient();
         await supabase.auth.signOut();
     };
 
     return (
-        <AuthContext.Provider value={{ user, isLoading, signOut }}>
+        <AuthContext.Provider
+            value={{ user, isLoading, signUp, signIn, signOut }}
+        >
             {children}
         </AuthContext.Provider>
     );
