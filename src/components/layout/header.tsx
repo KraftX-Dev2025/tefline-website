@@ -68,8 +68,8 @@ export function Header() {
         if (!user) return "User";
 
         // Get first name from user metadata if available
-        if (user.user_metadata?.full_name) {
-            return user.user_metadata.full_name.split(" ")[0];
+        if (user.user_metadata?.name) {
+            return user.user_metadata.name.split(" ")[0];
         }
 
         // Otherwise use email or unique id as fallback
