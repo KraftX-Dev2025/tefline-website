@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createClient } from "@/../utils/supabase/client";
 import SignOutButton from "@/components/auth/signout-button";
 import { redirect } from "next/navigation";
@@ -39,6 +39,14 @@ export default function ProfilePage() {
                 </div>
             </div>
         );
+    }
+
+    function updateProfile(event: React.MouseEvent<HTMLButtonElement>): void {
+        throw new Error("Function not implemented.");
+    }
+
+    function updatePassword(event: React.MouseEvent<HTMLButtonElement>): void {
+        throw new Error("Function not implemented.");
     }
 
     return (
@@ -100,19 +108,19 @@ export default function ProfilePage() {
                     </div>
 
                     <div className="border-t pt-6">
-                        <h2 className="font-semibold text-xl mb-4">
+                        {/* <h2 className="font-semibold text-xl mb-4">
                             Account Actions
-                        </h2>
+                        </h2> */}
                         <div className="flex flex-wrap gap-4">
-                            <button className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
+                            <button className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50" onClick={updateProfile}>
                                 Update Profile
                             </button>
-                            <button className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
+                            <button className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50" onClick={updatePassword}>
                                 Change Password
                             </button>
-                            <button className="px-4 py-2 border border-red-300 rounded-md text-red-700 hover:bg-red-50">
+                            {/* <button className="px-4 py-2 border border-red-300 rounded-md text-red-700 hover:bg-red-50" onClick={deleteAccount}>
                                 Delete Account
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </div>
