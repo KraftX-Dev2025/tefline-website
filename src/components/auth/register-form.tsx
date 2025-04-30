@@ -32,6 +32,38 @@ export default function RegisterForm() {
                     data: {
                         full_name: name,
                     },
+<<<<<<< HEAD
+=======
+                    emailRedirectTo: `${window.location.origin}/profile`,
+                },
+            });
+
+            if (signUpError) {
+                setError(signUpError.message);
+                return;
+            }
+
+            // Show success message
+            setMessage("Please check your email to confirm your account");
+        } catch (err) {
+            console.error("Registration error:", err);
+            setError("An unexpected error occurred");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleGoogleSignUp = async () => {
+        setLoading(true);
+        setError(null);
+
+        try {
+            const supabase = createClient();
+            const { error } = await supabase.auth.signInWithOAuth({
+                provider: "google",
+                options: {
+                    redirectTo: `${window.location.origin}/profile`,
+>>>>>>> bdde2b3b100c0a1931698dcae59097e83b0facb7
                 },
             });
 
