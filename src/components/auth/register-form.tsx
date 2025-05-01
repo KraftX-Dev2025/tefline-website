@@ -32,19 +32,17 @@ export default function RegisterForm() {
                     data: {
                         full_name: name,
                     },
-<<<<<<< HEAD
-=======
                     emailRedirectTo: `${window.location.origin}/profile`,
                 },
             });
 
-            if (signUpError) {
-                setError(signUpError.message);
+            if (error) {
+                setError(error.message);
                 return;
             }
 
             // Show success message
-            setMessage("Please check your email to confirm your account");
+            postMessage("Please check your email to confirm your account");
         } catch (err) {
             console.error("Registration error:", err);
             setError("An unexpected error occurred");
@@ -63,7 +61,6 @@ export default function RegisterForm() {
                 provider: "google",
                 options: {
                     redirectTo: `${window.location.origin}/profile`,
->>>>>>> bdde2b3b100c0a1931698dcae59097e83b0facb7
                 },
             });
 
