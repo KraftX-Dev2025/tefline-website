@@ -1,18 +1,10 @@
 "use client";
 
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { Suspense } from "react";
 import { motion } from "framer-motion";
 import { BrainCircuit, Sparkles } from "lucide-react";
 import LoginForm from "@/components/auth/login-form";
-=======
-import React, { useEffect, useState } from "react";
-import { createClient } from "@/../utils/supabase/client";
-import SignOutButton from "@/components/auth/signout-button";
-import { redirect } from "next/navigation";
-import { SupabaseUser } from "@/types/supabase";
->>>>>>> bdde2b3b100c0a1931698dcae59097e83b0facb7
 
 export default function LoginPage() {
     const [isMounted, setIsMounted] = useState(false);
@@ -46,31 +38,12 @@ export default function LoginPage() {
                 </div>
             </div>
 
-<<<<<<< HEAD
             {/* Main content */}
             <div className="flex-grow bg-gradient-to-b from-teal-50 via-white to-teal-50 relative">
                 {/* Background elements */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <div className="absolute -top-10 -left-10 w-80 h-80 rounded-full bg-teal-300/10 blur-[100px]" />
                     <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-sky-300/10 blur-[100px]" />
-=======
-    function updateProfile(event: React.MouseEvent<HTMLButtonElement>): void {
-        throw new Error("Function not implemented.");
-    }
-
-    function updatePassword(event: React.MouseEvent<HTMLButtonElement>): void {
-        throw new Error("Function not implemented.");
-    }
-
-    return (
-        <div className="container mx-auto py-20 px-4">
-            <div className="max-w-2xl mx-auto bg-white rounded-xl p-8 shadow-md">
-                <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-3xl font-bold text-gray-800">
-                        Your Profile
-                    </h1>
-                    <SignOutButton />
->>>>>>> bdde2b3b100c0a1931698dcae59097e83b0facb7
                 </div>
 
                 {/* Form section */}
@@ -126,7 +99,6 @@ export default function LoginPage() {
                                     </div>
                                 </div>
 
-<<<<<<< HEAD
                                 {/* Form component */}
                                 <div className="px-6 pb-8">
                                     <Suspense fallback={<div>Loading...</div>}>
@@ -153,23 +125,6 @@ export default function LoginPage() {
                                 </a>
                             </motion.div>
                         )}
-=======
-                    <div className="border-t pt-6">
-                        {/* <h2 className="font-semibold text-xl mb-4">
-                            Account Actions
-                        </h2> */}
-                        <div className="flex flex-wrap gap-4">
-                            <button className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50" onClick={updateProfile}>
-                                Update Profile
-                            </button>
-                            <button className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50" onClick={updatePassword}>
-                                Change Password
-                            </button>
-                            {/* <button className="px-4 py-2 border border-red-300 rounded-md text-red-700 hover:bg-red-50" onClick={deleteAccount}>
-                                Delete Account
-                            </button> */}
-                        </div>
->>>>>>> bdde2b3b100c0a1931698dcae59097e83b0facb7
                     </div>
                 </div>
             </div>
