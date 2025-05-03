@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export function Header() {
     const router = useRouter();
@@ -104,8 +105,10 @@ export function Header() {
                         variants={logoAnimation}
                     >
                         <Link href="/" className="flex items-center">
-                            <div className="bg-gradient-to-r from-teal-400 to-teal-600 p-2 rounded-lg mr-2">
-                                <BrainCircuit className="h-6 w-6 text-white" />
+                            <div >
+                                {/* <div className="bg-gradient-to-r from-teal-400 to-teal-600 p-2 rounded-lg mr-2"> */}
+                                {/* <BrainCircuit className="h-6 w-6 text-white" /> */}
+                                <Image src={"/favicon.png"} alt="Logo" width={80} height={80} className="rounded-full" />
                             </div>
                             <div>
                                 <span
