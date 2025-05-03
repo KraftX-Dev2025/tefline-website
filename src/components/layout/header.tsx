@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { useAuth } from "@/providers/supabase-auth-provider";
 import {
     NavigationMenu,
     NavigationMenuItem,
@@ -29,9 +28,9 @@ import {
 } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export function Header() {
-    const { user, signOut } = useAuth();
     const router = useRouter();
     const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
@@ -51,30 +50,6 @@ export function Header() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
-
-    // Handle signout
-    const handleSignOut = async () => {
-        try {
-            await signOut();
-            router.push("/");
-            router.refresh();
-        } catch (error) {
-            console.error("Error signing out:", error);
-        }
-    };
-
-    // Get user's first name
-    const getUserFirstName = () => {
-        if (!user) return "User";
-
-        // Get first name from user metadata if available
-        if (user.user_metadata?.name) {
-            return user.user_metadata.name.split(" ")[0];
-        }
-
-        // Otherwise use email or unique id as fallback
-        return user.email?.split("@")[0] || "User";
-    };
 
     // Logo animation
     const logoAnimation = {
@@ -115,11 +90,10 @@ export function Header() {
 
     return (
         <header
-            className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-                isScrolled
-                    ? "bg-teal-900/85 backdrop-blur-md py-2 shadow-lg"
-                    : "bg-transparent py-4"
-            }`}
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+                ? "bg-teal-900/85 backdrop-blur-md py-2 shadow-lg"
+                : "bg-transparent py-4"
+                }`}
         >
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center">
@@ -131,8 +105,10 @@ export function Header() {
                         variants={logoAnimation}
                     >
                         <Link href="/" className="flex items-center">
-                            <div className="bg-gradient-to-r from-teal-400 to-teal-600 p-2 rounded-lg mr-2">
-                                <BrainCircuit className="h-6 w-6 text-white" />
+                            <div >
+                                {/* <div className="bg-gradient-to-r from-teal-400 to-teal-600 p-2 rounded-lg mr-2"> */}
+                                {/* <BrainCircuit className="h-6 w-6 text-white" /> */}
+                                <Image src={"/favicon.png"} alt="Logo" width={80} height={80} className="rounded-full" />
                             </div>
                             <div>
                                 <span
@@ -148,11 +124,10 @@ export function Header() {
                     <div className="hidden lg:block">
                         <NavigationMenu className="animate-fadeIn">
                             <NavigationMenuList
-                                className={`gap-1 backdrop-blur-md p-1 rounded-lg border border-teal-700/20 transition-all duration-300 ${
-                                    !isScrolled
-                                        ? "bg-teal-800/40"
-                                        : "bg-teal-100/40"
-                                }`}
+                                className={`gap-1 backdrop-blur-md p-1 rounded-lg border border-teal-700/20 transition-all duration-300 ${!isScrolled
+                                    ? "bg-teal-800/40"
+                                    : "bg-teal-100/40"
+                                    }`}
                             >
                                 {navLinks.map((link, index) => (
                                     <motion.div
@@ -174,8 +149,8 @@ export function Header() {
                                                         navigationMenuTriggerStyle(),
                                                         "text-white hover:text-teal-200 transition-colors",
                                                         pathname ===
-                                                            link.href &&
-                                                            "bg-teal-700/50 text-teal-200"
+                                                        link.href &&
+                                                        "bg-teal-700/50 text-teal-200"
                                                     )}
                                                 >
                                                     {link.name}
@@ -195,43 +170,20 @@ export function Header() {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="hidden md:block"
                     >
-                        {user ? (
-                            <div className="flex items-center gap-2">
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    className="border-white/30 text-white hover:bg-white/10"
-                                    onClick={handleSignOut}
-                                >
-                                    <LogOut className="mr-2 h-4 w-4" />
-                                    Logout
-                                </Button>
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    className="border-white/30 text-white hover:bg-white/10"
-                                    asChild
-                                >
-                                    <Link href="/profile">
-                                        <User className="mr-2 h-4 w-4" />
-                                        {getUserFirstName()}
-                                    </Link>
-                                </Button>
-                            </div>
-                        ) : (
-                            <Button
-                                className="bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md shadow-teal-900/20"
-                                asChild
+
+                        <Button
+                            className=" bg-white text-teal-500 font-bold shadow-md shadow-teal-900/20"
+                            asChild
+                        >
+
+                            <Link
+                                href="https://tefline-product.vercel.app/register"
+                                className="flex items-center"
                             >
-                                <Link
-                                    href="/login"
-                                    className="flex items-center"
-                                >
-                                    <span>Login</span>
-                                    <ChevronRight className="ml-1 h-4 w-4" />
-                                </Link>
-                            </Button>
-                        )}
+                                <span>Get Started</span>
+                                <ChevronRight className="ml-1 h-4 w-4" />
+                            </Link>
+                        </Button>
                     </motion.div>
 
                     {/* Mobile Menu Button */}
@@ -296,33 +248,32 @@ export function Header() {
                                                                     opacity: 1,
                                                                     x: 0,
                                                                     transition:
-                                                                        {
-                                                                            duration: 0.3,
-                                                                            delay:
-                                                                                0.1 +
-                                                                                index *
-                                                                                    0.05,
-                                                                        },
+                                                                    {
+                                                                        duration: 0.3,
+                                                                        delay:
+                                                                            0.1 +
+                                                                            index *
+                                                                            0.05,
+                                                                    },
                                                                 }}
                                                                 exit={{
                                                                     opacity: 0,
                                                                     x: -20,
                                                                     transition:
-                                                                        {
-                                                                            duration: 0.2,
-                                                                        },
+                                                                    {
+                                                                        duration: 0.2,
+                                                                    },
                                                                 }}
                                                             >
                                                                 <Link
                                                                     href={
                                                                         link.href
                                                                     }
-                                                                    className={`flex items-center py-2 px-3 rounded-md transition-colors ${
-                                                                        pathname ===
+                                                                    className={`flex items-center py-2 px-3 rounded-md transition-colors ${pathname ===
                                                                         link.href
-                                                                            ? "bg-teal-800 text-teal-200"
-                                                                            : "hover:bg-teal-800/70 text-teal-200 hover:text-white"
-                                                                    }`}
+                                                                        ? "bg-teal-800 text-teal-200"
+                                                                        : "hover:bg-teal-800/70 text-teal-200 hover:text-white"
+                                                                        }`}
                                                                     onClick={() =>
                                                                         setIsMobileMenuOpen(
                                                                             false
@@ -385,45 +336,16 @@ export function Header() {
                                         }}
                                         className="mt-6"
                                     >
-                                        {user ? (
-                                            <div className="flex flex-col gap-3">
-                                                <div className="text-sm text-teal-200">
-                                                    Hi, {getUserFirstName()}
-                                                </div>
-                                                <div className="flex gap-2">
-                                                    <Button
-                                                        variant="outline"
-                                                        size="sm"
-                                                        className="flex-1 border-white/30 text-white hover:bg-white/10"
-                                                        onClick={handleSignOut}
-                                                    >
-                                                        <LogOut className="mr-2 h-4 w-4" />
-                                                        Logout
-                                                    </Button>
-                                                    <Button
-                                                        variant="outline"
-                                                        size="sm"
-                                                        className="flex-1 border-white/30 text-white hover:bg-white/10"
-                                                        asChild
-                                                    >
-                                                        <Link href="/profile">
-                                                            <User className="mr-2 h-4 w-4" />
-                                                            Profile
-                                                        </Link>
-                                                    </Button>
-                                                </div>
-                                            </div>
-                                        ) : (
-                                            <Button
-                                                className="w-full bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md shadow-teal-900/20"
-                                                asChild
-                                            >
-                                                <Link href="/login">
-                                                    <span>Login</span>
-                                                    <ChevronRight className="ml-1 h-4 w-4" />
-                                                </Link>
-                                            </Button>
-                                        )}
+
+                                        <Button
+                                            className="w-full bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md shadow-teal-900/20"
+                                            asChild
+                                        >
+                                            <Link href="https://tefline-product.vercel.app/register">
+                                                <span>Login</span>
+                                                <ChevronRight className="ml-1 h-4 w-4" />
+                                            </Link>
+                                        </Button>
                                     </motion.div>
                                 </motion.div>
                             </SheetContent>
