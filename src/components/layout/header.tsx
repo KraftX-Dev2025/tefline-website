@@ -174,7 +174,7 @@ export function Header() {
                         >
 
                             <Link
-                                href="http://localhost:3001/login"
+                                href="https://tefline-product.vercel.app/register"
                                 className="flex items-center"
                             >
                                 <span>Get Started</span>
@@ -338,7 +338,7 @@ export function Header() {
                                             className="w-full bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md shadow-teal-900/20"
                                             asChild
                                         >
-                                            <Link href="localhost:3001/login">
+                                            <Link href="https://tefline-product.vercel.app/register">
                                                 <span>Login</span>
                                                 <ChevronRight className="ml-1 h-4 w-4" />
                                             </Link>
