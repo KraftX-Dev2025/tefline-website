@@ -46,9 +46,8 @@ const Accordion = ({
             className="bg-white rounded-xl shadow-md border border-teal-100 overflow-hidden"
         >
             <motion.div
-                className={`p-5 cursor-pointer flex justify-between items-center hover:bg-teal-50/50 transition-colors duration-200 ${
-                    isOpen ? "bg-teal-50/80" : ""
-                }`}
+                className={`p-5 cursor-pointer flex justify-between items-center hover:bg-teal-50/50 transition-colors duration-200 ${isOpen ? "bg-teal-50/80" : ""
+                    }`}
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <h3 className="text-lg font-semibold text-teal-700 flex items-center">
@@ -58,9 +57,8 @@ const Accordion = ({
                     {faq.question}
                 </h3>
                 <div
-                    className={`text-teal-500 transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                    }`}
+                    className={`text-teal-500 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                        }`}
                 >
                     <ChevronDown />
                 </div>
@@ -535,12 +533,11 @@ export default function ContactPage() {
                                                     key={inquiry.id}
                                                     whileHover={{ y: -3 }}
                                                     whileTap={{ scale: 0.98 }}
-                                                    className={`cursor-pointer rounded-xl shadow-sm p-4 flex flex-col transition-all duration-200 ${
-                                                        selectedInquiry ===
-                                                        inquiry.id
+                                                    className={`cursor-pointer rounded-xl shadow-sm p-4 flex flex-col transition-all duration-200 ${selectedInquiry ===
+                                                            inquiry.id
                                                             ? "bg-teal-50 border-2 border-teal-400 shadow-teal-100"
                                                             : "border border-slate-200 hover:border-teal-200 bg-white"
-                                                    }`}
+                                                        }`}
                                                     onClick={() =>
                                                         setSelectedInquiry(
                                                             inquiry.id
@@ -548,22 +545,20 @@ export default function ContactPage() {
                                                     }
                                                 >
                                                     <div
-                                                        className={`w-10 h-10 rounded-lg ${
-                                                            selectedInquiry ===
-                                                            inquiry.id
+                                                        className={`w-10 h-10 rounded-lg ${selectedInquiry ===
+                                                                inquiry.id
                                                                 ? "bg-teal-400 text-white"
                                                                 : "bg-slate-100 text-slate-500"
-                                                        } flex items-center justify-center mb-2`}
+                                                            } flex items-center justify-center mb-2`}
                                                     >
                                                         {inquiry.icon}
                                                     </div>
                                                     <span
-                                                        className={`${
-                                                            selectedInquiry ===
-                                                            inquiry.id
+                                                        className={`${selectedInquiry ===
+                                                                inquiry.id
                                                                 ? "text-teal-700 font-medium"
                                                                 : "text-slate-700"
-                                                        } text-sm`}
+                                                            } text-sm`}
                                                     >
                                                         {inquiry.label}
                                                     </span>
@@ -765,7 +760,7 @@ export default function ContactPage() {
                                     <div className="aspect-video rounded-lg bg-slate-200 relative overflow-hidden">
                                         {/* Map Placeholder - In a real implementation, this would be replaced with a Google Maps integration */}
                                         <Image
-                                            src="/placeholder.webp"
+                                            src="/tefline-image1.png"
                                             alt="Map location"
                                             width={800}
                                             height={400}

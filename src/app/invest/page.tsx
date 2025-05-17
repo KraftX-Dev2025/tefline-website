@@ -371,7 +371,7 @@ export default function InvestPage() {
                             <div className="absolute -bottom-6 -right-6 w-full h-full bg-amber-100 rounded-xl opacity-70" />
                             <div className="relative">
                                 <Image
-                                    src="/placeholder.webp"
+                                    src="/tefline-image9.png"
                                     alt="Investment opportunity"
                                     width={600}
                                     height={400}
@@ -657,20 +657,18 @@ export default function InvestPage() {
                                     duration: 0.6,
                                     delay: stage.delay,
                                 }}
-                                className={`relative z-10 mb-12 flex ${
-                                    stage.position === "left"
+                                className={`relative z-10 mb-12 flex ${stage.position === "left"
                                         ? "flex-row-reverse sm:flex-row"
                                         : "flex-row-reverse"
-                                }`}
+                                    }`}
                             >
                                 {/* Timeline point */}
                                 <div className="absolute sm:static flex items-center justify-center left-0 sm:left-auto transform sm:transform-none -translate-x-[12px] sm:translate-x-0">
                                     <div
-                                        className={`w-10 h-10 flex items-center justify-center rounded-full border-4 border-white ${
-                                            index === 1
+                                        className={`w-10 h-10 flex items-center justify-center rounded-full border-4 border-white ${index === 1
                                                 ? "bg-amber-500"
                                                 : "bg-teal-500"
-                                        } shadow-md`}
+                                            } shadow-md`}
                                     >
                                         {index === 1 && (
                                             <span className="text-white text-xs font-bold">
@@ -682,26 +680,23 @@ export default function InvestPage() {
 
                                 {/* Content card */}
                                 <div
-                                    className={`ml-8 sm:ml-0 ${
-                                        stage.position === "left"
+                                    className={`ml-8 sm:ml-0 ${stage.position === "left"
                                             ? "sm:mr-12 text-left"
                                             : "sm:ml-12 text-left"
-                                    } sm:w-[calc(50%-24px)]`}
+                                        } sm:w-[calc(50%-24px)]`}
                                 >
                                     <div
-                                        className={`bg-white p-5 rounded-xl shadow-md border ${
-                                            index === 1
+                                        className={`bg-white p-5 rounded-xl shadow-md border ${index === 1
                                                 ? "border-amber-200"
                                                 : "border-teal-100"
-                                        } relative`}
+                                            } relative`}
                                     >
                                         {/* Arrow */}
                                         <div
-                                            className={`absolute hidden sm:block h-4 w-4 bg-white border-t border-l ${
-                                                stage.position === "left"
+                                            className={`absolute hidden sm:block h-4 w-4 bg-white border-t border-l ${stage.position === "left"
                                                     ? "right-0 transform translate-x-2 rotate-45 border-r-0 border-b-0 border-teal-100"
                                                     : "left-0 transform -translate-x-2 rotate-225 border-r-0 border-b-0 border-teal-100"
-                                            } top-6`}
+                                                } top-6`}
                                         ></div>
 
                                         <div className="flex justify-between items-start mb-3">

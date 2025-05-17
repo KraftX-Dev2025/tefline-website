@@ -195,7 +195,7 @@ export default function TeamPage() {
                                                     >
                                                         <div className="w-full h-full rounded-full overflow-hidden bg-gray-100">
                                                             <Image
-                                                                src="/placeholder.webp"
+                                                                src={member.image ?? "/subramanium.png"}
                                                                 alt={
                                                                     member.name
                                                                 }

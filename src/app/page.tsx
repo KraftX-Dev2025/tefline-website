@@ -267,7 +267,7 @@ export default function Home() {
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-white/80 shadow-xl border border-white/70 p-3">
                                     <Image
-                                        src="/placeholder.webp"
+                                        src="/tefline-image1.png"
                                         alt="Health Technology"
                                         width={800}
                                         height={600}
@@ -308,7 +308,7 @@ export default function Home() {
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-teal-600/30 shadow-xl border border-teal-500 p-3">
                                     <Image
-                                        src="/placeholder.webp"
+                                        src="/tefline-image2.png"
                                         alt="Lifestyle Medicine"
                                         width={800}
                                         height={600}
