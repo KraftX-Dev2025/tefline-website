@@ -273,8 +273,8 @@ export default function ServicesPage() {
                                 }}
                                 className="group"
                             >
-                                <Card className="h-full overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300">
-                                    <div className="relative h-52 w-full overflow-hidden">
+                                <Card className="h-full overflow-hidden border-none rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                                    <div className="relative h-72 w-full overflow-hidden rounded-xl">
                                         <Image
                                             src={service.imageUrl}
                                             alt={service.title}
@@ -408,16 +408,16 @@ export default function ServicesPage() {
                                 animate={
                                     isResultsInView
                                         ? {
-                                              opacity: 1,
-                                              y: 0,
-                                              scale: 1,
-                                              transition: {
-                                                  type: "spring",
-                                                  stiffness: 200,
-                                                  damping: 12,
-                                                  delay: 0.1 * index,
-                                              },
-                                          }
+                                            opacity: 1,
+                                            y: 0,
+                                            scale: 1,
+                                            transition: {
+                                                type: "spring",
+                                                stiffness: 200,
+                                                damping: 12,
+                                                delay: 0.1 * index,
+                                            },
+                                        }
                                         : {}
                                 }
                                 whileHover={{
@@ -643,9 +643,9 @@ export default function ServicesPage() {
                                     animate={
                                         isEnterpriseInView
                                             ? {
-                                                  width: ["0%", "100%", "0%"],
-                                                  x: ["0%", "0%", "100%"],
-                                              }
+                                                width: ["0%", "100%", "0%"],
+                                                x: ["0%", "0%", "100%"],
+                                            }
                                             : {}
                                     }
                                     transition={{
@@ -756,7 +756,7 @@ export default function ServicesPage() {
 
                                 <div className="relative h-64 md:h-auto overflow-hidden">
                                     <Image
-                                        src="/images/enterprise-wellness.jpg"
+                                        src="/tefline-image9.png"
                                         alt="Enterprise wellness"
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"

@@ -13,6 +13,7 @@ export interface TeamMember {
     slug: string;
     role: string;
     secondaryRole: string;
+    image?: string;
     shortBio: string;
     fullBio: string[];
     theme: {
@@ -39,6 +40,7 @@ export const teamMembers: TeamMember[] = [
         slug: "subra",
         role: "Principal Founder & CEO",
         secondaryRole: "Chief AI Officer",
+        image: "/subramanium.png",
         shortBio:
             "A visionary technologist, AI strategist, and category creator who built a career of identifying white spaces.",
         fullBio: [
@@ -53,7 +55,7 @@ export const teamMembers: TeamMember[] = [
             from: "from-teal-500/80",
             via: "via-teal-400/80",
             to: "to-cyan-500",
-            textColor: "text-teal-400",
+            textColor: "text-white",
             lightBg: "teal-50",
             glowClass: "hover:shadow-teal-500/20",
             accentBg: "bg-teal-500",
@@ -78,6 +80,8 @@ export const teamMembers: TeamMember[] = [
         slug: "madhu",
         role: "Strategic Founder & CTO",
         secondaryRole: "Chief Talent Officer",
+        image: "/pramod-joshi.jpg",
+
         shortBio:
             "Pioneering the integration of human potential, digital intelligence, and workforce well-being.",
         fullBio: [
@@ -91,7 +95,7 @@ export const teamMembers: TeamMember[] = [
             from: "from-blue-500/80",
             via: "via-blue-400/80",
             to: "to-indigo-500",
-            textColor: "text-blue-400",
+            textColor: "text-white",
             lightBg: "blue-50",
             glowClass: "hover:shadow-blue-500/20",
             accentBg: "bg-blue-500",
@@ -116,6 +120,8 @@ export const teamMembers: TeamMember[] = [
         slug: "selena",
         role: "Chief Intelligent Assistant Officer",
         secondaryRole: "CIAO",
+        image: "/selena-deus.webp",
+
         shortBio:
             "Tefline's AI-powered C-suite agent ensuring precision in decision-making and market foresight.",
         fullBio: [
@@ -129,7 +135,7 @@ export const teamMembers: TeamMember[] = [
             from: "from-purple-500/80",
             via: "via-fuchsia-500/80",
             to: "to-violet-500",
-            textColor: "text-purple-400",
+            textColor: "text-white",
             lightBg: "purple-50",
             glowClass: "hover:shadow-purple-500/20",
             accentBg: "bg-purple-500",
@@ -154,6 +160,8 @@ export const teamMembers: TeamMember[] = [
         slug: "kulkarni",
         role: "Chairman, Advisory Board",
         secondaryRole: "Medical Advisory Council",
+        image: "/adarsh-kulkarni.jpg",
+
         shortBio:
             "A distinguished UK-trained physician and a prominent critical care consultant.",
         fullBio: [
@@ -168,7 +176,7 @@ export const teamMembers: TeamMember[] = [
             from: "from-orange-500/80",
             via: "via-orange-400/80",
             to: "to-amber-500",
-            textColor: "text-orange-400",
+            textColor: "text-white",
             lightBg: "orange-50",
             glowClass: "hover:shadow-orange-500/20",
             accentBg: "bg-orange-500",

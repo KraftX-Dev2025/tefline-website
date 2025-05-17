@@ -79,13 +79,13 @@ export function Header() {
     // Navigation links
     const navLinks = [
         { name: "Home", href: "/" },
-        { name: "About", href: "/about" },
-        { name: "Vision", href: "/vision-mission" },
-        { name: "Team", href: "/team" },
+        { name: "Cohort", href: "/team" },
+        { name: "Concierge", href: "/about" },
+        { name: "Context", href: "/vision-mission" },
         { name: "Services", href: "/services" },
         { name: "Press", href: "/press" },
-        { name: "Invest", href: "/invest" },
-        { name: "Contact", href: "/contact" },
+        { name: "Capitalization", href: "/invest" },
+        { name: "Connect", href: "/contact" },
     ];
 
     return (
