@@ -83,7 +83,7 @@ export function Footer() {
             title: "Company",
             links: [
                 { name: "Home", href: "/" },
-                { name: "Services", href: "/services" },
+                { name: "Modules", href: "/modules" },
                 { name: "Invest", href: "/invest" },
                 { name: "Connect", href: "/contact" },
                 ...additionalNavLinks,
