@@ -127,33 +127,7 @@ export function Footer() {
                         variants={itemVariants}
                     >
                         <div>
-                            <motion.div
-                                className="flex items-center mb-4"
-                                whileHover={{ x: 3 }}
-                                transition={{ type: "spring", stiffness: 300 }}
-                            >
-                                <div className="mr-3">
-                                    <motion.div
-                                        whileHover={{
-                                            rotate: [0, -10, 10, -10, 0],
-                                        }}
-                                        transition={{ duration: 0.5 }}
-                                    >
-                                        <Image
-                                            src="/favicon.png"
-                                            alt=""
-                                            width={40}
-                                            height={40}
-                                            className="rounded-full shadow-sm"
-                                        />
-                                    </motion.div>
-                                </div>
-                                <span className="text-xl font-bold text-gray-900">
-                                    TEFLINE
-                                </span>
-                            </motion.div>
-
-                            <p className="text-gray-700 mb-6">
+                            <p className="text-gray-700 mb-6 font-bold">
                                 Redefining modern healthcare by blending
                                 evidence-informed wellness with agentic
                                 intelligence, all backed by a community which

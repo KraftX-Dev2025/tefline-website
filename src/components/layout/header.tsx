@@ -92,7 +92,7 @@ export function Header() {
             className={`fixed top-0 w-full z-50 transition-all duration-500 ${
                 isScrolled
                     ? "bg-white/85 backdrop-blur-md py-3 shadow-sm border-b border-gray-200"
-                    : "bg-transparent py-4"
+                    : "bg-white/100 py-4"
             }`}
         >
             <div className="container max-w-7xl mx-auto px-4">
@@ -125,11 +125,7 @@ export function Header() {
                                     />
                                 </motion.div>
                             </div>
-                            <motion.span
-                                className={`text-2xl font-bold transition-colors duration-300 ${
-                                    isScrolled ? "text-gray-900" : "text-white"
-                                }`}
-                            >
+                            <motion.span className="text-2xl font-bold transition-colors duration-300 bg-gradient-to-r from-teal-500 to-violet-500 text-transparent bg-clip-text">
                                 TEFLINE
                             </motion.span>
                         </Link>
@@ -170,9 +166,7 @@ export function Header() {
                                                         pathname === link.href
                                                             ? "font-semibold"
                                                             : "",
-                                                        isScrolled
-                                                            ? "text-gray-900 hover:text-violet-500"
-                                                            : "text-white hover:text-white/80"
+                                                        "text-gray-900 hover:text-violet-500"
                                                     )}
                                                 >
                                                     {link.name}
@@ -248,11 +242,7 @@ export function Header() {
                                 <Button
                                     variant="ghost"
                                     size="icon"
-                                    className={`${
-                                        isScrolled
-                                            ? "text-gray-900"
-                                            : "text-white"
-                                    } hover:bg-white/10`}
+                                    className="text-gray-900 hover:bg-gray-100"
                                     aria-label="Open navigation menu"
                                 >
                                     <Menu className="h-6 w-6" />
