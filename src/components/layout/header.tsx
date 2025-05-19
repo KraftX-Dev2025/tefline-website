@@ -2,24 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import {
     Menu,
-    BrainCircuit,
     ChevronRight,
-    LogOut,
-    User,
-    Brain,
     X,
     Facebook,
     Twitter,
@@ -27,96 +21,117 @@ import {
     Instagram,
 } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
-import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export function Header() {
-    const router = useRouter();
     const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    // Track which nav item is being hovered
+    const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+    // Debounced scroll handler
+    const handleScroll = useCallback(() => {
+        if (window.scrollY > 10) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(false);
+        }
+    }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 10) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, []);
+    }, [handleScroll]);
+
+    // Main navigation links
+    const navLinks = [
+        { name: "Home", href: "/" },
+        { name: "Services", href: "/services" },
+        { name: "Invest", href: "/invest" },
+        { name: "Connect", href: "/contact" },
+    ];
 
     // Logo animation
-    const logoAnimation = {
+    const logoVariants = {
         initial: { opacity: 0, y: -10 },
         animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-        whileHover: { scale: 1.05, transition: { duration: 0.2 } },
+        hover: { scale: 1.05, transition: { duration: 0.2 } },
     };
 
-    // Desktop navigation item animation
-    const navItemAnimation = {
+    // Individual nav item animation (entry animation only)
+    const navItemVariants = {
         initial: { opacity: 0, y: -10 },
         animate: (i: number) => ({
             opacity: 1,
             y: 0,
-            transition: {
-                duration: 0.3,
-                delay: 0.1 + i * 0.05,
-            },
+            transition: { duration: 0.3, delay: 0.1 + i * 0.05 },
         }),
-        whileHover: {
-            scale: 1.05,
-            color: "#5eead4",
+    };
+
+    // Button animation
+    const buttonVariants = {
+        initial: { opacity: 0, y: -10 },
+        animate: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, delay: 0.3 },
+        },
+        hover: {
+            y: -2,
+            boxShadow: "0 8px 16px rgba(147, 93, 253, 0.2)",
             transition: { duration: 0.2 },
         },
     };
 
-    // Navigation links
-    const navLinks = [
-        { name: "Home", href: "/" },
-        { name: "Cohort", href: "/team" },
-        { name: "Concierge", href: "/about" },
-        { name: "Context", href: "/vision-mission" },
-        { name: "Services", href: "/services" },
-        { name: "Press", href: "/press" },
-        { name: "Capitalization", href: "/invest" },
-        { name: "Connect", href: "/contact" },
-    ];
-
     return (
         <header
-            className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-                ? "bg-teal-900/85 backdrop-blur-md py-2 shadow-lg"
-                : "bg-transparent py-4"
-                }`}
+            className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+                isScrolled
+                    ? "bg-white/85 backdrop-blur-md py-3 shadow-sm border-b border-gray-200"
+                    : "bg-transparent py-4"
+            }`}
         >
-            <div className="container mx-auto px-4">
+            <div className="container max-w-7xl mx-auto px-4">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
                     <motion.div
                         initial="initial"
                         animate="animate"
-                        whileHover="whileHover"
-                        variants={logoAnimation}
+                        whileHover="hover"
+                        variants={logoVariants}
                     >
-                        <Link href="/" className="flex items-center">
-                            <div >
-                                {/* <div className="bg-gradient-to-r from-teal-400 to-teal-600 p-2 rounded-lg mr-2"> */}
-                                {/* <BrainCircuit className="h-6 w-6 text-white" /> */}
-                                <Image src={"/favicon.png"} alt="Logo" width={80} height={80} className="rounded-full" />
-                            </div>
-                            <div>
-                                <span
-                                    className={`text-2xl font-bold bg-clip-text text-transparent transition-all duration-300 bg-teal-50`}
+                        <Link
+                            href="/"
+                            className="flex items-center"
+                            aria-label="Tefline - Homepage"
+                        >
+                            <div className="mr-3">
+                                <motion.div
+                                    whileHover={{
+                                        rotate: [0, -10, 10, -10, 0],
+                                    }}
+                                    transition={{ duration: 0.5 }}
                                 >
-                                    TEFLINE
-                                </span>
+                                    <Image
+                                        src="/favicon.png"
+                                        alt="Tefline Logo"
+                                        width={40}
+                                        height={40}
+                                        className="rounded-full shadow-sm"
+                                    />
+                                </motion.div>
                             </div>
+                            <motion.span
+                                className={`text-2xl font-bold transition-colors duration-300 ${
+                                    isScrolled ? "text-gray-900" : "text-white"
+                                }`}
+                            >
+                                TEFLINE
+                            </motion.span>
                         </Link>
                     </motion.div>
 
@@ -124,21 +139,26 @@ export function Header() {
                     <div className="hidden lg:block">
                         <NavigationMenu className="animate-fadeIn">
                             <NavigationMenuList
-                                className={`gap-1 backdrop-blur-md p-1 rounded-lg border border-teal-700/20 transition-all duration-300 ${!isScrolled
-                                    ? "bg-teal-800/40"
-                                    : "bg-teal-100/40"
-                                    }`}
+                                className={`gap-8 p-1 rounded-lg transition-all duration-300 ${
+                                    !isScrolled
+                                        ? "bg-white/10 backdrop-blur-md"
+                                        : "bg-transparent"
+                                }`}
                             >
                                 {navLinks.map((link, index) => (
-                                    <motion.div
-                                        key={link.href}
-                                        custom={index}
-                                        initial="initial"
-                                        animate="animate"
-                                        whileHover="whileHover"
-                                        variants={navItemAnimation}
-                                    >
-                                        <NavigationMenuItem>
+                                    <NavigationMenuItem key={link.href}>
+                                        <motion.div
+                                            custom={index}
+                                            initial="initial"
+                                            animate="animate"
+                                            variants={navItemVariants}
+                                            onMouseEnter={() =>
+                                                setHoveredItem(link.href)
+                                            }
+                                            onMouseLeave={() =>
+                                                setHoveredItem(null)
+                                            }
+                                        >
                                             <Link
                                                 href={link.href}
                                                 legacyBehavior
@@ -146,42 +166,74 @@ export function Header() {
                                             >
                                                 <NavigationMenuLink
                                                     className={cn(
-                                                        navigationMenuTriggerStyle(),
-                                                        "text-white hover:text-teal-200 transition-colors",
-                                                        pathname ===
-                                                        link.href &&
-                                                        "bg-teal-700/50 text-teal-200"
+                                                        "text-base font-medium px-3 py-2 rounded-md transition-colors duration-200 relative",
+                                                        pathname === link.href
+                                                            ? "font-semibold"
+                                                            : "",
+                                                        isScrolled
+                                                            ? "text-gray-900 hover:text-violet-500"
+                                                            : "text-white hover:text-white/80"
                                                     )}
                                                 >
                                                     {link.name}
+                                                    {pathname === link.href && (
+                                                        <motion.span
+                                                            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-0.5 bg-gradient-to-r from-teal-500 to-violet-500 rounded-full"
+                                                            layoutId="activeNavIndicator"
+                                                        />
+                                                    )}
+                                                    {/* Individual hover underline - only appears when this specific item is hovered */}
+                                                    <motion.span
+                                                        className="absolute bottom-0 left-1/2 h-0.5 bg-gradient-to-r from-teal-500 to-violet-500 rounded-full"
+                                                        initial={{
+                                                            width: 0,
+                                                            x: "-50%",
+                                                        }}
+                                                        animate={{
+                                                            width:
+                                                                hoveredItem ===
+                                                                link.href
+                                                                    ? "100%"
+                                                                    : "0%",
+                                                            x: "-50%",
+                                                        }}
+                                                        transition={{
+                                                            duration: 0.3,
+                                                        }}
+                                                    />
                                                 </NavigationMenuLink>
                                             </Link>
-                                        </NavigationMenuItem>
-                                    </motion.div>
+                                        </motion.div>
+                                    </NavigationMenuItem>
                                 ))}
                             </NavigationMenuList>
                         </NavigationMenu>
                     </div>
 
-                    {/* Auth Buttons */}
+                    {/* Get Started Button */}
                     <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
+                        initial="initial"
+                        animate="animate"
+                        whileHover="hover"
+                        variants={buttonVariants}
                         className="hidden md:block"
                     >
-
                         <Button
-                            className=" bg-white text-teal-500 font-bold shadow-md shadow-teal-900/20"
+                            className="bg-gradient-to-r from-teal-500 to-violet-500 text-white hover:shadow-lg transition-all duration-300"
                             asChild
                         >
-
                             <Link
                                 href="https://tefline-product.vercel.app/register"
                                 className="flex items-center"
                             >
                                 <span>Get Started</span>
-                                <ChevronRight className="ml-1 h-4 w-4" />
+                                <motion.div
+                                    animate={{ x: 0 }}
+                                    whileHover={{ x: 3 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    <ChevronRight className="ml-1 h-4 w-4" />
+                                </motion.div>
                             </Link>
                         </Button>
                     </motion.div>
@@ -196,25 +248,31 @@ export function Header() {
                                 <Button
                                     variant="ghost"
                                     size="icon"
-                                    className="text-white hover:bg-teal-800/50"
+                                    className={`${
+                                        isScrolled
+                                            ? "text-gray-900"
+                                            : "text-white"
+                                    } hover:bg-white/10`}
+                                    aria-label="Open navigation menu"
                                 >
                                     <Menu className="h-6 w-6" />
                                 </Button>
                             </SheetTrigger>
                             <SheetContent
                                 side="right"
-                                className="bg-teal-900 text-white border-teal-800 w-[300px] sm:w-[350px] p-0 overflow-hidden transition-transform duration-500 ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 [&>button]:hidden"
+                                className="bg-white text-gray-900 border-gray-300 w-[300px] sm:w-[350px] p-0 overflow-hidden [&>button]:hidden"
                             >
-                                <motion.div
-                                    initial={{ opacity: 0, x: 50 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.5 }}
-                                    className="p-6"
-                                >
+                                <div className="p-6">
                                     <div className="flex items-center justify-between mb-8">
-                                        <div className="flex items-center text-teal-200">
-                                            <div className="bg-gradient-to-r from-teal-400 to-teal-600 p-1.5 rounded-md mr-2">
-                                                <Brain className="h-5 w-5 text-white" />
+                                        <div className="flex items-center text-violet-500">
+                                            <div className="p-1.5 rounded-md mr-2">
+                                                <Image
+                                                    src="/favicon.png"
+                                                    alt="Tefline Logo"
+                                                    width={40}
+                                                    height={40}
+                                                    className="rounded-full"
+                                                />
                                             </div>
                                             <span className="font-bold">
                                                 TEFLINE
@@ -223,10 +281,11 @@ export function Header() {
                                         <Button
                                             variant="ghost"
                                             size="icon"
-                                            className="text-teal-300 hover:text-white hover:bg-teal-800/70"
+                                            className="text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                                             onClick={() =>
                                                 setIsMobileMenuOpen(false)
                                             }
+                                            aria-label="Close navigation menu"
                                         >
                                             <X className="h-5 w-5" />
                                         </Button>
@@ -234,53 +293,48 @@ export function Header() {
                                     <div className="space-y-4">
                                         <AnimatePresence>
                                             {isMobileMenuOpen && (
-                                                <div className="space-y-4">
+                                                <div className="space-y-3">
                                                     {navLinks.map(
                                                         (link, index) => (
                                                             <motion.div
                                                                 key={link.href}
-                                                                custom={index}
                                                                 initial={{
                                                                     opacity: 0,
-                                                                    x: -50,
+                                                                    x: -20,
                                                                 }}
                                                                 animate={{
                                                                     opacity: 1,
                                                                     x: 0,
-                                                                    transition:
-                                                                    {
-                                                                        duration: 0.3,
-                                                                        delay:
-                                                                            0.1 +
-                                                                            index *
-                                                                            0.05,
-                                                                    },
                                                                 }}
                                                                 exit={{
                                                                     opacity: 0,
-                                                                    x: -20,
-                                                                    transition:
-                                                                    {
-                                                                        duration: 0.2,
-                                                                    },
+                                                                    x: -10,
+                                                                }}
+                                                                transition={{
+                                                                    duration: 0.3,
+                                                                    delay:
+                                                                        0.1 +
+                                                                        index *
+                                                                            0.05,
                                                                 }}
                                                             >
                                                                 <Link
                                                                     href={
                                                                         link.href
                                                                     }
-                                                                    className={`flex items-center py-2 px-3 rounded-md transition-colors ${pathname ===
+                                                                    className={`flex items-center py-3 px-4 rounded-md transition-colors ${
+                                                                        pathname ===
                                                                         link.href
-                                                                        ? "bg-teal-800 text-teal-200"
-                                                                        : "hover:bg-teal-800/70 text-teal-200 hover:text-white"
-                                                                        }`}
+                                                                            ? "bg-purple-50 text-violet-500 font-semibold"
+                                                                            : "hover:bg-gray-50 text-gray-700 hover:text-violet-500"
+                                                                    }`}
                                                                     onClick={() =>
                                                                         setIsMobileMenuOpen(
                                                                             false
                                                                         )
                                                                     }
                                                                 >
-                                                                    <ChevronRight className="mr-2 h-4 w-4 text-teal-300" />
+                                                                    <ChevronRight className="mr-2 h-4 w-4 text-teal-500" />
                                                                     {link.name}
                                                                 </Link>
                                                             </motion.div>
@@ -291,9 +345,9 @@ export function Header() {
                                         </AnimatePresence>
                                     </div>
 
-                                    {/* Mobile Contact Info */}
+                                    {/* Social Media Links */}
                                     <motion.div
-                                        className="mt-8 pt-6 border-t border-teal-800"
+                                        className="mt-8 pt-6 border-t border-gray-200"
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{
@@ -301,7 +355,7 @@ export function Header() {
                                             delay: 0.4,
                                         }}
                                     >
-                                        <p className="text-sm text-teal-300 mb-4">
+                                        <p className="text-sm text-gray-700 mb-4">
                                             Connect with us
                                         </p>
                                         <div className="flex space-x-4">
@@ -314,10 +368,10 @@ export function Header() {
                                                 <motion.a
                                                     key={index}
                                                     href="#"
-                                                    className="text-teal-300 hover:text-white transition-colors"
+                                                    className="text-violet-500 hover:text-violet-700 transition-colors p-2 rounded-full hover:bg-purple-50"
+                                                    aria-label={`Connect with us on ${Icon.name}`}
                                                     whileHover={{
                                                         scale: 1.15,
-                                                        rotate: 5,
                                                     }}
                                                 >
                                                     <Icon className="h-5 w-5" />
@@ -326,7 +380,7 @@ export function Header() {
                                         </div>
                                     </motion.div>
 
-                                    {/* Mobile Auth Buttons */}
+                                    {/* Mobile Get Started Button */}
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -336,18 +390,17 @@ export function Header() {
                                         }}
                                         className="mt-6"
                                     >
-
                                         <Button
-                                            className="w-full bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white shadow-md shadow-teal-900/20"
+                                            className="w-full bg-gradient-to-r from-teal-500 to-violet-500 text-white"
                                             asChild
                                         >
                                             <Link href="https://tefline-product.vercel.app/register">
-                                                <span>Login</span>
-                                                <ChevronRight className="ml-1 h-4 w-4" />
+                                                <span>Get Started</span>
+                                                <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                             </Link>
                                         </Button>
                                     </motion.div>
-                                </motion.div>
+                                </div>
                             </SheetContent>
                         </Sheet>
                     </div>
