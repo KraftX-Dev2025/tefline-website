@@ -176,7 +176,7 @@ export default function TeamPage() {
                                 onMouseLeave={() => setActiveCard(null)}
                             >
                                 <Link
-                                    href={`/team/${member.slug}`}
+                                    href={`/cohort/${member.slug}`}
                                     className="block h-full"
                                 >
                                     <div className="relative group h-full bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 border border-white/20 hover:border-white/30">
@@ -195,7 +195,10 @@ export default function TeamPage() {
                                                     >
                                                         <div className="w-full h-full rounded-full overflow-hidden bg-gray-100">
                                                             <Image
-                                                                src={member.image ?? "/subramanium.png"}
+                                                                src={
+                                                                    member.image ??
+                                                                    "/subramanium.png"
+                                                                }
                                                                 alt={
                                                                     member.name
                                                                 }

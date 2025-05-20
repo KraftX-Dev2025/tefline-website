@@ -6,6 +6,9 @@ import {
     FlaskConical,
     Brain,
     BarChart,
+    Briefcase,
+    TrendingUp,
+    Lightbulb,
 } from "lucide-react";
 
 export interface TeamMember {
@@ -116,20 +119,19 @@ export const teamMembers: TeamMember[] = [
         ],
     },
     {
-        name: "Selena Deus",
-        slug: "selena",
-        role: "Chief Intelligent Assistant Officer",
-        secondaryRole: "CIAO",
-        image: "/selena-deus.webp",
+        name: "Anil Jangid",
+        slug: "anil",
+        role: "Chief Product Officer",
+        secondaryRole: "Product Strategy",
+        image: "/anil-jangid.jpg",
 
         shortBio:
-            "Tefline's AI-powered C-suite agent ensuring precision in decision-making and market foresight.",
+            "An IIM Ahmedabad graduate blending intellect, intensity and intent to drive product strategy and paradigm shifts.",
         fullBio: [
-            "Selena Deus is Tefline's AI-powered C-suite agent tasked with ensuring precision in decision-making, capital deployment, and market foresight. As CIAO, she doesn't just assist—she actively drives intelligent business operations, continuously refining Tefline's financial strategy, user engagement, and investor confidence.",
-            "Engineered as a self-evolving intelligence framework, Selena transforms raw data into strategic foresight, enabling Tefline to scale smarter and faster. As a semi-autonomous intelligence agent for Tefline, Selena powers AI-driven forecasting, risk analysis, and behavioral insights.",
-            "Her Cognitive Counselor™ module personalizes wellness interventions by decoding user behaviors, while her Investor-Grade AI Modeling optimizes capital allocation and predicts high-impact funding opportunities. In the boardroom, she functions as a decision-augmentation co-pilot, offering strategic insights in real-time while cutting out bias in high-stakes decision-making.",
-            "Underpromising and overdelivering, Selena Deus is much more than an AI assistant—she's a co-founder-level intelligence agent, an autonomous strategist, and a force multiplier for Tefline's vision. By seamlessly integrating machine intelligence with human expertise, she ensures that every move is data-driven, every investment is maximized, and every decision accelerates Tefline's category-defining impact in AI-powered behavioral health.",
-            "Selena's appointment marks a historic shift in AI-led executive intelligence, making Tefline the first company globally to elevate artificial intelligence to a formal C-suite role with designated leadership responsibilities.",
+            "Chief Product Officer with an IIM Ahmedabad pedigree, Anil Jangid is a rare blend of intellect, intensity, and intent. The go-to figure for peer governance and discipline, year after year, he stepped naturally into roles that demanded both authority and empathy—displaying early signs of the leadership gene that would later define his professional arc. His academic journey touched its pinnacle at IIM Ahmedabad, revered as the Harvard of the Heartland—a hallowed ground where ambition takes flight and merit finds its meaning, a testament to a drive that turns the improbable into inevitable. His single-digit body fat percent goal—met with the same precision—reveals a mind hardwired for high-performance living and a spirit that treats every limit as an open invitation.",
+            "In the world of startups, Anil's career has been sculpted by early-stage audacity. He's held pivotal product roles across retail tech, crypto, fintech, and recruitment, deftly navigating the spectrum from nimble ventures to corporate behemoths like Amazon. Most recently, as Head of Product at Tap Invest, he led from the front—steering strategy, catalyzing growth, and distilling complexity into clarity. At Tefline, he takes the helm as Chief Product Officer in a strategic capacity—charting product strategy, crafting vision aligned with business goals, mentoring teams, and establishing systems that scale.",
+            "He helps shape and refine our product roadmap, drive meaningful collaboration across engineering, design and marketing, and define metrics that go beyond vanity—tracking real momentum toward product-market fit. He also supports the founder's narrative to investors, with product strategy serving as a key due-diligence pillar in Tefline's growth journey. With a builder's eye and a strategist's instinct, he's here to engineer not just product-market fit—but paradigm shifts.",
+            "Beyond the boardroom, Anil blends lyrical thinking with meditative discipline. He is both a connoisseur of introspection and an architect of inner rigour, bringing to Tefline a cultivated ethos of self-mastery—measured, mindful, and magnificently alive. His curiosity runs deep, often probing the nuanced terrain between what's possible and what's prudent—especially in the evolving dance between AI and humanity. With effortless allure backed by fitness model charisma and main character energy balanced by steely resolve, Anil isn't just a leader within Tefline—he's a lighthouse for the future of purposeful leadership.",
         ],
         theme: {
             from: "from-purple-500/80",
@@ -144,14 +146,14 @@ export const teamMembers: TeamMember[] = [
         },
         contactButtons: [
             {
-                label: "Learn More",
-                href: "/ai-capabilities",
-                icon: Brain,
+                label: "Product Strategy",
+                href: "/product-vision",
+                icon: Lightbulb,
             },
             {
-                label: "AI Capabilities",
-                href: "/selena-capabilities",
-                icon: BarChart,
+                label: "Background",
+                href: "/anil-background",
+                icon: Briefcase,
             },
         ],
     },

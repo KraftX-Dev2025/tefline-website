@@ -49,10 +49,10 @@ export function Header() {
 
     // Main navigation links
     const navLinks = [
-        { name: "Home", href: "/" },
+        { name: "Crest", href: "/" },
         { name: "Modules", href: "/modules" },
-        { name: "Invest", href: "/invest" },
-        { name: "Connect", href: "/contact" },
+        { name: "Capitalize", href: "/capitalize" },
+        { name: "Connect", href: "/connect" },
     ];
 
     // Logo animation

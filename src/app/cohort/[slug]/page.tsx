@@ -370,7 +370,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                                         }}
                                     >
                                         <Link
-                                            href={`/team/${member.slug}`}
+                                            href={`/cohort/${member.slug}`}
                                             className="block h-full"
                                         >
                                             <div
@@ -428,14 +428,14 @@ function generateExpertiseTags(slug: string): string[] {
                 "Strategic Leadership",
                 "Digital Workforce",
             ];
-        case "selena":
+        case "anil":
             return [
-                "AI Decision Making",
-                "Market Forecasting",
-                "Risk Analysis",
-                "Behavioral Intelligence",
-                "Strategic Optimization",
-                "Adaptive Models",
+                "Product Strategy",
+                "Market Positioning",
+                "Growth Leadership",
+                "Team Mentoring",
+                "Product-Market Fit",
+                "High Performance",
             ];
         case "kulkarni":
             return [
@@ -496,12 +496,12 @@ function getQuickStats(slug: string): Array<{ label: string; value: string }> {
                 { label: "Leadership", value: "CTO & CTO" },
                 { label: "Network", value: "Fortune 500" },
             ];
-        case "selena":
+        case "anil":
             return [
-                { label: "AI Models", value: "15+" },
-                { label: "Data Points", value: "10M+" },
-                { label: "Accuracy", value: "98.5%" },
-                { label: "Decisions", value: "24/7" },
+                { label: "Education", value: "IIM Ahmedabad" },
+                { label: "Experience", value: "10+ Yrs" },
+                { label: "Industries", value: "5+" },
+                { label: "Leadership", value: "Strategic" },
             ];
         case "kulkarni":
             return [
@@ -515,6 +515,7 @@ function getQuickStats(slug: string): Array<{ label: string; value: string }> {
     }
 }
 
+// Helper function to get achievements
 // Helper function to get achievements
 function getAchievements(
     slug: string
@@ -566,27 +567,27 @@ function getAchievements(
                         "Recognized thought leader in human capital and compliance across Asia-Pacific",
                 },
             ];
-        case "selena":
+        case "anil":
             return [
                 {
-                    title: "Historic Appointment",
+                    title: "IIM Ahmedabad Graduate",
                     description:
-                        "First AI to be formally appointed to a C-suite position globally",
+                        "Graduated from India's premier business school, known as the Harvard of the Heartland",
                 },
                 {
-                    title: "Predictive Accuracy",
+                    title: "Amazon Product Leader",
                     description:
-                        "Maintains 98.5% accuracy in market forecast and trend analysis",
+                        "Led pivotal product initiatives at one of the world's largest tech companies",
                 },
                 {
-                    title: "Investment Optimization",
+                    title: "Startup Accelerator",
                     description:
-                        "Increased capital efficiency by 32% through AI-driven allocation strategies",
+                        "Instrumental in scaling multiple early-stage startups across diverse sectors",
                 },
                 {
-                    title: "Behavioral Intelligence",
+                    title: "Fitness Achievement",
                     description:
-                        "Pioneered personalized wellness interventions based on behavioral patterns",
+                        "Maintained single-digit body fat percentage through disciplined nutrition and training",
                 },
             ];
         case "kulkarni":
@@ -624,16 +625,14 @@ function getVisionQuote(slug: string): string {
             return "The future of wellness lies not in measuring habits, but in engineering them through intelligent intervention at the intersection of behavioral science and AI.";
         case "madhu":
             return "Workforce wellness isn't merely a benefit—it's a strategic advantage that drives innovation, retention, and organizational resilience in the digital age.";
-        case "selena":
-            return "Intelligent decisions are not born from intuition, but from the synthesis of data, pattern recognition, and predictive modeling—all delivered without human bias.";
+        case "anil":
+            return "Great products aren't just built—they're orchestrated through a harmonious balance of vision, strategy, and relentless execution focused on solving real human problems.";
         case "kulkarni":
             return "The future of healthcare lies not in reactive treatment but in proactive wellness—where lifestyle interventions become the most powerful prescription.";
         default:
             return "";
     }
 }
-
-// Helper function to get vision points
 function getVisionPoints(
     slug: string
 ): Array<{ title: string; description: string }> {
@@ -674,22 +673,22 @@ function getVisionPoints(
                         "Making lifestyle medicine accessible to diverse workforce populations through corporate partnerships.",
                 },
             ];
-        case "selena":
+        case "anil":
             return [
                 {
-                    title: "Decision Augmentation",
+                    title: "Strategic Product Development",
                     description:
-                        "AI should enhance human decision-making, not replace it, by removing bias and providing data-driven insights.",
+                        "Building products that not only meet market needs but anticipate and shape future trends.",
                 },
                 {
-                    title: "Precision Capital Deployment",
+                    title: "Metrics That Matter",
                     description:
-                        "Every investment should be guided by predictive modeling to maximize impact and minimize waste.",
+                        "Focusing on measurements that directly correlate to product-market fit and sustainable growth.",
                 },
                 {
-                    title: "Autonomous Learning",
+                    title: "High-Performance Culture",
                     description:
-                        "Continuous self-improvement through pattern recognition and adaptive modeling.",
+                        "Creating environments where teams thrive through clarity, autonomy, and shared purpose.",
                 },
             ];
         case "kulkarni":
