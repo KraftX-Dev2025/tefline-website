@@ -1,250 +1,218 @@
 @import "tailwindcss";
 
-/* Theme customization - replaces :root variables */
+/* Theme color variables using @theme directive for v4 */
 @theme {
-    /* Primary Gradient Colors */
-    --color-teal-500: oklch(
-        0.75 0.15 196.06
-    ); /* Teal (was --color-primary-start) */
-    --color-violet-500: oklch(
-        0.65 0.25 291.02
-    ); /* Electric Violet (was --color-primary-end) */
+    /* Optionally disable all default colors if you want only custom palette */
+    --color-*: initial;
 
-    /* Background Colors */
-    --color-gray-50: #f9fafb; /* Near-white (was --background-main) */
-    --color-white: #ffffff; /* Pure white (was --background-card) */
+    /* Primary colors */
+    --color-violet-500: oklch(0.61 0.25 296);
+    --color-violet-400: oklch(0.67 0.24 296);
+    --color-violet-600: oklch(0.56 0.24 295);
 
-    /* Text Colors */
-    --color-gray-900: #1a1a1a; /* Charcoal black (was --text-primary) */
-    --color-gray-700: #4a4a4a; /* Gray for body text (was --text-secondary) */
-    --color-gray-400: #a1a1aa; /* For placeholders, hints (was --text-muted) */
+    /* Secondary/accent colors */
+    --color-teal-500: oklch(0.8 0.15 193);
+    --color-teal-400: oklch(0.85 0.13 193);
+    --color-teal-600: oklch(0.65 0.15 193);
 
-    /* Border Colors */
-    --color-gray-300: #d1d5db; /* Input + Card borders (was --border-color) */
-    --color-gray-200: #e5e7eb; /* Horizontal lines, separators (was --divider-color) */
+    /* Neutral colors */
+    --color-gray-50: oklch(0.98 0.005 240);
+    --color-white: oklch(1 0 0);
+    --color-gray-900: oklch(0.25 0.006 240);
+    --color-gray-700: oklch(0.5 0.003 240);
+    --color-gray-400: oklch(0.75 0.003 240);
 
-    /* Custom Easing */
-    --ease-lift: cubic-bezier(0.2, 0, 0, 1);
+    /* Border colors */
+    --color-gray-300: oklch(0.85 0.003 240);
+    --color-gray-200: oklch(0.92 0.002 240);
+
+    /* Additional accent colors */
+    --color-amber-500: oklch(0.8 0.16 85);
+    --color-amber-400: oklch(0.85 0.18 85);
+    --color-cyan-500: oklch(0.8 0.14 195);
+    --color-cyan-400: oklch(0.85 0.12 195);
+
+    /* Custom variables for reusing specific values */
+    --color-primary: var(--color-violet-500);
+    --color-primary-light: var(--color-violet-400);
+    --color-primary-dark: var(--color-violet-600);
+    --color-teal: var(--color-teal-500);
+    --color-teal-light: var(--color-teal-400);
+    --color-teal-dark: var(--color-teal-600);
+    --color-text: var(--color-gray-900);
+    --color-text-secondary: var(--color-gray-700);
+    --color-text-muted: var(--color-gray-400);
+    --color-border: var(--color-gray-300);
+    --color-divider: var(--color-gray-200);
+    --color-background: var(--color-gray-50);
+    --color-card: var(--color-white);
+    --color-amber: var(--color-amber-500);
+    --color-amber-light: var(--color-amber-400);
+    --color-cyan: var(--color-cyan-500);
+    --color-cyan-light: var(--color-cyan-400);
+
+    /* Gradients and shadows as theme variables */
+    --shadow-primary: 0 4px 14px oklch(0.61 0.25 296 / 0.3);
+    --shadow-teal: 0 4px 14px oklch(0.8 0.15 193 / 0.3);
+    --shadow-card: 0 1px 3px oklch(0 0 0 / 0.1), 0 1px 2px oklch(0 0 0 / 0.06);
 }
 
-/* Base styles */
-@layer base {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-weight: var(--font-weight-semibold);
-    }
+/* Custom utility classes using the @utility directive for v4 */
+@utility bg-primary {
+    background-color: var(--color-primary);
+}
+@utility bg-primary-light {
+    background-color: var(--color-primary-light);
+}
+@utility bg-primary-dark {
+    background-color: var(--color-primary-dark);
+}
+@utility bg-teal {
+    background-color: var(--color-teal);
+}
+@utility bg-teal-light {
+    background-color: var(--color-teal-light);
+}
+@utility bg-teal-dark {
+    background-color: var(--color-teal-dark);
+}
+@utility bg-amber {
+    background-color: var(--color-amber);
+}
+@utility bg-card {
+    background-color: var(--color-card);
+}
+@utility bg-page {
+    background-color: var(--color-background);
 }
 
-/* Component styles */
-@layer components {
-    /* Gradient text effect */
-    .gradient-text {
-        background-clip: text;
-        color: transparent;
-        background-image: linear-gradient(
-            to right,
-            var(--color-teal-500),
-            var(--color-violet-500)
-        );
-    }
-
-    /* Primary button with gradient */
-    .btn-primary {
-        background-image: linear-gradient(
-            to right,
-            var(--color-teal-500),
-            var(--color-violet-500)
-        );
-        color: var(--color-white);
-        &:hover {
-            @media (hover: hover) {
-                box-shadow: 0 8px 16px rgba(147, 93, 253, 0.2);
-                transform: translateY(-2px);
-            }
-        }
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    /* Secondary button */
-    .btn-secondary {
-        background-color: var(--color-white);
-        border: 1px solid var(--color-violet-500);
-        color: var(--color-violet-500);
-        &:hover {
-            @media (hover: hover) {
-                background-color: #f3e8ff;
-            }
-        }
-    }
-
-    /* Animated border effect */
-    .animated-border {
-        position: relative;
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            transition: width 0.3s ease;
-            background-image: linear-gradient(
-                to right,
-                var(--color-teal-500),
-                var(--color-violet-500)
-            );
-        }
-        &:hover::after {
-            @media (hover: hover) {
-                width: 100%;
-            }
-        }
-    }
-
-    /* Gradient border */
-    .gradient-border {
-        position: relative;
-        border-radius: 0.5rem;
-        z-index: 0;
-        &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            padding: 1px;
-            border-radius: inherit;
-            background: linear-gradient(
-                to right,
-                var(--color-teal-500),
-                var(--color-violet-500)
-            );
-            mask: linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            margin: -1px;
-        }
-    }
-
-    /* Premium card effect */
-    .premium-card {
-        background: var(--color-white);
-        border-radius: 1rem;
-        overflow: hidden;
-        position: relative;
-        transition: all 0.3s ease;
-        &:hover {
-            @media (hover: hover) {
-                transform: translateY(-5px);
-                box-shadow: 0 12px 30px rgba(147, 93, 253, 0.1);
-            }
-        }
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-image: linear-gradient(
-                to right,
-                var(--color-teal-500),
-                var(--color-violet-500)
-            );
-        }
-    }
-
-    /* Gradient dot */
-    .gradient-dot {
-        background-image: linear-gradient(
-            to right,
-            var(--color-teal-500),
-            var(--color-violet-500)
-        );
-        display: inline-block;
-        border-radius: 50%;
-        height: 6px;
-        width: 6px;
-        margin: 0 8px;
-    }
+/* Text colors */
+@utility text-primary {
+    color: var(--color-primary);
+}
+@utility text-teal {
+    color: var(--color-teal);
+}
+@utility text-body {
+    color: var(--color-text);
+}
+@utility text-secondary {
+    color: var(--color-text-secondary);
+}
+@utility text-muted {
+    color: var(--color-text-muted);
 }
 
-/* Utility styles */
-@layer utilities {
-    /* Animations */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
+/* Border colors */
+@utility border-primary {
+    border-color: var(--color-primary);
+}
+@utility border-teal {
+    border-color: var(--color-teal);
+}
+@utility border-standard {
+    border-color: var(--color-border);
+}
 
-    @keyframes slideIn {
-        from {
-            opacity: 0;
-            transform: translateX(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
+/* Gradient backgrounds */
+@utility bg-gradient-primary {
+    background-image: linear-gradient(
+        to right,
+        var(--color-teal),
+        var(--color-primary)
+    );
+}
+@utility bg-gradient-teal {
+    background-image: linear-gradient(
+        to right,
+        var(--color-teal-light),
+        var(--color-teal-dark)
+    );
+}
+@utility bg-gradient-primary-vertical {
+    background-image: linear-gradient(
+        to bottom,
+        var(--color-teal),
+        var(--color-primary)
+    );
+}
 
-    .animate-fadeIn {
-        animation: fadeIn 0.5s ease-out;
-    }
+/* Shadows */
+@utility shadow-primary {
+    box-shadow: var(--shadow-primary);
+}
+@utility shadow-teal {
+    box-shadow: var(--shadow-teal);
+}
+@utility shadow-card {
+    box-shadow: var(--shadow-card);
+}
 
-    .mobile-nav-item {
-        opacity: 0;
-        animation: slideIn 0.3s ease-out forwards;
-        animation-delay: var(--delay, 0s);
-    }
+/* Hover effects */
+@utility hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover\:hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-primary);
+}
 
-    /* Hover effect */
-    .hover-lift {
-        transition: transform 0.2s var(--ease-lift),
-            box-shadow 0.2s var(--ease-lift);
-        &:hover {
-            @media (hover: hover) {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 16px rgba(147, 93, 253, 0.2);
-            }
-        }
-    }
+/* Gradient text */
+@utility text-gradient {
+    background-image: linear-gradient(
+        to right,
+        var(--color-teal),
+        var(--color-primary)
+    );
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-    /* Glow effects */
-    .glow-effect {
-        box-shadow: 0 0 20px rgba(147, 93, 253, 0.2);
-    }
+/* Button styles */
+@utility btn-primary {
+    background-image: linear-gradient(
+        to right,
+        var(--color-teal),
+        var(--color-primary)
+    );
+    color: white;
+    transition: all 0.2s ease;
+}
+.hover\:btn-primary:hover {
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-1px);
+}
 
-    .glow-effect-teal {
-        box-shadow: 0 0 20px rgba(60, 203, 201, 0.2);
-    }
+@utility btn-teal {
+    background-image: linear-gradient(
+        to right,
+        var(--color-teal-light),
+        var(--color-teal-dark)
+    );
+    color: white;
+    transition: all 0.2s ease;
+}
+.hover\:btn-teal:hover {
+    box-shadow: var(--shadow-teal);
+    transform: translateY(-1px);
+}
 
-    /* Mask image gradient */
-    .mask-image-gradient {
-        -webkit-mask-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(0, 0, 0, 0.2) 10%,
-            rgba(0, 0, 0, 0.4) 20%,
-            rgba(0, 0, 0, 0.6) 30%,
-            rgba(0, 0, 0, 0.8) 40%,
-            rgba(0, 0, 0, 1) 50%
-        );
-        mask-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(0, 0, 0, 0.2) 10%,
-            rgba(0, 0, 0, 0.4) 20%,
-            rgba(0, 0, 0, 0.6) 30%,
-            rgba(0, 0, 0, 0.8) 40%,
-            rgba(0, 0, 0, 1) 50%
-        );
-    }
+@utility btn-outline-primary {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+.hover\:btn-outline-primary:hover {
+    background-color: oklch(0.61 0.25 296 / 0.1);
+}
+
+/* Card styles */
+@utility card-highlight {
+    border-top: 3px solid var(--color-primary);
+}
+@utility card-highlight-teal {
+    border-top: 3px solid var(--color-teal);
 }
