@@ -95,16 +95,16 @@ export default function Home() {
                     style={{ y: backgroundY }}
                 >
                     {/* Main teal gradient - aligned with other pages */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 via-teal-700/80 to-teal-600"></div>
+                    <div className="absolute top-0 left-0 w-full h-full primary-gradient"></div>
 
                     {/* Blurred gradient circles */}
-                    <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
+                    {/* <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
                     <div className="absolute bottom-0 left-1/4 w-[30rem] h-[30rem] rounded-full bg-teal-400/20 blur-[100px] opacity-60"></div>
-                    <div className="absolute top-1/3 left-0 w-[25rem] h-[25rem] rounded-full bg-amber-400/10 blur-[80px] opacity-70"></div>
+                    <div className="absolute top-1/3 left-0 w-[25rem] h-[25rem] rounded-full bg-amber-400/10 blur-[80px] opacity-70"></div> */}
                 </motion.div>
 
                 {/* Wave pattern overlay */}
-                <div className="absolute bottom-0 left-0 w-full z-10">
+                {/* <div className="absolute bottom-0 left-0 w-full z-10">
                     <svg
                         viewBox="0 0 1200 120"
                         preserveAspectRatio="none"
@@ -121,7 +121,7 @@ export default function Home() {
                             opacity=".3"
                         />
                     </svg>
-                </div>
+                </div> */}
 
                 {/* Scrolling indicator */}
                 <motion.div
@@ -157,7 +157,9 @@ export default function Home() {
                             className="mb-3 py-1 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
                         >
                             <Sparkles className="w-4 h-4 mr-2" />
-                            Redefining Modern Healthcare
+                            <span className="text-white text-xl">
+                                Redefining Modern Healthcare
+                            </span>
                         </motion.div>
                         <motion.h1
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
@@ -172,7 +174,7 @@ export default function Home() {
                             Lifestyle Medicine
                         </motion.h1>
                         <motion.p
-                            className="text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
+                            className="text-xl md:text-2xl mb-10 text-white/70 leading-relaxed"
                             variants={fadeIn}
                         >
                             Blending evidence-informed wellness with agentic
@@ -210,17 +212,17 @@ export default function Home() {
                         transition={{ delay: 1, duration: 0.8 }}
                     >
                         <Heart className="w-5 h-5 mr-2 text-amber-400" />
-                        <span>Evidence-Based Approach</span>
+                        <span className="text-white">Evidence-Based Approach</span>
                     </motion.div>
 
                     <motion.div
-                        className="hidden md:flex absolute right-10 top-2/3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg text-teal-50 items-center"
+                        className="hidden md:flex absolute right-10 top-2/3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg text-teal-50 items-center "
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 1.3, duration: 0.8 }}
                     >
                         <Brain className="w-5 h-5 mr-2 text-amber-400" />
-                        <span>Powered by Agentic Intelligence</span>
+                        <span className="text-white">Powered by Agentic Intelligence</span>
                     </motion.div>
                 </div>
             </section>
@@ -352,7 +354,7 @@ export default function Home() {
                                 Comprehensive Wellness Approach
                             </div>
                             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">
-                                <span className="bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
+                                <span >
                                     LIFESTYLE MEDICINE
                                 </span>{" "}
                                 Through AI-Driven Intelligence
@@ -372,7 +374,7 @@ export default function Home() {
                             </p>
                             <Link
                                 href="/services"
-                                className="inline-flex items-center text-white font-semibold group px-5 py-2 rounded-lg border border-teal-500 hover:bg-teal-600/50 transition-all duration-200 hover:scale-105"
+                                className="inline-flex items-center text-black font-semibold group px-5 py-2 rounded-lg border border-teal-500 hover:bg-teal-600/50 transition-all duration-200 hover:scale-105"
                             >
                                 Learn More About RxLifeMed
                                 <div className="ml-2 w-5 h-5 rounded-full bg-teal-600 flex items-center justify-center group-hover:bg-teal-500 transition-colors duration-200">
@@ -655,8 +657,8 @@ export default function Home() {
                                     </div>
                                 </div>
 
-                                <div className="relative h-16 w-full rounded-lg overflow-hidden mb-6 border border-teal-500/50">
-                                    <div className="absolute inset-0 bg-teal-600/40 rounded-lg"></div>
+                                <div className="relative h-16 w-full rounded-lg overflow-hidden mb-6 border-2 border-white">
+                                    <div className="absolute inset-0 bg-white rounded-lg"></div>
                                     <motion.div
                                         initial={{ width: 0 }}
                                         whileInView={{ width: "75%" }}
@@ -667,7 +669,7 @@ export default function Home() {
                                         viewport={{ once: true }}
                                         className="absolute top-0 left-0 h-full rounded-lg bg-gradient-to-r from-teal-500/70 to-teal-400/70"
                                     ></motion.div>
-                                    <div className="absolute inset-0 flex items-center justify-center text-xs font-semibold text-white">
+                                    <div className="absolute inset-0 flex items-center justify-center text-md font-semibold text-white">
                                         Wellness Score: 75%
                                     </div>
                                 </div>
@@ -695,10 +697,11 @@ export default function Home() {
                                         <Globe className="h-5 w-5 text-white" />
                                     ),
                                     color: "from-teal-500 to-teal-400",
-                                    glowColor: "glow-teal",
+
+                                    glowColor: "text-teal-500",
                                     delay: 0.3,
-                                    lightColor: "bg-teal-500/10",
-                                    textColor: "text-teal-300",
+                                    lightColor: "bg-teal-500/20",
+                                    textColor: "text-teal-500",
                                     stats: ["1,200+", "Resources"],
                                     link: "/services",
                                 },
@@ -710,7 +713,7 @@ export default function Home() {
                                         <Zap className="h-5 w-5 text-white" />
                                     ),
                                     color: "from-amber-500 to-amber-400",
-                                    glowColor: "glow-amber",
+                                    glowColor: "text-amber-500",
                                     delay: 0.5,
                                     lightColor: "bg-amber-500/10",
                                     textColor: "text-amber-300",
@@ -725,7 +728,7 @@ export default function Home() {
                                         <Brain className="h-5 w-5 text-white" />
                                     ),
                                     color: "from-cyan-500 to-cyan-400",
-                                    glowColor: "glow-cyan",
+                                    glowColor: "text-teal-500",
                                     delay: 0.7,
                                     lightColor: "bg-cyan-500/10",
                                     textColor: "text-cyan-200",
@@ -737,16 +740,17 @@ export default function Home() {
                                     description:
                                         "Lifestyle medicine intelligence engine",
                                     icon: (
-                                        <BarChart className="h-5 w-5 text-white" />
+                                        <Brain className="h-5 w-5 text-white" />
                                     ),
-                                    color: "from-sky-500 to-sky-400",
-                                    glowColor: "glow-sky",
-                                    delay: 0.9,
-                                    lightColor: "bg-sky-500/10",
-                                    textColor: "text-sky-200",
-                                    stats: ["10M+", "Data Points"],
+                                    color: "from-amber-500 to-amber-400",
+                                    glowColor: "text-amber-500",
+                                    delay: 0.5,
+                                    lightColor: "bg-amber-500/10",
+                                    textColor: "text-amber-300",
+                                    stats: ["Daily", "Updates"],
                                     link: "/services",
                                 },
+
                             ].map((module) => (
                                 <motion.div
                                     key={module.title}
@@ -777,7 +781,7 @@ export default function Home() {
                                                         {module.icon}
                                                     </div>
                                                     <h3
-                                                        className={`font-bold text-white`}
+                                                        className={`font-bold text-teal-200`}
                                                     >
                                                         {module.title}
                                                     </h3>
@@ -800,7 +804,7 @@ export default function Home() {
                                                     </div>
                                                     <div className="flex items-center text-sm">
                                                         <span
-                                                            className={`${module.textColor} font-medium`}
+                                                            className={`text-teal-200 font-medium`}
                                                         >
                                                             Explore
                                                         </span>
@@ -1100,7 +1104,7 @@ export default function Home() {
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Newsletter Section */}
                 <motion.div
-                    className="bg-gradient-to-r from-teal-500/10 to-violet-500/10 rounded-2xl p-8 border border-violet-500/20"
+                    className="bg-gradient-to-r from-teal-500/40 to-violet-500/50 rounded-2xl p-8 border border-violet-500/20"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
