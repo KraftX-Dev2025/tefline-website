@@ -140,7 +140,7 @@ export default function AboutPage() {
                         repeatType: "loop",
                     }}
                 >
-                    <div
+                    {/* <div
                         className="flex flex-col items-center"
                         style={{ color: "var(--background-card)" }}
                     >
@@ -148,7 +148,7 @@ export default function AboutPage() {
                         <span className="text-xs font-medium">
                             Scroll to explore
                         </span>
-                    </div>
+                    </div> */}
                 </motion.div>
 
                 {/* Content container */}

@@ -210,7 +210,7 @@ export default function InvestPage() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="hidden md:block"
                         >
-                            <div className="relative h-96 w-full p-4 bg-white/30 backdrop-blur-md rounded-xl border border-white/20 shadow-xl">
+                            <div className="relative h-96 w-full p-4 bg-white/80 backdrop-blur-md rounded-xl border border-white/20 shadow-xl">
                                 {/* Investment growth chart */}
                                 <div className="absolute inset-0 flex items-end p-6">
                                     <div className="relative w-full h-3/4">
@@ -271,11 +271,11 @@ export default function InvestPage() {
                                 </div>
 
                                 {/* Chart labels */}
-                                <div className="absolute top-6 left-6 text-white">
+                                <div className="absolute top-6 left-6 text-primary">
                                     <h3 className="font-semibold text-lg">
                                         Growth Potential
                                     </h3>
-                                    <p className="text-white/70 text-sm">
+                                    <p className="text-primary text-sm">
                                         Wellness Intelligence Market
                                     </p>
                                 </div>
@@ -289,7 +289,7 @@ export default function InvestPage() {
                                             delay: 2.7,
                                         }}
                                     >
-                                        <span className="text-amber-300">
+                                        <span className="text-primary">
                                             +85%
                                         </span>
                                     </motion.div>
@@ -959,7 +959,7 @@ export default function InvestPage() {
                     transition={{ duration: 0.6 }}
                     className="container mx-auto px-4 max-w-5xl"
                 >
-                    <div className="bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl overflow-hidden shadow-xl">
+                    <div className="primary-gradient rounded-2xl overflow-hidden shadow-xl">
                         <div className="relative px-8 py-16 md:px-16">
                             {/* Background wave pattern */}
                             <div className="absolute inset-0 overflow-hidden opacity-10">
