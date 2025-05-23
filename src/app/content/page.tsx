@@ -107,7 +107,7 @@ export default function AboutPage() {
                 </motion.div>
 
                 {/* Wave pattern overlay */}
-                <div className="absolute bottom-[0] left-0 w-full z-10">
+                {/* <div className="absolute bottom-[0] left-0 w-full z-10">
                     <svg
                         viewBox="0 0 1200 120"
                         preserveAspectRatio="none"
@@ -125,7 +125,7 @@ export default function AboutPage() {
                             opacity=".3"
                         />
                     </svg>
-                </div>
+                </div> */}
 
                 {/* Scrolling indicator */}
                 <motion.div
@@ -161,29 +161,19 @@ export default function AboutPage() {
                     >
                         <motion.div
                             variants={fadeIn}
-                            className="mb-3 py-1 px-4 backdrop-blur-md rounded-full text-sm font-medium inline-flex items-center"
+                            className="mb-3 py-1 px-4 backdrop-blur-md rounded-full text-sm font-medium inline-flex items-center text-white"
                             style={{
                                 background: "rgba(255, 255, 255, 0.1)",
-                                color: "var(--background-card)",
                             }}
                         >
                             <Sparkles className="w-4 h-4 mr-2" />
                             Our Mission
                         </motion.div>
                         <motion.h1
-                            className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight"
+                            className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight text-white"
                             variants={fadeIn}
-                            style={{ color: "var(--background-card)" }}
                         >
-                            About{" "}
-                            <span
-                                className="relative z-10 bg-clip-text text-transparent"
-                                style={{
-                                    backgroundImage: styles.primaryTextGradient,
-                                }}
-                            >
-                                Tefline
-                            </span>
+                            About Tefline
                         </motion.h1>
                         <motion.p
                             className="text-xl md:text-2xl mb-10 leading-relaxed"
