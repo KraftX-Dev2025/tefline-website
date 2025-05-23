@@ -91,7 +91,7 @@ export default function PressPage() {
             {/* Hero Section */}
             <section
                 ref={ref}
-                className="relative min-h-[60vh] flex items-center justify-center overflow-hidden"
+                className="relative min-h-[40vh] flex items-center justify-center overflow-hidden"
             >
                 {/* Background Gradients */}
                 <motion.div
@@ -99,7 +99,7 @@ export default function PressPage() {
                     style={{ y: backgroundY }}
                 >
                     {/* Main teal gradient */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 via-teal-700/80 to-teal-600"></div>
+                    <div className="absolute top-0 left-0 w-full h-full primary-gradient"></div>
 
                     {/* Blurred gradient circles */}
                     <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
@@ -108,7 +108,7 @@ export default function PressPage() {
                 </motion.div>
 
                 {/* Wave pattern overlay */}
-                <div className="absolute bottom-0 left-0 w-full z-10">
+                {/* <div className="absolute bottom-0 left-0 w-full z-10">
                     <svg
                         viewBox="0 0 1200 120"
                         preserveAspectRatio="none"
@@ -125,7 +125,7 @@ export default function PressPage() {
                             opacity=".3"
                         />
                     </svg>
-                </div>
+                </div> */}
 
                 {/* Content container */}
                 <div className="container mx-auto px-4 relative z-20 pt-28 pb-32">
@@ -137,7 +137,7 @@ export default function PressPage() {
                     >
                         <motion.div
                             variants={fadeIn}
-                            className="mb-3 py-1 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
+                            className="text-white mb-3 py-1 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
                         >
                             <Newspaper className="w-4 h-4 mr-2" />
                             Latest Announcements
@@ -146,13 +146,10 @@ export default function PressPage() {
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
                             variants={fadeIn}
                         >
-                            Press &{" "}
-                            <span className="relative z-10 bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
-                                News
-                            </span>
+                            Press & News
                         </motion.h1>
                         <motion.p
-                            className="text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
+                            className="text-white text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
                             variants={fadeIn}
                         >
                             Stay updated with the latest announcements,
@@ -331,7 +328,7 @@ export default function PressPage() {
                                 icon: <Brain className="w-6 h-6 text-white" />,
                                 description:
                                     "Powering Tefline's Cognitive Counselor™, optimizing user engagement and wellness interventions in real-time.",
-                                color: "from-blue-500 to-blue-400",
+                                color: "from-amber-500 to-amber-400",
                                 delay: 0.4,
                             },
                             {
@@ -339,7 +336,7 @@ export default function PressPage() {
                                 icon: <User className="w-6 h-6 text-white" />,
                                 description:
                                     "Supporting executive leadership with real-time insights, reducing bias, and accelerating strategic decision-making.",
-                                color: "from-green-500 to-green-400",
+                                color: "from-teal-500 to-teal-400",
                                 delay: 0.5,
                             },
                             {
@@ -349,7 +346,7 @@ export default function PressPage() {
                                 ),
                                 description:
                                     "Tefline's bold move positions it as a category-defining startup in the evolution of corporate governance itself.",
-                                color: "from-purple-500 to-purple-400",
+                                color: "from-teal-500 to-teal-400",
                                 delay: 0.6,
                             },
                         ].map((point) => (
@@ -602,7 +599,7 @@ export default function PressPage() {
             </section>
 
             {/* Media Contact */}
-            <section className="py-16 px-4 bg-gradient-to-r from-teal-600 to-teal-700 text-white">
+            <section className="py-16 px-4 primary-gradient text-white">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -699,9 +696,9 @@ export default function PressPage() {
                             <input
                                 type="email"
                                 placeholder="Your email address"
-                                className="px-6 py-3 rounded-lg border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none w-full sm:w-auto"
+                                className="px-6 py-1 rounded-lg border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none w-full sm:w-auto"
                             />
-                            <Button className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3">
+                            <Button className="bg-teal-600 hover:bg-teal-700 text-white font-semibold">
                                 Subscribe to Updates
                             </Button>
                         </div>
