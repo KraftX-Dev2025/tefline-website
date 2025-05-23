@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
@@ -27,50 +27,91 @@ import {
 } from "@/lib/constants/services";
 
 export default function ServicesPage() {
+    const [isClient, setIsClient] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+    const [reduceMotion, setReduceMotion] = useState(false);
+
     const individualRef = useRef<HTMLDivElement>(null);
     const enterpriseRef = useRef<HTMLDivElement>(null);
     const resultsRef = useRef<HTMLDivElement>(null);
     const ctaRef = useRef<HTMLDivElement>(null);
-
-    const staggerContainer = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.2,
-            },
-        },
-    };
-
-    // Check if sections are in view
-    const isIndividualInView = useInView(individualRef, {
-        once: true,
-        amount: 0.3,
-    });
-    const isEnterpriseInView = useInView(enterpriseRef, {
-        once: true,
-        amount: 0.3,
-    });
-    const isResultsInView = useInView(resultsRef, { once: true, amount: 0.3 });
-    const isCtaInView = useInView(ctaRef, { once: true, amount: 0.3 });
-
-    // For parallax effects
     const ref = useRef(null);
+
+    // Initialize client-side state
+    useEffect(() => {
+        setIsClient(true);
+
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        const checkMotionPreference = () => {
+            setReduceMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+        };
+
+        checkMobile();
+        checkMotionPreference();
+
+        window.addEventListener('resize', checkMobile);
+        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        motionQuery.addEventListener('change', checkMotionPreference);
+
+        return () => {
+            window.removeEventListener('resize', checkMobile);
+            motionQuery.removeEventListener('change', checkMotionPreference);
+        };
+    }, []);
+
+    // Always call hooks - avoid conditional hook calls
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start start", "end start"],
     });
 
+    // Always create transforms but conditionally apply them
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
-    // Animation variants
+    // Always call useInView hooks
+    const isIndividualInView = useInView(individualRef, {
+        once: true,
+        amount: isClient && isMobile ? 0.1 : 0.3,
+    });
+    const isEnterpriseInView = useInView(enterpriseRef, {
+        once: true,
+        amount: isClient && isMobile ? 0.1 : 0.3,
+    });
+    const isResultsInView = useInView(resultsRef, {
+        once: true,
+        amount: isClient && isMobile ? 0.1 : 0.3
+    });
+    const isCtaInView = useInView(ctaRef, {
+        once: true,
+        amount: isClient && isMobile ? 0.1 : 0.3
+    });
+
+    // Determine if animations should be reduced
+    const shouldReduceAnimations = !isClient || isMobile || reduceMotion;
+
+    // Animation variants - always defined the same way
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: shouldReduceAnimations
+                ? { duration: 0.3 }
+                : {
+                    staggerChildren: 0.15,
+                    delayChildren: 0.2,
+                },
+        },
+    };
+
     const fadeIn = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: shouldReduceAnimations ? 0 : 20 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6 },
+            transition: { duration: shouldReduceAnimations ? 0.3 : 0.6 },
         },
     };
 
@@ -78,19 +119,21 @@ export default function ServicesPage() {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.2,
-            },
+            transition: shouldReduceAnimations
+                ? { duration: 0.3 }
+                : {
+                    staggerChildren: 0.15,
+                    delayChildren: 0.2,
+                },
         },
     };
 
     const cardVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: shouldReduceAnimations ? 0 : 30 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.5 },
+            transition: { duration: shouldReduceAnimations ? 0.3 : 0.5 },
         },
     };
 
@@ -116,41 +159,25 @@ export default function ServicesPage() {
             {/* Hero Section */}
             <section
                 ref={ref}
-                className="relative min-h-[60vh] flex items-center justify-center overflow-hidden "
+                className="relative min-h-[60vh] flex items-center justify-center overflow-hidden"
             >
                 {/* Background Gradients */}
                 <motion.div
                     className="absolute inset-0 z-0"
-                    style={{ y: backgroundY }}
+                    style={shouldReduceAnimations ? {} : { y: backgroundY }}
                 >
-                    {/* Main teal gradient - Updated to match teal-400 to teal-600 */}
+                    {/* Main teal gradient */}
                     <div className="absolute top-0 left-0 w-full h-full primary-gradient"></div>
 
-                    {/* Blurred gradient circles - Updated colors */}
-                    <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
-                    <div className="absolute bottom-0 left-1/4 w-[30rem] h-[30rem] rounded-full bg-teal-400/20 blur-[100px] opacity-60"></div>
-                    <div className="absolute top-1/3 left-0 w-[25rem] h-[25rem] rounded-full bg-amber-400/10 blur-[80px] opacity-70"></div>
+                    {/* Conditional background elements */}
+                    {isClient && !isMobile && (
+                        <>
+                            <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
+                            <div className="absolute bottom-0 left-1/4 w-[30rem] h-[30rem] rounded-full bg-teal-400/20 blur-[100px] opacity-60"></div>
+                            <div className="absolute top-1/3 left-0 w-[25rem] h-[25rem] rounded-full bg-amber-400/10 blur-[80px] opacity-70"></div>
+                        </>
+                    )}
                 </motion.div>
-
-                {/* Wave pattern overlay */}
-                {/* <div className="absolute bottom-[0] left-0 w-full z-10">
-                    <svg
-                        viewBox="0 0 1200 120"
-                        preserveAspectRatio="none"
-                        className="w-full h-20 text-white"
-                    >
-                        <path
-                            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                            fill="currentColor"
-                            opacity=".2"
-                        />
-                        <path
-                            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                            fill="currentColor"
-                            opacity=".3"
-                        />
-                    </svg>
-                </div> */}
 
                 {/* Content container */}
                 <div className="container mx-auto px-4 relative z-20 pt-28 pb-32">
@@ -189,11 +216,11 @@ export default function ServicesPage() {
 
                         <motion.div
                             variants={fadeIn}
-                            className="mt-4 flex space-x-4"
+                            className="mt-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
                         >
                             <motion.div
-                                whileHover={{ scale: 1.05, y: -3 }}
-                                transition={{
+                                whileHover={shouldReduceAnimations ? {} : { scale: 1.05, y: -3 }}
+                                transition={shouldReduceAnimations ? {} : {
                                     type: "spring",
                                     stiffness: 400,
                                     damping: 10,
@@ -201,7 +228,7 @@ export default function ServicesPage() {
                             >
                                 <Button
                                     size="lg"
-                                    className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                                    className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
                                     asChild
                                 >
                                     <Link href="#individual-services">
@@ -232,9 +259,13 @@ export default function ServicesPage() {
                 ref={individualRef}
                 className="py-24 bg-white relative overflow-hidden"
             >
-                {/* Background decorative elements */}
-                <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-50 rounded-full opacity-50 blur-[100px]"></div>
-                <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-teal-50 rounded-full opacity-50 blur-[80px]"></div>
+                {/* Conditional background elements */}
+                {isClient && !isMobile && (
+                    <>
+                        <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-50 rounded-full opacity-50 blur-[100px]"></div>
+                        <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-teal-50 rounded-full opacity-50 blur-[80px]"></div>
+                    </>
+                )}
 
                 <Container className="relative z-10">
                     <motion.div
@@ -263,11 +294,11 @@ export default function ServicesPage() {
                         variants={staggerCards}
                         className="grid grid-cols-1 md:grid-cols-3 gap-8"
                     >
-                        {individualServices.map((service) => (
+                        {individualServices.map((service, index) => (
                             <motion.div
                                 key={service.title}
                                 variants={cardVariants}
-                                whileHover={{
+                                whileHover={shouldReduceAnimations ? {} : {
                                     y: -8,
                                     boxShadow:
                                         "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
@@ -281,7 +312,7 @@ export default function ServicesPage() {
                                             src={service.imageUrl}
                                             alt={service.title}
                                             fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            className={`object-cover transition-transform duration-700 ${!shouldReduceAnimations ? 'group-hover:scale-110' : ''}`}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                                         <div className="absolute bottom-4 left-4 right-4">
@@ -304,17 +335,16 @@ export default function ServicesPage() {
                                                     <motion.li
                                                         key={idx}
                                                         className="flex items-start"
-                                                        initial={{
+                                                        initial={shouldReduceAnimations ? {} : {
                                                             opacity: 0,
                                                             x: -10,
                                                         }}
-                                                        animate={{
+                                                        animate={shouldReduceAnimations ? {} : {
                                                             opacity: 1,
                                                             x: 0,
                                                         }}
-                                                        transition={{
-                                                            delay:
-                                                                0.5 + idx * 0.1,
+                                                        transition={shouldReduceAnimations ? {} : {
+                                                            delay: 0.5 + idx * 0.1,
                                                         }}
                                                     >
                                                         <div className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
@@ -338,7 +368,7 @@ export default function ServicesPage() {
                                                 className="flex items-center justify-center"
                                             >
                                                 {service.buttonText}
-                                                <ChevronRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                                <ChevronRight className={`ml-1 w-4 h-4 transition-transform ${!shouldReduceAnimations ? 'group-hover:translate-x-1' : ''}`} />
                                             </Link>
                                         </Button>
                                     </CardFooter>
@@ -354,33 +384,35 @@ export default function ServicesPage() {
                 ref={resultsRef}
                 className="py-20 bg-gradient-to-b from-teal-50 to-white relative overflow-hidden"
             >
-                {/* Animated background particles */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-full">
-                        {Array.from({ length: 30 }).map((_, i) => (
-                            <motion.div
-                                key={i}
-                                className="absolute rounded-full bg-teal-500/10"
-                                style={{
-                                    width: Math.random() * 12 + 4 + "px",
-                                    height: Math.random() * 12 + 4 + "px",
-                                    top: Math.random() * 100 + "%",
-                                    left: Math.random() * 100 + "%",
-                                }}
-                                animate={{
-                                    y: [0, -100],
-                                    opacity: [0, 1, 0],
-                                }}
-                                transition={{
-                                    duration: Math.random() * 10 + 10,
-                                    repeat: Infinity,
-                                    delay: Math.random() * 10,
-                                    ease: "linear",
-                                }}
-                            />
-                        ))}
+                {/* Conditional animated background */}
+                {isClient && !isMobile && (
+                    <div className="absolute inset-0 overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-full">
+                            {Array.from({ length: 15 }).map((_, i) => (
+                                <motion.div
+                                    key={i}
+                                    className="absolute rounded-full bg-teal-500/10"
+                                    style={{
+                                        width: Math.random() * 12 + 4 + "px",
+                                        height: Math.random() * 12 + 4 + "px",
+                                        top: Math.random() * 100 + "%",
+                                        left: Math.random() * 100 + "%",
+                                    }}
+                                    animate={{
+                                        y: [0, -100],
+                                        opacity: [0, 1, 0],
+                                    }}
+                                    transition={{
+                                        duration: Math.random() * 10 + 10,
+                                        repeat: Infinity,
+                                        delay: Math.random() * 10,
+                                        ease: "linear",
+                                    }}
+                                />
+                            ))}
+                        </div>
                     </div>
-                </div>
+                )}
 
                 <Container className="relative z-10">
                     <motion.div
@@ -406,9 +438,9 @@ export default function ServicesPage() {
                         {successMetrics.map((metric, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                                initial={shouldReduceAnimations ? {} : { opacity: 0, y: 20, scale: 0.95 }}
                                 animate={
-                                    isResultsInView
+                                    isResultsInView && !shouldReduceAnimations
                                         ? {
                                             opacity: 1,
                                             y: 0,
@@ -420,38 +452,25 @@ export default function ServicesPage() {
                                                 delay: 0.1 * index,
                                             },
                                         }
-                                        : {}
+                                        : isResultsInView ? { opacity: 1 } : {}
                                 }
-                                whileHover={{
+                                whileHover={shouldReduceAnimations ? {} : {
                                     y: -5,
                                     boxShadow:
                                         "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
                                 }}
                                 className="bg-white rounded-lg p-8 shadow-md border border-teal-100 group relative overflow-hidden"
                             >
-                                {/* Background color pulse animation */}
-                                <motion.div
-                                    className="absolute inset-0 bg-teal-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                                    animate={{
-                                        scale: [1, 1.05, 1],
-                                    }}
-                                    transition={{
-                                        duration: 3,
-                                        repeat: Infinity,
-                                        repeatType: "reverse",
-                                    }}
-                                />
-
                                 <div className="relative z-10">
                                     <motion.h3
                                         className="text-5xl font-bold mb-2 bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent"
-                                        initial={{ y: 20, opacity: 0 }}
+                                        initial={shouldReduceAnimations ? {} : { y: 20, opacity: 0 }}
                                         animate={
-                                            isResultsInView
+                                            isResultsInView && !shouldReduceAnimations
                                                 ? { y: 0, opacity: 1 }
-                                                : {}
+                                                : isResultsInView ? { opacity: 1 } : {}
                                         }
-                                        transition={{
+                                        transition={shouldReduceAnimations ? {} : {
                                             delay: 0.2 + index * 0.1,
                                             duration: 0.5,
                                         }}
@@ -460,13 +479,13 @@ export default function ServicesPage() {
                                     </motion.h3>
                                     <motion.p
                                         className="text-slate-700"
-                                        initial={{ y: 20, opacity: 0 }}
+                                        initial={shouldReduceAnimations ? {} : { y: 20, opacity: 0 }}
                                         animate={
-                                            isResultsInView
+                                            isResultsInView && !shouldReduceAnimations
                                                 ? { y: 0, opacity: 1 }
-                                                : {}
+                                                : isResultsInView ? { opacity: 1 } : {}
                                         }
-                                        transition={{
+                                        transition={shouldReduceAnimations ? {} : {
                                             delay: 0.3 + index * 0.1,
                                             duration: 0.5,
                                         }}
@@ -477,13 +496,13 @@ export default function ServicesPage() {
                                     {/* Animated underline */}
                                     <motion.div
                                         className="h-1 mt-4 bg-gradient-to-r from-teal-400 to-teal-200 rounded-full"
-                                        initial={{ width: 0 }}
+                                        initial={shouldReduceAnimations ? { width: "100%" } : { width: 0 }}
                                         animate={
-                                            isResultsInView
+                                            isResultsInView && !shouldReduceAnimations
                                                 ? { width: "100%" }
-                                                : { width: 0 }
+                                                : {}
                                         }
-                                        transition={{
+                                        transition={shouldReduceAnimations ? {} : {
                                             delay: 0.5 + index * 0.2,
                                             duration: 0.8,
                                             ease: "easeOut",
@@ -495,9 +514,9 @@ export default function ServicesPage() {
                     </div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={shouldReduceAnimations ? {} : { opacity: 0, y: 20 }}
                         animate={isResultsInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.7, delay: 0.6 }}
+                        transition={shouldReduceAnimations ? {} : { duration: 0.7, delay: 0.6 }}
                         className="bg-gradient-to-r from-amber-50 to-amber-100 p-8 rounded-lg border border-amber-200 shadow-md"
                     >
                         <div className="flex flex-col md:flex-row items-center gap-6">
@@ -542,29 +561,31 @@ export default function ServicesPage() {
                 ref={enterpriseRef}
                 className="py-24 bg-teal-50 relative overflow-hidden"
             >
-                {/* Blurred gradient background */}
-                <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-200 rounded-full opacity-30 blur-[100px]"></div>
-                <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-sky-100 rounded-full opacity-40 blur-[80px]"></div>
-
-                {/* Grid pattern background */}
-                <div className="absolute inset-0 opacity-[0.03]">
-                    <svg width="100%" height="100%">
-                        <pattern
-                            id="grid"
-                            width="40"
-                            height="40"
-                            patternUnits="userSpaceOnUse"
-                        >
-                            <path
-                                d="M 40 0 L 0 0 0 40"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="1"
-                            />
-                        </pattern>
-                        <rect width="100%" height="100%" fill="url(#grid)" />
-                    </svg>
-                </div>
+                {/* Conditional background elements */}
+                {isClient && !isMobile && (
+                    <>
+                        <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-200 rounded-full opacity-30 blur-[100px]"></div>
+                        <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-sky-100 rounded-full opacity-40 blur-[80px]"></div>
+                        <div className="absolute inset-0 opacity-[0.03]">
+                            <svg width="100%" height="100%">
+                                <pattern
+                                    id="grid"
+                                    width="40"
+                                    height="40"
+                                    patternUnits="userSpaceOnUse"
+                                >
+                                    <path
+                                        d="M 40 0 L 0 0 0 40"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="1"
+                                    />
+                                </pattern>
+                                <rect width="100%" height="100%" fill="url(#grid)" />
+                            </svg>
+                        </div>
+                    </>
+                )}
 
                 <Container className="relative z-10">
                     <motion.div
@@ -591,19 +612,19 @@ export default function ServicesPage() {
                         {enterpriseSolutions.map((solution, index) => (
                             <motion.div
                                 key={solution.title}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={shouldReduceAnimations ? {} : { opacity: 0, y: 30 }}
                                 animate={
-                                    isEnterpriseInView
+                                    isEnterpriseInView && !shouldReduceAnimations
                                         ? { opacity: 1, y: 0 }
-                                        : {}
+                                        : isEnterpriseInView ? { opacity: 1 } : {}
                                 }
-                                transition={{
+                                transition={shouldReduceAnimations ? {} : {
                                     duration: 0.5,
                                     delay: 0.1 * (index + 1),
                                     type: "spring",
                                     stiffness: 100,
                                 }}
-                                whileHover={{
+                                whileHover={shouldReduceAnimations ? {} : {
                                     y: -5,
                                     boxShadow:
                                         "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
@@ -612,12 +633,12 @@ export default function ServicesPage() {
                             >
                                 <div className="flex items-start p-6">
                                     <div className="flex-shrink-0 mr-5">
-                                        <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-teal-600 to-teal-400 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+                                        <div className={`w-14 h-14 rounded-lg bg-gradient-to-br from-teal-600 to-teal-400 flex items-center justify-center shadow-md transition-transform duration-300 ${!shouldReduceAnimations ? 'group-hover:scale-110' : ''}`}>
                                             {getSolutionIcon(solution.icon)}
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-semibold mb-2 text-slate-800 group-hover:text-teal-600 transition-colors duration-300">
+                                        <h3 className={`text-xl font-semibold mb-2 text-slate-800 transition-colors duration-300 ${!shouldReduceAnimations ? 'group-hover:text-teal-600' : ''}`}>
                                             {solution.title}
                                         </h3>
                                         <p className="text-slate-600 mb-4">
@@ -633,84 +654,88 @@ export default function ServicesPage() {
                                                 className="flex items-center"
                                             >
                                                 {solution.buttonText}
-                                                <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                <ArrowRight className={`ml-1 w-4 h-4 transition-transform ${!shouldReduceAnimations ? 'group-hover:translate-x-1' : ''}`} />
                                             </Link>
                                         </Button>
                                     </div>
                                 </div>
 
-                                {/* Bottom pulse line */}
-                                <motion.div
-                                    className="h-1 w-0 bottom-0 bg-gradient-to-r from-teal-400 to-teal-200"
-                                    animate={
-                                        isEnterpriseInView
-                                            ? {
-                                                width: ["0%", "100%", "0%"],
-                                                x: ["0%", "0%", "100%"],
-                                            }
-                                            : {}
-                                    }
-                                    transition={{
-                                        duration: 3,
-                                        delay: 0.5 + index * 0.3,
-                                        repeat: Infinity,
-                                        repeatDelay: 2,
-                                    }}
-                                />
+                                {/* Bottom pulse line - only for desktop */}
+                                {isClient && !isMobile && (
+                                    <motion.div
+                                        className="h-1 w-0 bottom-0 bg-gradient-to-r from-teal-400 to-teal-200"
+                                        animate={
+                                            isEnterpriseInView
+                                                ? {
+                                                    width: ["0%", "100%", "0%"],
+                                                    x: ["0%", "0%", "100%"],
+                                                }
+                                                : {}
+                                        }
+                                        transition={{
+                                            duration: 3,
+                                            delay: 0.5 + index * 0.3,
+                                            repeat: Infinity,
+                                            repeatDelay: 2,
+                                        }}
+                                    />
+                                )}
                             </motion.div>
                         ))}
                     </div>
 
                     {/* Custom enterprise section */}
                     <motion.div
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={shouldReduceAnimations ? {} : { opacity: 0, y: 40 }}
                         animate={isEnterpriseInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.7, delay: 0.8 }}
+                        transition={shouldReduceAnimations ? {} : { duration: 0.7, delay: 0.8 }}
                         className="mt-16 rounded-xl overflow-hidden shadow-xl"
                     >
-                        <div className="bg-gradient-to-tl from-teal-400 via-teal-600 to-teal-600 to-teal-600 text-white">
+                        <div className="bg-gradient-to-tl from-teal-400 via-teal-600 to-teal-600 text-white">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                                 <div className="p-8 md:p-12 relative">
-                                    {/* Abstract shapes background */}
-                                    <div className="absolute inset-0 opacity-10">
-                                        <svg
-                                            width="100%"
-                                            height="100%"
-                                            viewBox="0 0 100 100"
-                                            preserveAspectRatio="none"
-                                        >
-                                            <circle
-                                                cx="20"
-                                                cy="20"
-                                                r="10"
-                                                fill="white"
-                                            />
-                                            <circle
-                                                cx="70"
-                                                cy="70"
-                                                r="15"
-                                                fill="white"
-                                            />
-                                            <circle
-                                                cx="80"
-                                                cy="10"
-                                                r="5"
-                                                fill="white"
-                                            />
-                                            <circle
-                                                cx="10"
-                                                cy="80"
-                                                r="8"
-                                                fill="white"
-                                            />
-                                            <polygon
-                                                points="50,0 100,50 50,100 0,50"
-                                                fill="none"
-                                                stroke="white"
-                                                strokeWidth="0.5"
-                                            />
-                                        </svg>
-                                    </div>
+                                    {/* Conditional abstract shapes */}
+                                    {isClient && !isMobile && (
+                                        <div className="absolute inset-0 opacity-10">
+                                            <svg
+                                                width="100%"
+                                                height="100%"
+                                                viewBox="0 0 100 100"
+                                                preserveAspectRatio="none"
+                                            >
+                                                <circle
+                                                    cx="20"
+                                                    cy="20"
+                                                    r="10"
+                                                    fill="white"
+                                                />
+                                                <circle
+                                                    cx="70"
+                                                    cy="70"
+                                                    r="15"
+                                                    fill="white"
+                                                />
+                                                <circle
+                                                    cx="80"
+                                                    cy="10"
+                                                    r="5"
+                                                    fill="white"
+                                                />
+                                                <circle
+                                                    cx="10"
+                                                    cy="80"
+                                                    r="8"
+                                                    fill="white"
+                                                />
+                                                <polygon
+                                                    points="50,0 100,50 50,100 0,50"
+                                                    fill="none"
+                                                    stroke="white"
+                                                    strokeWidth="0.5"
+                                                />
+                                            </svg>
+                                        </div>
+                                    )}
 
                                     <div className="relative z-10">
                                         <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-1 rounded-full text-teal-50 text-sm font-medium mb-4">
@@ -789,64 +814,64 @@ export default function ServicesPage() {
 
             {/* CTA Section */}
             <section ref={ctaRef} className="py-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-teal-600 to-teal-500 -z-10" />
+                <div className="absolute inset-0 primary-gradient -z-10" />
 
-                {/* Animated wave pattern background */}
-                <div className="absolute inset-0 -z-5">
-                    <svg
-                        viewBox="0 0 1200 600"
-                        className="absolute w-full h-full"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <motion.path
-                            d="M 0 300 Q 300 200 600 300 Q 900 400 1200 300 L 1200 600 L 0 600 Z"
-                            fill="white"
-                            opacity="0.05"
-                            animate={{
-                                d: [
-                                    "M 0 300 Q 300 200 600 300 Q 900 400 1200 300 L 1200 600 L 0 600 Z",
-                                    "M 0 300 Q 300 400 600 300 Q 900 200 1200 300 L 1200 600 L 0 600 Z",
-                                    "M 0 300 Q 300 200 600 300 Q 900 400 1200 300 L 1200 600 L 0 600 Z",
-                                ],
-                            }}
-                            transition={{
-                                duration: 10,
-                                repeat: Infinity,
-                                repeatType: "loop",
-                            }}
-                        />
-                        <motion.path
-                            d="M 0 350 Q 300 250 600 350 Q 900 450 1200 350 L 1200 600 L 0 600 Z"
-                            fill="white"
-                            opacity="0.07"
-                            animate={{
-                                d: [
-                                    "M 0 350 Q 300 250 600 350 Q 900 450 1200 350 L 1200 600 L 0 600 Z",
-                                    "M 0 350 Q 300 450 600 350 Q 900 250 1200 350 L 1200 600 L 0 600 Z",
-                                    "M 0 350 Q 300 250 600 350 Q 900 450 1200 350 L 1200 600 L 0 600 Z",
-                                ],
-                            }}
-                            transition={{
-                                duration: 8,
-                                repeat: Infinity,
-                                repeatType: "loop",
-                            }}
-                        />
-                    </svg>
-                </div>
-
-                <div className="absolute inset-0 bg-[url('/images/pattern-bg.jpg')] opacity-10 mix-blend-overlay -z-5" />
+                {/* Conditional animated wave pattern */}
+                {isClient && !isMobile && (
+                    <div className="absolute inset-0 -z-5">
+                        <svg
+                            viewBox="0 0 1200 600"
+                            className="absolute w-full h-full"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <motion.path
+                                d="M 0 300 Q 300 200 600 300 Q 900 400 1200 300 L 1200 600 L 0 600 Z"
+                                fill="white"
+                                opacity="0.05"
+                                animate={{
+                                    d: [
+                                        "M 0 300 Q 300 200 600 300 Q 900 400 1200 300 L 1200 600 L 0 600 Z",
+                                        "M 0 300 Q 300 400 600 300 Q 900 200 1200 300 L 1200 600 L 0 600 Z",
+                                        "M 0 300 Q 300 200 600 300 Q 900 400 1200 300 L 1200 600 L 0 600 Z",
+                                    ],
+                                }}
+                                transition={{
+                                    duration: 10,
+                                    repeat: Infinity,
+                                    repeatType: "loop",
+                                }}
+                            />
+                            <motion.path
+                                d="M 0 350 Q 300 250 600 350 Q 900 450 1200 350 L 1200 600 L 0 600 Z"
+                                fill="white"
+                                opacity="0.07"
+                                animate={{
+                                    d: [
+                                        "M 0 350 Q 300 250 600 350 Q 900 450 1200 350 L 1200 600 L 0 600 Z",
+                                        "M 0 350 Q 300 450 600 350 Q 900 250 1200 350 L 1200 600 L 0 600 Z",
+                                        "M 0 350 Q 300 250 600 350 Q 900 450 1200 350 L 1200 600 L 0 600 Z",
+                                    ],
+                                }}
+                                transition={{
+                                    duration: 8,
+                                    repeat: Infinity,
+                                    repeatType: "loop",
+                                }}
+                            />
+                        </svg>
+                    </div>
+                )}
 
                 <Container className="relative z-10">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
+                        initial={shouldReduceAnimations ? {} : { opacity: 0, scale: 0.95 }}
                         animate={isCtaInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{
+                        transition={shouldReduceAnimations ? {} : {
                             duration: 0.6,
                             type: "spring",
                             stiffness: 100,
                         }}
-                        className="max-w-3xl mx-auto text-center text-white bg-white/10 backdrop-blur-sm p-10 rounded-2xl border border-white/20 shadow-xl"
+                        className="max-w-3xl mx-auto text-center text-white bg-white/10 backdrop-blur-sm p-10 rounded-2xl border border-white/20 shadow-xl relative"
                     >
                         <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-1 rounded-full text-white text-sm font-medium mb-4">
                             <Sparkles className="w-4 h-4 mr-2" />
@@ -864,7 +889,7 @@ export default function ServicesPage() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button
                                 size="lg"
-                                className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                                className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
                                 asChild
                             >
                                 <Link href="/contact">Book a Consultation</Link>
@@ -881,19 +906,21 @@ export default function ServicesPage() {
                             </Button>
                         </div>
 
-                        {/* Animated glow effect */}
-                        <motion.div
-                            className="absolute inset-0 -z-10 bg-teal-400/20 rounded-2xl blur-xl"
-                            animate={{
-                                opacity: [0.3, 0.6, 0.3],
-                                scale: [0.8, 0.9, 0.8],
-                            }}
-                            transition={{
-                                duration: 4,
-                                repeat: Infinity,
-                                repeatType: "reverse",
-                            }}
-                        />
+                        {/* Conditional glow effect */}
+                        {isClient && !isMobile && (
+                            <motion.div
+                                className="absolute inset-0 -z-10 bg-teal-400/20 rounded-2xl blur-xl"
+                                animate={{
+                                    opacity: [0.3, 0.6, 0.3],
+                                    scale: [0.8, 0.9, 0.8],
+                                }}
+                                transition={{
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    repeatType: "reverse",
+                                }}
+                            />
+                        )}
                     </motion.div>
                 </Container>
             </section>

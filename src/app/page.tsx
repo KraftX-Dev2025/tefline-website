@@ -136,12 +136,12 @@ export default function Home() {
                         repeatType: "loop",
                     }}
                 >
-                    <div className="flex flex-col items-center text-white/70">
+                    {/* <div className="flex flex-col items-center text-white/70">
                         <ChevronRight className="w-6 h-6 transform rotate-90" />
                         <span className="text-xs font-medium">
                             Scroll to explore
                         </span>
-                    </div>
+                    </div> */}
                 </motion.div>
 
                 {/* Content container */}
@@ -306,7 +306,7 @@ export default function Home() {
             </section>
 
             {/* Lifestyle Medicine Section */}
-            <section className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-teal-600 to-teal-700">
+            <section className="py-24 px-4 relative overflow-hidden primary-gradient">
                 {/* Blurred gradient background */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full opacity-30 blur-[120px]"></div>
                 <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-400/20 rounded-full opacity-40 blur-[100px]"></div>
@@ -485,7 +485,7 @@ export default function Home() {
             </section>
 
             {/* Wellness Intelligence Section - Dynamic Dashboard */}
-            <section className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-teal-50 to-teal-700 text-white">
+            <section className="py-24 px-4 relative overflow-hidden text-white">
                 {/* Subtle particle background */}
                 <div className="absolute inset-0 opacity-30">
                     <div className="absolute top-0 right-0 w-full h-full bg-[url('/dots.png')] bg-repeat opacity-10"></div>
@@ -619,7 +619,7 @@ export default function Home() {
                             viewport={{ once: true }}
                             className="relative z-10 mx-auto mb-20 max-w-lg"
                         >
-                            <div className="bg-teal-600/50 backdrop-blur-md border border-teal-500/70 rounded-2xl p-6 shadow-[0_0_30px_rgba(20,184,166,0.15)] hover:shadow-[0_0_40px_rgba(20,184,166,0.25)] transition-all duration-500 overflow-hidden">
+                            <div className="bg-teal-600/40 backdrop-blur-md border border-teal-500/70 rounded-2xl p-6 shadow-[0_0_30px_rgba(20,184,166,0.15)] hover:shadow-[0_0_40px_rgba(20,184,166,0.25)] transition-all duration-500 overflow-hidden">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 to-teal-400"></div>
                                 <div className="flex items-center mb-6">
                                     <div className="p-3 rounded-full bg-teal-600/50 mr-4 glow-pulse-teal">
@@ -667,7 +667,7 @@ export default function Home() {
                                             delay: 0.3,
                                         }}
                                         viewport={{ once: true }}
-                                        className="absolute top-0 left-0 h-full rounded-lg bg-gradient-to-r from-teal-500/70 to-teal-400/70"
+                                        className="absolute top-0 left-0 h-full rounded-lg primary-gradient"
                                     ></motion.div>
                                     <div className="absolute inset-0 flex items-center justify-center text-md font-semibold text-white">
                                         Wellness Score: 75%
