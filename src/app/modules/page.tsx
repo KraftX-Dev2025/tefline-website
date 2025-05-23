@@ -116,7 +116,7 @@ export default function ServicesPage() {
             {/* Hero Section */}
             <section
                 ref={ref}
-                className="relative min-h-[60vh] flex items-center justify-center overflow-hidden"
+                className="relative min-h-[60vh] flex items-center justify-center overflow-hidden "
             >
                 {/* Background Gradients */}
                 <motion.div
@@ -124,7 +124,7 @@ export default function ServicesPage() {
                     style={{ y: backgroundY }}
                 >
                     {/* Main teal gradient - Updated to match teal-400 to teal-600 */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 via-teal-700/80 to-teal-600"></div>
+                    <div className="absolute top-0 left-0 w-full h-full primary-gradient"></div>
 
                     {/* Blurred gradient circles - Updated colors */}
                     <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
@@ -133,7 +133,7 @@ export default function ServicesPage() {
                 </motion.div>
 
                 {/* Wave pattern overlay */}
-                <div className="absolute bottom-[0] left-0 w-full z-10">
+                {/* <div className="absolute bottom-[0] left-0 w-full z-10">
                     <svg
                         viewBox="0 0 1200 120"
                         preserveAspectRatio="none"
@@ -150,7 +150,7 @@ export default function ServicesPage() {
                             opacity=".3"
                         />
                     </svg>
-                </div>
+                </div> */}
 
                 {/* Content container */}
                 <div className="container mx-auto px-4 relative z-20 pt-28 pb-32">
@@ -165,14 +165,16 @@ export default function ServicesPage() {
                             className="mb-3 py-1 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
                         >
                             <Sparkles className="w-4 h-4 mr-2" />
-                            Transformative Wellness Solutions
+                            <span className="text-white text-xl">
+                                Transformative Wellness Solutions
+                            </span>
                         </motion.div>
                         <motion.h1
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
                             variants={fadeIn}
                         >
                             Our{" "}
-                            <span className="relative z-10 bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
+                            <span className="relative z-10">
                                 Services
                             </span>
                         </motion.h1>
@@ -211,7 +213,7 @@ export default function ServicesPage() {
                                 <Button
                                     size="lg"
                                     variant="outline"
-                                    className="border-white text-white hover:bg-white/10 transition-all duration-300"
+                                    className="border-white text-primary hover:bg-white/80 transition-all duration-300"
                                     asChild
                                 >
                                     <Link href="/contact">
@@ -744,7 +746,7 @@ export default function ServicesPage() {
                                             ))}
                                         </div>
                                         <Button
-                                            className="bg-white text-teal-700 hover:bg-white/90 shadow"
+                                            className="bg-white text-teal-600 hover:bg-white/90 shadow"
                                             asChild
                                         >
                                             <Link href="/contact">
@@ -870,7 +872,7 @@ export default function ServicesPage() {
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="border-white text-white hover:bg-white/10 transition-all duration-300"
+                                className="border-white text-teal-600 hover:bg-white/10 transition-all duration-300"
                                 asChild
                             >
                                 <Link href="/contact?service=masterclass">

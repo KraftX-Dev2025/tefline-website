@@ -114,7 +114,7 @@ export default function InvestPage() {
                 className="relative min-h-[70vh] flex items-center pt-16 pb-16"
                 style={{ opacity: heroOpacity, y: heroY }}
             >
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 via-teal-700/80 to-teal-600" />
+                <div className="absolute top-0 left-0 w-full h-full primary-gradient" />
 
                 {/* Animated background elements */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -196,7 +196,7 @@ export default function InvestPage() {
                                 <Button
                                     size="lg"
                                     variant="outline"
-                                    className="border-white text-white hover:bg-white/10 transition-all duration-300"
+                                    className="border-white text-primary hover:bg-white/10 transition-all duration-300"
                                     asChild
                                 >
                                     <Link href="#opportunity">Learn More</Link>
@@ -444,8 +444,7 @@ export default function InvestPage() {
                                 icon: <Globe className="w-6 h-6 text-white" />,
                                 description:
                                     "Leading the Wellness Intelligence™ revolution before it becomes a crowded marketplace. Tefline has staked an early claim in this emerging space with proprietary technology.",
-                                color: "from-teal-600 to-teal-400",
-                                textColor: "text-teal-600",
+                                color: "primary-gradient",
                             },
                             {
                                 title: "Subscription Model",
@@ -454,24 +453,21 @@ export default function InvestPage() {
                                 ),
                                 description:
                                     "Our subscription-based approach ensures recurring revenue with high lifetime value. By focusing on retention and expanding services, we create long-term sustainable growth.",
-                                color: "from-amber-600 to-amber-400",
-                                textColor: "text-amber-600",
+                                color: "primary-gradient",
                             },
                             {
                                 title: "Behavioral Health Market",
                                 icon: <Brain className="w-6 h-6 text-white" />,
                                 description:
                                     "The behavioral health market is experiencing exponential growth as digital well-being becomes a priority for consumers, employers, and healthcare providers alike.",
-                                color: "from-sky-600 to-sky-400",
-                                textColor: "text-sky-600",
+                                color: "primary-gradient",
                             },
                             {
                                 title: "AI-Driven Approach",
                                 icon: <Zap className="w-6 h-6 text-white" />,
                                 description:
                                     "Our AI-powered decision-making framework ensures capital is deployed with maximum impact while safeguarding investor interests through predictive modeling.",
-                                color: "from-green-600 to-green-400",
-                                textColor: "text-green-600",
+                                color: "primary-gradient",
                             },
                         ].map((item) => (
                             <motion.div
@@ -484,13 +480,13 @@ export default function InvestPage() {
                                 className="relative group"
                             >
                                 <Card className="h-full overflow-hidden border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r ${item.color}"></div>
+                                    {/* <div className={`absolute top-0 left-0 h-1 w-full bg-gradient-to-r ${item.color}`}></div> */}
                                     <CardContent className="p-6">
-                                        <div className="mb-4 w-14 h-14 rounded-lg flex items-center justify-center bg-gradient-to-r ${item.color} shadow-md group-hover:scale-110 transition-transform duration-300">
+                                        <div className={`mb-4 w-14 h-14 rounded-lg flex items-center justify-center bg-gradient-to-r ${item.color} shadow-md group-hover:scale-110 transition-transform duration-300`}>
                                             {item.icon}
                                         </div>
                                         <h3
-                                            className={`text-xl font-semibold mb-3 ${item.textColor}`}
+                                            className={`text-xl font-semibold mb-3 text-primary`}
                                         >
                                             {item.title}
                                         </h3>
@@ -658,16 +654,16 @@ export default function InvestPage() {
                                     delay: stage.delay,
                                 }}
                                 className={`relative z-10 mb-12 flex ${stage.position === "left"
-                                        ? "flex-row-reverse sm:flex-row"
-                                        : "flex-row-reverse"
+                                    ? "flex-row-reverse sm:flex-row"
+                                    : "flex-row-reverse"
                                     }`}
                             >
                                 {/* Timeline point */}
                                 <div className="absolute sm:static flex items-center justify-center left-0 sm:left-auto transform sm:transform-none -translate-x-[12px] sm:translate-x-0">
                                     <div
                                         className={`w-10 h-10 flex items-center justify-center rounded-full border-4 border-white ${index === 1
-                                                ? "bg-amber-500"
-                                                : "bg-teal-500"
+                                            ? "bg-amber-500"
+                                            : "bg-teal-500"
                                             } shadow-md`}
                                     >
                                         {index === 1 && (
@@ -681,21 +677,21 @@ export default function InvestPage() {
                                 {/* Content card */}
                                 <div
                                     className={`ml-8 sm:ml-0 ${stage.position === "left"
-                                            ? "sm:mr-12 text-left"
-                                            : "sm:ml-12 text-left"
+                                        ? "sm:mr-12 text-left"
+                                        : "sm:ml-12 text-left"
                                         } sm:w-[calc(50%-24px)]`}
                                 >
                                     <div
                                         className={`bg-white p-5 rounded-xl shadow-md border ${index === 1
-                                                ? "border-amber-200"
-                                                : "border-teal-100"
+                                            ? "border-amber-200"
+                                            : "border-teal-100"
                                             } relative`}
                                     >
                                         {/* Arrow */}
                                         <div
                                             className={`absolute hidden sm:block h-4 w-4 bg-white border-t border-l ${stage.position === "left"
-                                                    ? "right-0 transform translate-x-2 rotate-45 border-r-0 border-b-0 border-teal-100"
-                                                    : "left-0 transform -translate-x-2 rotate-225 border-r-0 border-b-0 border-teal-100"
+                                                ? "right-0 transform translate-x-2 rotate-45 border-r-0 border-b-0 border-teal-100"
+                                                : "left-0 transform -translate-x-2 rotate-225 border-r-0 border-b-0 border-teal-100"
                                                 } top-6`}
                                         ></div>
 
@@ -754,7 +750,7 @@ export default function InvestPage() {
             {/* AI Leadership Section */}
             <section
                 ref={aiLeadershipRef}
-                className="py-24 bg-gradient-to-br from-teal-700 to-teal-500 text-white relative overflow-hidden"
+                className="py-24 primary-gradient text-white relative overflow-hidden"
             >
                 {/* Background pattern */}
                 <div className="absolute inset-0 bg-[url('/placeholder.webp')] opacity-10 mix-blend-overlay"></div>
@@ -934,7 +930,7 @@ export default function InvestPage() {
                                 <div className="mt-6">
                                     <Button
                                         variant="outline"
-                                        className="border-white/20 text-white hover:bg-white/10 transition-colors"
+                                        className="border-white/20 text-teal-600 hover:bg-white/10 transition-colors"
                                         asChild
                                     >
                                         <Link

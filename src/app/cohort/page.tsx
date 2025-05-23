@@ -80,7 +80,7 @@ export default function TeamPage() {
     return (
         <div
             ref={pageRef}
-            className="min-h-screen bg-gradient-to-b from-teal-600 via-teal-600 to-teal-800 overflow-hidden"
+            className="min-h-screen primary-gradient overflow-hidden"
         >
             {/* Integrated Hero & Team Section */}
             <section className="relative pt-32 pb-24 px-4">
@@ -179,7 +179,7 @@ export default function TeamPage() {
                                     href={`/cohort/${member.slug}`}
                                     className="block h-full"
                                 >
-                                    <div className="relative group h-full bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 border border-white/20 hover:border-white/30">
+                                    <div className="relative group h-full bg-white/70 backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 border border-white/20 hover:border-white/30">
                                         {/* Shimmering background effect */}
                                         <div
                                             className={`absolute inset-0 bg-gradient-to-tr ${member.theme.from} ${member.theme.to} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
@@ -233,28 +233,28 @@ export default function TeamPage() {
 
                                             {/* Member Details */}
                                             <div className="text-center mb-4">
-                                                <h3 className="text-xl font-bold text-white group-hover:text-teal-200 transition-colors">
+                                                <h3 className="text-xl font-bold text-primary group-hover:text-teal-200 transition-colors">
                                                     {member.name}
                                                 </h3>
                                                 <p
-                                                    className={`text-sm font-medium mt-1 ${member.theme.textColor}`}
+                                                    className={`text-sm font-medium mt-1 text-primary`}
                                                 >
                                                     {member.role}
                                                 </p>
-                                                <p className="text-teal-300/80 text-xs mb-4 italic">
+                                                <p className="text-primary/80 text-xs mb-4 italic">
                                                     {member.secondaryRole}
                                                 </p>
                                             </div>
 
                                             {/* Member Bio */}
-                                            <p className="text-teal-200/90 text-sm text-center mb-6 flex-grow">
+                                            <p className="text-primary/90 text-sm text-center mb-6 flex-grow">
                                                 {member.shortBio}
                                             </p>
 
                                             {/* Read More Link */}
                                             <div className="mt-auto text-center">
                                                 <span
-                                                    className={`inline-flex items-center ${member.theme.textColor} text-sm group-hover:text-white transition-colors`}
+                                                    className={`inline-flex items-center text-teal-800 text-sm group-hover:text-white transition-colors`}
                                                 >
                                                     Read Full Bio
                                                     <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />

@@ -188,7 +188,7 @@ export default function ContactPage() {
             title: "Call Us",
             description: "Speak directly with our team",
             info: "+91 98451 71490",
-            color: "from-teal-600 to-teal-500",
+            color: "primary-gradient",
             shadow: "shadow-teal-500/20",
         },
         {
@@ -196,7 +196,7 @@ export default function ContactPage() {
             title: "Email Us",
             description: "Send us an email anytime",
             info: "team@tefline.org",
-            color: "from-cyan-600 to-cyan-500",
+            color: "primary-gradient",
             shadow: "shadow-cyan-500/20",
         },
         {
@@ -204,7 +204,7 @@ export default function ContactPage() {
             title: "Visit Us",
             description: "Come see us in person",
             info: "Embassy Golf Links, Bangalore",
-            color: "from-amber-600 to-amber-500",
+            color: "primary-gradient",
             shadow: "shadow-amber-500/20",
         },
     ];
@@ -250,7 +250,7 @@ export default function ContactPage() {
                     style={{ y: backgroundY }}
                 >
                     {/* Main gradient */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 via-teal-700/80 to-teal-600 "></div>
+                    <div className="absolute top-0 left-0 w-full h-full primary-gradient "></div>
 
                     {/* Blurred gradient circles */}
                     <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
@@ -313,7 +313,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Wave pattern overlay */}
-                <div className="absolute bottom-0 left-0 w-full z-10">
+                {/* <div className="absolute bottom-0 left-0 w-full z-10">
                     <svg
                         viewBox="0 0 1200 120"
                         preserveAspectRatio="none"
@@ -330,7 +330,7 @@ export default function ContactPage() {
                             opacity=".3"
                         />
                     </svg>
-                </div>
+                </div> */}
 
                 {/* Content */}
                 <div className="container mx-auto px-4 relative z-20">
@@ -377,7 +377,7 @@ export default function ContactPage() {
                                 </a>
                             </Button>
                             <Button
-                                className="bg-teal-600 text-white hover:bg-teal-700 shadow-lg px-6 py-6 border border-white/20"
+                                className="bg-white text-primary hover:bg-teal-700 shadow-lg px-6 py-6 border border-white/20"
                                 size="lg"
                                 variant="outline"
                                 asChild
@@ -479,11 +479,11 @@ export default function ContactPage() {
                             className="lg:col-span-3 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden relative"
                         >
                             {/* Decorative elements */}
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600"></div>
+                            <div className="absolute top-0 left-0 w-full h-1 primary-gradient"></div>
                             <div className="absolute top-0 right-0 w-32 h-32 bg-teal-400/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-400/10 rounded-full -ml-16 -mb-16 blur-3xl"></div>
 
-                            <div className="bg-gradient-to-r from-teal-700 to-teal-600 py-8 px-8 text-white relative">
+                            <div className="primary-gradient py-8 px-8 text-white relative">
                                 <h3 className="text-2xl font-bold mb-2 flex items-center">
                                     <MessageSquare className="w-6 h-6 mr-3 text-teal-300" />
                                     Send Us a Message
@@ -534,9 +534,9 @@ export default function ContactPage() {
                                                     whileHover={{ y: -3 }}
                                                     whileTap={{ scale: 0.98 }}
                                                     className={`cursor-pointer rounded-xl shadow-sm p-4 flex flex-col transition-all duration-200 ${selectedInquiry ===
-                                                            inquiry.id
-                                                            ? "bg-teal-50 border-2 border-teal-400 shadow-teal-100"
-                                                            : "border border-slate-200 hover:border-teal-200 bg-white"
+                                                        inquiry.id
+                                                        ? "bg-teal-50 border-2 border-teal-400 shadow-teal-100"
+                                                        : "border border-slate-200 hover:border-teal-200 bg-white"
                                                         }`}
                                                     onClick={() =>
                                                         setSelectedInquiry(
@@ -546,18 +546,18 @@ export default function ContactPage() {
                                                 >
                                                     <div
                                                         className={`w-10 h-10 rounded-lg ${selectedInquiry ===
-                                                                inquiry.id
-                                                                ? "bg-teal-400 text-white"
-                                                                : "bg-slate-100 text-slate-500"
+                                                            inquiry.id
+                                                            ? "bg-teal-400 text-white"
+                                                            : "bg-slate-100 text-slate-500"
                                                             } flex items-center justify-center mb-2`}
                                                     >
                                                         {inquiry.icon}
                                                     </div>
                                                     <span
                                                         className={`${selectedInquiry ===
-                                                                inquiry.id
-                                                                ? "text-teal-700 font-medium"
-                                                                : "text-slate-700"
+                                                            inquiry.id
+                                                            ? "text-teal-700 font-medium"
+                                                            : "text-slate-700"
                                                             } text-sm`}
                                                     >
                                                         {inquiry.label}
@@ -653,10 +653,10 @@ export default function ContactPage() {
                                     >
                                         <Button
                                             type="submit"
-                                            className="w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-medium py-6 rounded-xl flex items-center justify-center group shadow-lg shadow-teal-200/40"
+                                            className="w-1/3 primary-gradient hover:to-teal-700 text-white font-medium py-6 rounded-xl flex items-center justify-center group shadow-lg shadow-teal-200/40"
                                         >
-                                            <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                                             Send Message
+                                            <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                                         </Button>
                                     </motion.div>
                                 </form>
@@ -722,7 +722,7 @@ export default function ContactPage() {
                                         className="relative"
                                     >
                                         <Button
-                                            className="w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-6 rounded-xl shadow-lg shadow-teal-200/40"
+                                            className="w-full primary-gradient hover:to-teal-700 text-white py-6 rounded-xl shadow-lg shadow-teal-200/40"
                                             asChild
                                         >
                                             <Link
@@ -899,7 +899,7 @@ export default function ContactPage() {
                             ))}
                         </div>
 
-                        <div className="p-8 bg-gradient-to-r from-teal-600 to-teal-700 rounded-2xl shadow-xl text-center relative overflow-hidden">
+                        <div className="p-8 primary-gradient rounded-2xl shadow-xl text-center relative overflow-hidden">
                             {/* Decorative elements */}
                             <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/20 rounded-full -mr-32 -mt-32 blur-3xl"></div>
                             <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/20 rounded-full -ml-32 -mb-32 blur-3xl"></div>

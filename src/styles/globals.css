@@ -216,3 +216,11 @@
 @utility card-highlight-teal {
     border-top: 3px solid var(--color-teal);
 }
+
+@utility primary-gradient {
+    background-image: linear-gradient(
+        to right,
+        var(--color-teal),
+        var(--color-primary)
+    );
+}

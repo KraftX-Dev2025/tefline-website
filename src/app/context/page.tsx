@@ -98,7 +98,7 @@ export default function VisionMissionPage() {
                     style={{ y: backgroundY }}
                 >
                     {/* Main teal gradient - Updated to match teal-400 to teal-600 */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-600 via-teal-700/90 to-teal-600"></div>
+                    <div className="absolute top-0 left-0 w-full h-full primary-gradient"></div>
 
                     {/* Blurred gradient circles - Updated colors */}
                     <div className="absolute top-1/4 right-1/4 w-[40rem] h-[40rem] rounded-full bg-sky-500/20 blur-[120px] opacity-60"></div>
@@ -107,7 +107,7 @@ export default function VisionMissionPage() {
                 </motion.div>
 
                 {/* Wave pattern overlay */}
-                <div className="absolute bottom-[0] left-0 w-full z-10">
+                {/* <div className="absolute bottom-[0] left-0 w-full z-10">
                     <svg
                         viewBox="0 0 1200 120"
                         preserveAspectRatio="none"
@@ -124,7 +124,7 @@ export default function VisionMissionPage() {
                             opacity=".3"
                         />
                     </svg>
-                </div>
+                </div> */}
 
                 {/* Content container */}
                 <div className="container mx-auto px-4 relative z-20 pt-28 pb-32">
@@ -136,7 +136,7 @@ export default function VisionMissionPage() {
                     >
                         <motion.div
                             variants={fadeIn}
-                            className="mb-3 py-1 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
+                            className="mb-3 py-1 px-4 bg-white/10 text-white backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
                         >
                             <Sparkles className="w-4 h-4 mr-2" />
                             Our Purpose
@@ -145,13 +145,10 @@ export default function VisionMissionPage() {
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
                             variants={fadeIn}
                         >
-                            Vision{" "}
-                            <span className="relative z-10 bg-gradient-to-r from-teal-300 to-cyan-200 bg-clip-text text-transparent">
-                                Mission
-                            </span>
+                            Vision Mission
                         </motion.h1>
                         <motion.p
-                            className="text-lg sm:text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
+                            className="text-lg sm:text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed text-white"
                             variants={fadeIn}
                         >
                             Discover our purpose, values, and the driving force
@@ -762,13 +759,13 @@ export default function VisionMissionPage() {
                             {
                                 title: "Long-Term Vision",
                                 period: "1-3 years",
-                                color: "from-orange-500 to-orange-400",
-                                textColor: "text-orange-800",
+                                color: "from-cyan-500 to-cyan-400",
+                                textColor: "text-teal-800",
                                 bullets: [
                                     "Complete lifestyle transformation and wellness optimization",
                                     "Becoming an advocate and mentor within the community",
                                 ],
-                                iconColor: "text-orange-500",
+                                iconColor: "text-teal-500",
                             },
                         ].map((item, index) => (
                             <motion.div
@@ -854,7 +851,7 @@ export default function VisionMissionPage() {
                 </div>
 
                 {/* Content */}
-                <div className="max-w-5xl mx-auto relative z-10 px-4">
+                <div className="mx-auto relative z-10 py-8 rounded-2xl primary-gradient w-full">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
