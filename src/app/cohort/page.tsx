@@ -139,13 +139,11 @@ export default function TeamPage() {
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight"
                             variants={fadeIn}
                         >
-                            TEAM{" "}
-                            <span className="bg-gradient-to-r from-cyan-300 to-teal-200 bg-clip-text text-transparent">
-                                TEFLINE
-                            </span>
+                            TEAM TEFLINE
+
                         </motion.h1>
                         <motion.p
-                            className="text-lg md:text-xl text-teal-50 leading-relaxed"
+                            className="text-lg md:text-xl text-teal-50 leading-relaxed text-white"
                             variants={fadeIn}
                         >
                             Meet the visionaries behind Tefline's mission to
@@ -254,7 +252,7 @@ export default function TeamPage() {
                                             {/* Read More Link */}
                                             <div className="mt-auto text-center">
                                                 <span
-                                                    className={`inline-flex items-center text-teal-800 text-sm group-hover:text-white transition-colors`}
+                                                    className={`inline-flex items-center text-teal-800 text-sm transition-colors`}
                                                 >
                                                     Read Full Bio
                                                     <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />

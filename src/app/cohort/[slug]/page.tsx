@@ -68,14 +68,14 @@ export default function TeamMemberPage(props: { params: Params }) {
                     }}
                 >
                     <div
-                        className={`${themeClasses.gradientBg} text-white p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl`}
+                        className={`primary-gradient text-white p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl`}
                     >
                         <div className="flex flex-col items-center">
                             <div
                                 className={`w-48 h-48 rounded-full mb-6 border-4 border-white/20 overflow-hidden transition-transform duration-300 hover:scale-105`}
                             >
                                 <Image
-                                    src="/placeholder.webp"
+                                    src={teamMember.image || "/placeholder.webp"}
                                     alt={teamMember.name}
                                     className="w-full h-full object-cover"
                                     width={400}
@@ -146,11 +146,10 @@ export default function TeamMemberPage(props: { params: Params }) {
                         {["bio", "achievements", "vision"].map((tab) => (
                             <button
                                 key={tab}
-                                className={`relative pb-2 px-4 font-medium text-gray-700 ${
-                                    activeTab === tab
-                                        ? "text-teal-600 font-semibold"
-                                        : ""
-                                } hover:text-teal-500 transition-colors`}
+                                className={`relative pb-2 px-4 font-medium text-gray-700 ${activeTab === tab
+                                    ? "text-teal-600 font-semibold"
+                                    : ""
+                                    } hover:text-teal-500 transition-colors`}
                                 onClick={() =>
                                     setActiveTab(
                                         tab as "bio" | "achievements" | "vision"
@@ -226,7 +225,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                                             >
                                                 <div className="flex items-start">
                                                     <div
-                                                        className={`p-2 rounded-full ${themeClasses.accentBg} text-white mr-4`}
+                                                        className={`p-2 rounded-full primary-gradient text-white mr-4`}
                                                     >
                                                         <svg
                                                             xmlns="http://www.w3.org/2000/svg"
@@ -277,7 +276,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                                 </h2>
 
                                 <motion.div
-                                    className="p-6 rounded-lg border border-gray-200 mb-8 hover:border-gray-300 transition-colors"
+                                    className=" p-6 rounded-lg border border-primary mb-8 hover:border-gray-300 transition-colors"
                                     whileHover={{
                                         y: -3,
                                         boxShadow:
@@ -350,7 +349,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                     </div>
 
                     {/* Related Team Members */}
-                    <div className="mt-12 pt-6 border-t border-gray-300">
+                    {/* <div className="mt-12 pt-6 border-t border-gray-300">
                         <h3 className="text-lg font-medium mb-4 text-gray-800">
                             Related Team Members
                         </h3>
@@ -400,7 +399,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                                     </motion.div>
                                 ))}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
