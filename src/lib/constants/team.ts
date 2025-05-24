@@ -4,6 +4,7 @@ import {
     Linkedin,
     Mail,
     FlaskConical,
+    Globe,
     Brain,
     BarChart,
     Briefcase,
@@ -76,6 +77,7 @@ export const teamMembers: TeamMember[] = [
                 href: "https://linkedin.com/in/subra",
                 icon: Linkedin,
             },
+            { label: "Visit Website", href: "https://tefline.org", icon: Globe },
         ],
     },
     {
@@ -84,7 +86,6 @@ export const teamMembers: TeamMember[] = [
         role: "Strategic Founder & CTO",
         secondaryRole: "Chief Talent Officer",
         image: "/pramod-joshi.webp",
-
         shortBio:
             "Pioneering the integration of human potential, digital intelligence, and workforce well-being.",
         fullBio: [
