@@ -783,7 +783,7 @@ export default function ServicesPage() {
 
                                 <div className="relative h-64 md:h-auto overflow-hidden">
                                     <Image
-                                        src="/tefline-image9.png"
+                                        src="/tefline-image9.webp"
                                         alt="Enterprise wellness"
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"

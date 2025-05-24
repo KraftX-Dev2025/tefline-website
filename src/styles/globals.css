@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@tailwind utilities;
 
 /* Theme color variables using @theme directive for v4 */
 @theme {

@@ -226,7 +226,7 @@ export default function AboutPage() {
                                     }}
                                 >
                                     <Image
-                                        src="/tefline-image3.png"
+                                        src="/tefline-image3.webp"
                                         alt="Founders meeting"
                                         className="w-full h-auto object-cover rounded-xl"
                                         width={800}

@@ -371,7 +371,7 @@ export default function InvestPage() {
                             <div className="absolute -bottom-6 -right-6 w-full h-full bg-amber-100 rounded-xl opacity-70" />
                             <div className="relative">
                                 <Image
-                                    src="/tefline-image9.png"
+                                    src="/tefline-image9.webp"
                                     alt="Investment opportunity"
                                     width={600}
                                     height={400}

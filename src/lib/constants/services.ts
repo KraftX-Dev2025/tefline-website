@@ -17,7 +17,7 @@ export const individualServices: Service[] = [
             "Personalized improvement roadmap",
             "Priority intervention areas",
         ],
-        imageUrl: "/tefline-image6.png",
+        imageUrl: "/tefline-image6.webp",
         buttonText: "Learn More",
     },
     {
@@ -30,7 +30,7 @@ export const individualServices: Service[] = [
             "Adaptive intervention strategies",
             "Progress tracking and visualization",
         ],
-        imageUrl: "/tefline-image7.png",
+        imageUrl: "/tefline-image7.webp",
         buttonText: "Explore Coaching",
     },
     {
@@ -43,7 +43,7 @@ export const individualServices: Service[] = [
             "Secure health data sharing options",
             "Community wellness events",
         ],
-        imageUrl: "/tefline-image8.png",
+        imageUrl: "/tefline-image8.webp",
         buttonText: "Join the Community",
     },
 ];

@@ -204,7 +204,7 @@ export default function VisionMissionPage() {
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-white/80 shadow-xl border border-white/70 p-3">
                                     <Image
-                                        src="/tefline-image4.png"
+                                        src="/tefline-image4.webp"
                                         alt="Vision illustration"
                                         className="w-full h-auto object-cover rounded-xl"
                                         width={400}
@@ -358,7 +358,7 @@ export default function VisionMissionPage() {
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-white/80 shadow-xl border border-white/70 p-3">
                                     <Image
-                                        src="/tefline-image5.png"
+                                        src="/tefline-image5.webp"
                                         alt="Mission illustration"
                                         className="w-full h-auto object-cover rounded-xl"
                                         width={400}

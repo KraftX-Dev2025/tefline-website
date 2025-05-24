@@ -43,7 +43,7 @@ export const teamMembers: TeamMember[] = [
         slug: "subra",
         role: "Principal Founder & CEO",
         secondaryRole: "Chief AI Officer",
-        image: "/subramanium.png",
+        image: "/subramanium.webp",
         shortBio:
             "A visionary technologist, AI strategist, and category creator who built a career of identifying white spaces.",
         fullBio: [
@@ -83,7 +83,7 @@ export const teamMembers: TeamMember[] = [
         slug: "madhu",
         role: "Strategic Founder & CTO",
         secondaryRole: "Chief Talent Officer",
-        image: "/pramod-joshi.jpg",
+        image: "/pramod-joshi.webp",
 
         shortBio:
             "Pioneering the integration of human potential, digital intelligence, and workforce well-being.",
@@ -123,7 +123,7 @@ export const teamMembers: TeamMember[] = [
         slug: "anil",
         role: "Chief Product Officer",
         secondaryRole: "Product Strategy",
-        image: "/anil-jangid.jpg",
+        image: "/anil-jangid.webp",
 
         shortBio:
             "An IIM Ahmedabad graduate blending intellect, intensity and intent to drive product strategy and paradigm shifts.",
@@ -162,7 +162,7 @@ export const teamMembers: TeamMember[] = [
         slug: "kulkarni",
         role: "Chairman, Advisory Board",
         secondaryRole: "Medical Advisory Council",
-        image: "/adarsh-kulkarni.jpg",
+        image: "/adarsh-kulkarni.webp",
 
         shortBio:
             "A distinguished UK-trained physician and a prominent critical care consultant.",

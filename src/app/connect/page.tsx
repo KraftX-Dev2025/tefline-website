@@ -760,7 +760,7 @@ export default function ContactPage() {
                                     <div className="aspect-video rounded-lg bg-slate-200 relative overflow-hidden">
                                         {/* Map Placeholder - In a real implementation, this would be replaced with a Google Maps integration */}
                                         <Image
-                                            src="/tefline-image1.png"
+                                            src="/tefline-image1.webp"
                                             alt="Map location"
                                             width={800}
                                             height={400}

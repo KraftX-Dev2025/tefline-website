@@ -247,7 +247,7 @@ export default function PressPage() {
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-white/80 shadow-xl border border-white/70 p-3">
                                     <Image
-                                        src="/tefline-image10.png"
+                                        src="/tefline-image1.webp"
                                         alt="AI C-Suite Executive"
                                         width={800}
                                         height={600}
@@ -427,7 +427,7 @@ export default function PressPage() {
                                 title: "Tefline Completes Pre-Seed Funding Round",
                                 description:
                                     "Tefline announces the successful closure of its pre-seed funding round, securing investment to accelerate the development of its Wellness Intelligence™ platform.",
-                                image: "/tefline-image7.png",
+                                image: "/tefline-image7.webp",
                                 delay: 0.1,
                             },
                             {
@@ -435,7 +435,7 @@ export default function PressPage() {
                                 title: "Strategic Partnership with University of South Carolina Announced",
                                 description:
                                     "Tefline partners with the University of South Carolina, a pioneer in lifestyle medicine curricula, to enhance its evidence-informed wellness protocols and educational offerings.",
-                                image: "/tefline-image8.png",
+                                image: "/tefline-image8.webp",
                                 delay: 0.2,
                             },
                             {
@@ -443,7 +443,7 @@ export default function PressPage() {
                                 title: "Tefline Launches Fellowship in Lifestyle Medicine",
                                 description:
                                     "In collaboration with NextGenU, Tefline introduces a comprehensive wellness licensing program endorsed by the World Health Organization.",
-                                image: "/tefline-image9.png",
+                                image: "/tefline-image9.webp",
                                 delay: 0.3,
                             },
                         ].map((item, index) => (

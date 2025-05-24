@@ -17,7 +17,59 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+
+// Create a client-side component for animated particles
+const AnimatedParticles = ({ count = 20 }: { count?: number }) => {
+    const [particles, setParticles] = useState<Array<{
+        width: number;
+        height: number;
+        top: number;
+        left: number;
+        duration: number;
+        delay: number;
+    }>>([]);
+
+    useEffect(() => {
+        // Generate particles only on client side
+        const newParticles = Array.from({ length: count }, () => ({
+            width: Math.random() * 8 + 4,
+            height: Math.random() * 8 + 4,
+            top: Math.random() * 100,
+            left: Math.random() * 100,
+            duration: Math.random() * 10 + 10,
+            delay: Math.random() * 10,
+        }));
+        setParticles(newParticles);
+    }, [count]);
+
+    return (
+        <div className="absolute top-0 left-0 w-full h-full">
+            {particles.map((particle, i) => (
+                <motion.div
+                    key={i}
+                    className="absolute rounded-full bg-teal-500/10"
+                    style={{
+                        width: particle.width + "px",
+                        height: particle.height + "px",
+                        top: particle.top + "%",
+                        left: particle.left + "%",
+                    }}
+                    animate={{
+                        y: [0, -100],
+                        opacity: [0, 1, 0],
+                    }}
+                    transition={{
+                        duration: particle.duration,
+                        repeat: Infinity,
+                        delay: particle.delay,
+                        ease: "linear",
+                    }}
+                />
+            ))}
+        </div>
+    );
+};
 
 export default function Home() {
     // For parallax effects
@@ -285,7 +337,7 @@ export default function Home() {
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-white/80 shadow-xl border border-white/70 p-3">
                                     <Image
-                                        src="/tefline-image1.png"
+                                        src="/tefline-image1.webp"
                                         alt="Health Technology"
                                         width={800}
                                         height={600}
@@ -326,7 +378,7 @@ export default function Home() {
                                 {/* Main image with glass effect */}
                                 <div className="relative w-full h-auto rounded-2xl backdrop-blur-sm bg-teal-600/30 shadow-xl border border-teal-500 p-3">
                                     <Image
-                                        src="/tefline-image2.png"
+                                        src="/tefline-image2.webp"
                                         alt="Lifestyle Medicine"
                                         width={800}
                                         height={600}

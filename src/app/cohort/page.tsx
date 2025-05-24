@@ -195,7 +195,7 @@ export default function TeamPage() {
                                                             <Image
                                                                 src={
                                                                     member.image ??
-                                                                    "/subramanium.png"
+                                                                    "/subramanium.webp"
                                                                 }
                                                                 alt={
                                                                     member.name
