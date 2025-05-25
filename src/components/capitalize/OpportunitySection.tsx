@@ -36,7 +36,7 @@ export default function OpportunitySection() {
         <section
             id="opportunity"
             ref={opportunityRef}
-            className="py-24 bg-white"
+            className="py-8 bg-white"
         >
             <Container>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -45,11 +45,13 @@ export default function OpportunitySection() {
                         animate={isOpportunityInView ? "visible" : "hidden"}
                         variants={fadeInLeft}
                     >
-                        <div className="inline-flex items-center bg-teal-100 text-teal-600 px-4 py-1 rounded-full text-sm font-medium mb-6">
+                        <div className="inline-flex items-center bg-teal-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-6">
                             <Target className="w-4 h-4 mr-2" />
-                            Strategic Positioning
+                            <span className="text-primary-gradient">
+                                Strategic Positioning
+                            </span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-teal-600">
                             FORWARD-LOOKING POSITIONING
                         </h2>
                         <div className="space-y-4 text-slate-700">

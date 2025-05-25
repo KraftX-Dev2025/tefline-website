@@ -55,11 +55,11 @@ const WellnessIntelligenceSection = () => {
           viewport={{ once: true }}
           className="text-center mb-8 max-w-3xl mx-auto"
         >
-          <div className="inline-flex items-center bg-teal-600/50 backdrop-blur-lg text-white px-5 py-2 rounded-full text-sm font-medium mb-8 border border-teal-500/50">
+          <div className="inline-flex items-center  backdrop-blur-lg text-teal-400 px-5 py-2 rounded-full text-sm font-medium mb-8 border border-teal-500/50">
             <Brain className="w-4 h-4 mr-2" />
             Powered by Intelligence
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-teal-600 bg-clip-text">WELLNESS INTELLIGENCE™</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-gradient bg-clip-text">WELLNESS INTELLIGENCE™</h2>
         </motion.div>
 
         {/* Dashboard Layout */}
@@ -72,7 +72,7 @@ const WellnessIntelligenceSection = () => {
             viewport={{ once: true }}
             className="relative z-10 mx-auto mb-20 max-w-lg"
           >
-            <div className="bg-teal-600/40 backdrop-blur-md border border-teal-500/70 rounded-2xl p-6 shadow-[0_0_30px_rgba(20,184,166,0.15)] hover:shadow-[0_0_40px_rgba(20,184,166,0.25)] transition-all duration-500 overflow-hidden">
+            <div className="primary-gradient backdrop-blur-md border border-teal-500/70 rounded-2xl p-6 shadow-[0_0_30px_rgba(20,184,166,0.15)] hover:shadow-[0_0_40px_rgba(20,184,166,0.25)] transition-all duration-500 overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 to-teal-400"></div>
               <div className="flex items-center mb-6">
                 <div className="p-3 rounded-full bg-teal-600/50 mr-4 glow-pulse-teal">
@@ -87,13 +87,13 @@ const WellnessIntelligenceSection = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-teal-600/40 rounded-lg p-4 text-center border border-teal-500/50">
-                  <div className="text-xl font-bold text-teal-200">87%</div>
-                  <div className="text-xs text-teal-300">User Energy Improvement</div>
+                <div className="bg-white rounded-lg p-4 text-center border border-teal-500/50">
+                  <div className="text-xl font-bold text-teal-600">87%</div>
+                  <div className="text-xs text-teal-600">User Energy Improvement</div>
                 </div>
-                <div className="bg-teal-600/40 rounded-lg p-4 text-center border border-teal-500/50">
-                  <div className="text-xl font-bold text-cyan-200">3.2 yrs</div>
-                  <div className="text-xs text-teal-300">Biological Age Reduction</div>
+                <div className="bg-white rounded-lg p-4 text-center border border-teal-500/50">
+                  <div className="text-xl font-bold text-teal-600">3.2 yrs</div>
+                  <div className="text-xs text-teal-600">Biological Age Reduction</div>
                 </div>
               </div>
 
@@ -104,7 +104,7 @@ const WellnessIntelligenceSection = () => {
                   whileInView={{ width: "75%" }}
                   transition={{ duration: 1, delay: 0.3 }}
                   viewport={{ once: true }}
-                  className="absolute top-0 left-0 h-full rounded-lg primary-gradient"
+                  className="absolute top-0 left-0 h-full rounded-lg bg-teal-400"
                 ></motion.div>
                 <div className="absolute inset-0 flex items-center justify-center text-md font-semibold text-white">
                   Wellness Score: 75%
@@ -114,7 +114,7 @@ const WellnessIntelligenceSection = () => {
               <div className="flex justify-center">
                 <Link
                   href="/modules"
-                  className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-teal-500/20 text-white text-sm font-medium hover:bg-teal-500/30 transition-all duration-200 border border-teal-500/30 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:scale-105"
+                  className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-white text-teal-600 text-sm font-medium hover:bg-teal-500/30 transition-all duration-200 border border-teal-500/30 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:scale-105"
                 >
                   Explore Intelligence Hub
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />

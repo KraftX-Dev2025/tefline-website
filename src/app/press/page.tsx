@@ -173,9 +173,9 @@ export default function PressPage() {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={fadeInLeft}
                         >
-                            <div className="inline-flex items-center bg-teal-100 text-teal-600 px-4 py-1 rounded-full text-sm font-medium mb-6">
+                            <div className="inline-flex items-center bg-teal-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-6">
                                 <Sparkles className="w-4 h-4 mr-2" />
-                                Featured Announcement
+                                <span className="text-primary-gradient">Featured Announcement</span>
                             </div>
                             <div className="flex items-center text-slate-500 space-x-4 mb-4">
                                 <div className="flex items-center">
@@ -285,7 +285,7 @@ export default function PressPage() {
                         transition={{ duration: 0.6 }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-teal-700">
+                        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-teal-600">
                             Paradigm Shift in Leadership
                         </h2>
                         <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -411,11 +411,11 @@ export default function PressPage() {
                         transition={{ duration: 0.6 }}
                         className="mb-12"
                     >
-                        <div className="inline-flex items-center bg-amber-100 text-amber-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        <div className="inline-flex items-center bg-amber-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-4">
                             <Calendar className="w-4 h-4 mr-2" />
-                            Recent Updates
+                            <span className="text-primary-gradient">Recent Updates</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-teal-600">
                             Latest News
                         </h2>
                     </motion.div>
@@ -505,11 +505,13 @@ export default function PressPage() {
                         transition={{ duration: 0.6 }}
                         className="text-center mb-16"
                     >
-                        <div className="inline-flex items-center bg-teal-100 text-teal-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        <div className="inline-flex items-center bg-teal-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-4">
                             <Download className="w-4 h-4 mr-2" />
-                            For Media
+                            <span className="text-primary-gradient">
+                                For Media
+                            </span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600">
                             Media Resources
                         </h2>
                         <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -685,7 +687,7 @@ export default function PressPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-teal-600">
                             Stay Updated
                         </h2>
                         <p className="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">

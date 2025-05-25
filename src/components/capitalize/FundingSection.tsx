@@ -25,7 +25,7 @@ export default function FundingRoadmapSection() {
     };
 
     return (
-        <section ref={fundingRef} className="py-24 bg-white">
+        <section ref={fundingRef} className="py-8 bg-white">
             <Container>
                 <motion.div
                     initial="hidden"
@@ -35,9 +35,10 @@ export default function FundingRoadmapSection() {
                 >
                     <div className="inline-flex items-center bg-teal-100 text-teal-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
                         <Layers className="w-4 h-4 mr-2" />
-                        Growth Strategy
+                        
+                        <span className="text-primary-gradient">Growth Strategy</span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600">
                         FUNDING ROADMAP
                     </h2>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto">

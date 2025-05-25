@@ -76,7 +76,7 @@ export default function AboutPage() {
             {/* Hero Section */}
             <section
                 ref={ref}
-                className="relative min-h-[60vh] flex items-center justify-center overflow-hidden"
+                className="relative h-full flex items-center justify-center overflow-hidden"
                 style={{
                     background: "var(--background-main)",
                 }}
@@ -260,18 +260,16 @@ export default function AboutPage() {
                             variants={fadeInLeft}
                         >
                             <div
-                                className="inline-flex items-center px-4 py-1 rounded-full text-sm font-medium mb-6"
-                                style={{
-                                    background: "rgba(60, 203, 201, 0.1)",
-                                    color: "#3CCBC9",
-                                }}
+                                className="inline-flex items-center px-4 py-1 rounded-full text-sm font-medium mb-6 text-teal-400"
+
                             >
                                 <FileCheck className="w-4 h-4 mr-2" />
-                                Our Beginning
+                                <span className="text-primary-gradient">
+                                    Our Beginning
+                                </span>
                             </div>
                             <h2
-                                className="text-3xl md:text-4xl font-bold mb-6 leading-tight"
-                                style={{ color: "#3CCBC9" }}
+                                className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-teal-600"
                             >
                                 OUR STORY
                             </h2>
@@ -343,18 +341,15 @@ export default function AboutPage() {
                         className="text-center mb-8"
                     >
                         <div
-                            className="inline-flex items-center backdrop-blur-md text-sm font-medium mb-6 px-4 py-1 rounded-full"
-                            style={{
-                                background: "rgba(255, 255, 255, 0.1)",
-                                color: "var(--background-card)",
-                            }}
+                            className="inline-flex items-center backdrop-blur-md text-sm font-medium mb-6 px-4 py-1 rounded-full text-white"
+
                         >
                             <Sparkles className="w-4 h-4 mr-2" />
+
                             Investment in Health
                         </div>
                         <h2
-                            className="text-3xl md:text-4xl font-bold mb-6 leading-tight"
-                            style={{ color: "var(--background-card)" }}
+                            className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-white"
                         >
                             BIOLOGICAL CAPITAL
                         </h2>
@@ -365,8 +360,8 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-lg space-y-6 mb-10"
-                        style={{ color: "var(--background-card)" }}
+                        className="text-lg space-y-6 mb-10 text-white"
+
                     >
                         <p>
                             The lion's share of all healthcare spending is
@@ -399,12 +394,8 @@ export default function AboutPage() {
                     >
                         <Link
                             href="/modules"
-                            className="text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center group"
-                            style={{
-                                background:
-                                    "linear-gradient(to right, #935DFD, #935DFD)",
-                                boxShadow: "var(--button-primary-hover-shadow)",
-                            }}
+                            className="bg-amber-500 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center group"
+
                         >
                             Discover Our Programs
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -427,14 +418,13 @@ export default function AboutPage() {
                         className="text-center mb-16"
                     >
                         <div
-                            className="inline-flex items-center px-4 py-1 rounded-full text-sm font-medium mb-4"
-                            style={{
-                                background: "rgba(60, 203, 201, 0.1)",
-                                color: "#3CCBC9",
-                            }}
+                            className="inline-flex items-center px-4 py-1 rounded-full text-sm font-medium mb-4 text-teal-600"
+
                         >
                             <CheckCircle className="w-4 h-4 mr-2" />
+                            <span className="text-primary-gradient">
                             Validation & Excellence
+                            </span>
                         </div>
                         <h2
                             className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
@@ -486,12 +476,8 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="rounded-2xl p-8 md:p-12 text-white"
-                        style={{
-                            backgroundImage:
-                                "linear-gradient(to top left, #3CCBC9, #935DFD)",
-                            boxShadow: "var(--button-primary-hover-shadow)",
-                        }}
+                        className="rounded-2xl p-8 md:p-12 text-white primary-gradient"
+
                     >
                         <h3 className="text-2xl font-bold mb-6">
                             INFORMED AUTHORITY
