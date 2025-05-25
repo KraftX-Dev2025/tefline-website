@@ -69,7 +69,7 @@ export const teamMembers: TeamMember[] = [
         contactButtons: [
             {
                 label: "Contact",
-                href: "/contact?team=subra",
+                href: "/connect",
                 icon: Mail,
             },
             {
@@ -109,7 +109,7 @@ export const teamMembers: TeamMember[] = [
         contactButtons: [
             {
                 label: "Contact",
-                href: "/contact?team=madhu",
+                href: "/connect",
                 icon: Mail,
             },
             {
@@ -194,7 +194,7 @@ export const teamMembers: TeamMember[] = [
             },
             {
                 label: "Reach Out",
-                href: "/contact?team=kulkarni",
+                href: "/c",
                 icon: Mail,
             },
         ],

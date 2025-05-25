@@ -398,7 +398,7 @@ export default function AboutPage() {
                         className="flex justify-center"
                     >
                         <Link
-                            href="/services"
+                            href="/modules"
                             className="text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center group"
                             style={{
                                 background:

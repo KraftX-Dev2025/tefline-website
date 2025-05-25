@@ -86,18 +86,18 @@ const LifestyleMedicineSection: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">
               <span>LIFESTYLE MEDICINE</span> Through AI-Driven Intelligence
             </h2>
-            <p className="text-teal-100 mb-8 leading-relaxed text-lg">
+            <p className="text-teal-100 mb-8 leading-relaxed text-lg text-white">
               Tefline's flagship initiative, RxLifeMed, is your lifelong companion offering curated content spanning
               twelve evolving monthly modules in lifestyle medicine. We host digital wellness deep dives, weekly
               check-ins and everything in between, incl. The Doctor is IN.
             </p>
-            <p className="text-teal-100 mb-8 leading-relaxed text-lg">
+            <p className="text-teal-100 mb-8 leading-relaxed text-lg text-white">
               Particularly potent is patent-pending Lifestyle Social, a tribe outreach platform that acts as a
               springboard for social connections.
             </p>
             <Link
-              href="/services"
-              className="inline-flex items-center text-black font-semibold group px-5 py-2 rounded-lg border border-teal-500 hover:bg-teal-600/50 transition-all duration-200 hover:scale-105"
+              href="/modules"
+              className="text-white inline-flex items-center text-black font-semibold group px-5 py-2 rounded-lg border border-teal-500 hover:bg-teal-600/50 transition-all duration-200 hover:scale-105"
             >
               Learn More About RxLifeMed
               <div className="ml-2 w-5 h-5 rounded-full bg-teal-600 flex items-center justify-center group-hover:bg-teal-500 transition-colors duration-200">

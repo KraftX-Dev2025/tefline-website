@@ -105,3 +105,10 @@ export const successMetrics = [
         description: "reduction in lifestyle-related health complaints",
     },
 ];
+
+export const testimonial = {
+    quote: "Implementing Tefline's wellness program has transformed our organization. Employee engagement is up, sick days are down, and we're seeing real improvements in overall wellbeing.",
+    author: "HR Director",
+    company: "Fortune 500 Company",
+    avatar: "HR"
+};

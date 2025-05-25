@@ -29,7 +29,7 @@ const NewsletterSection: React.FC = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
-        className="bg-gradient-to-r from-teal-500/40 to-violet-500/50 rounded-2xl p-8 border border-violet-500/20"
+        className="primary-gradient rounded-2xl p-8 border border-violet-500/20"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -47,8 +47,8 @@ const NewsletterSection: React.FC = () => {
               <Sparkles className="w-4 h-4 mr-2" />
               Stay Updated
             </motion.div>
-            <h3 className="text-2xl font-bold mb-4 text-gray-900">Join Our Newsletter</h3>
-            <p className="text-gray-700 mb-6">
+            <h3 className="text-2xl font-bold mb-4 text-white">Join Our Newsletter</h3>
+            <p className="text-white mb-6">
               Subscribe to receive updates on wellness intelligence, exclusive insights, and special offers directly to
               your inbox.
             </p>

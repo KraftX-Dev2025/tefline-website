@@ -12,7 +12,7 @@ export const wellnessModules: WellnessModule[] = [
     lightColor: "bg-teal-500/20",
     textColor: "text-teal-500",
     stats: ["1,200+", "Resources"],
-    link: "/services",
+    link: "/modules",
   },
   {
     title: "AIR Tenet",
@@ -24,7 +24,7 @@ export const wellnessModules: WellnessModule[] = [
     lightColor: "bg-amber-500/10",
     textColor: "text-amber-300",
     stats: ["Daily", "Updates"],
-    link: "/services",
+    link: "/modules",
   },
   {
     title: "Cognitive Counselor",
@@ -36,7 +36,7 @@ export const wellnessModules: WellnessModule[] = [
     lightColor: "bg-cyan-500/10",
     textColor: "text-cyan-200",
     stats: ["24/7", "Support"],
-    link: "/services",
+    link: "/modules",
   },
   {
     title: "Lifestyle Digital",
@@ -48,6 +48,6 @@ export const wellnessModules: WellnessModule[] = [
     lightColor: "bg-amber-500/10",
     textColor: "text-amber-300",
     stats: ["Daily", "Updates"],
-    link: "/services",
+    link: "/modules",
   },
 ]
