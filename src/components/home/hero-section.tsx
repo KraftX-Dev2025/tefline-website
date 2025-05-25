@@ -85,7 +85,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ ref }) => {
               }}
             >
               <Link
-                href="/services"
+                href="/modules"
                 className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
               >
                 Discover Wellness Intelligence™

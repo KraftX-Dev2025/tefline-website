@@ -62,7 +62,7 @@ const LifelineSection: React.FC = () => {
               healthspan is the surest path to extending lifespan.
             </p>
             <Link
-              href="/about"
+              href="/content"
               className="inline-flex items-center text-teal-600 font-semibold group px-5 py-2 rounded-lg border border-teal-200 hover:bg-teal-50 transition-all duration-200 hover:scale-105"
             >
               Learn More About Our Approach

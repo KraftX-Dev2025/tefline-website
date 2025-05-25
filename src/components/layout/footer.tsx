@@ -48,7 +48,7 @@ export function Footer() {
 
     // Additional nav links that were moved from header to footer
     // const additionalNavLinks = [
-    //     { name: "About", href: "/about" },
+    //     { name: "About", href: "/content" },
     //     { name: "Team", href: "/team" },
     //     { name: "Vision & Mission", href: "/vision-mission" },
     //     { name: "Programs", href: "/programs" },

@@ -154,7 +154,7 @@ export default function ServicesHeroSection() {
                                 className="border-white text-primary hover:bg-white/80 transition-all duration-300"
                                 asChild
                             >
-                                <Link href="/contact">
+                                <Link href="/connect">
                                     Book a Consultation
                                 </Link>
                             </Button>

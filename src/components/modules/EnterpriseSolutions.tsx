@@ -166,7 +166,7 @@ export default function EnterpriseSolutionsSection() {
                                         asChild
                                     >
                                         <Link
-                                            href="/contact"
+                                            href="/connect"
                                             className="flex items-center"
                                         >
                                             {solution.buttonText}
@@ -290,7 +290,7 @@ export default function EnterpriseSolutionsSection() {
                                         className="bg-white text-teal-600 hover:bg-white/90 shadow"
                                         asChild
                                     >
-                                        <Link href="/contact">
+                                        <Link href="/connect">
                                             Schedule a Consultation
                                         </Link>
                                     </Button>

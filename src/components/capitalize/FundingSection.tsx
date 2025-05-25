@@ -180,7 +180,7 @@ export default function FundingRoadmapSection() {
                                                 asChild
                                             >
                                                 <Link
-                                                    href="/contact?investor=true"
+                                                    href="/connect"
                                                     className="flex items-center"
                                                 >
                                                     Request Investor Deck

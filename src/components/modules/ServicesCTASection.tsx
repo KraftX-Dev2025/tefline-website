@@ -124,7 +124,7 @@ export default function ServicesCTASection() {
                             className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
                             asChild
                         >
-                            <Link href="/contact">Book a Consultation</Link>
+                            <Link href="/connect">Book a Consultation</Link>
                         </Button>
                         <Button
                             size="lg"
@@ -132,7 +132,7 @@ export default function ServicesCTASection() {
                             className="border-white text-teal-600 hover:bg-white/10 transition-all duration-300"
                             asChild
                         >
-                            <Link href="/contact?service=masterclass">
+                            <Link href="/connect">
                                 Request a Free Masterclass
                             </Link>
                         </Button>

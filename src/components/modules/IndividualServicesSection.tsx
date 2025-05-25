@@ -189,7 +189,7 @@ export default function IndividualServicesSection() {
                                         asChild
                                     >
                                         <Link
-                                            href="/contact"
+                                            href="/connect"
                                             className="flex items-center justify-center"
                                         >
                                             {service.buttonText}

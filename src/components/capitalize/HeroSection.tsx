@@ -100,7 +100,7 @@ export default function HeroSection() {
                                 className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                                 asChild
                             >
-                                <Link href="/contact?investor=true">
+                                <Link href="/connect">
                                     Connect With Our Investment Team
                                 </Link>
                             </Button>

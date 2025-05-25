@@ -659,7 +659,7 @@ export default function PressPage() {
                                     }}
                                 >
                                     <Link
-                                        href="/contact"
+                                        href="/connect"
                                         className="inline-flex items-center bg-white text-teal-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg"
                                     >
                                         Contact Press Team

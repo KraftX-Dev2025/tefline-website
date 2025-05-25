@@ -113,7 +113,7 @@ const WellnessIntelligenceSection = () => {
 
               <div className="flex justify-center">
                 <Link
-                  href="/services"
+                  href="/modules"
                   className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-teal-500/20 text-white text-sm font-medium hover:bg-teal-500/30 transition-all duration-200 border border-teal-500/30 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:scale-105"
                 >
                   Explore Intelligence Hub

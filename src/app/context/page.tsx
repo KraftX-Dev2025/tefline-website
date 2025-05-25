@@ -168,7 +168,7 @@ export default function VisionMissionPage() {
                                 }}
                             >
                                 <Link
-                                    href="/about"
+                                    href="/content"
                                     className="group px-5 py-3 rounded-lg backdrop-blur-sm bg-white/10 border border-white/20 hover:bg-white/20 transition-colors duration-300 inline-flex items-center text-white font-medium"
                                 >
                                     Learn About Us
@@ -901,7 +901,7 @@ export default function VisionMissionPage() {
                             className="flex justify-center"
                         >
                             <Link
-                                href="/contact"
+                                href="/connect"
                                 className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
                             >
                                 Contact Us Today

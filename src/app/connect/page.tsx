@@ -726,7 +726,7 @@ export default function ContactPage() {
                                             asChild
                                         >
                                             <Link
-                                                href="/contact?service=masterclass"
+                                                href="/connect?service=masterclass"
                                                 className="flex items-center justify-center"
                                             >
                                                 <Calendar className="w-5 h-5 mr-2" />

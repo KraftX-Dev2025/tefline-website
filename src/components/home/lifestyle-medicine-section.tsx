@@ -96,7 +96,7 @@ const LifestyleMedicineSection: React.FC = () => {
               springboard for social connections.
             </p>
             <Link
-              href="/services"
+              href="/modules"
               className="inline-flex items-center text-black font-semibold group px-5 py-2 rounded-lg border border-teal-500 hover:bg-teal-600/50 transition-all duration-200 hover:scale-105"
             >
               Learn More About RxLifeMed
