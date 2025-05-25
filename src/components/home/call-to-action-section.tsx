@@ -3,10 +3,10 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
-import type { AnimationVariants } from "@/types/types"
+import type { Variants } from "framer-motion"
 
 const CallToActionSection = () => {
-  const fadeIn: AnimationVariants = {
+  const fadeIn: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   }

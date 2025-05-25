@@ -147,7 +147,13 @@ const WellnessIntelligenceSection = () => {
                         <div
                           className={`p-2 rounded-full bg-gradient-to-r ${module.color} mr-3 transform transition-transform duration-200 group-hover:scale-110`}
                         >
-                          <module.icon className="h-6 w-6 text-white" />
+                          {module.icon === "Brain" ? (
+                            <Brain className="h-6 w-6 text-white" />
+                          ) : module.icon === "Globe" ? (
+                            <Globe className="h-6 w-6 text-white" />
+                          ) : module.icon === "Zap" ? (
+                            <Zap className="h-6 w-6 text-white" />
+                          ) : null}
                         </div>
                         <h3 className="font-bold text-teal-200">{module.title}</h3>
                       </div>
