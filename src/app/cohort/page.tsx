@@ -130,7 +130,7 @@ export default function TeamPage() {
                     >
                         <motion.div
                             variants={fadeIn}
-                            className="mb-3 py-1.5 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-100 text-sm font-medium inline-flex items-center shadow-lg"
+                            className="text-white mb-3 py-1.5 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-100 text-sm font-medium inline-flex items-center shadow-lg"
                         >
                             <Users className="w-4 h-4 mr-2" />
                             Our Leadership
@@ -303,14 +303,14 @@ export default function TeamPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <div className="inline-flex items-center bg-teal-800/70 text-teal-100 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        <div className="text-white inline-flex items-center bg-teal-800/70 text-teal-100 px-4 py-1 rounded-full text-sm font-medium mb-4">
                             <Network className="w-4 h-4 mr-2" />
                             Collaborative Excellence
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-teal-900">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">
                             Team Dynamics
                         </h2>
-                        <p className="text-slate-700 max-w-2xl mx-auto">
+                        <p className="text-white max-w-2xl mx-auto">
                             How we work together to create transformative
                             wellness solutions
                         </p>
@@ -328,7 +328,7 @@ export default function TeamPage() {
                                     <div className="p-2 rounded-full bg-gradient-to-r from-cyan-500 to-teal-400 mr-3">
                                         <Brain className="h-5 w-5 text-white" />
                                     </div>
-                                    <h3 className="text-xl font-semibold text-white">
+                                    <h3 className="text-xl font-semibold text-black">
                                         Human-AI Collaboration
                                     </h3>
                                 </div>
@@ -434,7 +434,7 @@ export default function TeamPage() {
                                     <div className="p-2 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 mr-3">
                                         <Shield className="h-5 w-5 text-white" />
                                     </div>
-                                    <h3 className="text-xl font-semibold text-white">
+                                    <h3 className="text-xl font-semibold text-black">
                                         Our Core Values
                                     </h3>
                                 </div>
@@ -446,7 +446,7 @@ export default function TeamPage() {
                                             description:
                                                 "We ground our approach in scientific rigor and validated methodologies",
                                             icon: (
-                                                <FileCheck className="w-5 h-5 text-cyan-100" />
+                                                <FileCheck className="w-5 h-5 text-white" />
                                             ),
                                             color: "from-cyan-500 to-teal-400",
                                             delay: 0,
@@ -456,7 +456,7 @@ export default function TeamPage() {
                                             description:
                                                 "We leverage AI to personalize and optimize health journeys",
                                             icon: (
-                                                <Zap className="w-5 h-5 text-teal-100" />
+                                                <Zap className="w-5 h-5 text-white" />
                                             ),
                                             color: "from-teal-400 to-cyan-500",
                                             delay: 0.1,
@@ -466,7 +466,7 @@ export default function TeamPage() {
                                             description:
                                                 "We believe in the power of social connection to drive lasting change",
                                             icon: (
-                                                <Users className="w-5 h-5 text-cyan-100" />
+                                                <Users className="w-5 h-5 text-white" />
                                             ),
                                             color: "from-cyan-500 to-teal-400",
                                             delay: 0.2,
@@ -476,7 +476,7 @@ export default function TeamPage() {
                                             description:
                                                 "We anticipate the future of healthcare rather than simply react to it",
                                             icon: (
-                                                <Sparkles className="w-5 h-5 text-teal-100" />
+                                                <Sparkles className="w-5 h-5 text-white" />
                                             ),
                                             color: "from-teal-400 to-cyan-500",
                                             delay: 0.3,
@@ -501,7 +501,7 @@ export default function TeamPage() {
                                                     {value.icon}
                                                 </div>
                                                 <div>
-                                                    <h4 className="font-semibold text-white text-sm mb-1">
+                                                    <h4 className="font-semibold text-black text-sm mb-1">
                                                         {value.title}
                                                     </h4>
                                                     <p className="text-teal-100/80 text-xs">

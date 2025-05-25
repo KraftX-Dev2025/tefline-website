@@ -90,7 +90,7 @@ export default function VisionMissionPage() {
             {/* Hero Section */}
             <section
                 ref={ref}
-                className="relative min-h-[60vh] flex items-center justify-center overflow-hidden"
+                className="relative flex items-center justify-center overflow-hidden"
             >
                 {/* Background Gradients */}
                 <motion.div
@@ -224,9 +224,9 @@ export default function VisionMissionPage() {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={fadeInLeft}
                         >
-                            <div className="inline-flex items-center bg-teal-100 text-teal-800 px-4 py-1.5 rounded-full text-sm font-medium mb-4 md:mb-6 shadow-sm">
+                            <div className="text-teal-400 inline-flex items-center bg-teal-100 text-teal-800 px-4 py-1.5 rounded-full text-sm font-medium mb-4 md:mb-6 shadow-sm">
                                 <Target className="w-4 h-4 mr-2" />
-                                Our Vision
+                                <span className="text-primary-gradient">Our Vision</span>
                             </div>
                             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-teal-600 leading-tight">
                                 VISION TEFLINE
@@ -300,9 +300,9 @@ export default function VisionMissionPage() {
                             variants={fadeInRight}
                             className="order-2 lg:order-1"
                         >
-                            <div className="inline-flex items-center bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-sm font-medium mb-4 md:mb-6 shadow-sm">
+                            <div className="text-teal-400 inline-flex items-center bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-sm font-medium mb-4 md:mb-6 shadow-sm">
                                 <Compass className="w-4 h-4 mr-2" />
-                                Our Mission
+                                <span className="text-primary-gradient">Our Mission</span>
                             </div>
                             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-teal-600 leading-tight">
                                 MISSION STATEMENT
@@ -379,7 +379,7 @@ export default function VisionMissionPage() {
             {/* Interactive Timeline Section */}
             <section
                 ref={timelineRef}
-                className="py-20 md:py-32 px-4 bg-white relative overflow-hidden"
+                className="py-8 md:py-8 px-4 bg-white relative overflow-hidden"
             >
                 {/* Blurred gradient background */}
                 <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-100 rounded-full opacity-30 blur-[100px]"></div>
@@ -393,9 +393,9 @@ export default function VisionMissionPage() {
                         transition={{ duration: 0.6 }}
                         className="text-center mb-12 md:mb-20"
                     >
-                        <div className="inline-flex items-center bg-cyan-100 text-cyan-800 px-4 py-1.5 rounded-full text-sm font-medium mb-4 shadow-sm">
+                        <div className="inline-flex items-center bg-cyan-100 text-teal-400 px-4 py-1.5 rounded-full text-sm font-medium mb-4 shadow-sm">
                             <Sparkles className="w-4 h-4 mr-2" />
-                            Our Journey
+                            <span className="text-primary-gradient">Our Journey</span>
                         </div>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-teal-600 leading-tight">
                             JOURNEY TO{" "}
@@ -859,7 +859,7 @@ export default function VisionMissionPage() {
                         transition={{ duration: 0.6 }}
                         className="text-center mb-8"
                     >
-                        <div className="inline-flex items-center bg-white/10 backdrop-blur-md text-teal-50 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-white/10 shadow-lg">
+                        <div className="inline-flex items-center bg-white/10 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-white/10 shadow-lg">
                             <Sparkles className="w-4 h-4 mr-2" />
                             Join Our Vision
                         </div>

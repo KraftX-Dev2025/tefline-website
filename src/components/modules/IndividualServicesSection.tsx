@@ -99,11 +99,14 @@ export default function IndividualServicesSection() {
                     variants={fadeIn}
                     className="text-center mb-16"
                 >
-                    <div className="inline-flex items-center bg-teal-100 text-teal-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                    <div className="inline-flex items-center bg-teal-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-4">
                         <Brain className="w-4 h-4 mr-2" />
+                        <span className="text-primary-gradient">
+
                         Personalized Care
+                        </span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600">
                         INDIVIDUAL SERVICES
                     </h2>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -173,9 +176,9 @@ export default function IndividualServicesSection() {
                                                     }}
                                                 >
                                                     <div className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
-                                                        <div className="w-2 h-2 rounded-full bg-teal-500"></div>
+                                                        <div className="w-2 h-2 rounded-full bg-text-secondary"></div>
                                                     </div>
-                                                    <span className="ml-2 text-slate-700">
+                                                    <span className="ml-2 text-teal-600">
                                                         {feature}
                                                     </span>
                                                 </motion.li>

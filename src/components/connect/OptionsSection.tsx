@@ -25,11 +25,11 @@ export default function ContactOptionsSection() {
                         transition={{ duration: 0.5 }}
                         className="text-center mb-12"
                     >
-                        <div className="inline-flex items-center bg-teal-100 text-teal-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        <div className="inline-flex items-center bg-teal-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-4">
                             <Phone className="w-4 h-4 mr-2" />
-                            Get in Touch
+                            <span className="text-primary-gradient">Get in Touch</span>
                         </div>
-                        <h2 className="text-3xl font-bold text-slate-900 mb-3">
+                        <h2 className="text-3xl font-bold text-teal-600 mb-3">
                             Contact Options
                         </h2>
                         <p className="text-slate-600 mt-2 max-w-2xl mx-auto">

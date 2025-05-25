@@ -75,7 +75,7 @@ export default function EnterpriseSolutionsSection() {
     return (
         <section
             ref={enterpriseRef}
-            className="py-24 bg-teal-50 relative overflow-hidden"
+            className="py-4 bg-teal-50 relative overflow-hidden"
         >
             {/* Conditional background elements */}
             {isClient && !isMobile && (
@@ -110,11 +110,13 @@ export default function EnterpriseSolutionsSection() {
                     variants={fadeIn}
                     className="text-center mb-16"
                 >
-                    <div className="inline-flex items-center bg-sky-100 text-sky-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                    <div className="inline-flex items-center bg-sky-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-4">
                         <Building className="w-4 h-4 mr-2" />
-                        Organizational Wellness
+                        <span className="text-primary-gradient">
+                            Organizational Wellness
+                        </span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600">
                         ENTERPRISE SOLUTIONS
                     </h2>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -207,7 +209,7 @@ export default function EnterpriseSolutionsSection() {
                     transition={shouldReduceAnimations ? {} : { duration: 0.7, delay: 0.8 }}
                     className="mt-16 rounded-xl overflow-hidden shadow-xl"
                 >
-                    <div className="bg-gradient-to-tl from-teal-400 via-teal-600 to-teal-600 text-white">
+                    <div className="primary-gradient text-white">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                             <div className="p-8 md:p-12 relative">
                                 {/* Conditional abstract shapes */}

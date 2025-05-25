@@ -45,7 +45,7 @@ export default function AILeadershipSection() {
     return (
         <section
             ref={aiLeadershipRef}
-            className="py-24 primary-gradient text-white relative overflow-hidden"
+            className="py-8 primary-gradient text-white relative overflow-hidden"
         >
             {/* Background pattern */}
             <div className="absolute inset-0 bg-[url('/placeholder.webp')] opacity-10 mix-blend-overlay"></div>
@@ -225,7 +225,7 @@ export default function AILeadershipSection() {
                             <div className="mt-6">
                                 <Button
                                     variant="outline"
-                                    className="border-white/20 text-teal-600 hover:bg-white/10 transition-colors"
+                                    className="border-white/20 text-teal-600 hover:bg-teal-400 hover:text-white transition-colors"
                                     asChild
                                 >
                                     <Link

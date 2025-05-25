@@ -13,7 +13,7 @@ export default function ServicesPage() {
         <main className="overflow-hidden">
             <ServicesHeroSection />
             <IndividualServicesSection />
-            <ResultsSection />
+            {/* <ResultsSection /> */}
             <EnterpriseSolutionsSection />
             <ServicesCTASection />
         </main>

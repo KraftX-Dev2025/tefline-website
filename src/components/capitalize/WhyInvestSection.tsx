@@ -46,7 +46,7 @@ export default function WhyInvestSection() {
     return (
         <section
             ref={whyInvestRef}
-            className="py-24 bg-teal-50 relative overflow-hidden"
+            className="py-8 bg-teal-50 relative overflow-hidden"
         >
             {/* Blurred gradient background */}
             <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-200 rounded-full opacity-30 blur-[100px]"></div>
@@ -59,11 +59,13 @@ export default function WhyInvestSection() {
                     variants={fadeIn}
                     className="text-center mb-16"
                 >
-                    <div className="inline-flex items-center bg-amber-100 text-amber-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                    <div className="inline-flex items-center bg-amber-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-4">
                         <CheckCircle className="w-4 h-4 mr-2" />
-                        Compelling Advantages
+                        <span className="text-primary-gradient">
+                            Compelling Advantages
+                        </span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600">
                         WHY INVEST NOW?
                     </h2>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -179,7 +181,7 @@ export default function WhyInvestSection() {
                             </ul>
                         </div>
                         <div>
-                            <h3 className="text-xl font-semibold mb-4 text-amber-600 flex items-center">
+                            <h3 className="text-xl font-semibold mb-4 text-amber-600 flex items-center text-teal-600">
                                 <PiggyBank className="w-5 h-5 mr-2" />
                                 Pre-seed Funded and Poised for SaaS Scale
                             </h3>
