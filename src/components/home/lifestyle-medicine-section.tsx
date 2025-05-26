@@ -79,7 +79,7 @@ const LifestyleMedicineSection: React.FC = () => {
             variants={fadeInLeft}
             className="order-1 lg:order-2"
           >
-            <div className="inline-flex items-center bg-teal-50/20 text-white px-4 py-1 rounded-full text-sm font-medium mb-6">
+            <div className="badge-teal">
               <Zap className="w-4 h-4 mr-2" />
               Comprehensive Wellness Approach
             </div>
@@ -97,10 +97,10 @@ const LifestyleMedicineSection: React.FC = () => {
             </p>
             <Link
               href="/modules"
-              className="text-white inline-flex items-center text-black font-semibold group px-5 py-2 rounded-lg border border-teal-500 hover:bg-teal-600/50 transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center text-white font-semibold group px-5 py-2 rounded-lg transition-all duration-200 hover:scale-105 hover:text-teal-600 hover:bg-white bg-teal-600"
             >
-              Learn More About RxLifeMed
-              <div className="ml-2 w-5 h-5 rounded-full bg-teal-600 flex items-center justify-center group-hover:bg-teal-500 transition-colors duration-200">
+              Learn More
+              <div className="ml-2 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-200">
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
               </div>
             </Link>

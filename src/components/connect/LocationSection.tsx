@@ -19,7 +19,7 @@ export default function LocationMapSection() {
                 transition={{ duration: 0.5 }}
                 className="mb-4"
             >
-                <div className="inline-flex items-center bg-teal-100 text-teal-600 px-4 py-1 rounded-full text-sm font-medium mb-2">
+                <div className="badge-teal">
                     <MapPin className="w-4 h-4 mr-2" />
                     Our Location
                 </div>

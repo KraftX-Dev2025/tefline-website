@@ -152,22 +152,23 @@ export default function AboutPage() {
                 </motion.div>
 
                 {/* Content container */}
-                <div className="container mx-auto px-4 relative z-20 pt-28 pb-32">
+                <div className="container mx-auto px-4 relative z-20 pt-28 pb-12">
                     <motion.div
                         className="flex flex-col items-center text-center max-w-4xl mx-auto"
                         initial="hidden"
                         animate="visible"
                         variants={staggerContainer}
                     >
+
                         <motion.div
                             variants={fadeIn}
-                            className="mb-3 py-1 px-4 backdrop-blur-md rounded-full text-sm font-medium inline-flex items-center text-white"
-                            style={{
-                                background: "rgba(255, 255, 255, 0.1)",
-                            }}
+                            className="badge-teal"
                         >
                             <Sparkles className="w-4 h-4 mr-2" />
-                            Our Mission
+                            <span className="text-lg">
+
+                                Our Mission
+                            </span>
                         </motion.div>
                         <motion.h1
                             className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight text-white"
@@ -260,16 +261,16 @@ export default function AboutPage() {
                             variants={fadeInLeft}
                         >
                             <div
-                                className="inline-flex items-center px-4 py-1 rounded-full text-sm font-medium mb-6 text-teal-400"
+                                className="badge-teal"
 
                             >
                                 <FileCheck className="w-4 h-4 mr-2" />
-                                <span className="text-primary-gradient">
+                                <span className="">
                                     Our Beginning
                                 </span>
                             </div>
                             <h2
-                                className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-teal-600"
+                                className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-primary-gradient"
                             >
                                 OUR STORY
                             </h2>
@@ -341,7 +342,7 @@ export default function AboutPage() {
                         className="text-center mb-8"
                     >
                         <div
-                            className="inline-flex items-center backdrop-blur-md text-sm font-medium mb-6 px-4 py-1 rounded-full text-white"
+                            className="badge-teal"
 
                         >
                             <Sparkles className="w-4 h-4 mr-2" />
@@ -418,17 +419,14 @@ export default function AboutPage() {
                         className="text-center mb-16"
                     >
                         <div
-                            className="inline-flex items-center px-4 py-1 rounded-full text-sm font-medium mb-4 text-teal-600"
+                            className="badge-teal"
 
                         >
                             <CheckCircle className="w-4 h-4 mr-2" />
-                            <span className="text-primary-gradient">
                             Validation & Excellence
-                            </span>
                         </div>
                         <h2
-                            className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
-                            style={{ color: "#3CCBC9" }}
+                            className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-primary-gradient"
                         >
                             TRUSTED PARTNERSHIPS
                         </h2>

@@ -45,13 +45,13 @@ export default function OpportunitySection() {
                         animate={isOpportunityInView ? "visible" : "hidden"}
                         variants={fadeInLeft}
                     >
-                        <div className="inline-flex items-center bg-teal-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-6">
+                        <div className="badge-teal">
                             <Target className="w-4 h-4 mr-2" />
-                            <span className="text-primary-gradient">
+                            <span >
                                 Strategic Positioning
                             </span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-teal-600">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary-gradient">
                             FORWARD-LOOKING POSITIONING
                         </h2>
                         <div className="space-y-4 text-slate-700">

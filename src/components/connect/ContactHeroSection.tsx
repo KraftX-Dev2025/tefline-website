@@ -100,13 +100,15 @@ export default function ServicesHeroSection() {
                 >
                     <motion.div
                         variants={fadeIn}
-                        className="text-white mb-3 py-1 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
+                        className="text-teal-600 mb-3 py-1 px-4 bg-white/90 backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
                     >
                         <Sparkles className="w-4 h-4 mr-2" />
-                        <span className="text-white text-xl">
+                        <span className="text-lg">
+
                             Transformative Wellness Solutions
                         </span>
                     </motion.div>
+
                     <motion.h1
                         className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
                         variants={fadeIn}

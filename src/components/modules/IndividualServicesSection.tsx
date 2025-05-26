@@ -99,14 +99,14 @@ export default function IndividualServicesSection() {
                     variants={fadeIn}
                     className="text-center mb-16"
                 >
-                    <div className="inline-flex items-center bg-teal-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                    <div className="badge-teal">
                         <Brain className="w-4 h-4 mr-2" />
-                        <span className="text-primary-gradient">
+                        <span>
 
-                        Personalized Care
+                            Personalized Care
                         </span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-gradient">
                         INDIVIDUAL SERVICES
                     </h2>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto">

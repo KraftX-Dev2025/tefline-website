@@ -40,8 +40,8 @@ export default function MasterclassSection() {
                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-cyan-200/30 rounded-full -ml-20 -mb-20 blur-3xl"></div>
 
                 <div className="relative">
-                    <div className="inline-flex items-center bg-white/80 backdrop-blur-sm text-teal-600 px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-teal-100 shadow-sm">
-                        <Zap className="w-4 h-4 mr-2 text-amber-500" />
+                    <div className="badge-teal">
+                        <Zap className="w-4 h-4 mr-2" />
                         Free for Organizations
                     </div>
 

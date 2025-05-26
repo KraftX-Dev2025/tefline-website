@@ -45,16 +45,13 @@ const LifelineSection: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial="hidden" animate={isInView ? "visible" : "hidden"} variants={fadeInLeft}>
-            <div className="inline-flex items-center bg-teal-100 text-teal-600 px-4 py-1 rounded-full text-sm font-medium mb-6">
+            <div className="badge-teal">
               <Sparkles className="w-4 h-4 mr-2" />
               Your Path to Optimal Health
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-teal-600 leading-tight">
-              <span className="bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">Your </span>
-              LIFELINE{" "}
-              <span className="bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">
-                to Long-Term Wellness
-              </span>{" "}
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary-gradient leading-tight">
+              Your LIFELINE{" "}
+              to Long-Term Wellness
             </h2>
             <p className="text-slate-700 mb-8 leading-relaxed text-lg">
               Tefline is a healthtech startup that is redefining modern healthcare by blending evidence-informed
@@ -63,9 +60,9 @@ const LifelineSection: React.FC = () => {
             </p>
             <Link
               href="/content"
-              className="inline-flex items-center text-teal-600 font-semibold group px-5 py-2 rounded-lg border border-teal-200 hover:bg-teal-50 transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center text-white font-semibold bg-teal-600 group px-5 py-2 rounded-lg border border-teal-200 transition-all duration-200 hover:scale-105 hover:text-teal-600 hover:bg-white"
             >
-              Learn More About Our Approach
+              Learn More
               <div className="ml-2 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-200">
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
               </div>
