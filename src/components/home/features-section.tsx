@@ -3,7 +3,7 @@
 
 import type React from "react"
 import { motion } from "framer-motion"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { useInView } from "framer-motion"
 import type { SuccessMetric } from "@/types/types"
 
@@ -11,9 +11,35 @@ interface FeaturesSectionProps {
   successMetrics: SuccessMetric[]
 }
 
+interface BackgroundParticle {
+  width: number
+  height: number
+  top: number
+  left: number
+  duration: number
+  delay: number
+}
+
 const FeaturesSection: React.FC<FeaturesSectionProps> = ({ successMetrics }) => {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true })
+  const [particles, setParticles] = useState<BackgroundParticle[]>([])
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+
+    // Generate particles only on client side
+    const newParticles = Array.from({ length: 20 }, () => ({
+      width: Math.random() * 8 + 4,
+      height: Math.random() * 8 + 4,
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      duration: Math.random() * 10 + 10,
+      delay: Math.random() * 10,
+    }))
+    setParticles(newParticles)
+  }, [])
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -24,24 +50,24 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ successMetrics }) => 
     <section className="py-16 bg-teal-50 text-teal-700 relative overflow-hidden" ref={sectionRef}>
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full">
-          {Array.from({ length: 20 }).map((_, i) => (
+          {isClient && particles.map((particle, i) => (
             <motion.div
               key={i}
               className="absolute rounded-full bg-teal-500/10"
               style={{
-                width: Math.random() * 8 + 4 + "px",
-                height: Math.random() * 8 + 4 + "px",
-                top: Math.random() * 100 + "%",
-                left: Math.random() * 100 + "%",
+                width: particle.width + "px",
+                height: particle.height + "px",
+                top: particle.top + "%",
+                left: particle.left + "%",
               }}
               animate={{
                 y: [0, -100],
                 opacity: [0, 1, 0],
               }}
               transition={{
-                duration: Math.random() * 10 + 10,
+                duration: particle.duration,
                 repeat: Number.POSITIVE_INFINITY,
-                delay: Math.random() * 10,
+                delay: particle.delay,
                 ease: "linear",
               }}
             />

@@ -93,7 +93,7 @@ export default function AILeadershipSection() {
                     variants={fadeIn}
                     className="text-center mb-16"
                 >
-                    <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-1 rounded-full text-teal-50 text-sm font-medium mb-4">
+                    <div className="badge-teal">
                         <Brain className="w-4 h-4 mr-2" />
                         Innovative Leadership
                     </div>

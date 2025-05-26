@@ -128,7 +128,7 @@ export default function PressPage() {
                 </div> */}
 
                 {/* Content container */}
-                <div className="container mx-auto px-4 relative z-20 pt-28 pb-32">
+                <div className="container mx-auto px-4 relative z-20 pt-28 pb-12">
                     <motion.div
                         className="flex flex-col items-center text-center max-w-4xl mx-auto"
                         initial="hidden"
@@ -137,10 +137,13 @@ export default function PressPage() {
                     >
                         <motion.div
                             variants={fadeIn}
-                            className="text-white mb-3 py-1 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
+                            className="inline-flex items-center bg-white text-teal-600 px-4 py-1 rounded-full text-lg font-medium mb-4 border border-teal-600/50"
                         >
                             <Newspaper className="w-4 h-4 mr-2" />
-                            Latest Announcements
+                            <span className="text-lg">
+
+                                Latest Announcements
+                            </span>
                         </motion.div>
                         <motion.h1
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
@@ -173,9 +176,9 @@ export default function PressPage() {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={fadeInLeft}
                         >
-                            <div className="inline-flex items-center bg-teal-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-6">
+                            <div className="badge-teal">
                                 <Sparkles className="w-4 h-4 mr-2" />
-                                <span className="text-primary-gradient">Featured Announcement</span>
+                                Featured Announcement
                             </div>
                             <div className="flex items-center text-slate-500 space-x-4 mb-4">
                                 <div className="flex items-center">
@@ -411,11 +414,11 @@ export default function PressPage() {
                         transition={{ duration: 0.6 }}
                         className="mb-12"
                     >
-                        <div className="inline-flex items-center bg-amber-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        <div className="badge-teal">
                             <Calendar className="w-4 h-4 mr-2" />
-                            <span className="text-primary-gradient">Recent Updates</span>
+                            Recent Updates
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-teal-600">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary-gradient">
                             Latest News
                         </h2>
                     </motion.div>
@@ -505,13 +508,11 @@ export default function PressPage() {
                         transition={{ duration: 0.6 }}
                         className="text-center mb-16"
                     >
-                        <div className="inline-flex items-center bg-teal-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        <div className="badge-teal">
                             <Download className="w-4 h-4 mr-2" />
-                            <span className="text-primary-gradient">
-                                For Media
-                            </span>
+                            For Media
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-gradient">
                             Media Resources
                         </h2>
                         <p className="text-lg text-slate-600 max-w-3xl mx-auto">

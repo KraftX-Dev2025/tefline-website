@@ -68,11 +68,11 @@ export default function FAQSection() {
         <section className="py-8 bg-gradient-to-b from-teal-50/50 to-white">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <div className="inline-flex items-center bg-teal-100 text-teal-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                    <div className="badge-teal">
                         <MessageSquare className="w-4 h-4 mr-2" />
-                        <span className="text-primary-gradient">Common Questions</span>
+                        <span>Common Questions</span>
                     </div>
-                    <h2 className="text-3xl font-bold text-teal-600 mb-3">
+                    <h2 className="text-3xl font-bold text-primary-gradient mb-3">
                         Frequently Asked Questions
                     </h2>
                     <p className="text-slate-600 max-w-2xl mx-auto">

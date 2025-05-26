@@ -110,13 +110,13 @@ export default function EnterpriseSolutionsSection() {
                     variants={fadeIn}
                     className="text-center mb-16"
                 >
-                    <div className="inline-flex items-center bg-sky-100 text-teal-400 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                    <div className="badge-teal">
                         <Building className="w-4 h-4 mr-2" />
-                        <span className="text-primary-gradient">
+                        <span >
                             Organizational Wellness
                         </span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-gradient">
                         ENTERPRISE SOLUTIONS
                     </h2>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -256,7 +256,7 @@ export default function EnterpriseSolutionsSection() {
                                 )}
 
                                 <div className="relative z-10">
-                                    <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-1 rounded-full text-teal-50 text-sm font-medium mb-4">
+                                    <div className="badge-teal">
                                         <Target className="w-4 h-4 mr-2" />
                                         Custom Solutions
                                     </div>

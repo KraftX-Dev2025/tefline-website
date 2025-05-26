@@ -127,7 +127,7 @@ export default function VisionMissionPage() {
                 </div> */}
 
                 {/* Content container */}
-                <div className="container mx-auto px-4 relative z-20 pt-28 pb-32">
+                <div className="container mx-auto px-4 relative z-20 pt-28 pb-12">
                     <motion.div
                         className="flex flex-col items-center text-center max-w-4xl mx-auto"
                         initial="hidden"
@@ -136,10 +136,13 @@ export default function VisionMissionPage() {
                     >
                         <motion.div
                             variants={fadeIn}
-                            className="mb-3 py-1 px-4 bg-white/10 text-white backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
+                            className="inline-flex items-center bg-white text-teal-600 px-4 py-1 rounded-full text-lg font-medium mb-4 border border-teal-600/50"
                         >
                             <Sparkles className="w-4 h-4 mr-2" />
-                            Our Purpose
+                            <span className="text-lg">
+
+                                Our Purpose
+                            </span>
                         </motion.div>
                         <motion.h1
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
@@ -169,7 +172,7 @@ export default function VisionMissionPage() {
                             >
                                 <Link
                                     href="/content"
-                                    className="group px-5 py-3 rounded-lg backdrop-blur-sm bg-white/10 border border-white/20 hover:bg-white/20 transition-colors duration-300 inline-flex items-center text-white font-medium"
+                                    className="group px-5 py-3 rounded-lg backdrop-blur-sm bg-amber-500 border border-white/20 hover:bg-white/20 transition-colors duration-300 inline-flex items-center text-white font-medium"
                                 >
                                     Learn About Us
                                     <div className="ml-2 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
@@ -224,11 +227,11 @@ export default function VisionMissionPage() {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={fadeInLeft}
                         >
-                            <div className="text-teal-400 inline-flex items-center bg-teal-100 text-teal-800 px-4 py-1.5 rounded-full text-sm font-medium mb-4 md:mb-6 shadow-sm">
+                            <div className="badge-teal">
                                 <Target className="w-4 h-4 mr-2" />
-                                <span className="text-primary-gradient">Our Vision</span>
+                                Our Vision
                             </div>
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-teal-600 leading-tight">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-primary-gradient leading-tight">
                                 VISION TEFLINE
                             </h2>
                             <motion.div
@@ -260,10 +263,10 @@ export default function VisionMissionPage() {
                                 <div className="bg-white p-5 md:p-6 rounded-xl shadow-sm border border-teal-100 hover:shadow-md transition-shadow">
                                     <div className="flex items-start">
                                         <div className="bg-orange-100 p-2 rounded-full mr-3 md:mr-4 mt-1">
-                                            <Sparkles className="w-5 h-5 text-orange-500" />
+                                            <Sparkles className="w-5 h-5 text-teal-600" />
                                         </div>
                                         <div>
-                                            <h3 className="font-semibold text-lg mb-2 text-teal-800">
+                                            <h3 className="font-semibold text-lg mb-2 text-teal-600">
                                                 Our Vision in Action
                                             </h3>
                                             <p className="text-slate-600 text-sm md:text-base">
@@ -300,11 +303,11 @@ export default function VisionMissionPage() {
                             variants={fadeInRight}
                             className="order-2 lg:order-1"
                         >
-                            <div className="text-teal-400 inline-flex items-center bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-sm font-medium mb-4 md:mb-6 shadow-sm">
+                            <div className="badge-teal">
                                 <Compass className="w-4 h-4 mr-2" />
-                                <span className="text-primary-gradient">Our Mission</span>
+                                Our Mission
                             </div>
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-teal-600 leading-tight">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 text-primary-gradient leading-tight">
                                 MISSION STATEMENT
                             </h2>
                             <motion.div
@@ -393,11 +396,11 @@ export default function VisionMissionPage() {
                         transition={{ duration: 0.6 }}
                         className="text-center mb-12 md:mb-20"
                     >
-                        <div className="inline-flex items-center bg-cyan-100 text-teal-400 px-4 py-1.5 rounded-full text-sm font-medium mb-4 shadow-sm">
+                        <div className="badge-teal">
                             <Sparkles className="w-4 h-4 mr-2" />
-                            <span className="text-primary-gradient">Our Journey</span>
+                            Our Journey
                         </div>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-teal-600 leading-tight">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-primary-gradient leading-tight">
                             JOURNEY TO{" "}
                             <span className="text-cyan-600">IMPACT</span>
                         </h2>
@@ -561,12 +564,12 @@ export default function VisionMissionPage() {
                                         </span>
                                         <h3
                                             className={`text-xl font-bold mb-2 ${item.id === 1
-                                                ? "text-teal-700"
+                                                ? "text-teal-600"
                                                 : item.id === 2
-                                                    ? "text-cyan-700"
+                                                    ? "text-amber-500"
                                                     : item.id === 3
-                                                        ? "text-teal-700"
-                                                        : "text-orange-700"
+                                                        ? "text-teal-600"
+                                                        : "text-amber-500"
                                                 }`}
                                         >
                                             {item.title}
@@ -738,7 +741,7 @@ export default function VisionMissionPage() {
                                 title: "Immediate Impact",
                                 period: "First 90 days",
                                 color: "from-teal-500 to-teal-400",
-                                textColor: "text-teal-800",
+                                textColor: "text-teal-600",
                                 bullets: [
                                     "Comprehensive wellness assessment and personalized planning",
                                     "AI-guided daily interventions and habit formation",
@@ -749,7 +752,7 @@ export default function VisionMissionPage() {
                                 title: "Medium-Term Growth",
                                 period: "6-12 months",
                                 color: "from-cyan-500 to-cyan-400",
-                                textColor: "text-cyan-800",
+                                textColor: "text-teal-600",
                                 bullets: [
                                     "Measurable biological age reduction and energy improvement",
                                     "Community integration and social accountability",
@@ -760,7 +763,7 @@ export default function VisionMissionPage() {
                                 title: "Long-Term Vision",
                                 period: "1-3 years",
                                 color: "from-cyan-500 to-cyan-400",
-                                textColor: "text-teal-800",
+                                textColor: "text-teal-600",
                                 bullets: [
                                     "Complete lifestyle transformation and wellness optimization",
                                     "Becoming an advocate and mentor within the community",
@@ -859,7 +862,7 @@ export default function VisionMissionPage() {
                         transition={{ duration: 0.6 }}
                         className="text-center mb-8"
                     >
-                        <div className="inline-flex items-center bg-white/10 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-white/10 shadow-lg">
+                        <div className="badge-teal">
                             <Sparkles className="w-4 h-4 mr-2" />
                             Join Our Vision
                         </div>

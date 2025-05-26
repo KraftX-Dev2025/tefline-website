@@ -42,7 +42,7 @@ const NewsletterSection: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="inline-flex items-center bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-violet-500 mb-4 border border-violet-500/20 shadow-sm"
+              className="badge-teal"
             >
               <Sparkles className="w-4 h-4 mr-2" />
               Stay Updated

@@ -130,10 +130,13 @@ export default function TeamPage() {
                     >
                         <motion.div
                             variants={fadeIn}
-                            className="text-white mb-3 py-1.5 px-4 bg-white/10 backdrop-blur-md rounded-full text-teal-100 text-sm font-medium inline-flex items-center shadow-lg"
+                            className="inline-flex items-center bg-white text-teal-600 px-4 py-1 rounded-full text-lg font-medium mb-4 border border-teal-600/50"
                         >
                             <Users className="w-4 h-4 mr-2" />
-                            Our Leadership
+                            <span className="text-lg">
+
+                                Our Leadership
+                            </span>
                         </motion.div>
                         <motion.h1
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight"
@@ -303,7 +306,7 @@ export default function TeamPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <div className="text-white inline-flex items-center bg-teal-800/70 text-teal-100 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        <div className="badge-teal">
                             <Network className="w-4 h-4 mr-2" />
                             Collaborative Excellence
                         </div>

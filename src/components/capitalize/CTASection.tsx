@@ -58,7 +58,7 @@ export default function CTASection() {
                                 }
                                 transition={{ duration: 0.5 }}
                             >
-                                <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-1 rounded-full text-white text-sm font-medium mb-4">
+                                <div className="badge-teal">
                                     <Sparkles className="w-4 h-4 mr-2" />
                                     Limited Opportunity
                                 </div>

@@ -105,7 +105,7 @@ export default function ServicesCTASection() {
                     }}
                     className="max-w-3xl mx-auto text-center text-white bg-white/10 backdrop-blur-sm p-10 rounded-2xl border border-white/20 shadow-xl relative"
                 >
-                    <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-1 rounded-full text-white text-sm font-medium mb-4">
+                    <div className="badge-teal">
                         <Sparkles className="w-4 h-4 mr-2" />
                         Transform Your Approach
                     </div>
@@ -129,7 +129,7 @@ export default function ServicesCTASection() {
                         <Button
                             size="lg"
                             variant="outline"
-                            className="border-white text-teal-600 hover:bg-white/10 transition-all duration-300"
+                            className="border-white text-teal-600 hover:bg-white/70 transition-all duration-300"
                             asChild
                         >
                             <Link href="/connect">
