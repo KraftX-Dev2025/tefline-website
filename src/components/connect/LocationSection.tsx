@@ -23,7 +23,7 @@ export default function LocationMapSection() {
                     <MapPin className="w-4 h-4 mr-2" />
                     Our Location
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900">
+                <h2 className="text-2xl font-bold text-teal-600">
                     Find Us
                 </h2>
             </motion.div>
@@ -76,7 +76,7 @@ export default function LocationMapSection() {
                                 {option.icon}
                             </span>
                             <div>
-                                <h4 className="font-medium text-slate-700 text-sm">
+                                <h4 className="font-medium text-teal-600 text-sm">
                                     {option.title}
                                 </h4>
                                 <p className="text-xs text-slate-500">

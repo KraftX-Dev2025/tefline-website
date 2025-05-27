@@ -30,11 +30,13 @@ const Accordion = ({
                     }`}
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <h3 className="text-lg font-semibold text-teal-700 flex items-center">
-                    <span className="bg-teal-100 text-teal-600 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">
+                <h3 className="text-lg font-semibold text-teal-700 flex items-start">
+                    <span className=" bg-teal-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">
                         {index + 1}
                     </span>
-                    {faq.question}
+                    <span className="text-teal-600">
+                        {faq.question}
+                    </span>
                 </h3>
                 <div
                     className={`text-teal-500 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
@@ -108,7 +110,7 @@ export default function FAQSection() {
                                 whileTap={{ scale: 0.98 }}
                             >
                                 <Button
-                                    className="bg-white text-teal-700 hover:bg-white/90 shadow-lg px-6 py-6"
+                                    className="bg-white text-teal-600 hover:bg-white/90 shadow-lg px-6 py-6"
                                     size="lg"
                                     asChild
                                 >

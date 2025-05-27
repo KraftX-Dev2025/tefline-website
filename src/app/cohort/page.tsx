@@ -331,7 +331,7 @@ export default function TeamPage() {
                                     <div className="p-2 rounded-full bg-gradient-to-r from-cyan-500 to-teal-400 mr-3">
                                         <Brain className="h-5 w-5 text-white" />
                                     </div>
-                                    <h3 className="text-xl font-semibold text-black">
+                                    <h3 className="text-xl font-semibold text-white">
                                         Human-AI Collaboration
                                     </h3>
                                 </div>
@@ -437,7 +437,7 @@ export default function TeamPage() {
                                     <div className="p-2 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 mr-3">
                                         <Shield className="h-5 w-5 text-white" />
                                     </div>
-                                    <h3 className="text-xl font-semibold text-black">
+                                    <h3 className="text-xl font-semibold text-white">
                                         Our Core Values
                                     </h3>
                                 </div>

@@ -45,7 +45,7 @@ export default function MasterclassSection() {
                         Free for Organizations
                     </div>
 
-                    <h3 className="text-2xl font-bold text-teal-800 mb-4 relative">
+                    <h3 className="text-2xl font-bold text-teal-600 mb-4 relative">
                         Schedule a Wellness Intelligence™
                         Masterclass
                     </h3>
@@ -64,7 +64,7 @@ export default function MasterclassSection() {
                                 className="flex items-start bg-white/60 backdrop-blur-sm p-3 rounded-lg border border-teal-100/50 shadow-sm"
                             >
                                 <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5 mr-3" />
-                                <span className="text-slate-700">
+                                <span className="text-teal-600">
                                     {point}
                                 </span>
                             </li>

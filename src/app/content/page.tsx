@@ -490,12 +490,8 @@ export default function AboutPage() {
                         </p>
                         <Link
                             href="/team"
-                            className="inline-flex items-center border border-white/30 px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
-                            style={{
-                                background: "rgba(255, 255, 255, 0.4)",
-                                backdropFilter: "blur(4px)",
-                                color: "white",
-                            }}
+                            className="bg-white text-teal-600 inline-flex items-center border border-white/30 px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+
                         >
                             Meet Our Advisory Team
                             <ArrowRight className="ml-2 w-5 h-5" />

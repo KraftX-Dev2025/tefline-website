@@ -146,7 +146,7 @@ export default function AILeadershipSection() {
                             ].map((advantage, index) => (
                                 <div
                                     key={index}
-                                    className="bg-white/10 border border-white/20 px-4 py-2 rounded-lg text-sm backdrop-blur-sm"
+                                    className="bg-white border border-white/20 px-4 py-2 rounded-lg text-sm backdrop-blur-sm text-teal-600"
                                 >
                                     {advantage}
                                 </div>

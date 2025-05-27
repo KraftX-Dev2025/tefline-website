@@ -84,11 +84,11 @@ export default function OpportunitySection() {
                                 <CheckCircle className="w-4 h-4 mr-2" />
                                 Pre-seed funded
                             </div>
-                            <div className="bg-amber-50 py-2 px-4 rounded-full text-sm font-medium text-amber-600 flex items-center">
+                            <div className="bg-amber-50 py-2 px-4 rounded-full text-sm font-medium text-teal-600 flex items-center">
                                 <Rocket className="w-4 h-4 mr-2" />
                                 Primed for growth
                             </div>
-                            <div className="bg-sky-50 py-2 px-4 rounded-full text-sm font-medium text-sky-600 flex items-center">
+                            <div className="bg-sky-50 py-2 px-4 rounded-full text-sm font-medium text-teal-600 flex items-center">
                                 <Brain className="w-4 h-4 mr-2" />
                                 AI-driven approach
                             </div>
@@ -119,7 +119,7 @@ export default function OpportunitySection() {
                                 }
                                 transition={{ duration: 0.5, delay: 0.6 }}
                             >
-                                <h3 className="font-semibold text-teal-700 flex items-center">
+                                <h3 className="font-semibold text-teal-600 flex items-center">
                                     <TrendingUp className="w-4 h-4 mr-2" />
                                     Market Timing
                                 </h3>

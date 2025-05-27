@@ -91,7 +91,7 @@ export default function ServicesHeroSection() {
             </motion.div>
 
             {/* Content container */}
-            <div className="container mx-auto px-4 relative z-20 pt-28 pb-12">
+            <div className="container mx-auto px-4 relative z-20 pt-12 pb-12">
                 <motion.div
                     className="flex flex-col items-center text-center max-w-4xl mx-auto"
                     initial="hidden"
@@ -146,11 +146,18 @@ export default function ServicesHeroSection() {
                                 </Link>
                             </Button>
                         </motion.div>
-                        <motion.div>
+                        <motion.div
+
+                            whileHover={shouldReduceAnimations ? {} : { scale: 1.05, y: -3 }}
+                            transition={shouldReduceAnimations ? {} : {
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 10,
+                            }}
+                        >
                             <Button
                                 size="lg"
-                                variant="outline"
-                                className="border-white text-primary hover:bg-white/80 transition-all duration-300"
+                                className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
                                 asChild
                             >
                                 <Link href="/connect">
