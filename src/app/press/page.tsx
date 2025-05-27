@@ -668,13 +668,24 @@ export default function PressPage() {
                                         damping: 10,
                                     }}
                                 >
-                                    <Link
-                                        href="/connect"
-                                        className="inline-flex items-center bg-white text-teal-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg"
+                                    
+
+                                    <motion.div
+                                        whileHover={{ scale: 1.05, y: -3 }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 400,
+                                            damping: 10,
+                                        }}
                                     >
-                                        Contact Press Team
-                                        <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Link>
+                                        <Link
+                                            href="/connect"
+                                            className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
+                                        >
+                                            Contact Press Team
+                                            <ArrowRight className="ml-2 w-5 h-5" />
+                                        </Link>
+                                    </motion.div>
                                 </motion.div>
                                 <p className="mt-4 text-sm text-teal-200">
                                     We're always happy to provide information

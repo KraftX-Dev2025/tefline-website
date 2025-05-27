@@ -27,16 +27,12 @@ export default function ContactOptionsSection() {
                     >
                         <div className="badge-teal">
                             <Phone className="w-4 h-4 mr-2" />
-                            <span >Get in Touch</span>
+                            <span >Lets connect</span>
                         </div>
                         <h2 className="text-3xl font-bold text-primary-gradient mb-3">
                             Contact Options
                         </h2>
-                        <p className="text-slate-600 mt-2 max-w-2xl mx-auto">
-                            Choose how you'd like to connect with us. We're
-                            here to answer your questions and help you begin
-                            your wellness journey.
-                        </p>
+                        
                     </motion.div>
 
                     {/* Contact Options Grid */}

@@ -51,7 +51,7 @@ export default function TeamMemberPage(props: { params: Params }) {
         <div className="container mx-auto py-24 px-4">
             {/* Back button */}
             <Link
-                href="/team"
+                href="/cohort"
                 className={`text-teal-600 hover:underline mb-6 inline-flex items-center group`}
             >
                 <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
@@ -178,7 +178,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                                 transition={{ duration: 0.3 }}
                                 className="space-y-4"
                             >
-                                <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+                                <h2 className="text-2xl font-semibold mb-6 text-teal-600">
                                     Biography
                                 </h2>
 
@@ -207,7 +207,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+                                <h2 className="text-2xl font-semibold mb-6 text-teal-600">
                                     Key Achievements
                                 </h2>
 
@@ -247,7 +247,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                                                         </svg>
                                                     </div>
                                                     <div>
-                                                        <h3 className="font-semibold text-gray-800">
+                                                        <h3 className="font-semibold text-teal-600">
                                                             {achievement.title}
                                                         </h3>
                                                         <p className="text-gray-600 text-sm mt-1">
@@ -271,7 +271,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+                                <h2 className="text-2xl font-semibold mb-6 text-teal-600">
                                     Vision & Philosophy
                                 </h2>
 
@@ -283,7 +283,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                                             "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
                                     }}
                                 >
-                                    <h3 className="text-xl font-semibold mb-3 text-gray-800">
+                                    <h3 className="text-xl font-semibold mb-3 text-teal-600">
                                         Core Philosophy
                                     </h3>
                                     <p className="text-gray-700 italic">
@@ -307,7 +307,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                                                     className={`mt-1.5 mr-4 h-2 w-2 rounded-full ${themeClasses.accentBg} flex-shrink-0`}
                                                 ></div>
                                                 <div>
-                                                    <h3 className="font-semibold text-gray-800">
+                                                    <h3 className="font-semibold text-teal-600">
                                                         {point.title}
                                                     </h3>
                                                     <p className="text-gray-600 mt-1">
@@ -324,7 +324,7 @@ export default function TeamMemberPage(props: { params: Params }) {
 
                     {/* Skills/Expertise Tags */}
                     <div className="mt-8">
-                        <h3 className="text-lg font-medium mb-4 text-gray-800">
+                        <h3 className="text-lg font-medium mb-4 text-teal-600">
                             Areas of Expertise
                         </h3>
                         <div className="flex flex-wrap gap-2">
@@ -334,7 +334,7 @@ export default function TeamMemberPage(props: { params: Params }) {
                                         key={tag}
                                         className={`px-3 py-1 rounded-full text-sm ${getTagColor(
                                             teamMember.theme
-                                        )} border border-gray-200`}
+                                        )} border border-teal-400`}
                                         whileHover={{
                                             scale: 1.05,
                                             boxShadow:

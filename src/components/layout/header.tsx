@@ -89,11 +89,10 @@ export function Header() {
 
     return (
         <header
-            className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-                isScrolled
+            className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
                     ? "bg-white/85 backdrop-blur-md py-3 shadow-sm border-b border-gray-200"
                     : "bg-white/100 py-4"
-            }`}
+                }`}
         >
             <div className="container max-w-7xl mx-auto px-4">
                 <div className="flex justify-between items-center">
@@ -135,11 +134,10 @@ export function Header() {
                     <div className="hidden lg:block">
                         <NavigationMenu className="animate-fadeIn">
                             <NavigationMenuList
-                                className={`gap-8 p-1 rounded-lg transition-all duration-300 ${
-                                    !isScrolled
+                                className={`gap-8 p-1 rounded-lg transition-all duration-300 ${!isScrolled
                                         ? "bg-white/10 backdrop-blur-md"
                                         : "bg-transparent"
-                                }`}
+                                    }`}
                             >
                                 {navLinks.map((link, index) => (
                                     <NavigationMenuItem key={link.href}>
@@ -186,7 +184,7 @@ export function Header() {
                                                         animate={{
                                                             width:
                                                                 hoveredItem ===
-                                                                link.href
+                                                                    link.href
                                                                     ? "100%"
                                                                     : "0%",
                                                             x: "-50%",
@@ -210,7 +208,7 @@ export function Header() {
                         animate="animate"
                         whileHover="hover"
                         variants={buttonVariants}
-                        className="hidden md:block"
+                        className="hidden lg:block"
                     >
                         <Button
                             className="bg-gradient-to-r from-teal-500 to-violet-500 text-white hover:shadow-lg transition-all duration-300"
@@ -305,19 +303,18 @@ export function Header() {
                                                                     delay:
                                                                         0.1 +
                                                                         index *
-                                                                            0.05,
+                                                                        0.05,
                                                                 }}
                                                             >
                                                                 <Link
                                                                     href={
                                                                         link.href
                                                                     }
-                                                                    className={`flex items-center py-3 px-4 rounded-md transition-colors ${
-                                                                        pathname ===
-                                                                        link.href
+                                                                    className={`flex items-center py-3 px-4 rounded-md transition-colors ${pathname ===
+                                                                            link.href
                                                                             ? "bg-purple-50 text-violet-500 font-semibold"
                                                                             : "hover:bg-gray-50 text-gray-700 hover:text-violet-500"
-                                                                    }`}
+                                                                        }`}
                                                                     onClick={() =>
                                                                         setIsMobileMenuOpen(
                                                                             false

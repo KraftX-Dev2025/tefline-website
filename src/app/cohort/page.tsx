@@ -180,7 +180,7 @@ export default function TeamPage() {
                                     href={`/cohort/${member.slug}`}
                                     className="block h-full"
                                 >
-                                    <div className="relative group h-full bg-white/70 backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 border border-white/20 hover:border-white/30">
+                                    <div className="relative group h-full bg-black backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 border border-white/20 hover:border-white/30">
                                         {/* Shimmering background effect */}
                                         <div
                                             className={`absolute inset-0 bg-gradient-to-tr ${member.theme.from} ${member.theme.to} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
@@ -234,28 +234,28 @@ export default function TeamPage() {
 
                                             {/* Member Details */}
                                             <div className="text-center mb-4">
-                                                <h3 className="text-xl font-bold text-primary group-hover:text-teal-200 transition-colors">
+                                                <h3 className="text-xl font-bold text-teal-400 group-hover:text-teal-200 transition-colors">
                                                     {member.name}
                                                 </h3>
                                                 <p
-                                                    className={`text-sm font-medium mt-1 text-primary`}
+                                                    className={`text-sm font-medium mt-1 text-teal-400`}
                                                 >
                                                     {member.role}
                                                 </p>
-                                                <p className="text-primary/80 text-xs mb-4 italic">
+                                                <p className="text-teal-400/80 text-xs mb-4 italic">
                                                     {member.secondaryRole}
                                                 </p>
                                             </div>
 
                                             {/* Member Bio */}
-                                            <p className="text-primary/90 text-sm text-center mb-6 flex-grow">
+                                            <p className="text-teal-400/90 text-sm text-center mb-6 flex-grow">
                                                 {member.shortBio}
                                             </p>
 
                                             {/* Read More Link */}
                                             <div className="mt-auto text-center">
                                                 <span
-                                                    className={`inline-flex items-center text-teal-800 text-sm transition-colors`}
+                                                    className={`inline-flex items-center text-teal-800 text-sm transition-colors text-white`}
                                                 >
                                                     Read Full Bio
                                                     <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
@@ -293,7 +293,7 @@ export default function TeamPage() {
             </section>
 
             {/* Team Dynamics Section */}
-            <section className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-teal-50 to-white">
+            <section className="py-24 px-4 relative overflow-hidden bg-white">
                 {/* Blurred gradient background */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100 rounded-full opacity-30 blur-[120px]"></div>
                 <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-100 rounded-full opacity-40 blur-[100px]"></div>
@@ -310,10 +310,10 @@ export default function TeamPage() {
                             <Network className="w-4 h-4 mr-2" />
                             Collaborative Excellence
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-primary-gradient">
                             Team Dynamics
                         </h2>
-                        <p className="text-white max-w-2xl mx-auto">
+                        <p className="text-black max-w-2xl mx-auto">
                             How we work together to create transformative
                             wellness solutions
                         </p>
@@ -331,7 +331,7 @@ export default function TeamPage() {
                                     <div className="p-2 rounded-full bg-gradient-to-r from-cyan-500 to-teal-400 mr-3">
                                         <Brain className="h-5 w-5 text-white" />
                                     </div>
-                                    <h3 className="text-xl font-semibold text-white">
+                                    <h3 className="text-xl font-semibold text-teal-600">
                                         Human-AI Collaboration
                                     </h3>
                                 </div>
@@ -360,7 +360,7 @@ export default function TeamPage() {
                                             <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-teal-400 flex items-center justify-center">
                                                 <Users className="h-6 w-6 text-white" />
                                             </div>
-                                            <span className="text-xs text-cyan-300 mt-2">
+                                            <span className="text-xs text-teal-600 mt-2">
                                                 Human Leaders
                                             </span>
                                         </motion.div>
@@ -419,7 +419,7 @@ export default function TeamPage() {
                                             <div className="w-12 h-12 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 flex items-center justify-center">
                                                 <Brain className="h-6 w-6 text-white" />
                                             </div>
-                                            <span className="text-xs text-teal-300 mt-2">
+                                            <span className="text-xs text-teal-600 mt-2">
                                                 AI Intelligence
                                             </span>
                                         </motion.div>
@@ -437,7 +437,7 @@ export default function TeamPage() {
                                     <div className="p-2 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 mr-3">
                                         <Shield className="h-5 w-5 text-white" />
                                     </div>
-                                    <h3 className="text-xl font-semibold text-white">
+                                    <h3 className="text-xl font-semibold text-teal-600">
                                         Our Core Values
                                     </h3>
                                 </div>
