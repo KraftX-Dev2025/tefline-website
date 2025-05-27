@@ -142,21 +142,23 @@ export default function ContactFormSection() {
                                         }
                                     >
                                         <div
-                                            className={`w-10 h-10 rounded-lg ${selectedInquiry === inquiry.id
-                                                ? "bg-teal-400 text-white"
+                                            className={`w-auto px-3 h-10 rounded-lg ${selectedInquiry === inquiry.id
+                                                ? " text-white"
                                                 : "bg-slate-100 text-slate-500"
-                                                } flex items-center justify-center mb-2`}
+                                                } flex items-center justify-start gap-2 mb-2`}
                                         >
-                                            <IconComponent className="w-4 h-4" />
+                                            <IconComponent className="w-5 h-5 text-teal-600" />
+                                            <span
+                                                className={`text-sm ${selectedInquiry === inquiry.id
+                                                    ? "text-teal-600 font-medium"
+                                                    : "text-black"
+                                                    }`}
+                                            >
+                                                {inquiry.label}
+                                            </span>
                                         </div>
-                                        <span
-                                            className={`${selectedInquiry === inquiry.id
-                                                ? "text-teal-700 font-medium"
-                                                : "text-slate-700"
-                                                } text-sm`}
-                                        >
-                                            {inquiry.label}
-                                        </span>
+
+
                                         <span className="text-xs text-slate-500 mt-1">
                                             {inquiry.description}
                                         </span>
@@ -249,7 +251,7 @@ export default function ContactFormSection() {
                     >
                         <Button
                             type="submit"
-                            className="w-1/3 primary-gradient hover:to-teal-700 text-white font-medium py-6 rounded-xl flex items-center justify-center group shadow-lg shadow-teal-200/40"
+                            className=" primary-gradient hover:to-teal-700 text-white font-medium py-6 rounded-xl flex items-center justify-center group shadow-lg shadow-teal-200/40"
                         >
                             Send Message
                             <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />

@@ -122,6 +122,7 @@ export default function FundingRoadmapSection() {
                                             $
                                         </span>
                                     )}
+
                                 </div>
                             </div>
 
@@ -148,7 +149,7 @@ export default function FundingRoadmapSection() {
 
                                     <div className="flex justify-between items-start mb-3">
                                         <div>
-                                            <h3 className="text-xl font-semibold text-slate-900">
+                                            <h3 className="text-xl font-semibold text-teal-600">
                                                 {stage.title}
                                             </h3>
                                             <p className="text-slate-500 text-sm">
@@ -156,7 +157,7 @@ export default function FundingRoadmapSection() {
                                             </p>
                                         </div>
                                         <div
-                                            className={`${stage.statusClass} py-1 px-3 rounded-full text-xs font-semibold`}
+                                            className={`${stage.statusClass} py-1 px-3 rounded-full text-xs font-semibold text-amber-500`}
                                         >
                                             {stage.status}
                                         </div>

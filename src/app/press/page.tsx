@@ -371,7 +371,7 @@ export default function PressPage() {
                                         >
                                             {point.icon}
                                         </div>
-                                        <h3 className="text-xl font-semibold mb-3 text-slate-800">
+                                        <h3 className="text-xl font-semibold mb-3 text-teal-600">
                                             {point.title}
                                         </h3>
                                         <p className="text-slate-600 flex-grow">
@@ -542,7 +542,7 @@ export default function PressPage() {
                             {
                                 title: "Leadership Bios",
                                 icon: (
-                                    <User className="w-6 h-6 text-amber-500" />
+                                    <User className="w-6 h-6 text-teal-500" />
                                 ),
                                 description:
                                     "Detailed biographies and headshots of Tefline's leadership team",
@@ -552,7 +552,7 @@ export default function PressPage() {
                             {
                                 title: "Press Releases",
                                 icon: (
-                                    <FileText className="w-6 h-6 text-cyan-500" />
+                                    <FileText className="w-6 h-6 text-teal-500" />
                                 ),
                                 description:
                                     "Archive of all official press releases in PDF format",
@@ -562,7 +562,7 @@ export default function PressPage() {
                             {
                                 title: "Product Visuals",
                                 icon: (
-                                    <Images className="w-6 h-6 text-purple-500" />
+                                    <Images className="w-6 h-6 text-teal-500" />
                                 ),
                                 description:
                                     "High-resolution screenshots and product visualizations",
@@ -575,17 +575,23 @@ export default function PressPage() {
                                 custom={resource.index}
                                 variants={cardVariants}
                             >
-                                <Card className="bg-white h-full shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0">
-                                    <CardContent className="p-6 flex flex-col h-full">
-                                        <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mb-4">
-                                            {resource.icon}
+                                <Card className="bg-white h-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-0">
+                                    <CardContent className="p-2 flex flex-col h-full">
+
+                                        {/* Icon and Title in One Line */}
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center">
+                                                {resource.icon}
+                                            </div>
+                                            <h3 className="text-lg font-semibold text-teal-600">
+                                                {resource.title}
+                                            </h3>
                                         </div>
-                                        <h3 className="text-lg font-semibold mb-2 text-slate-800">
-                                            {resource.title}
-                                        </h3>
+
                                         <p className="text-slate-600 text-sm mb-6 flex-grow">
                                             {resource.description}
                                         </p>
+
                                         <Button
                                             variant="outline"
                                             className="mt-auto border-teal-200 text-teal-600 hover:bg-teal-50 transition-colors"
@@ -595,6 +601,7 @@ export default function PressPage() {
                                         </Button>
                                     </CardContent>
                                 </Card>
+
                             </motion.div>
                         ))}
                     </motion.div>

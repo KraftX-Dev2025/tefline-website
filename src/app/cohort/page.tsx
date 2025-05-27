@@ -331,7 +331,7 @@ export default function TeamPage() {
                                     <div className="p-2 rounded-full bg-gradient-to-r from-cyan-500 to-teal-400 mr-3">
                                         <Brain className="h-5 w-5 text-white" />
                                     </div>
-                                    <h3 className="text-xl font-semibold text-black">
+                                    <h3 className="text-xl font-semibold text-white">
                                         Human-AI Collaboration
                                     </h3>
                                 </div>
@@ -437,7 +437,7 @@ export default function TeamPage() {
                                     <div className="p-2 rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 mr-3">
                                         <Shield className="h-5 w-5 text-white" />
                                     </div>
-                                    <h3 className="text-xl font-semibold text-black">
+                                    <h3 className="text-xl font-semibold text-white">
                                         Our Core Values
                                     </h3>
                                 </div>
@@ -495,7 +495,7 @@ export default function TeamPage() {
                                                 once: true,
                                                 margin: "-50px",
                                             }}
-                                            className="bg-teal-700/50 border border-teal-600/30 rounded-lg p-4 hover:bg-teal-700/70 transition-colors duration-300 shadow-md"
+                                            className="bg-white rounded-lg p-4  shadow-md"
                                         >
                                             <div className="flex items-start">
                                                 <div
@@ -504,7 +504,7 @@ export default function TeamPage() {
                                                     {value.icon}
                                                 </div>
                                                 <div>
-                                                    <h4 className="font-semibold text-black text-sm mb-1">
+                                                    <h4 className="font-semibold text-teal-600 text-sm mb-1">
                                                         {value.title}
                                                     </h4>
                                                     <p className="text-teal-100/80 text-xs">

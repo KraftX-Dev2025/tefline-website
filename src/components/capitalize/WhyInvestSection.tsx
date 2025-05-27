@@ -126,7 +126,7 @@ export default function WhyInvestSection() {
                                         {item.icon}
                                     </div>
                                     <h3
-                                        className={`text-xl font-semibold mb-3 text-primary`}
+                                        className={`text-xl font-semibold mb-3 text-teal-600`}
                                     >
                                         {item.title}
                                     </h3>
@@ -169,9 +169,9 @@ export default function WhyInvestSection() {
                                         className="flex items-start"
                                     >
                                         <div className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
-                                            <div className="w-2 h-2 rounded-full bg-teal-500"></div>
+                                            <div className="w-2 h-2 rounded-full bg-teal-600"></div>
                                         </div>
-                                        <span className="ml-2 text-slate-700">
+                                        <span className="ml-2 text-teal-600">
                                             {point}
                                         </span>
                                     </li>
@@ -200,9 +200,9 @@ export default function WhyInvestSection() {
                                         className="flex items-start"
                                     >
                                         <div className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center mt-0.5">
-                                            <div className="w-2 h-2 rounded-full bg-amber-500"></div>
+                                            <div className="w-2 h-2 rounded-full bg-teal-600"></div>
                                         </div>
-                                        <span className="ml-2 text-slate-700">
+                                        <span className="ml-2 text-teal-600">
                                             {point}
                                         </span>
                                     </li>
