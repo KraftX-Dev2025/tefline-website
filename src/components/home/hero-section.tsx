@@ -94,7 +94,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ ref }) => {
         </motion.div>
 
         <motion.div
-          className="hidden md:flex absolute left-10 top-1/3 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-teal-600 items-center"
+          className="hidden text-sm lg:flex absolute left-10 top-1/3 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-teal-600 items-center"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
@@ -104,7 +104,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ ref }) => {
         </motion.div>
 
         <motion.div
-          className="hidden md:flex absolute right-10 top-2/3 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-teal-600 items-center "
+          className="hidden text-sm lg:flex absolute right-10 top-2/3 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-teal-600 items-center "
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.3, duration: 0.8 }}

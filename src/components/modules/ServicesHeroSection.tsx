@@ -136,7 +136,7 @@ export default function ServicesHeroSection() {
                                 damping: 10,
                             }}
                         >
-                            <Button
+                            {/* <Button
                                 size="lg"
                                 className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
                                 asChild
@@ -144,26 +144,39 @@ export default function ServicesHeroSection() {
                                 <Link href="#individual-services">
                                     Explore Services
                                 </Link>
-                            </Button>
-                        </motion.div>
-                        <motion.div
+                            </Button> */}
 
-                            whileHover={shouldReduceAnimations ? {} : { scale: 1.05, y: -3 }}
-                            transition={shouldReduceAnimations ? {} : {
+                            <motion.div
+                                whileHover={{ scale: 1.05, y: -3 }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 400,
+                                    damping: 10,
+                                }}
+                            >
+                                <Link
+                                    href="#individual-services"
+                                    className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
+                                >
+                                    Explore Services
+                                </Link>
+                            </motion.div>
+                        </motion.div>
+
+                        <motion.div
+                            whileHover={{ scale: 1.05, y: -3 }}
+                            transition={{
                                 type: "spring",
                                 stiffness: 400,
                                 damping: 10,
                             }}
                         >
-                            <Button
-                                size="lg"
-                                className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
-                                asChild
+                            <Link
+                                href="/connect"
+                                className="bg-gradient-to-r from-white to-white hover:from-amber-400 hover:to-amber-500 hover:text-white text-amber-500 px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
                             >
-                                <Link href="/connect">
-                                    Book a Consultation
-                                </Link>
-                            </Button>
+                                Book a Consultation
+                            </Link>
                         </motion.div>
                     </motion.div>
                 </motion.div>

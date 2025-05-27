@@ -70,7 +70,7 @@ export default function ServicesHeroSection() {
     return (
         <section
             ref={ref}
-            className="relative min-h-[60vh] flex items-center justify-center overflow-hidden"
+            className="relative flex items-center justify-center overflow-hidden"
         >
             {/* Background Gradients */}
             <motion.div
@@ -105,7 +105,7 @@ export default function ServicesHeroSection() {
                         <Sparkles className="w-4 h-4 mr-2" />
                         <span className="text-lg">
 
-                            Wellness Solutions
+                            Get in touch
                         </span>
                     </motion.div>
 
@@ -113,62 +113,19 @@ export default function ServicesHeroSection() {
                         className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
                         variants={fadeIn}
                     >
-                        Our{" "}
+                        Contact{" "}
                         <span className="relative z-10">
-                            Services
+                            Us
                         </span>
                     </motion.h1>
                     <motion.p
                         className="text-white text-lg sm:text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
                         variants={fadeIn}
                     >
-                        Comprehensive wellness solutions designed to
-                        optimize your healthspan and transform your approach
-                        to well-being.
+                        Choose how you'd like to connect with us. We're
+                        here to answer your questions and help you begin
+                        your wellness journey.
                     </motion.p>
-
-                    <motion.div
-                        variants={fadeIn}
-                        className="mt-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
-                    >
-                        <motion.div
-                            whileHover={shouldReduceAnimations ? {} : { scale: 1.05, y: -3 }}
-                            transition={shouldReduceAnimations ? {} : {
-                                type: "spring",
-                                stiffness: 400,
-                                damping: 10,
-                            }}
-                        >
-                            <Button
-                                size="lg"
-                                className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
-                                asChild
-                            >
-                                <Link href="#individual-services">
-                                    Explore Services
-                                </Link>
-                            </Button>
-                        </motion.div>
-                        <motion.div
-                            whileHover={shouldReduceAnimations ? {} : { scale: 1.05, y: -3 }}
-                            transition={shouldReduceAnimations ? {} : {
-                                type: "spring",
-                                stiffness: 400,
-                                damping: 10,
-                            }}
-                        >
-                            <Button
-                                size="lg"
-                                className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
-                                asChild
-                            >
-                                <Link href="/connect">
-                                    Book a Constultation
-                                </Link>
-                            </Button>
-                        </motion.div>
-
-                    </motion.div>
                 </motion.div>
             </div>
         </section>

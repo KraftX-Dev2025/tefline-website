@@ -223,19 +223,24 @@ export default function AILeadershipSection() {
                             </div>
 
                             <div className="mt-6">
-                                <Button
-                                    variant="outline"
-                                    className="border-white/20 text-teal-600 hover:bg-teal-400 hover:text-white transition-colors"
-                                    asChild
+
+                                <motion.div
+                                    whileHover={{ scale: 1.05, y: -3 }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 200,
+                                        damping: 10,
+                                    }}
                                 >
                                     <Link
                                         href="/press"
-                                        className="flex items-center"
+                                        className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
                                     >
                                         Read Our Press Release
                                         <ArrowRight className="ml-1 w-4 h-4" />
+
                                     </Link>
-                                </Button>
+                                </motion.div>
                             </div>
                         </div>
                     </motion.div>

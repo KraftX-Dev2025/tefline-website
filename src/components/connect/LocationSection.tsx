@@ -13,23 +13,24 @@ export default function LocationMapSection() {
 
     return (
         <div ref={mapRef} className="flex-grow">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isMapInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5 }}
-                className="mb-4"
-            >
-                <div className="badge-teal">
-                    <MapPin className="w-4 h-4 mr-2" />
-                    Our Location
-                </div>
-                <h2 className="text-2xl font-bold text-teal-600">
-                    Find Us
-                </h2>
-            </motion.div>
 
             <div className="bg-gradient-to-br from-white to-slate-50 p-6 rounded-xl border border-slate-200 overflow-hidden relative shadow-xl h-full">
                 <div className="aspect-video rounded-lg bg-slate-200 relative overflow-hidden">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isMapInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.5 }}
+                        className="mb-4"
+                    >
+                        <div className="badge-teal">
+                            <MapPin className="w-4 h-4 mr-2" />
+                            Our Location
+                        </div>
+                        <h2 className="text-2xl font-bold text-teal-600">
+                            Find Us
+                        </h2>
+                    </motion.div>
+
                     {/* Map Placeholder - In a real implementation, this would be replaced with a Google Maps integration */}
                     <Image
                         src={locationInfo.mapImage}

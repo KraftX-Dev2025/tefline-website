@@ -515,7 +515,7 @@ export default function VisionMissionPage() {
                                     }}
                                 >
                                     <div
-                                        className={`w-16 h-16 rounded-full ${item.iconBg} flex items-center justify-center shadow-lg`}
+                                        className={`w-16 h-16 rounded-full bg-teal-400 flex items-center justify-center shadow-lg`}
                                     >
                                         {item.icon}
                                     </div>
@@ -665,7 +665,7 @@ export default function VisionMissionPage() {
                                     }}
                                 >
                                     <div
-                                        className={`w-8 h-8 rounded-full ${item.iconBg} flex items-center justify-center shadow-md transform -translate-x-4`}
+                                        className={`w-8 h-8 rounded-full bg-teal-400 flex items-center justify-center shadow-md transform -translate-x-4`}
                                     >
                                         {item.icon}
                                     </div>

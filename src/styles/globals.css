@@ -5,8 +5,8 @@
 @theme {
     /* Optionally disable all default colors if you want only custom palette */
     --color-*: initial;
-
     /* Primary colors */
+    --color-black: oklch(0 0 0);
     --color-violet-500: oklch(0.61 0.25 296);
     --color-violet-400: oklch(0.67 0.24 296);
     --color-violet-600: oklch(0.56 0.24 295);
@@ -85,6 +85,9 @@
 }
 @utility bg-page {
     background-color: var(--color-background);
+}
+@utility bg-black{
+    background-color: var(--color-black)
 }
 
 /* Text colors */
