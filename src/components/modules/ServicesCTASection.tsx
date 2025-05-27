@@ -119,23 +119,38 @@ export default function ServicesCTASection() {
                         health.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button
-                            size="lg"
-                            className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300"
-                            asChild
+                       
+                        <motion.div
+                            whileHover={{ scale: 1.05, y: -3 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 10,
+                            }}
                         >
-                            <Link href="/connect">Book a Consultation</Link>
-                        </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="border-white text-teal-600 hover:bg-white/70 transition-all duration-300"
-                            asChild
+                            <Link
+                                href="/connect"
+                                className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
+                            >
+                                Book a Consultation
+                            </Link>
+                        </motion.div>
+                        
+                        <motion.div
+                            whileHover={{ scale: 1.05, y: -3 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 10,
+                            }}
                         >
-                            <Link href="/connect">
+                            <Link
+                                href="/connect"
+                                className="bg-gradient-to-r from-white to-white hover:from-amber-400 hover:to-amber-500 hover:text-white text-amber-500 px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
+                            >
                                 Request a Free Masterclass
                             </Link>
-                        </Button>
+                        </motion.div>
                     </div>
 
                     {/* Conditional glow effect */}
