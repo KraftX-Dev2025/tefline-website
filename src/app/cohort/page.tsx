@@ -495,7 +495,7 @@ export default function TeamPage() {
                                                 once: true,
                                                 margin: "-50px",
                                             }}
-                                            className="bg-teal-700/50 border border-teal-600/30 rounded-lg p-4 hover:bg-teal-700/70 transition-colors duration-300 shadow-md"
+                                            className="bg-white rounded-lg p-4  shadow-md"
                                         >
                                             <div className="flex items-start">
                                                 <div
@@ -504,7 +504,7 @@ export default function TeamPage() {
                                                     {value.icon}
                                                 </div>
                                                 <div>
-                                                    <h4 className="font-semibold text-black text-sm mb-1">
+                                                    <h4 className="font-semibold text-teal-600 text-sm mb-1">
                                                         {value.title}
                                                     </h4>
                                                     <p className="text-teal-100/80 text-xs">

@@ -100,7 +100,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ ref }) => {
           transition={{ delay: 1, duration: 0.8 }}
         >
           <Heart className="w-5 h-5 mr-2" />
-          <span className=" font-bold">Evidence-Based Approach</span>
+          <span className="">Evidence-Based Approach</span>
         </motion.div>
 
         <motion.div
@@ -110,7 +110,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ ref }) => {
           transition={{ delay: 1.3, duration: 0.8 }}
         >
           <Brain className="w-5 h-5 mr-2 " />
-          <span className=" font-bold">Powered by Agentic Intelligence</span>
+          <span className="">Powered by Agentic Intelligence</span>
         </motion.div>
       </div>
     </section>

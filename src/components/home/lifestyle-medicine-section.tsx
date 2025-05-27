@@ -97,7 +97,7 @@ const LifestyleMedicineSection: React.FC = () => {
             </p>
             <Link
               href="/modules"
-              className="inline-flex items-center text-white font-semibold group px-5 py-2 rounded-lg transition-all duration-200 hover:scale-105 hover:text-teal-600 hover:bg-white bg-teal-600"
+              className="inline-flex items-center text-white font-semibold group px-5 py-2 rounded-lg transition-all duration-200 hover:scale-105 hover:text-amber-500 hover:bg-white bg-amber-500"
             >
               Learn More
               <div className="ml-2 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-200">

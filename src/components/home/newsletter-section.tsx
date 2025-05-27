@@ -80,40 +80,40 @@ const NewsletterSection: React.FC = () => {
 
           <div className="space-y-5 mx-auto max-w-md w-full">
             <motion.div
-              className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-gray-300 hover-lift"
+              className="flex items-center gap-4 bg-white backdrop-blur-sm p-4 rounded-lg border border-gray-300 hover-lift"
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="bg-gradient-to-r from-teal-500 to-violet-500 text-white p-3 rounded-full">
                 <Heart className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900">Free Wellness Masterclass</h4>
+                <h4 className="font-semibold text-teal-600">Free Wellness Masterclass</h4>
                 <p className="text-sm text-gray-700">Discover evidence-based strategies for optimal health</p>
               </div>
             </motion.div>
 
             <motion.div
-              className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-gray-300 hover-lift"
+              className="flex items-center gap-4 bg-white backdrop-blur-sm p-4 rounded-lg border border-gray-300 hover-lift"
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="bg-gradient-to-r from-teal-500 to-violet-500 text-white p-3 rounded-full">
                 <Shield className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900">Personalized Consultation</h4>
+                <h4 className="font-semibold text-teal-600">Personalized Consultation</h4>
                 <p className="text-sm text-gray-700">One-on-one guidance for your wellness journey</p>
               </div>
             </motion.div>
 
             <motion.div
-              className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-gray-300 hover-lift"
+              className="flex items-center gap-4 bg-white backdrop-blur-sm p-4 rounded-lg border border-gray-300 hover-lift"
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="bg-gradient-to-r from-teal-500 to-violet-500 text-white p-3 rounded-full">
                 <Globe className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900">Community Access</h4>
+                <h4 className="font-semibold text-teal-600">Community Access</h4>
                 <p className="text-sm text-gray-700">Join a supportive network of like-minded individuals</p>
               </div>
             </motion.div>

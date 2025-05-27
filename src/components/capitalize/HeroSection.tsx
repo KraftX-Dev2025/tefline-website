@@ -107,7 +107,7 @@ export default function HeroSection() {
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="border-white text-primary hover:bg-white/10 transition-all duration-300"
+                                className="bg-white text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                                 asChild
                             >
                                 <Link href="#opportunity">Learn More</Link>

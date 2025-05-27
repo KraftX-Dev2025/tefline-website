@@ -57,7 +57,7 @@ export default function ContactOptionsSection() {
                                         delay: index * 0.1,
                                     }}
                                     whileHover={{ y: -5 }}
-                                    className="bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden hover:shadow-2xl transition-all duration-300"
+                                    className="bg-white rounded-xl shadow-xl border border-teal-400 overflow-hidden hover:shadow-2xl transition-all duration-300"
                                 >
                                     <div className={`h-2 w-full bg-gradient-to-r ${option.color}`}></div>
                                     <div className="p-6">
@@ -68,7 +68,7 @@ export default function ContactOptionsSection() {
                                                 <IconComponent className="w-5 h-5 text-white" />
                                             </div>
                                             <div>
-                                                <h3 className="font-bold text-slate-900">
+                                                <h3 className="font-bold text-teal-600">
                                                     {option.title}
                                                 </h3>
                                                 <p className="text-slate-500 text-sm">
