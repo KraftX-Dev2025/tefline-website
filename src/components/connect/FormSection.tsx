@@ -9,7 +9,6 @@ import { inquiryTypes } from "@/lib/constants/contact";
 
 export default function ContactFormSection() {
     const formRef = useRef<HTMLDivElement>(null);
-
     const isFormInView = useInView(formRef, { once: true, amount: 0.3 });
 
     // Form state
@@ -21,13 +20,20 @@ export default function ContactFormSection() {
     });
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [selectedInquiry, setSelectedInquiry] = useState<string | null>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Handle form submission
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Form submission logic would go here
-        console.log("Form submitted:", formState);
+        setIsSubmitting(true);
+        
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        console.log("Form submitted:", { ...formState, inquiryType: selectedInquiry });
         setFormSubmitted(true);
+        setIsSubmitting(false);
+        
         // Reset form after 3 seconds
         setTimeout(() => {
             setFormSubmitted(false);
@@ -53,17 +59,17 @@ export default function ContactFormSection() {
     };
 
     const contactCardVariants = {
-        hidden: { opacity: 0, y: 20, scale: 0.95 },
+        hidden: { opacity: 0, y: 30, scale: 0.95 },
         visible: {
             opacity: 1,
             y: 0,
             scale: 1,
-            transition: { type: "spring", stiffness: 400, damping: 10 },
-        },
-        hover: {
-            y: -5,
-            boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
-            transition: { duration: 0.2 },
+            transition: { 
+                type: "spring", 
+                stiffness: 300, 
+                damping: 20,
+                duration: 0.6
+            },
         },
     };
 
@@ -74,55 +80,84 @@ export default function ContactFormSection() {
             initial="hidden"
             animate={isFormInView ? "visible" : "hidden"}
             variants={contactCardVariants}
-            className="lg:col-span-3 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden relative"
+            className="lg:col-span-3 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden relative h-fit"
         >
-            {/* Decorative elements */}
+            {/* Decorative gradient border */}
             <div className="absolute top-0 left-0 w-full h-1 primary-gradient"></div>
-            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-400/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-400/10 rounded-full -ml-16 -mb-16 blur-3xl"></div>
+            
+            {/* Background decorations */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teal-100/30 to-transparent rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-violet-100/30 to-transparent rounded-full blur-3xl"></div>
 
-            <div className="primary-gradient py-8 px-8 text-white relative">
-                <h3 className="text-2xl font-bold mb-2 flex items-center">
-                    <MessageSquare className="w-6 h-6 mr-3 text-teal-300" />
-                    Send Us a Message
-                </h3>
-                <p className="opacity-90 pl-9">
-                    Fill out the form below and our team will
-                    get back to you shortly.
-                </p>
+            {/* Header */}
+            <div className="primary-gradient py-6 px-8 text-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent"></div>
+                <div className="relative">
+                    <h3 className="text-2xl font-bold mb-2 flex items-center">
+                        <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-3">
+                            <MessageSquare className="w-5 h-5" />
+                        </div>
+                        Send Us a Message
+                    </h3>
+                    <p className="opacity-90 text-sm">
+                        Fill out the form below and our team will get back to you within 24 hours.
+                    </p>
+                </div>
             </div>
 
             {formSubmitted ? (
                 <motion.div
-                    className="p-8 flex flex-col items-center justify-center min-h-[400px]"
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    className="p-8 flex flex-col items-center justify-center min-h-[500px]"
+                    initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                 >
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-teal-400 to-teal-500 flex items-center justify-center mb-6 shadow-lg shadow-teal-200">
-                        <CheckCircle className="w-8 h-8 text-white" />
-                    </div>
-                    <h4 className="text-2xl font-semibold text-slate-900 mb-3">
-                        Message Sent Successfully!
-                    </h4>
-                    <p className="text-slate-600 text-center max-w-md mb-6">
-                        Thank you for reaching out! Our team
-                        will review your message and get back to
-                        you as soon as possible.
-                    </p>
-                    <Button
-                        variant="outline"
-                        className="border-teal-200 text-teal-600 hover:bg-teal-50"
-                        onClick={() => setFormSubmitted(false)}
+                    <motion.div
+                        className="w-20 h-20 rounded-full bg-gradient-to-r from-teal-500 to-emerald-500 flex items-center justify-center mb-6 shadow-lg shadow-teal-200"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.2, type: "spring", stiffness: 300 }}
                     >
-                        Send Another Message
-                    </Button>
+                        <CheckCircle className="w-10 h-10 text-white" />
+                    </motion.div>
+                    
+                    <motion.h4
+                        className="text-3xl font-bold text-gray-900 mb-4 text-center"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                    >
+                        Message Sent Successfully!
+                    </motion.h4>
+                    
+                    <motion.p
+                        className="text-gray-600 text-center max-w-md mb-8 text-lg"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6 }}
+                    >
+                        Thank you for reaching out! Our team will review your message and get back to you as soon as possible.
+                    </motion.p>
+                    
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8 }}
+                    >
+                        <Button
+                            variant="outline"
+                            className="border-2 border-teal-200 text-teal-600 hover:bg-teal-50 px-8 py-3"
+                            onClick={() => setFormSubmitted(false)}
+                        >
+                            Send Another Message
+                        </Button>
+                    </motion.div>
                 </motion.div>
             ) : (
-                <form onSubmit={handleSubmit} className="p-8">
+                <form onSubmit={handleSubmit} className="p-8 space-y-6">
                     {/* Inquiry Type Selector */}
-                    <div className="mb-8">
-                        <label className="block text-sm font-medium text-teal-700 mb-3">
+                    <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-4">
                             What can we help you with?
                         </label>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -131,50 +166,45 @@ export default function ContactFormSection() {
                                 return (
                                     <motion.div
                                         key={inquiry.id}
-                                        whileHover={{ y: -3 }}
+                                        whileHover={{ y: -2, scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
-                                        className={`cursor-pointer rounded-xl shadow-sm p-4 flex flex-col transition-all duration-200 ${selectedInquiry === inquiry.id
-                                            ? "bg-teal-50 border-2 border-teal-400 shadow-teal-100"
-                                            : "border border-slate-200 hover:border-teal-200 bg-white"
-                                            }`}
-                                        onClick={() =>
-                                            setSelectedInquiry(inquiry.id)
-                                        }
+                                        className={`cursor-pointer rounded-xl p-4 transition-all duration-200 border-2 ${
+                                            selectedInquiry === inquiry.id
+                                                ? "bg-gradient-to-br from-teal-50 to-teal-100/50 border-teal-300 shadow-md shadow-teal-100"
+                                                : "border-gray-200 hover:border-teal-200 bg-white hover:bg-gray-50"
+                                        }`}
+                                        onClick={() => setSelectedInquiry(inquiry.id)}
                                     >
-                                        <div
-                                            className={`w-auto px-3 h-10 rounded-lg ${selectedInquiry === inquiry.id
-                                                ? " text-white"
-                                                : "bg-slate-100 text-slate-500"
-                                                } flex items-center justify-start gap-2 mb-2`}
-                                        >
-                                            <IconComponent className="w-5 h-5 text-teal-600" />
-                                            <span
-                                                className={`text-sm ${selectedInquiry === inquiry.id
-                                                    ? "text-teal-600 font-medium"
-                                                    : "text-black"
-                                                    }`}
-                                            >
+                                        <div className="flex items-center gap-3 mb-2">
+                                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                                                selectedInquiry === inquiry.id
+                                                    ? "bg-teal-500 text-white"
+                                                    : "bg-gray-100 text-gray-500"
+                                            }`}>
+                                                <IconComponent className="w-4 h-4" />
+                                            </div>
+                                            <span className={`font-medium ${
+                                                selectedInquiry === inquiry.id
+                                                    ? "text-teal-700"
+                                                    : "text-gray-700"
+                                            }`}>
                                                 {inquiry.label}
                                             </span>
                                         </div>
-
-
-                                        <span className="text-xs text-slate-500 mt-1">
+                                        <p className="text-xs text-gray-500 ml-11">
                                             {inquiry.description}
-                                        </span>
+                                        </p>
                                     </motion.div>
                                 );
                             })}
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                    {/* Name Fields */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                            <label
-                                htmlFor="firstName"
-                                className="block text-sm font-medium text-slate-700"
-                            >
-                                First Name
+                            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+                                First Name *
                             </label>
                             <Input
                                 id="firstName"
@@ -182,17 +212,14 @@ export default function ContactFormSection() {
                                 type="text"
                                 value={formState.firstName}
                                 onChange={handleInputChange}
-                                className="w-full border-slate-200 focus:border-teal-500 focus:ring-teal-500 rounded-lg"
+                                className="w-full border-gray-300 focus:border-teal-500 focus:ring-teal-500 rounded-lg h-12"
                                 placeholder="John"
                                 required
                             />
                         </div>
                         <div className="space-y-2">
-                            <label
-                                htmlFor="lastName"
-                                className="block text-sm font-medium text-slate-700"
-                            >
-                                Last Name
+                            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+                                Last Name *
                             </label>
                             <Input
                                 id="lastName"
@@ -200,19 +227,17 @@ export default function ContactFormSection() {
                                 type="text"
                                 value={formState.lastName}
                                 onChange={handleInputChange}
-                                className="w-full border-slate-200 focus:border-teal-500 focus:ring-teal-500 rounded-lg"
+                                className="w-full border-gray-300 focus:border-teal-500 focus:ring-teal-500 rounded-lg h-12"
                                 placeholder="Doe"
                                 required
                             />
                         </div>
                     </div>
 
-                    <div className="mb-6 space-y-2">
-                        <label
-                            htmlFor="email"
-                            className="block text-sm font-medium text-slate-700"
-                        >
-                            Email Address
+                    {/* Email Field */}
+                    <div className="space-y-2">
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                            Email Address *
                         </label>
                         <Input
                             id="email"
@@ -220,18 +245,16 @@ export default function ContactFormSection() {
                             type="email"
                             value={formState.email}
                             onChange={handleInputChange}
-                            className="w-full border-slate-200 focus:border-teal-500 focus:ring-teal-500 rounded-lg"
+                            className="w-full border-gray-300 focus:border-teal-500 focus:ring-teal-500 rounded-lg h-12"
                             placeholder="john.doe@example.com"
                             required
                         />
                     </div>
 
-                    <div className="mb-8 space-y-2">
-                        <label
-                            htmlFor="message"
-                            className="block text-sm font-medium text-slate-700"
-                        >
-                            Message
+                    {/* Message Field */}
+                    <div className="space-y-2">
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                            Message *
                         </label>
                         <textarea
                             id="message"
@@ -239,29 +262,36 @@ export default function ContactFormSection() {
                             rows={5}
                             value={formState.message}
                             onChange={handleInputChange}
-                            className="w-full p-3 border border-slate-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 text-base"
+                            className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 text-base resize-none"
                             placeholder="Tell us how we can help you..."
                             required
-                        ></textarea>
+                        />
                     </div>
 
+                    {/* Submit Button */}
                     <motion.div
-                        whileHover={{ scale: 1.01 }}
-                        whileTap={{ scale: 0.99 }}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="pt-4 flex justify-center items-center"
                     >
-                        <div className="w-full flex items-center justify-center">
-
-                            <Button
-                                type="submit"
-                                className=" primary-gradient hover:to-teal-700 text-white font-medium py-6 rounded-xl flex items-center justify-center group shadow-lg shadow-teal-200/40"
-                            >
-                                Send Message
-                                <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                        </div>
-
+                        <Button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="w-[14rem] primary-gradient hover:shadow-lg px-2 text-white font-semibold py-4 rounded-xl flex items-center justify-center group shadow-md shadow-teal-200/40 disabled:opacity-70 disabled:cursor-not-allowed"
+                        >
+                            {isSubmitting ? (
+                                <>
+                                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
+                                    Sending...
+                                </>
+                            ) : (
+                                <div className="flex justify-center items-center gap-4 text-lg">
+                                    Send
+                                    <Send className="w-9 h-9 group-hover:translate-x-1 transition-transform" />
+                                </div>
+                            )}
+                        </Button>
                     </motion.div>
-
                 </form>
             )}
         </motion.div>

@@ -1,14 +1,43 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { TrendingUp, BarChart3 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { 
+    TrendingUp, 
+    BarChart3, 
+    LineChart, 
+    PieChart, 
+    Activity,
+    BarChart,
+    Zap
+} from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { BACKGROUND_ELEMENTS, CHART_DATA } from "@/lib/constants/services";
+
+// Icon component selector
+const IconComponent = ({ iconName, className }: { iconName: string; className: string }) => {
+    const iconMap = {
+        TrendingUp: TrendingUp,
+        BarChart3: BarChart3,
+        LineChart: LineChart,
+        PieChart: PieChart,
+        Activity: Activity,
+        BarChart: BarChart,
+        Zap: Zap,
+    };
+    const Icon = iconMap[iconName as keyof typeof iconMap] || TrendingUp;
+    return <Icon className={className} />;
+};
 
 export default function HeroSection() {
     const heroRef = useRef<HTMLDivElement>(null);
+    const [isClient, setIsClient] = useState(false);
+
+    // Ensure client-side rendering for animations
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     // Parallax effect for hero section
     const { scrollYProgress } = useScroll({
@@ -19,58 +48,92 @@ export default function HeroSection() {
     const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
     const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
+    if (!isClient) {
+        // Server-side render with minimal content to avoid hydration mismatch
+        return (
+            <section className="relative min-h-[70vh] flex items-center pt-16 pb-16">
+                <div className="absolute top-0 left-0 w-full h-full primary-gradient" />
+                <Container className="z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div className="text-white">
+                            <div className="badge-teal mt-10">
+                                <TrendingUp className="w-4 h-4 mr-2" />
+                                Growth Opportunity
+                            </div>
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                                INVESTMENT EDGE
+                            </h1>
+                            <p className="text-xl md:text-2xl font-light text-white/90 mb-8">
+                                Join us at the inflection point of the digital
+                                wellness revolution, poised to dominate the
+                                growing demand for preventive, data-driven
+                                health solutions.
+                            </p>
+                        </div>
+                        <div className="block">
+                            <div className="relative h-96 w-full p-4 bg-white/80 backdrop-blur-md rounded-xl border border-white/20 shadow-xl">
+                                <div className="absolute top-6 left-6 text-primary">
+                                    <h3 className="font-semibold text-lg">
+                                        Growth Potential
+                                    </h3>
+                                    <p className="text-primary text-sm">
+                                        Wellness Intelligence Market
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Container>
+            </section>
+        );
+    }
+
     return (
-        <motion.section
+        <section
             ref={heroRef}
             className="relative min-h-[70vh] flex items-center pt-16 pb-16"
-            style={{ opacity: heroOpacity, y: heroY }}
         >
             <div className="absolute top-0 left-0 w-full h-full primary-gradient" />
 
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden">
-                {/* Charts and graphs pattern */}
+                {/* Charts and graphs pattern with fixed positions */}
                 <div className="absolute top-0 left-0 w-full h-full">
-                    {Array.from({ length: 20 }).map((_, i) => (
+                    {BACKGROUND_ELEMENTS.map((element) => (
                         <motion.div
-                            key={i}
+                            key={element.id}
                             className="absolute"
                             style={{
-                                top: Math.random() * 100 + "%",
-                                left: Math.random() * 100 + "%",
+                                top: `${element.top}%`,
+                                left: `${element.left}%`,
                                 opacity: 0.3,
                             }}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 0.3, scale: 1 }}
+                            transition={{
+                                duration: 0.8,
+                                delay: element.id * 0.1,
+                                ease: "easeOut"
+                            }}
                         >
-                            {Math.random() > 0.5 ? (
-                                <TrendingUp className="text-white/20 w-16 h-16" />
-                            ) : (
-                                <BarChart3 className="text-white/20 w-16 h-16" />
-                            )}
+                            <IconComponent
+                                iconName={element.icon}
+                                className="text-white/20 w-12 h-12 md:w-16 md:h-16"
+                            />
                         </motion.div>
                     ))}
                 </div>
 
-                {/* Moving dots pattern */}
-                <svg
-                    className="absolute inset-0 w-full h-full opacity-20"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <defs>
-                        <pattern
-                            id="investPattern"
-                            width="40"
-                            height="40"
-                            patternUnits="userSpaceOnUse"
-                        >
-                            <circle cx="20" cy="20" r="2" fill="white" />
-                        </pattern>
-                    </defs>
-                    <rect
-                        width="100%"
-                        height="100%"
-                        fill="url(#investPattern)"
+                {/* Dot pattern background */}
+                <div className="absolute inset-0 opacity-10">
+                    <div
+                        className="w-full h-full"
+                        style={{
+                            backgroundImage: `radial-gradient(circle, white 2px, transparent 2px)`,
+                            backgroundSize: '40px 40px',
+                        }}
                     />
-                </svg>
+                </div>
             </div>
 
             <Container className="z-10">
@@ -81,36 +144,46 @@ export default function HeroSection() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="text-white"
                     >
-                        <div className="badge-teal">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            className="badge-teal mt-10"
+                        >
                             <TrendingUp className="w-4 h-4 mr-2" />
                             Growth Opportunity
-                        </div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        </motion.div>
+                        
+                        <motion.h1
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+                        >
                             INVESTMENT EDGE
-                        </h1>
-                        <p className="text-xl md:text-2xl font-light text-white/90 mb-8">
+                        </motion.h1>
+                        
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.6 }}
+                            className="text-xl md:text-2xl font-light text-white/90 mb-8"
+                        >
                             Join us at the inflection point of the digital
                             wellness revolution, poised to dominate the
                             growing demand for preventive, data-driven
                             health solutions.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            {/* <Button
-                                size="lg"
-                                className="bg-amber-500 text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                                asChild
-                            >
-                                <Link href="/connect"
-                                    className="bg-amber-500 text-teal-600 hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-
-                                >
-                                    Connect With Our Investment Team
-                                </Link>
-                            </Button> */}
-
-
+                        </motion.p>
+                        
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.8 }}
+                            className="flex gap-4"
+                        >
                             <motion.div
                                 whileHover={{ scale: 1.05, y: -3 }}
+                                whileTap={{ scale: 0.95 }}
                                 transition={{
                                     type: "spring",
                                     stiffness: 400,
@@ -119,14 +192,16 @@ export default function HeroSection() {
                             >
                                 <Link
                                     href="/connect"
-                                    className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
+                                    className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 inline-flex items-center justify-center group shadow-lg shadow-amber-500/20"
                                 >
-                                    Connect With Our Investment Team
+                                    <span>Connect</span>
+                                    <Zap className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                                 </Link>
                             </motion.div>
 
                             <motion.div
                                 whileHover={{ scale: 1.05, y: -3 }}
+                                whileTap={{ scale: 0.95 }}
                                 transition={{
                                     type: "spring",
                                     stiffness: 400,
@@ -134,109 +209,107 @@ export default function HeroSection() {
                                 }}
                             >
                                 <Link
-                                    href="/connect"
-                                    className="bg-gradient-to-r from-white to-white hover:from-amber-400 hover:to-amber-500 hover:text-white text-amber-500 px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
+                                    href="/learn-more"
+                                    className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border border-white/30 hover:border-white/50 px-6 py-3 rounded-lg font-semibold transition-all duration-300 inline-flex items-center justify-center group"
                                 >
-                                    Learn More
+                                    <span>Learn More</span>
+                                    <Activity className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                                 </Link>
                             </motion.div>
-                        </div>
+                        </motion.div>
                     </motion.div>
 
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="hidden md:block"
+                        className="block"
                     >
-                        <div className="relative h-96 w-full p-4 bg-white/80 backdrop-blur-md rounded-xl border border-white/20 shadow-xl">
+                        <div className="relative h-96 w-full p-6 bg-white/80 backdrop-blur-md rounded-xl border border-white/20 shadow-xl">
                             {/* Investment growth chart */}
-                            <div className="absolute inset-0 flex items-end p-6">
+                            <div className="absolute inset-6 flex items-end">
                                 <div className="relative w-full h-3/4">
-                                    {/* Bars */}
-                                    {[
-                                        0.3, 0.45, 0.6, 0.5, 0.7, 0.65,
-                                        0.85,
-                                    ].map((height, i) => (
+                                    {/* Animated bars */}
+                                    {CHART_DATA.map((height, i) => (
                                         <motion.div
-                                            key={i}
-                                            className="absolute bottom-0 bg-gradient-to-t from-teal-500 to-teal-300 rounded-t-md w-[12%]"
+                                            key={`bar-${i}`}
+                                            className="absolute bottom-0 bg-gradient-to-t from-teal-500 to-teal-300 rounded-t-md"
                                             style={{
-                                                left: `${i * 15}%`,
+                                                left: `${i * 14}%`,
+                                                width: '10%',
                                                 height: "0%",
                                             }}
                                             animate={{
                                                 height: `${height * 100}%`,
                                             }}
                                             transition={{
-                                                duration: 1,
-                                                delay: 0.5 + i * 0.1,
+                                                duration: 1.2,
+                                                delay: 0.8 + i * 0.1,
                                                 ease: "easeOut",
                                             }}
                                         />
                                     ))}
 
-                                    {/* Growth line */}
-                                    <svg className="absolute bottom-0 left-0 w-full h-full">
-                                        <motion.path
-                                            d={`M0,${100} L0,70 L15%,55 L30%,40 L45%,50 L60%,30 L75%,35 L90%,15`}
-                                            stroke="white"
-                                            strokeWidth="3"
-                                            fill="none"
-                                            strokeDasharray="1000"
-                                            strokeDashoffset="1000"
-                                            animate={{
-                                                strokeDashoffset: 0,
-                                            }}
-                                            transition={{
-                                                duration: 2,
-                                                delay: 0.7,
-                                            }}
-                                        />
-                                        <motion.circle
-                                            cx="90%"
-                                            cy="15%"
-                                            r="6"
-                                            fill="#fff"
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            transition={{
-                                                duration: 0.5,
-                                                delay: 2.7,
-                                            }}
-                                        />
-                                    </svg>
+                                    {/* Growth trend line using CSS instead of SVG */}
+                                    <div className="absolute bottom-0 left-0 w-full h-full">
+                                        {CHART_DATA.map((height, i) => (
+                                            <motion.div
+                                                key={`point-${i}`}
+                                                className="absolute w-3 h-3 bg-white rounded-full border-2 border-teal-500"
+                                                style={{
+                                                    left: `${i * 14 + 5}%`,
+                                                    bottom: `${height * 100}%`,
+                                                    transform: 'translate(-50%, 50%)',
+                                                }}
+                                                initial={{ opacity: 0, scale: 0 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                transition={{
+                                                    duration: 0.5,
+                                                    delay: 1.5 + i * 0.1,
+                                                }}
+                                            />
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Chart labels */}
                             <div className="absolute top-6 left-6 text-primary">
-                                <h3 className="font-semibold text-lg">
-                                    Growth Potential
-                                </h3>
-                                <p className="text-primary text-sm">
-                                    Wellness Intelligence Market
-                                </p>
-                            </div>
-
-                            <div className="absolute bottom-6 right-6 text-white text-4xl font-bold">
-                                <motion.div
+                                <motion.h3
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
-                                    transition={{
-                                        duration: 0.5,
-                                        delay: 2.7,
-                                    }}
+                                    transition={{ delay: 0.6 }}
+                                    className="font-semibold text-lg flex items-center"
                                 >
-                                    <span className="text-primary">
-                                        +85%
-                                    </span>
-                                </motion.div>
+                                    <BarChart3 className="w-5 h-5 mr-2" />
+                                    Growth Potential
+                                </motion.h3>
+                                <motion.p
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.8 }}
+                                    className="text-primary/70 text-sm"
+                                >
+                                    Wellness Intelligence Market
+                                </motion.p>
                             </div>
+
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.5 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8, delay: 1.8 }}
+                                className="absolute bottom-6 right-6 text-right"
+                            >
+                                <div className="text-4xl font-bold text-primary flex items-center">
+                                    <TrendingUp className="w-8 h-8 mr-2 text-primary" />
+                                    <span>+85%</span>
+                                </div>
+                                <p className="text-sm text-primary/70 font-bold mt-1">Annual Growth</p>
+                            </motion.div>
                         </div>
                     </motion.div>
                 </div>
             </Container>
-        </motion.section>
+        </section>
     );
 }

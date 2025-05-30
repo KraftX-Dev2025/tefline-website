@@ -23,6 +23,7 @@ import {
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { productLink } from "@/lib/constants/contact";
 
 export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -125,7 +126,7 @@ export function Header() {
                                 </motion.div>
                             </div>
                             <motion.span className="text-2xl font-bold transition-colors duration-300 bg-gradient-to-r from-teal-500 to-violet-500 text-transparent bg-clip-text">
-                                TEFLINE
+                                RX Medlife
                             </motion.span>
                         </Link>
                     </motion.div>
@@ -215,7 +216,7 @@ export function Header() {
                             asChild
                         >
                             <Link
-                                href="https://tefline-product.vercel.app/register"
+                                href={productLink}
                                 className="flex items-center"
                             >
                                 <span>Get Started</span>

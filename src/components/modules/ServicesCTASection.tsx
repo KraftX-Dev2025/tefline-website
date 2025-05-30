@@ -46,7 +46,7 @@ export default function ServicesCTASection() {
 
     return (
         <section ref={ctaRef} className="py-20 relative overflow-hidden">
-            <div className="absolute inset-0 primary-gradient -z-10" />
+            <div className="absolute inset-0 -z-10" />
 
             {/* Conditional animated wave pattern */}
             {isClient && !isMobile && (
@@ -103,7 +103,7 @@ export default function ServicesCTASection() {
                         type: "spring",
                         stiffness: 100,
                     }}
-                    className="max-w-3xl mx-auto text-center text-white bg-white/10 backdrop-blur-sm p-10 rounded-2xl border border-white/20 shadow-xl relative"
+                    className="max-w-3xl mx-auto text-center primary-gradient text-white bg-white/10 backdrop-blur-sm p-10 rounded-2xl border border-white/20 shadow-xl relative"
                 >
                     <div className="badge-teal">
                         <Sparkles className="w-4 h-4 mr-2" />

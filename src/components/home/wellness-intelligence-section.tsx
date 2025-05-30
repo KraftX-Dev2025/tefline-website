@@ -8,11 +8,6 @@ import { Brain, Globe, Zap, ArrowRight } from "lucide-react"
 const WellnessIntelligenceSection = () => {
   return (
     <section className="py-24 px-4 relative overflow-hidden text-white">
-      {/* Background effects */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 right-0 w-full h-full bg-[url('/dots.png')] bg-repeat opacity-10"></div>
-      </div>
-
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-cyan-500/20 blur-[100px]"></div>
         <div className="absolute bottom-1/3 left-1/3 w-72 h-72 rounded-full bg-teal-400/20 blur-[100px]"></div>
@@ -86,7 +81,7 @@ const WellnessIntelligenceSection = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              {/* <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-white rounded-lg p-4 text-center border border-teal-500/50">
                   <div className="text-xl font-bold text-teal-600">87%</div>
                   <div className="text-xs text-teal-600">User Energy Improvement</div>
@@ -95,19 +90,19 @@ const WellnessIntelligenceSection = () => {
                   <div className="text-xl font-bold text-teal-600">3.2 yrs</div>
                   <div className="text-xs text-teal-600">Biological Age Reduction</div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="relative h-16 w-full rounded-lg overflow-hidden mb-6 border-2 border-white">
                 <div className="absolute inset-0 bg-white rounded-lg"></div>
                 <motion.div
                   initial={{ width: 0 }}
-                  whileInView={{ width: "75%" }}
+                  whileInView={{ width: "80%" }}
                   transition={{ duration: 1, delay: 0.3 }}
                   viewport={{ once: true }}
                   className="absolute top-0 left-0 h-full rounded-lg bg-teal-400"
                 ></motion.div>
                 <div className="absolute inset-0 flex items-center justify-center text-md font-semibold text-white">
-                  Wellness Score: 75%
+                  Wellness Score: 80%
                 </div>
               </div>
 
@@ -201,4 +196,4 @@ const WellnessIntelligenceSection = () => {
   )
 }
 
-export default WellnessIntelligenceSection
+export default WellnessIntelligenceSection;

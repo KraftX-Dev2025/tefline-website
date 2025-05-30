@@ -74,10 +74,10 @@ export default function MasterclassSection() {
                     <motion.div
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
-                        className="relative"
+                        className="relative flex justify-center items-center"
                     >
                         <Button
-                            className="w-full primary-gradient hover:to-teal-700 text-white py-6 rounded-xl shadow-lg shadow-teal-200/40"
+                            className="w-auto primary-gradient hover:to-teal-700 text-white py-6 rounded-xl shadow-lg shadow-teal-200/40"
                             asChild
                         >
                             <Link

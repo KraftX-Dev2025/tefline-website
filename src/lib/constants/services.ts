@@ -112,3 +112,24 @@ export const testimonial = {
     company: "Fortune 500 Company",
     avatar: "HR"
 };
+
+
+
+// Pre-defined positions to avoid hydration mismatch
+export const BACKGROUND_ELEMENTS = [
+    { id: 1, top: 15, left: 10, icon: 'TrendingUp' },
+    { id: 2, top: 25, left: 85, icon: 'BarChart3' },
+    { id: 3, top: 45, left: 20, icon: 'LineChart' },
+    { id: 4, top: 35, left: 75, icon: 'PieChart' },
+    { id: 5, top: 65, left: 15, icon: 'Activity' },
+    { id: 6, top: 55, left: 80, icon: 'BarChart' },
+    { id: 7, top: 75, left: 25, icon: 'TrendingUp' },
+    { id: 8, top: 85, left: 70, icon: 'Zap' },
+    { id: 9, top: 20, left: 60, icon: 'BarChart3' },
+    { id: 10, top: 40, left: 45, icon: 'LineChart' },
+    { id: 11, top: 60, left: 50, icon: 'PieChart' },
+    { id: 12, top: 80, left: 40, icon: 'Activity' },
+];
+
+// Chart data for consistent rendering
+export const CHART_DATA = [0.3, 0.45, 0.6, 0.5, 0.7, 0.65, 0.85];

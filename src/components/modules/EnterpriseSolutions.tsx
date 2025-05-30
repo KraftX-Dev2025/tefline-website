@@ -103,7 +103,7 @@ export default function EnterpriseSolutionsSection() {
                 </>
             )}
 
-            <Container className="relative z-10">
+            <Container className="relative z-10 mb-8">
                 <motion.div
                     initial="hidden"
                     animate={isEnterpriseInView ? "visible" : "hidden"}
@@ -117,7 +117,7 @@ export default function EnterpriseSolutionsSection() {
                         </span>
                     </div>
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-gradient">
-                        ENTERPRISE SOLUTIONS
+                        ENTERPRISE MODULES
                     </h2>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto">
                         Empower your organization with evidence-informed

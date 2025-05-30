@@ -1,6 +1,12 @@
 // lib/constants/contact.ts
 
 import { Phone, Mail, MapPin, MessageSquare, Calendar, Building, Users } from "lucide-react";
+import {
+    Facebook,
+    Twitter,
+    Linkedin,
+    Instagram,
+} from "lucide-react";
 
 export const contactOptions = [
     {
@@ -113,3 +119,41 @@ export const locationInfo = {
     address: "Cinnabar Hills, Bangalore - 560071, India",
     mapImage: "/tefline-image1.webp",
 };
+
+export const productLink = process.env.NEXT_PUBLIC_ENVIRONMENT === "production" ? "https://tefline-product.vercel.app/" : "http://localhost:3001/login";
+
+
+export const footerSections = [
+    {
+        title: "Company",
+        links: [
+            { name: "Crest", href: "/" },
+            { name: "Capitalize", href: "/capitalize" },
+            { name: "Connect", href: "/connect" },
+            { name: "Content", href: "/content" },
+            { name: "Cohort", href: "/cohort" },
+            { name: "Context", href: "/context" },
+            { name: "Modules", href: "/modules" },
+            { name: "Press", href: "/press" },
+        ],
+    },
+    {
+        title: "Features",
+        links: [
+            { name: "Wellness Vault", href: "#" },
+            { name: "Air Tenet", href: "#" },
+            { name: "Deep Dive", href: "#" },
+            { name: "Doctor' INN", href: "#" },
+            { name: "M&M", href: "#" },
+            { name: "Cohort Connect", href: "#" },
+            { name: "Cognitive Counselor", href: "#" },
+            { name: "Lifestyle Digital", href: "#" },
+        ],
+    },
+];
+export const socialLinks = [
+    { icon: Facebook, href: "#" },
+    { icon: Twitter, href: "#" },
+    { icon: Linkedin, href: "#" },
+    { icon: Instagram, href: "#" },
+];

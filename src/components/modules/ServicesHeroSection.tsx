@@ -4,7 +4,6 @@ import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export default function ServicesHeroSection() {
     const [isClient, setIsClient] = useState(false);
@@ -110,16 +109,15 @@ export default function ServicesHeroSection() {
                         className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
                         variants={fadeIn}
                     >
-                        Our{" "}
                         <span className="relative z-10">
-                            Services
+                            Modules
                         </span>
                     </motion.h1>
                     <motion.p
                         className="text-lg sm:text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed text-white"
                         variants={fadeIn}
                     >
-                        Comprehensive wellness solutions designed to
+                        Comprehensive wellness modules designed to
                         optimize your healthspan and transform your approach
                         to well-being.
                     </motion.p>
@@ -156,7 +154,7 @@ export default function ServicesHeroSection() {
                             >
                                 <Link
                                     href="#individual-services"
-                                    className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
+                                    className="bg-amber-500 hover:bg-white hover:text-amber-500 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
                                 >
                                     Explore Services
                                 </Link>
@@ -173,7 +171,7 @@ export default function ServicesHeroSection() {
                         >
                             <Link
                                 href="/connect"
-                                className="bg-gradient-to-r from-white to-white hover:from-amber-400 hover:to-amber-500 hover:text-white text-amber-500 px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
+                                className="bg-white hover:bg-amber-500 hover:text-white text-amber-500 px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
                             >
                                 Book a Consultation
                             </Link>

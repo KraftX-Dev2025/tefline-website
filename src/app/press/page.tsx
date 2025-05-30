@@ -278,7 +278,6 @@ export default function PressPage() {
 
             {/* Press Release Key Points */}
             <section className="py-16 bg-teal-50 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/dots.png')] bg-repeat opacity-5"></div>
 
                 <div className="max-w-7xl mx-auto px-4 relative z-10">
                     <motion.div

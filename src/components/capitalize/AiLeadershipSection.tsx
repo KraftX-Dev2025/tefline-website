@@ -4,7 +4,6 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Brain, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 
 export default function AILeadershipSection() {

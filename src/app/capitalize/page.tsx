@@ -13,8 +13,8 @@ export default function InvestPage() {
             <HeroSection />
             <OpportunitySection />
             <WhyInvestSection />
-            <FundingRoadmapSection />
             <AILeadershipSection />
+            <FundingRoadmapSection />
             <CTASection />
         </main>
     );

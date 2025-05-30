@@ -7,13 +7,10 @@ import {
     Mail,
     Phone,
     MapPin,
-    Facebook,
-    Twitter,
-    Linkedin,
-    Instagram,
     ChevronRight,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { footerSections, socialLinks } from "@/lib/constants/contact";
 
 export function Footer() {
     // Animation variants
@@ -56,30 +53,6 @@ export function Footer() {
     // ];
 
     // Footer main sections
-    const footerSections = [
-        {
-            title: "Company",
-            links: [
-                { name: "Crest", href: "/" },
-                { name: "Capitalize", href: "/capitalize" },
-                { name: "Connect", href: "/connect" },
-                { name: "Content", href: "/content" },
-                { name: "Cohort", href: "/cohort" },
-                { name: "Context", href: "/context" },
-                { name: "Press", href: "/press" },
-            ],
-        },
-        {
-            title: "Features",
-            links: [
-                { name: "Wellness Vault", href: "#" },
-                { name: "Agentic Intelligence", href: "#" },
-                { name: "Cognitive Counselor", href: "#" },
-                { name: "Lifestyle Digital", href: "#" },
-                { name: "Social Accountability", href: "#" },
-            ],
-        },
-    ];
 
     return (
         <footer className="bg-gray-50 border-t border-gray-200 pt-16 pb-8 mt-8">
@@ -124,12 +97,7 @@ export function Footer() {
                         </div>
 
                         <div className="flex space-x-4">
-                            {[
-                                { icon: Facebook, href: "#" },
-                                { icon: Twitter, href: "#" },
-                                { icon: Linkedin, href: "#" },
-                                { icon: Instagram, href: "#" },
-                            ].map((social, index) => (
+                            {socialLinks.map((social, index) => (
                                 <motion.a
                                     key={index}
                                     href={social.href}

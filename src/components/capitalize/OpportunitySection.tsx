@@ -103,27 +103,29 @@ export default function OpportunitySection() {
                     >
                         <div className="absolute -top-6 -left-6 w-full h-full bg-teal-100 rounded-xl" />
                         <div className="absolute -bottom-6 -right-6 w-full h-full bg-amber-100 rounded-xl opacity-70" />
-                        <div className="relative">
-                            <Image
-                                src="/tefline-image9.webp"
-                                alt="Investment opportunity"
-                                width={600}
-                                height={400}
-                                className="w-full h-auto object-cover rounded-xl shadow-lg"
-                            />
+                        <div className="relative rounded-xl shadow-lg shadow-black">
+                            <div className="relative w-full">
+                                <Image
+                                    src="/tefline-image9.webp"
+                                    alt="Investment opportunity"
+                                    width={600}
+                                    height={400}
+                                    className="w-full h-auto object-cover rounded-t-xl shadow-lg"
+                                />
+                            </div>
                             <motion.div
-                                className="absolute bottom-0 inset-x-0 bg-white/90 backdrop-blur-sm p-4 border-t border-teal-100"
+                                className="relative w-full bottom-0 rounded-b-xl inset-x-0 bg-white/90 backdrop-blur-sm p-4 border-t border-teal-100"
                                 initial={{ y: 100 }}
                                 animate={
                                     isOpportunityInView ? { y: 0 } : {}
                                 }
                                 transition={{ duration: 0.5, delay: 0.6 }}
                             >
-                                <h3 className="font-semibold text-teal-600 flex items-center">
+                                <h3 className="font-semibold text-teal-600 flex text-sm sm:text-base items-center">
                                     <TrendingUp className="w-4 h-4 mr-2" />
                                     Market Timing
                                 </h3>
-                                <p className="text-slate-600 text-sm">
+                                <p className="text-slate-600 text-xs sm:text-sm">
                                     The wellness technology market is
                                     projected to reach $1.3 trillion by
                                     2030, with AI-enhanced solutions showing
