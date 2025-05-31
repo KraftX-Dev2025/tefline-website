@@ -20,7 +20,7 @@ import {
     Linkedin,
     Instagram,
 } from "lucide-react";
-import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
+import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "../ui/sheet";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { productLink } from "@/lib/constants/contact";
@@ -91,8 +91,8 @@ export function Header() {
     return (
         <header
             className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
-                    ? "bg-white/85 backdrop-blur-md py-3 shadow-sm border-b border-gray-200"
-                    : "bg-white/100 py-4"
+                ? "bg-white/85 backdrop-blur-md py-3 shadow-sm border-b border-gray-200"
+                : "bg-white/100 py-4"
                 }`}
         >
             <div className="container max-w-7xl mx-auto px-4">
@@ -136,8 +136,8 @@ export function Header() {
                         <NavigationMenu className="animate-fadeIn">
                             <NavigationMenuList
                                 className={`gap-8 p-1 rounded-lg transition-all duration-300 ${!isScrolled
-                                        ? "bg-white/10 backdrop-blur-md"
-                                        : "bg-transparent"
+                                    ? "bg-white/10 backdrop-blur-md"
+                                    : "bg-transparent"
                                     }`}
                             >
                                 {navLinks.map((link, index) => (
@@ -251,6 +251,8 @@ export function Header() {
                                 side="right"
                                 className="bg-white text-gray-900 border-gray-300 w-[300px] sm:w-[350px] p-0 overflow-hidden [&>button]:hidden"
                             >
+                                {/* Visually hidden title for accessibility */}
+                                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                                 <div className="p-6">
                                     <div className="flex items-center justify-between mb-8">
                                         <div className="flex items-center text-violet-500">
@@ -312,9 +314,9 @@ export function Header() {
                                                                         link.href
                                                                     }
                                                                     className={`flex items-center py-3 px-4 rounded-md transition-colors ${pathname ===
-                                                                            link.href
-                                                                            ? "bg-purple-50 text-violet-500 font-semibold"
-                                                                            : "hover:bg-gray-50 text-gray-700 hover:text-violet-500"
+                                                                        link.href
+                                                                        ? "bg-purple-50 text-violet-500 font-semibold"
+                                                                        : "hover:bg-gray-50 text-gray-700 hover:text-violet-500"
                                                                         }`}
                                                                     onClick={() =>
                                                                         setIsMobileMenuOpen(
