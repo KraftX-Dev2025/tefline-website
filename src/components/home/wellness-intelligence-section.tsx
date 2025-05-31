@@ -3,11 +3,12 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { wellnessModules } from "@/lib/constants/home"
+import { successMetrics } from "@/lib/constants/services"
 import { Brain, Globe, Zap, ArrowRight } from "lucide-react"
 
 const WellnessIntelligenceSection = () => {
   return (
-    <section className="py-24 px-4 relative overflow-hidden text-white">
+    <section className="py-8 px-4 relative overflow-hidden text-white">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-cyan-500/20 blur-[100px]"></div>
         <div className="absolute bottom-1/3 left-1/3 w-72 h-72 rounded-full bg-teal-400/20 blur-[100px]"></div>
@@ -70,7 +71,7 @@ const WellnessIntelligenceSection = () => {
             <div className="primary-gradient backdrop-blur-md border border-teal-500/70 rounded-2xl p-6 shadow-[0_0_30px_rgba(20,184,166,0.15)] hover:shadow-[0_0_40px_rgba(20,184,166,0.25)] transition-all duration-500 overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 to-teal-400"></div>
               <div className="flex items-center mb-6">
-                <div className="p-3 rounded-full bg-teal-600/50 mr-4 glow-pulse-teal">
+                <div className="p-1 rounded-full bg-white mr-4 glow-pulse-teal">
                   <div className="p-2 rounded-full bg-gradient-to-r from-teal-500 to-teal-400">
                     <Brain className="h-6 w-6 text-white" />
                   </div>
@@ -104,6 +105,19 @@ const WellnessIntelligenceSection = () => {
                 <div className="absolute inset-0 flex items-center justify-center text-md font-semibold text-white">
                   Wellness Score: 80%
                 </div>
+              </div>
+
+              {/* Success Metrics */}
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                {successMetrics.map((metric, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white rounded-lg p-4 text-center border border-teal-500/50"
+                  >
+                    <div className="text-xl font-bold text-teal-600">{metric.stat}</div>
+                    <div className="text-xs text-teal-600">{metric.description}</div>
+                  </div>
+                ))}
               </div>
 
               <div className="flex justify-center">

@@ -38,7 +38,7 @@ const LifelineSection: React.FC = () => {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section className="py-24 px-4 relative overflow-hidden bg-white" ref={sectionRef}>
+    <section className="py-8 px-4 relative overflow-hidden bg-white" ref={sectionRef}>
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-50 rounded-full opacity-50 blur-[100px]"></div>
       <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-sky-50 rounded-full opacity-50 blur-[80px]"></div>
 
