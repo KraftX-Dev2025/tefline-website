@@ -48,7 +48,7 @@ export default function TeamMemberPage(props: { params: Params }) {
     };
 
     return (
-        <div className="container mx-auto py-24 px-4">
+        <div className="container mx-auto py-8 px-4">
             {/* Back button */}
             <Link
                 href="/cohort"

@@ -290,7 +290,7 @@ export default function TeamPage() {
 
             {/* Team Dynamics Section */}
             {/* Team Dynamics Section */}
-            <section className="py-24 px-4 relative overflow-hidden bg-white">
+            <section className="py-8 px-4 relative overflow-hidden bg-white">
                 {/* Blurred gradient background */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100 rounded-full opacity-30 blur-[120px]"></div>
                 <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-100 rounded-full opacity-40 blur-[100px]"></div>

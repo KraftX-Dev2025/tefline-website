@@ -190,7 +190,7 @@ export default function AboutPage() {
 
             {/* Our Story Section */}
             <section
-                className="py-24 px-4 relative overflow-hidden"
+                className="py-8 px-4 relative overflow-hidden"
                 style={{ background: "var(--background-card)" }}
             >
                 {/* Blurred gradient background */}
@@ -323,7 +323,7 @@ export default function AboutPage() {
             </section>
 
             {/* Biological Capital Section */}
-            <section className="py-24 relative overflow-hidden">
+            <section className="py-8 relative overflow-hidden">
                 <div
                     className="absolute inset-0 opacity-80 z-0"
                     style={{
@@ -407,7 +407,7 @@ export default function AboutPage() {
 
             {/* Partners & Credentials Section */}
             <section
-                className="py-24 px-4"
+                className="py-8 px-4"
                 style={{ background: "var(--background-main)" }}
             >
                 <div className="max-w-7xl mx-auto">
