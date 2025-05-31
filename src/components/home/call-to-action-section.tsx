@@ -12,7 +12,7 @@ const CallToActionSection = () => {
   }
 
   return (
-    <section className="py-24 px-4 relative overflow-hidden bg-white text-teal-700">
+    <section className="py-8 px-4 relative overflow-hidden bg-white text-teal-700">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
         <div className="absolute top-1/3 left-1/4 w-[40rem] h-[40rem] rounded-full bg-teal-500/5 blur-[120px]"></div>
         <div className="absolute bottom-0 right-1/4 w-[30rem] h-[30rem] rounded-full bg-teal-400/5 blur-[100px]"></div>

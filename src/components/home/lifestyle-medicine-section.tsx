@@ -39,7 +39,7 @@ const LifestyleMedicineSection: React.FC = () => {
 
     return (
         <section
-            className="py-24 px-4 relative overflow-hidden primary-gradient"
+            className="py-8 px-4 relative overflow-hidden primary-gradient"
             ref={sectionRef}
         >
             <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full opacity-30 blur-[120px]"></div>

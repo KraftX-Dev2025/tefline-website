@@ -64,9 +64,8 @@ export default function ContactPage() {
                     `}</style>
                 </div>
             </section>
-            <ContactOptionsSection />
-
             <FAQSection />
+            <ContactOptionsSection />
         </main>
     );
 }

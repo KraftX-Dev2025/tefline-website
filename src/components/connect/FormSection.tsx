@@ -26,14 +26,14 @@ export default function ContactFormSection() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        
+
         // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1000));
-        
+
         console.log("Form submitted:", { ...formState, inquiryType: selectedInquiry });
         setFormSubmitted(true);
         setIsSubmitting(false);
-        
+
         // Reset form after 3 seconds
         setTimeout(() => {
             setFormSubmitted(false);
@@ -64,9 +64,9 @@ export default function ContactFormSection() {
             opacity: 1,
             y: 0,
             scale: 1,
-            transition: { 
-                type: "spring", 
-                stiffness: 300, 
+            transition: {
+                type: "spring",
+                stiffness: 300,
                 damping: 20,
                 duration: 0.6
             },
@@ -84,7 +84,7 @@ export default function ContactFormSection() {
         >
             {/* Decorative gradient border */}
             <div className="absolute top-0 left-0 w-full h-1 primary-gradient"></div>
-            
+
             {/* Background decorations */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teal-100/30 to-transparent rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-violet-100/30 to-transparent rounded-full blur-3xl"></div>
@@ -120,7 +120,7 @@ export default function ContactFormSection() {
                     >
                         <CheckCircle className="w-10 h-10 text-white" />
                     </motion.div>
-                    
+
                     <motion.h4
                         className="text-3xl font-bold text-gray-900 mb-4 text-center"
                         initial={{ opacity: 0, y: 20 }}
@@ -129,7 +129,7 @@ export default function ContactFormSection() {
                     >
                         Message Sent Successfully!
                     </motion.h4>
-                    
+
                     <motion.p
                         className="text-gray-600 text-center max-w-md mb-8 text-lg"
                         initial={{ opacity: 0, y: 20 }}
@@ -138,7 +138,7 @@ export default function ContactFormSection() {
                     >
                         Thank you for reaching out! Our team will review your message and get back to you as soon as possible.
                     </motion.p>
-                    
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -168,30 +168,27 @@ export default function ContactFormSection() {
                                         key={inquiry.id}
                                         whileHover={{ y: -2, scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
-                                        className={`cursor-pointer rounded-xl p-4 transition-all duration-200 border-2 ${
-                                            selectedInquiry === inquiry.id
-                                                ? "bg-gradient-to-br from-teal-50 to-teal-100/50 border-teal-300 shadow-md shadow-teal-100"
-                                                : "border-gray-200 hover:border-teal-200 bg-white hover:bg-gray-50"
-                                        }`}
+                                        className={`cursor-pointer rounded-xl p-4 transition-all duration-200 border-2 ${selectedInquiry === inquiry.id
+                                            ? "bg-gradient-to-br from-teal-50 to-teal-100/50 border-teal-300 shadow-md shadow-teal-100"
+                                            : "border-gray-200 hover:border-teal-200 bg-white hover:bg-gray-50"
+                                            }`}
                                         onClick={() => setSelectedInquiry(inquiry.id)}
                                     >
                                         <div className="flex items-center gap-3 mb-2">
-                                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                                                selectedInquiry === inquiry.id
-                                                    ? "bg-teal-500 text-white"
-                                                    : "bg-gray-100 text-gray-500"
-                                            }`}>
+                                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${selectedInquiry === inquiry.id
+                                                ? "bg-teal-500 text-white"
+                                                : "bg-gray-100 text-gray-500"
+                                                }`}>
                                                 <IconComponent className="w-4 h-4" />
                                             </div>
-                                            <span className={`font-medium ${
-                                                selectedInquiry === inquiry.id
-                                                    ? "text-teal-700"
-                                                    : "text-gray-700"
-                                            }`}>
+                                            <span className={`font-medium ${selectedInquiry === inquiry.id
+                                                ? "text-teal-700"
+                                                : "text-gray-700"
+                                                }`}>
                                                 {inquiry.label}
                                             </span>
                                         </div>
-                                        <p className="text-xs text-gray-500 ml-11">
+                                        <p className="hidden sm:flex text-xs text-gray-500 ml-11">
                                             {inquiry.description}
                                         </p>
                                     </motion.div>
@@ -262,7 +259,7 @@ export default function ContactFormSection() {
                             rows={5}
                             value={formState.message}
                             onChange={handleInputChange}
-                            className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 text-base resize-none"
+                            className="w-full p-4 border border-gray-300 rounded-lg focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 text-base resize-none"
                             placeholder="Tell us how we can help you..."
                             required
                         />

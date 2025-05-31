@@ -163,7 +163,7 @@ export default function PressPage() {
             </section>
 
             {/* Featured Press Release */}
-            <section className="py-24 px-4 bg-white relative overflow-hidden">
+            <section className="py-8 px-4 bg-white relative overflow-hidden">
                 {/* Blurred gradient background */}
                 <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-50 rounded-full opacity-50 blur-[100px]"></div>
                 <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-sky-50 rounded-full opacity-50 blur-[80px]"></div>
@@ -404,7 +404,7 @@ export default function PressPage() {
             </section>
 
             {/* Latest News */}
-            <section className="py-24 px-4 bg-white relative overflow-hidden">
+            <section className="py-8 px-4 bg-white relative overflow-hidden">
                 <div className="max-w-7xl mx-auto relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -498,7 +498,7 @@ export default function PressPage() {
             </section>
 
             {/* Media Resources */}
-            <section className="py-24 px-4 bg-gradient-to-b from-teal-50 to-white">
+            <section className="py-8 px-4 bg-gradient-to-b from-teal-50 to-white">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -667,7 +667,7 @@ export default function PressPage() {
                                         damping: 10,
                                     }}
                                 >
-                                    
+
 
                                     <motion.div
                                         whileHover={{ scale: 1.05, y: -3 }}
@@ -697,7 +697,7 @@ export default function PressPage() {
             </section>
 
             {/* Subscribe to Press Updates */}
-            <section className="py-24 px-4 bg-white">
+            <section className="py-8 px-4 bg-white">
                 <div className="max-w-4xl mx-auto text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

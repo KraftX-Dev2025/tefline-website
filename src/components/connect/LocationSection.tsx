@@ -14,29 +14,31 @@ export default function LocationMapSection() {
     return (
         <div ref={mapRef} className="flex-grow">
             <div className="bg-gradient-to-br from-white to-slate-50 p-6 rounded-xl border border-slate-200 overflow-hidden relative shadow-xl h-full">
-                <div className="aspect-video rounded-lg relative overflow-hidden">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isMapInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.5 }}
-                        className="mb-4"
-                    >
-                        <div className="badge-teal">
-                            <MapPin className="w-4 h-4 mr-2" />
-                            Our Location
-                        </div>
-                        <h2 className="text-2xl font-bold text-teal-600">
-                            Find Us
-                        </h2>
-                    </motion.div>
+                {/* Headings and badge moved outside aspect-ratio box for better mobile layout */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isMapInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5 }}
+                    className="mb-4"
+                >
+                    <div className="badge-teal">
+                        <MapPin className="w-4 h-4 mr-2" />
+                        Our Location
+                    </div>
+                    <h2 className="text-2xl font-bold text-teal-600">
+                        Find Us
+                    </h2>
+                </motion.div>
 
+                <div className="relative overflow-hidden rounded-lg sm:aspect-video aspect-[4/3]">
                     {/* Map Placeholder - In a real implementation, this would be replaced with a Google Maps integration */}
                     <Image
                         src={locationInfo.mapImage}
                         alt="Map location"
-                        width={800}
-                        height={400}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 800px"
+                        priority
                     />
 
                     {/* Map Overlay with Address */}
