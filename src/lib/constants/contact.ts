@@ -140,14 +140,14 @@ export const footerSections = [
     {
         title: "Features",
         links: [
-            { name: "Wellness Vault", href: "#" },
-            { name: "Air Tenet", href: "#" },
-            { name: "Deep Dive", href: "#" },
-            { name: "Doctor' INN", href: "#" },
-            { name: "M&M", href: "#" },
-            { name: "Cohort Connect", href: "#" },
-            { name: "Cognitive Counselor", href: "#" },
-            { name: "Lifestyle Digital", href: "#" },
+            { name: "Wellness Vault", href: "https://tefline-product.vercel.app/login" },
+            { name: "Air Tenet", href: "https://tefline-product.vercel.app/login" },
+            { name: "Deep Dive", href: "https://tefline-product.vercel.app/login" },
+            { name: "Doctor' INN", href: "https://tefline-product.vercel.app/login" },
+            { name: "M&M", href: "https://tefline-product.vercel.app/login" },
+            { name: "Cohort Connect", href: "https://tefline-product.vercel.app/login" },
+            { name: "Cognitive Counselor", href: "https://tefline-product.vercel.app/login" },
+            { name: "Lifestyle Digital", href: "https://tefline-product.vercel.app/login" },
         ],
     },
 ];

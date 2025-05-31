@@ -90,7 +90,7 @@ export default function ServicesHeroSection() {
             </motion.div>
 
             {/* Content container */}
-            <div className="container mx-auto px-4 relative z-20 pt-12 pb-12">
+            <div className="container mx-auto px-4 relative z-20 pt-24 pb-12">
                 <motion.div
                     className="flex flex-col items-center text-center max-w-4xl mx-auto"
                     initial="hidden"
@@ -102,7 +102,7 @@ export default function ServicesHeroSection() {
                         className="text-teal-600 mb-3 py-1 px-4 bg-white/90 backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
                     >
                         <Sparkles className="w-4 h-4 mr-2" />
-                        <span className=" text-lg">Transformative Wellness Solutions
+                        <span className=" text-sm sm:text-lg">Transformative Wellness Solutions
                         </span>
                     </motion.div>
                     <motion.h1
@@ -110,7 +110,7 @@ export default function ServicesHeroSection() {
                         variants={fadeIn}
                     >
                         <span className="relative z-10">
-                            Modules
+                            Our Modules
                         </span>
                     </motion.h1>
                     <motion.p

@@ -14,7 +14,10 @@ export default function IndividualServicesSection() {
     const [isClient, setIsClient] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [reduceMotion, setReduceMotion] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [swipeDirection, setSwipeDirection] = useState<"left" | "right" | null>(null);
     const individualRef = useRef<HTMLDivElement>(null);
+    const touchStartX = useRef<number | null>(null);
 
     useEffect(() => {
         setIsClient(true);
@@ -78,11 +81,51 @@ export default function IndividualServicesSection() {
         },
     };
 
+    // Auto-scroll for mobile carousel
+    useEffect(() => {
+        if (!isMobile) return;
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % individualServices.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [isMobile]);
+
+    // Swipe handlers for mobile
+    const handleTouchStart = (e: React.TouchEvent) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+    const handleTouchEnd = (e: React.TouchEvent) => {
+        if (touchStartX.current === null) return;
+        const diff = e.changedTouches[0].clientX - touchStartX.current;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                setSwipeDirection("right");
+                setCurrentIndex((prev) => (prev - 1 + individualServices.length) % individualServices.length);
+            } else {
+                setSwipeDirection("left");
+                setCurrentIndex((prev) => (prev + 1) % individualServices.length);
+            }
+        }
+        touchStartX.current = null;
+    };
+
+    // Reset swipe direction after animation
+    useEffect(() => {
+        if (!swipeDirection) return;
+        const timeout = setTimeout(() => setSwipeDirection(null), 350);
+        return () => clearTimeout(timeout);
+    }, [swipeDirection]);
+
+    const shouldAnimateCard = (index: number) => {
+        if (!isMobile) return true;
+        return index === currentIndex || (swipeDirection === "left" && index === (currentIndex + 1) % individualServices.length) || (swipeDirection === "right" && index === (currentIndex - 1 + individualServices.length) % individualServices.length);
+    };
+
     return (
         <section
             id="individual-services"
             ref={individualRef}
-            className="py-24 bg-white relative overflow-hidden"
+            className="py-8 bg-white relative overflow-hidden"
         >
             {/* Conditional background elements */}
             {isClient && !isMobile && (
@@ -116,94 +159,228 @@ export default function IndividualServicesSection() {
                     </p>
                 </motion.div>
 
-                <motion.div
-                    initial="hidden"
-                    animate={isIndividualInView ? "visible" : "hidden"}
-                    variants={staggerCards}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
-                >
-                    {individualServices.map((service, index) => (
+                {isMobile ? (
+                    <div
+                        className="relative w-full"
+                        onTouchStart={handleTouchStart}
+                        onTouchEnd={handleTouchEnd}
+                    >
                         <motion.div
-                            key={service.title}
-                            variants={cardVariants}
-                            whileHover={shouldReduceAnimations ? {} : {
-                                y: -8,
-                                boxShadow:
-                                    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                                transition: { duration: 0.2 },
-                            }}
-                            className="group"
+                            initial="hidden"
+                            animate={isIndividualInView ? "visible" : "hidden"}
+                            variants={staggerCards}
                         >
-                            <Card className="h-full overflow-hidden border-none rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                                <div className="relative h-72 w-full overflow-hidden rounded-xl">
-                                    <Image
-                                        src={service.imageUrl}
-                                        alt={service.title}
-                                        fill
-                                        className={`object-cover transition-transform duration-700 ${!shouldReduceAnimations ? 'group-hover:scale-110' : ''}`}
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                                    <div className="absolute bottom-4 left-4 right-4">
-                                        <h3 className="text-xl font-bold text-white">
-                                            {service.title}
-                                        </h3>
-                                    </div>
-                                </div>
-                                <CardContent className="p-6">
-                                    <p className="text-slate-600 mb-6">
-                                        {service.description}
-                                    </p>
-                                    <h4 className="font-semibold text-teal-600 mb-3 flex items-center">
-                                        <CheckCircle className="w-4 h-4 mr-2" />
-                                        Key Features
-                                    </h4>
-                                    <ul className="space-y-2 mb-4">
-                                        {service.features.map(
-                                            (feature, idx) => (
-                                                <motion.li
-                                                    key={idx}
-                                                    className="flex items-start"
-                                                    initial={shouldReduceAnimations ? {} : {
-                                                        opacity: 0,
-                                                        x: -10,
-                                                    }}
-                                                    animate={shouldReduceAnimations ? {} : {
-                                                        opacity: 1,
-                                                        x: 0,
-                                                    }}
-                                                    transition={shouldReduceAnimations ? {} : {
-                                                        delay: 0.5 + idx * 0.1,
-                                                    }}
+                            <div className="relative flex items-center justify-center">
+                                {/* Left Arrow Button */}
+                                <button
+                                    className="absolute left-0 z-20 flex items-center justify-center w-9 h-9 rounded-full border border-teal-300 bg-white/80 shadow-sm hover:bg-teal-50 transition"
+                                    onClick={() => {
+                                        setSwipeDirection("right");
+                                        setCurrentIndex((prev) => (prev - 1 + individualServices.length) % individualServices.length);
+                                    }}
+                                    aria-label="Previous"
+                                    type="button"
+                                >
+                                    <ChevronRight className="w-5 h-5 text-teal-700 rotate-180" />
+                                </button>
+                                {/* Card */}
+                                <motion.div
+                                    key={individualServices[currentIndex].title}
+                                    variants={cardVariants}
+                                    className="group w-full"
+                                    initial={{
+                                        x: swipeDirection === "left" ? 100 : swipeDirection === "right" ? -100 : 0,
+                                        opacity: 0,
+                                    }}
+                                    animate={{
+                                        x: 0,
+                                        opacity: 1,
+                                        transition: { type: "spring", stiffness: 300, damping: 30 }
+                                    }}
+                                    exit={{
+                                        x: swipeDirection === "left" ? -100 : swipeDirection === "right" ? 100 : 0,
+                                        opacity: 0,
+                                        transition: { duration: 0.2 }
+                                    }}
+                                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                >
+                                    <Card className="h-full overflow-hidden border-none rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                                        <div className="relative h-72 w-full overflow-hidden rounded-xl">
+                                            <Image
+                                                src={individualServices[currentIndex].imageUrl}
+                                                alt={individualServices[currentIndex].title}
+                                                fill
+                                                className={`object-cover transition-transform duration-700`}
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                                            <div className="absolute bottom-4 left-4 right-4">
+                                                <h3 className="text-xl font-bold text-white">
+                                                    {individualServices[currentIndex].title}
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <CardContent className="p-6">
+                                            <p className="text-slate-600 mb-6">
+                                                {individualServices[currentIndex].description}
+                                            </p>
+                                            <h4 className="font-semibold text-teal-600 mb-3 flex items-center">
+                                                <CheckCircle className="w-4 h-4 mr-2" />
+                                                Key Features
+                                            </h4>
+                                            <ul className="space-y-2 mb-4">
+                                                {individualServices[currentIndex].features.map(
+                                                    (feature, idx) => (
+                                                        <li
+                                                            key={idx}
+                                                            className="flex items-start"
+                                                        >
+                                                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
+                                                                <div className="w-2 h-2 rounded-full bg-text-secondary"></div>
+                                                            </div>
+                                                            <span className="ml-2 text-teal-600">
+                                                                {feature}
+                                                            </span>
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ul>
+                                        </CardContent>
+                                        <CardFooter className="px-6 py-4 bg-slate-50 border-t border-slate-100">
+                                            <Button
+                                                className="w-full bg-teal-600 hover:bg-teal-700 text-white group"
+                                                asChild
+                                            >
+                                                <Link
+                                                    href="/connect"
+                                                    className="flex items-center justify-center"
                                                 >
-                                                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
-                                                        <div className="w-2 h-2 rounded-full bg-text-secondary"></div>
-                                                    </div>
-                                                    <span className="ml-2 text-teal-600">
-                                                        {feature}
-                                                    </span>
-                                                </motion.li>
-                                            )
-                                        )}
-                                    </ul>
-                                </CardContent>
-                                <CardFooter className="px-6 py-4 bg-slate-50 border-t border-slate-100">
-                                    <Button
-                                        className="w-full bg-teal-600 hover:bg-teal-700 text-white group"
-                                        asChild
-                                    >
-                                        <Link
-                                            href="/connect"
-                                            className="flex items-center justify-center"
-                                        >
-                                            {service.buttonText}
-                                            <ChevronRight className={`ml-1 w-4 h-4 transition-transform ${!shouldReduceAnimations ? 'group-hover:translate-x-1' : ''}`} />
-                                        </Link>
-                                    </Button>
-                                </CardFooter>
-                            </Card>
+                                                    {individualServices[currentIndex].buttonText}
+                                                    <ChevronRight className="ml-1 w-4 h-4 transition-transform" />
+                                                </Link>
+                                            </Button>
+                                        </CardFooter>
+                                    </Card>
+                                </motion.div>
+                                {/* Right Arrow Button */}
+                                <button
+                                    className="absolute right-0 z-20 flex items-center justify-center w-9 h-9 rounded-full border border-teal-300 bg-white/80 shadow-sm hover:bg-teal-50 transition"
+                                    onClick={() => {
+                                        setSwipeDirection("left");
+                                        setCurrentIndex((prev) => (prev + 1) % individualServices.length);
+                                    }}
+                                    aria-label="Next"
+                                    type="button"
+                                >
+                                    <ChevronRight className="w-5 h-5 text-teal-700" />
+                                </button>
+                            </div>
                         </motion.div>
-                    ))}
-                </motion.div>
+                        {/* Carousel indicators */}
+                        <div className="flex justify-center mt-4 gap-2">
+                            {individualServices.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    className={`w-2.5 h-2.5 rounded-full ${idx === currentIndex ? 'bg-teal-600' : 'bg-teal-200'}`}
+                                    onClick={() => {
+                                        setSwipeDirection(idx > currentIndex ? "left" : "right");
+                                        setCurrentIndex(idx);
+                                    }}
+                                    aria-label={`Go to slide ${idx + 1}`}
+                                />
+                            ))}
+                        </div>
+
+                    </div>
+                ) : (
+                    <motion.div
+                        initial="hidden"
+                        animate={isIndividualInView ? "visible" : "hidden"}
+                        variants={staggerCards}
+                        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                    >
+                        {individualServices.map((service, index) => (
+                            <motion.div
+                                key={service.title}
+                                variants={cardVariants}
+                                whileHover={shouldReduceAnimations ? {} : {
+                                    y: -8,
+                                    boxShadow:
+                                        "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                                    transition: { duration: 0.2 },
+                                }}
+                                className="group"
+                            >
+                                <Card className="h-full overflow-hidden border-none rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                                    <div className="relative h-72 w-full overflow-hidden rounded-xl">
+                                        <Image
+                                            src={service.imageUrl}
+                                            alt={service.title}
+                                            fill
+                                            className={`object-cover transition-transform duration-700 ${!shouldReduceAnimations ? 'group-hover:scale-110' : ''}`}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                                        <div className="absolute bottom-4 left-4 right-4">
+                                            <h3 className="text-xl font-bold text-white">
+                                                {service.title}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <CardContent className="p-6">
+                                        <p className="text-slate-600 mb-6">
+                                            {service.description}
+                                        </p>
+                                        <h4 className="font-semibold text-teal-600 mb-3 flex items-center">
+                                            <CheckCircle className="w-4 h-4 mr-2" />
+                                            Key Features
+                                        </h4>
+                                        <ul className="space-y-2 mb-4">
+                                            {service.features.map(
+                                                (feature, idx) => (
+                                                    <motion.li
+                                                        key={idx}
+                                                        className="flex items-start"
+                                                        initial={shouldReduceAnimations ? {} : {
+                                                            opacity: 0,
+                                                            x: -10,
+                                                        }}
+                                                        animate={shouldReduceAnimations ? {} : {
+                                                            opacity: 1,
+                                                            x: 0,
+                                                        }}
+                                                        transition={shouldReduceAnimations ? {} : {
+                                                            delay: 0.5 + idx * 0.1,
+                                                        }}
+                                                    >
+                                                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
+                                                            <div className="w-2 h-2 rounded-full bg-text-secondary"></div>
+                                                        </div>
+                                                        <span className="ml-2 text-teal-600">
+                                                            {feature}
+                                                        </span>
+                                                    </motion.li>
+                                                )
+                                            )}
+                                        </ul>
+                                    </CardContent>
+                                    <CardFooter className="px-6 py-4 bg-slate-50 border-t border-slate-100">
+                                        <Button
+                                            className="w-full bg-teal-600 hover:bg-teal-700 text-white group"
+                                            asChild
+                                        >
+                                            <Link
+                                                href="/connect"
+                                                className="flex items-center justify-center"
+                                            >
+                                                {service.buttonText}
+                                                <ChevronRight className={`ml-1 w-4 h-4 transition-transform ${!shouldReduceAnimations ? 'group-hover:translate-x-1' : ''}`} />
+                                            </Link>
+                                        </Button>
+                                    </CardFooter>
+                                </Card>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                )}
             </Container>
         </section>
     );
