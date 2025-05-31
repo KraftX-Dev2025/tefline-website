@@ -15,9 +15,9 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       <HeroSection ref={heroRef} />
-      <LifelineSection /> 
+      <LifelineSection />
       <LifestyleMedicineSection />
-      <FeaturesSection successMetrics={successMetrics} />
+      {/* <FeaturesSection successMetrics={successMetrics} /> */}
       <WellnessIntelligenceSection />
       <NewsletterSection />
     </div>

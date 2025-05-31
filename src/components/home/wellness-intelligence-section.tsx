@@ -1,13 +1,14 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { wellnessModules } from "@/lib/constants/home"
-import { Brain, Globe, Zap, ArrowRight } from "lucide-react"
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { wellnessModules } from "@/lib/constants/home";
+import { successMetrics } from "@/lib/constants/services";
+import { Brain, Globe, Zap, ArrowRight } from "lucide-react";
 
 const WellnessIntelligenceSection = () => {
   return (
-    <section className="py-24 px-4 relative overflow-hidden text-white">
+    <section className="py-8 px-4 relative overflow-hidden text-white">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-cyan-500/20 blur-[100px]"></div>
         <div className="absolute bottom-1/3 left-1/3 w-72 h-72 rounded-full bg-teal-400/20 blur-[100px]"></div>
@@ -34,9 +35,21 @@ const WellnessIntelligenceSection = () => {
             viewport={{ once: true }}
           />
           <defs>
-            <linearGradient id="dark-wave1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="rgba(20, 184, 166, 0.4)" />
-              <stop offset="100%" stopColor="rgba(45, 212, 191, 0)" />
+            <linearGradient
+              id="dark-wave1"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop
+                offset="0%"
+                stopColor="rgba(20, 184, 166, 0.4)"
+              />
+              <stop
+                offset="100%"
+                stopColor="rgba(45, 212, 191, 0)"
+              />
             </linearGradient>
           </defs>
         </svg>
@@ -54,7 +67,9 @@ const WellnessIntelligenceSection = () => {
             <Brain className="w-4 h-4 mr-2" />
             Powered by Intelligence
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-gradient bg-clip-text">WELLNESS INTELLIGENCE™</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-gradient bg-clip-text">
+            WELLNESS INTELLIGENCE™
+          </h2>
         </motion.div>
 
         {/* Dashboard Layout */}
@@ -70,14 +85,18 @@ const WellnessIntelligenceSection = () => {
             <div className="primary-gradient backdrop-blur-md border border-teal-500/70 rounded-2xl p-6 shadow-[0_0_30px_rgba(20,184,166,0.15)] hover:shadow-[0_0_40px_rgba(20,184,166,0.25)] transition-all duration-500 overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-500 to-teal-400"></div>
               <div className="flex items-center mb-6">
-                <div className="p-3 rounded-full bg-teal-600/50 mr-4 glow-pulse-teal">
+                <div className="p-1 rounded-full bg-white mr-4 glow-pulse-teal">
                   <div className="p-2 rounded-full bg-gradient-to-r from-teal-500 to-teal-400">
                     <Brain className="h-6 w-6 text-white" />
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-white">Wellness Intelligence™ Hub</h2>
-                  <p className="text-sm text-teal-200">Your command center for holistic health</p>
+                  <h2 className="text-lg font-bold text-white">
+                    Wellness Intelligence™ Hub
+                  </h2>
+                  <p className="text-sm text-teal-200">
+                    Your command center for holistic health
+                  </p>
                 </div>
               </div>
 
@@ -106,6 +125,23 @@ const WellnessIntelligenceSection = () => {
                 </div>
               </div>
 
+              {/* Success Metrics */}
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                {successMetrics.map((metric, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white rounded-lg p-4 text-center border border-teal-500/50"
+                  >
+                    <div className="text-xl font-bold text-teal-600">
+                      {metric.stat}
+                    </div>
+                    <div className="text-xs text-teal-600">
+                      {metric.description}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
               <div className="flex justify-center">
                 <Link
                   href="/modules"
@@ -125,7 +161,10 @@ const WellnessIntelligenceSection = () => {
                 key={module.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: module.delay / 2 }}
+                transition={{
+                  duration: 0.3,
+                  delay: module.delay / 2,
+                }}
                 viewport={{ once: true }}
                 className="group h-full"
               >
@@ -136,7 +175,9 @@ const WellnessIntelligenceSection = () => {
                   <div
                     className={`h-full flex flex-col bg-teal-50/10 backdrop-blur-md border border-teal-500/50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-200 ${module.glowColor}`}
                   >
-                    <div className={`h-1.5 w-full bg-gradient-to-r ${module.color}`}></div>
+                    <div
+                      className={`h-1.5 w-full bg-gradient-to-r ${module.color}`}
+                    ></div>
                     <div className="p-6 flex flex-col flex-grow">
                       <div className="flex items-center mb-4">
                         <div
@@ -144,24 +185,36 @@ const WellnessIntelligenceSection = () => {
                         >
                           {module.icon === "Brain" ? (
                             <Brain className="h-6 w-6 text-white" />
-                          ) : module.icon === "Globe" ? (
+                          ) : module.icon ===
+                            "Globe" ? (
                             <Globe className="h-6 w-6 text-white" />
-                          ) : module.icon === "Zap" ? (
+                          ) : module.icon ===
+                            "Zap" ? (
                             <Zap className="h-6 w-6 text-white" />
                           ) : null}
                         </div>
-                        <h3 className="font-bold text-teal-200">{module.title}</h3>
+                        <h3 className="font-bold">
+                          {module.title}
+                        </h3>
                       </div>
-                      <p className="text-sm text-teal-200 mb-4">{module.description}</p>
+                      <p className="text-sm mb-4">
+                        {module.description}
+                      </p>
                       <div className="flex justify-between items-center mt-auto">
                         <div
-                          className={`${module.lightColor} rounded-lg px-3 py-2 text-center border border-teal-500/30`}
+                          className={`${module.lightColor} rounded-lg px-3 py-2 text-center border`}
                         >
-                          <div className={`text-sm font-bold ${module.textColor}`}>{module.stats[0]}</div>
-                          <div className="text-xs text-teal-300">{module.stats[1]}</div>
+                          <div
+                            className={`text-sm font-bold ${module.textColor}`}
+                          >
+                            {module.stats[0]}
+                          </div>
+                          {module.stats[1]}
                         </div>
                         <div className="flex items-center text-sm">
-                          <span className="text-teal-200 font-medium">Explore</span>
+                          <span className=" font-medium">
+                            Explore
+                          </span>
                           <ArrowRight
                             className={`ml-1 h-4 w-4 ${module.textColor} transform transition-transform duration-200 group-hover:translate-x-1`}
                           />
@@ -177,23 +230,23 @@ const WellnessIntelligenceSection = () => {
       </div>
 
       <style jsx>{`
-        .glow-pulse-teal {
-          animation: pulse-teal 2.5s infinite;
-        }
-        @keyframes pulse-teal {
-          0% {
-            box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4);
-          }
-          70% {
-            box-shadow: 0 0 0 10px rgba(20, 184, 166, 0);
-          }
-          100% {
-            box-shadow: 0 0 0 0 rgba(20, 184, 166, 0);
-          }
-        }
-      `}</style>
+                .glow-pulse-teal {
+                    animation: pulse-teal 2.5s infinite;
+                }
+                @keyframes pulse-teal {
+                    0% {
+                        box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4);
+                    }
+                    70% {
+                        box-shadow: 0 0 0 10px rgba(20, 184, 166, 0);
+                    }
+                    100% {
+                        box-shadow: 0 0 0 0 rgba(20, 184, 166, 0);
+                    }
+                }
+            `}</style>
     </section>
-  )
-}
+  );
+};
 
 export default WellnessIntelligenceSection;

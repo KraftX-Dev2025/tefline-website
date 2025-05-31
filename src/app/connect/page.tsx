@@ -11,7 +11,6 @@ export default function ContactPage() {
     return (
         <main className="overflow-hidden bg-white">
             <ContactHeroSection />
-            <ContactOptionsSection />
 
             {/* Contact Form & Details Section - Fixed Layout */}
             <section className="py-8 relative">
@@ -28,14 +27,14 @@ export default function ContactPage() {
                         <div className="xl:col-span-7">
                             <ContactFormSection />
                         </div>
-                        
+
                         {/* Sidebar Content - Better organized */}
                         <div className="xl:col-span-5 space-y-8">
                             {/* Location Section */}
                             <div className="w-full">
                                 <LocationMapSection />
                             </div>
-                            
+
                             {/* Masterclass Section */}
                             <div className="w-full">
                                 <MasterclassSection />
@@ -65,6 +64,7 @@ export default function ContactPage() {
                     `}</style>
                 </div>
             </section>
+            <ContactOptionsSection />
 
             <FAQSection />
         </main>

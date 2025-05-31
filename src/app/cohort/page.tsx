@@ -133,17 +133,13 @@ export default function TeamPage() {
                             className="inline-flex items-center bg-white text-teal-600 px-4 py-1 rounded-full text-lg font-medium mb-4 border border-teal-600/50"
                         >
                             <Users className="w-4 h-4 mr-2" />
-                            <span className="text-lg">
-
-                                Our Leadership
-                            </span>
+                            <span className="text-lg">Our Leadership</span>
                         </motion.div>
                         <motion.h1
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight"
                             variants={fadeIn}
                         >
                             TEAM TEFLINE
-
                         </motion.h1>
                         <motion.p
                             className="text-lg md:text-xl text-teal-50 leading-relaxed text-white"
@@ -180,7 +176,7 @@ export default function TeamPage() {
                                     href={`/cohort/${member.slug}`}
                                     className="block h-full"
                                 >
-                                    <div className="relative group h-full bg-black backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 border border-white/20 hover:border-white/30">
+                                    <div className="relative group h-full bg-white/30 backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 border border-white/20 hover:border-white/30">
                                         {/* Shimmering background effect */}
                                         <div
                                             className={`absolute inset-0 bg-gradient-to-tr ${member.theme.from} ${member.theme.to} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
@@ -234,21 +230,21 @@ export default function TeamPage() {
 
                                             {/* Member Details */}
                                             <div className="text-center mb-4">
-                                                <h3 className="text-xl font-bold text-teal-400 group-hover:text-teal-200 transition-colors">
+                                                <h3 className="text-xl font-bold text-white group-hover:text-teal-200 transition-colors">
                                                     {member.name}
                                                 </h3>
                                                 <p
-                                                    className={`text-sm font-medium mt-1 text-teal-400`}
+                                                    className={`text-sm font-medium mt-1 text-white`}
                                                 >
                                                     {member.role}
                                                 </p>
-                                                <p className="text-teal-400/80 text-xs mb-4 italic">
+                                                <p className="text-white/80 text-xs mb-4 italic">
                                                     {member.secondaryRole}
                                                 </p>
                                             </div>
 
                                             {/* Member Bio */}
-                                            <p className="text-teal-400/90 text-sm text-center mb-6 flex-grow">
+                                            <p className="text-white/90 text-sm text-center mb-6 flex-grow">
                                                 {member.shortBio}
                                             </p>
 
@@ -267,7 +263,7 @@ export default function TeamPage() {
                                         {index < teamMembers.length - 1 &&
                                             index !== 1 && (
                                                 <motion.div
-                                                    className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-teal-400/70 to-transparent z-0"
+                                                    className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-white/70 to-transparent z-0"
                                                     initial={{
                                                         scaleX: 0,
                                                         opacity: 0,
@@ -293,6 +289,7 @@ export default function TeamPage() {
             </section>
 
             {/* Team Dynamics Section */}
+            {/* Team Dynamics Section */}
             <section className="py-24 px-4 relative overflow-hidden bg-white">
                 {/* Blurred gradient background */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100 rounded-full opacity-30 blur-[120px]"></div>
@@ -313,13 +310,13 @@ export default function TeamPage() {
                         <h2 className="text-3xl md:text-4xl font-bold mb-2 text-primary-gradient">
                             Team Dynamics
                         </h2>
-                        <p className="text-black max-w-2xl mx-auto">
+                        <p className="text-slate-600 max-w-2xl mx-auto">
                             How we work together to create transformative
                             wellness solutions
                         </p>
                     </motion.div>
 
-                    <div className="bg-teal-800/50 backdrop-blur-md rounded-2xl border border-teal-700/40 overflow-hidden shadow-lg">
+                    <div className="bg-white rounded-2xl border border-teal-100 overflow-hidden shadow-lg">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
                             <motion.div
                                 initial={{ opacity: 0, x: -20 }}
@@ -335,7 +332,7 @@ export default function TeamPage() {
                                         Human-AI Collaboration
                                     </h3>
                                 </div>
-                                <p className="text-teal-50 leading-relaxed">
+                                <p className="text-slate-600 leading-relaxed">
                                     At Tefline, we pioneer a unique approach to
                                     leadership where human expertise and AI
                                     intelligence work in perfect harmony. Our
@@ -345,7 +342,7 @@ export default function TeamPage() {
                                 </p>
 
                                 {/* Animated graphic showing human-AI collaboration */}
-                                <div className="mt-8 relative h-32 bg-teal-900/50 rounded-lg overflow-hidden">
+                                <div className="mt-8 relative h-32 bg-teal-50 rounded-lg overflow-hidden border border-teal-100">
                                     <div className="absolute inset-0 flex items-center justify-around">
                                         {/* Human representation */}
                                         <motion.div
@@ -367,7 +364,7 @@ export default function TeamPage() {
 
                                         {/* Connection lines */}
                                         <motion.div
-                                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-0.5 bg-cyan-400/30"
+                                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-0.5 bg-teal-300"
                                             animate={{
                                                 opacity: [0.3, 0.8, 0.3],
                                             }}
@@ -495,7 +492,7 @@ export default function TeamPage() {
                                                 once: true,
                                                 margin: "-50px",
                                             }}
-                                            className="bg-white rounded-lg p-4  shadow-md"
+                                            className="bg-white rounded-lg p-4 shadow-md border border-teal-50 hover:border-teal-100 transition-colors"
                                         >
                                             <div className="flex items-start">
                                                 <div
@@ -507,7 +504,7 @@ export default function TeamPage() {
                                                     <h4 className="font-semibold text-teal-600 text-sm mb-1">
                                                         {value.title}
                                                     </h4>
-                                                    <p className="text-teal-100/80 text-xs">
+                                                    <p className="text-slate-600 text-xs">
                                                         {value.description}
                                                     </p>
                                                 </div>

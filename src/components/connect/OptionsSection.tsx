@@ -14,9 +14,9 @@ export default function ContactOptionsSection() {
     });
 
     return (
-        <section className="py-16 bg-white relative">
+        <section className="py-8 bg-white relative">
             <div className="container mx-auto px-4">
-                <div ref={contactInfoRef} className="mb-16">
+                <div ref={contactInfoRef} className="mb-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={
@@ -32,7 +32,7 @@ export default function ContactOptionsSection() {
                         <h2 className="text-3xl font-bold text-primary-gradient mb-3">
                             Contact Options
                         </h2>
-                        
+
                     </motion.div>
 
                     {/* Contact Options Grid */}
