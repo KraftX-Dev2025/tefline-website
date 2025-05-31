@@ -13,9 +13,8 @@ export default function LocationMapSection() {
 
     return (
         <div ref={mapRef} className="flex-grow">
-
             <div className="bg-gradient-to-br from-white to-slate-50 p-6 rounded-xl border border-slate-200 overflow-hidden relative shadow-xl h-full">
-                <div className="aspect-video rounded-lg bg-slate-200 relative overflow-hidden">
+                <div className="aspect-video rounded-lg relative overflow-hidden">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={isMapInView ? { opacity: 1, y: 0 } : {}}
@@ -62,20 +61,14 @@ export default function LocationMapSection() {
                         <motion.div
                             key={idx}
                             initial={{ opacity: 0, y: 10 }}
-                            animate={
-                                isMapInView
-                                    ? { opacity: 1, y: 0 }
-                                    : {}
-                            }
+                            animate={isMapInView ? { opacity: 1, y: 0 } : {}}
                             transition={{
                                 duration: 0.4,
                                 delay: 0.2 + idx * 0.1,
                             }}
                             className="bg-white p-3 rounded-lg border border-slate-200 shadow-sm flex items-center"
                         >
-                            <span className="text-xl mr-3">
-                                {option.icon}
-                            </span>
+                            <span className="text-xl mr-3">{option.icon}</span>
                             <div>
                                 <h4 className="font-medium text-teal-600 text-sm">
                                     {option.title}

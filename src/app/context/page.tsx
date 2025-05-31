@@ -139,10 +139,7 @@ export default function VisionMissionPage() {
                             className="inline-flex items-center bg-white text-teal-600 px-4 py-1 rounded-full text-lg font-medium mb-4 border border-teal-600/50"
                         >
                             <Sparkles className="w-4 h-4 mr-2" />
-                            <span className="text-lg">
-
-                                Our Purpose
-                            </span>
+                            <span className="text-lg">Our Purpose</span>
                         </motion.div>
                         <motion.h1
                             className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight leading-tight"
@@ -478,17 +475,19 @@ export default function VisionMissionPage() {
                         ].map((item) => (
                             <div
                                 key={item.id}
-                                className={`relative flex items-center mb-16 ${item.position === "left"
-                                    ? "flex-row-reverse"
-                                    : ""
-                                    }`}
+                                className={`relative flex items-center mb-16 ${
+                                    item.position === "left"
+                                        ? "flex-row-reverse"
+                                        : ""
+                                }`}
                             >
                                 {/* Connector line */}
                                 <motion.div
-                                    className={`absolute h-0.5 bg-gradient-to-r from-transparent ${item.position === "left"
-                                        ? "to-teal-400 right-1/2 mr-4"
-                                        : "to-teal-400 left-1/2 ml-4"
-                                        } top-10 w-12`}
+                                    className={`absolute h-0.5 bg-gradient-to-r from-transparent ${
+                                        item.position === "left"
+                                            ? "to-teal-400 right-1/2 mr-4"
+                                            : "to-teal-400 left-1/2 ml-4"
+                                    } top-10 w-12`}
                                     initial={{ width: 0, opacity: 0 }}
                                     animate={{
                                         width: isTimelineInView ? "3rem" : 0,
@@ -523,10 +522,11 @@ export default function VisionMissionPage() {
 
                                 {/* Content card */}
                                 <motion.div
-                                    className={`w-5/12 ${item.position === "left"
-                                        ? "mr-auto pr-12"
-                                        : "ml-auto pl-12"
-                                        }`}
+                                    className={`w-5/12 ${
+                                        item.position === "left"
+                                            ? "mr-auto pr-12"
+                                            : "ml-auto pl-12"
+                                    }`}
                                     initial={{
                                         opacity: 0,
                                         x: item.position === "left" ? -30 : 30,
@@ -536,8 +536,8 @@ export default function VisionMissionPage() {
                                         x: isTimelineInView
                                             ? 0
                                             : item.position === "left"
-                                                ? -30
-                                                : 30,
+                                            ? -30
+                                            : 30,
                                     }}
                                     transition={{
                                         duration: 0.5,
@@ -550,27 +550,29 @@ export default function VisionMissionPage() {
                                             type: "spring",
                                             stiffness: 300,
                                         }}
-                                        className={`bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all border ${item.id === 1
-                                            ? "border-teal-200"
-                                            : item.id === 2
+                                        className={`bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all border ${
+                                            item.id === 1
+                                                ? "border-teal-200"
+                                                : item.id === 2
                                                 ? "border-cyan-200"
                                                 : item.id === 3
-                                                    ? "border-teal-200"
-                                                    : "border-orange-200"
-                                            }`}
+                                                ? "border-teal-200"
+                                                : "border-orange-200"
+                                        }`}
                                     >
                                         <span className="text-sm font-semibold text-gray-500">
                                             {item.phase}
                                         </span>
                                         <h3
-                                            className={`text-xl font-bold mb-2 ${item.id === 1
-                                                ? "text-teal-600"
-                                                : item.id === 2
+                                            className={`text-xl font-bold mb-2 ${
+                                                item.id === 1
+                                                    ? "text-teal-600"
+                                                    : item.id === 2
                                                     ? "text-amber-500"
                                                     : item.id === 3
-                                                        ? "text-teal-600"
-                                                        : "text-amber-500"
-                                                }`}
+                                                    ? "text-teal-600"
+                                                    : "text-amber-500"
+                                            }`}
                                         >
                                             {item.title}
                                         </h3>
@@ -696,27 +698,29 @@ export default function VisionMissionPage() {
                                         duration: 0.5,
                                         delay: item.delay,
                                     }}
-                                    className={`bg-white p-5 rounded-xl shadow-md border ${item.id === 1
-                                        ? "border-teal-200"
-                                        : item.id === 2
+                                    className={`bg-white p-5 rounded-xl shadow-md border ${
+                                        item.id === 1
+                                            ? "border-teal-200"
+                                            : item.id === 2
                                             ? "border-cyan-200"
                                             : item.id === 3
-                                                ? "border-teal-200"
-                                                : "border-orange-200"
-                                        }`}
+                                            ? "border-teal-200"
+                                            : "border-orange-200"
+                                    }`}
                                 >
                                     <span className="text-xs font-semibold text-gray-500">
                                         {item.phase}
                                     </span>
                                     <h3
-                                        className={`text-lg font-bold mb-2 ${item.id === 1
-                                            ? "text-teal-700"
-                                            : item.id === 2
+                                        className={`text-lg font-bold mb-2 ${
+                                            item.id === 1
+                                                ? "text-teal-700"
+                                                : item.id === 2
                                                 ? "text-cyan-700"
                                                 : item.id === 3
-                                                    ? "text-teal-700"
-                                                    : "text-orange-700"
-                                            }`}
+                                                ? "text-teal-700"
+                                                : "text-orange-700"
+                                        }`}
                                     >
                                         {item.title}
                                     </h3>
@@ -823,7 +827,7 @@ export default function VisionMissionPage() {
             {/* Call to Action */}
             <section className="py-16 md:py-24 relative overflow-hidden">
                 {/* Background image with overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-700 via-teal-700/70 to-teal-700 opacity-80 z-0"></div>
+                <div className="absolute inset-0 primary-gradient  z-0"></div>
 
                 {/* Animated particles */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -854,7 +858,7 @@ export default function VisionMissionPage() {
                 </div>
 
                 {/* Content */}
-                <div className="mx-auto relative z-10 py-8 rounded-2xl primary-gradient w-full">
+                <div className="mx-auto relative z-10 py-8 rounded-2xl  w-full">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

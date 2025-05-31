@@ -33,7 +33,7 @@ export default function MasterclassSection() {
         >
             <div
                 id="masterclass"
-                className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-8 border border-teal-100 shadow-xl relative overflow-hidden mb-6"
+                className=" rounded-2xl p-8 border border-teal-100 shadow-xl relative overflow-hidden mb-6"
             >
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-40 h-40 bg-teal-200/20 rounded-full -mr-20 -mt-20 blur-3xl"></div>
@@ -46,14 +46,12 @@ export default function MasterclassSection() {
                     </div>
 
                     <h3 className="text-2xl font-bold text-teal-600 mb-4 relative">
-                        Schedule a Wellness Intelligence™
-                        Masterclass
+                        Schedule a Wellness Intelligence™ Masterclass
                     </h3>
 
                     <p className="text-slate-700 mb-6 relative">
-                        Transform your organization's approach
-                        to health and wellness with our
-                        expert-led sessions powered by AI
+                        Transform your organization's approach to health and
+                        wellness with our expert-led sessions powered by AI
                         intelligence.
                     </p>
 
@@ -64,9 +62,7 @@ export default function MasterclassSection() {
                                 className="flex items-start bg-white/60 backdrop-blur-sm p-3 rounded-lg border border-teal-100/50 shadow-sm"
                             >
                                 <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5 mr-3" />
-                                <span className="text-teal-600">
-                                    {point}
-                                </span>
+                                <span className="text-teal-600">{point}</span>
                             </li>
                         ))}
                     </ul>

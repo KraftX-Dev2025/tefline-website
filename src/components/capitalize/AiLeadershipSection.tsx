@@ -108,32 +108,29 @@ export default function AILeadershipSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <motion.div
                         initial="hidden"
-                        animate={
-                            isAiLeadershipInView ? "visible" : "hidden"
-                        }
+                        animate={isAiLeadershipInView ? "visible" : "hidden"}
                         variants={fadeInLeft}
                     >
                         <h3 className="text-2xl font-semibold mb-6">
                             Smarter Scaling, Optimized Capital
                         </h3>
                         <p className="mb-6 text-teal-50/90">
-                            To drive precision in our scaling strategy, we
-                            have embedded an AI-powered
-                            decision-augmentation framework that
-                            continuously refines market positioning,
-                            financial planning, and strategic growth.
+                            To drive precision in our scaling strategy, we have
+                            embedded an AI-powered decision-augmentation
+                            framework that continuously refines market
+                            positioning, financial planning, and strategic
+                            growth.
                         </p>
                         <p className="mb-6 text-teal-50/90">
-                            By leveraging real-time data, it ensures capital
-                            is deployed with maximum impact while
-                            safeguarding investor interests through
-                            predictive modeling of traction milestones and
-                            potential risks.
+                            By leveraging real-time data, it ensures capital is
+                            deployed with maximum impact while safeguarding
+                            investor interests through predictive modeling of
+                            traction milestones and potential risks.
                         </p>
                         <p className="mb-6 text-teal-50/90">
-                            AI-driven insights reduce burn rate
-                            inefficiencies, accelerating our path to
-                            profitability with smarter, faster scaling.
+                            AI-driven insights reduce burn rate inefficiencies,
+                            accelerating our path to profitability with smarter,
+                            faster scaling.
                         </p>
 
                         <div className="flex flex-wrap gap-3 mt-8">
@@ -155,14 +152,12 @@ export default function AILeadershipSection() {
 
                     <motion.div
                         initial="hidden"
-                        animate={
-                            isAiLeadershipInView ? "visible" : "hidden"
-                        }
+                        animate={isAiLeadershipInView ? "visible" : "hidden"}
                         variants={fadeInRight}
                     >
-                        <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 shadow-lg">
+                        <div className="bg-white/20 backdrop-blur-sm border border-white/20 rounded-xl p-6 shadow-lg">
                             <div className="flex items-center mb-6">
-                                <div className="w-12 h-12 bg-purple-500/20 backdrop-blur-md rounded-lg flex items-center justify-center border border-purple-300/30 mr-4">
+                                <div className="w-12 h-12 bg-purple-500/40 backdrop-blur-md rounded-lg flex items-center justify-center border border-purple-300/30 mr-4">
                                     <Brain className="w-6 h-6 text-purple-200" />
                                 </div>
                                 <div>
@@ -182,11 +177,11 @@ export default function AILeadershipSection() {
                                 </h4>
                                 <p className="text-teal-50/90">
                                     Tefline has made history as the first
-                                    company to appoint an AI as a Chief
-                                    Officer. Selena Deus drives strategic
-                                    foresight and capital efficiency,
-                                    ensuring every investment decision is
-                                    guided by data-driven intelligence.
+                                    company to appoint an AI as a Chief Officer.
+                                    Selena Deus drives strategic foresight and
+                                    capital efficiency, ensuring every
+                                    investment decision is guided by data-driven
+                                    intelligence.
                                 </p>
                             </div>
 
@@ -222,7 +217,6 @@ export default function AILeadershipSection() {
                             </div>
 
                             <div className="mt-6">
-
                                 <motion.div
                                     whileHover={{ scale: 1.05, y: -3 }}
                                     transition={{
@@ -237,7 +231,6 @@ export default function AILeadershipSection() {
                                     >
                                         Read Our Press Release
                                         <ArrowRight className="ml-1 w-4 h-4" />
-
                                     </Link>
                                 </motion.div>
                             </div>
