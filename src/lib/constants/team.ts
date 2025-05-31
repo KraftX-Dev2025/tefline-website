@@ -5,11 +5,12 @@ import {
     Mail,
     FlaskConical,
     Globe,
-    Brain,
-    BarChart,
     Briefcase,
-    TrendingUp,
     Lightbulb,
+    Users,
+    Sparkles,
+    Zap,
+    FileCheck
 } from "lucide-react";
 
 export interface TeamMember {
@@ -56,9 +57,9 @@ export const teamMembers: TeamMember[] = [
             "Now, with Tefline, he's engineering the next evolution of AI—one that doesn't just assist but augments human decision-making at scale. His leadership philosophy is built on first principles: challenge convention, anticipate the next frontier, and build with a vision that outlasts trends.",
         ],
         theme: {
-            from: "from-teal-600/80",
-            via: "via-teal-600/80",
-            to: "to-teal-600",
+            from: "from-teal-200/80",
+            via: "via-teal-200/80",
+            to: "to-teal-200",
             textColor: "text-white",
             lightBg: "teal-50",
             glowClass: "hover:shadow-teal-500/20",
@@ -135,9 +136,9 @@ export const teamMembers: TeamMember[] = [
             "Beyond the boardroom, Anil blends lyrical thinking with meditative discipline. He is both a connoisseur of introspection and an architect of inner rigour, bringing to Tefline a cultivated ethos of self-mastery—measured, mindful, and magnificently alive. His curiosity runs deep, often probing the nuanced terrain between what's possible and what's prudent—especially in the evolving dance between AI and humanity. With effortless allure backed by fitness model charisma and main character energy balanced by steely resolve, Anil isn't just a leader within Tefline—he's a lighthouse for the future of purposeful leadership.",
         ],
         theme: {
-            from: "from-teal-600/80",
-            via: "via-teal-600/80",
-            to: "to-teal-600",
+            from: "from-teal-800/80",
+            via: "via-teal-800/80",
+            to: "to-teal-800",
             textColor: "text-white",
             lightBg: "purple-50",
             glowClass: "hover:shadow-purple-500/20",
@@ -176,9 +177,9 @@ export const teamMembers: TeamMember[] = [
             "Under his guidance, the Medical Advisory Council conducts regular evidence reviews, ensuring that all wellness protocols meet the highest standards of medical validity.",
         ],
         theme: {
-            from: "from-teal-600/80",
-            via: "via-teal-600/80",
-            to: "to-teal-600",
+            from: "from-purple-700/80",
+            via: "via-purple-700/80",
+            to: "to-purple-700",
             textColor: "text-white",
             lightBg: "orange-50",
             glowClass: "hover:shadow-orange-500/20",
@@ -199,5 +200,40 @@ export const teamMembers: TeamMember[] = [
             },
         ],
         note: "Dr. Kulkarni serves in a strictly advisory capacity and is not formally employed as an officer, director or other member in Tefline's organizational structure.",
+    },
+];
+
+export const coreValues = [
+    {
+        title: "Evidence-Informed Excellence",
+        description: "We ground our approach in scientific rigor and validated methodologies",
+        icon: FileCheck,
+        className: "w-5 h-5 text-white",
+        color: "from-cyan-500 to-teal-400",
+        delay: 0,
+    },
+    {
+        title: "Intelligent Wellness",
+        description: "We leverage AI to personalize and optimize health journeys",
+        icon: Zap,
+        className: "w-5 h-5 text-white",
+        color: "from-teal-400 to-cyan-500",
+        delay: 0.1,
+    },
+    {
+        title: "Community Empowerment",
+        description: "We believe in the power of social connection to drive lasting change",
+        icon: Users,
+        className: "w-5 h-5 text-white",
+        color: "from-cyan-500 to-teal-400",
+        delay: 0.2,
+    },
+    {
+        title: "Visionary Innovation",
+        description: "We anticipate the future of healthcare rather than simply react to it",
+        icon: Sparkles,
+        className: "w-5 h-5 text-white",
+        color: "from-teal-400 to-cyan-500",
+        delay: 0.3,
     },
 ];

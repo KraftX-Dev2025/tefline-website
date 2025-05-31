@@ -152,7 +152,7 @@ export default function PressPage() {
                             Press & News
                         </motion.h1>
                         <motion.p
-                            className="text-white text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
+                            className="text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
                             variants={fadeIn}
                         >
                             Stay updated with the latest announcements,

@@ -126,7 +126,7 @@ export function Header() {
                                 </motion.div>
                             </div>
                             <motion.span className="text-2xl font-bold transition-colors duration-300 bg-gradient-to-r from-teal-500 to-violet-500 text-transparent bg-clip-text">
-                                RX Medlife
+                                Tefline
                             </motion.span>
                         </Link>
                     </motion.div>

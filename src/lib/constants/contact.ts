@@ -56,7 +56,7 @@ export const inquiryTypes = [
     },
     {
         id: "partnership",
-        label: "Partnership Opportunities",
+        label: "Partnership",
         icon: Users,
         description: "Explore collaboration and partnership options",
     },

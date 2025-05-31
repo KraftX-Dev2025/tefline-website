@@ -99,10 +99,10 @@ export default function ServicesHeroSection() {
                 >
                     <motion.div
                         variants={fadeIn}
-                        className="text-teal-600 mb-3 py-1 px-4 bg-white/90 backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
+                        className="text-teal-600 mb-3 py-1 px-4 bg-white/90 backdrop-blur-md rounded-full text-sm font-medium inline-flex items-center"
                     >
-                        <Sparkles className="w-4 h-4 mr-2" />
-                        <span className=" text-sm sm:text-lg">Transformative Wellness Solutions
+                        <Sparkles className="w-6 h-6 mr-2" />
+                        <span className="badge-text text-sm sm:text-lg">Transformative Wellness Solutions
                         </span>
                     </motion.div>
                     <motion.h1
@@ -114,7 +114,7 @@ export default function ServicesHeroSection() {
                         </span>
                     </motion.h1>
                     <motion.p
-                        className="text-lg sm:text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed text-white"
+                        className="text-lg sm:text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
                         variants={fadeIn}
                     >
                         Comprehensive wellness modules designed to

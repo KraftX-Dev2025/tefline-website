@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, ChevronDown, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
-// import { faqs } from "@/lib/constants/contact";
 import { faqs } from "@/lib/constants/contact"
 import Link from "next/link";
 
@@ -101,7 +99,7 @@ export default function FAQSection() {
                             <h3 className="text-2xl font-bold text-white mb-4">
                                 Still have questions?
                             </h3>
-                            <p className="text-teal-100 mb-6 max-w-lg mx-auto text-white">
+                            <p className="text-teal-50/90 mb-6 max-w-lg mx-auto">
                                 Our team is ready to help you with any
                                 questions you might have about our services
                                 or how we can support your wellness journey.

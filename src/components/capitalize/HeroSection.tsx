@@ -10,7 +10,8 @@ import {
     PieChart, 
     Activity,
     BarChart,
-    Zap
+    Zap,
+    ArrowRight
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { BACKGROUND_ELEMENTS, CHART_DATA } from "@/lib/constants/services";
@@ -192,7 +193,7 @@ export default function HeroSection() {
                             >
                                 <Link
                                     href="/connect"
-                                    className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 inline-flex items-center justify-center group shadow-lg shadow-amber-500/20"
+                                     className="bg-amber-500 hover:bg-white hover:text-amber-500 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
                                 >
                                     <span>Connect</span>
                                     <Zap className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -210,10 +211,10 @@ export default function HeroSection() {
                             >
                                 <Link
                                     href="/learn-more"
-                                    className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border border-white/30 hover:border-white/50 px-6 py-3 rounded-lg font-semibold transition-all duration-300 inline-flex items-center justify-center group"
+                                    className="bg-white hover:bg-amber-500 hover:text-white text-amber-500 px-4 py-2 rounded-lg font-semibold transition-all duration-300 inline-flex items-center group shadow-lg shadow-amber-500/20"
                                 >
                                     <span>Learn More</span>
-                                    <Activity className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                                 </Link>
                             </motion.div>
                         </motion.div>

@@ -39,7 +39,7 @@ const LifelineSection: React.FC = () => {
 
     return (
         <section
-            className="py-8 px-4 relative overflow-hidden bg-white"
+            className="py-12 px-4 relative overflow-hidden bg-white"
             ref={sectionRef}
         >
             <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-50 rounded-full opacity-50 blur-[100px]"></div>

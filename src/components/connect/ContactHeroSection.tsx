@@ -1,12 +1,10 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
-export default function ServicesHeroSection() {
+export default function ContactHeroSection() {
     const [isClient, setIsClient] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [reduceMotion, setReduceMotion] = useState(false);
@@ -100,11 +98,10 @@ export default function ServicesHeroSection() {
                 >
                     <motion.div
                         variants={fadeIn}
-                        className="text-teal-600 mb-3 py-1 px-4 bg-white/90 backdrop-blur-md rounded-full text-teal-50 text-sm font-medium inline-flex items-center"
+                        className="badge-teal"
                     >
                         <Sparkles className="w-4 h-4 mr-2" />
-                        <span className="text-lg">
-
+                        <span className="text-base">
                             Get in touch
                         </span>
                     </motion.div>
@@ -119,7 +116,7 @@ export default function ServicesHeroSection() {
                         </span>
                     </motion.h1>
                     <motion.p
-                        className="text-white text-lg sm:text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
+                        className="text-lg sm:text-xl md:text-2xl mb-10 text-teal-50/90 leading-relaxed"
                         variants={fadeIn}
                     >
                         Choose how you'd like to connect with us. We're

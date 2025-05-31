@@ -8,7 +8,7 @@ import { Brain, Globe, Zap, ArrowRight } from "lucide-react";
 
 const WellnessIntelligenceSection = () => {
   return (
-    <section className="py-8 px-4 relative overflow-hidden text-white">
+    <section className="py-12 px-4 relative overflow-hidden text-white">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-cyan-500/20 blur-[100px]"></div>
         <div className="absolute bottom-1/3 left-1/3 w-72 h-72 rounded-full bg-teal-400/20 blur-[100px]"></div>
@@ -61,15 +61,15 @@ const WellnessIntelligenceSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-8 max-w-3xl mx-auto"
+          className="text-center max-w-3xl mx-auto"
         >
           <div className="badge-teal">
             <Brain className="w-4 h-4 mr-2" />
             Powered by Intelligence
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-gradient bg-clip-text">
+          {/* <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary-gradient bg-clip-text">
             WELLNESS INTELLIGENCE™
-          </h2>
+          </h2> */}
         </motion.div>
 
         {/* Dashboard Layout */}

@@ -6,6 +6,7 @@ import { motion, useInView } from "framer-motion";
 import { Layers, CheckCircle, Target, Rocket, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { timelinEntries } from "@/lib/constants/programs";
 
 export default function FundingRoadmapSection() {
     const fundingRef = useRef<HTMLDivElement>(null);
@@ -52,48 +53,7 @@ export default function FundingRoadmapSection() {
                     <div className="absolute h-full w-1 bg-gradient-to-b from-teal-300 via-teal-400 to-teal-500 left-0 sm:left-1/2 transform sm:-translate-x-1/2 z-0 top-0"></div>
 
                     {/* Timeline entries */}
-                    {[
-                        {
-                            title: "Pre-Seed Round",
-                            time: "Q3 2024",
-                            status: "COMPLETED",
-                            statusClass: "bg-green-100 text-green-600",
-                            icon: (
-                                <CheckCircle className="w-5 h-5 text-green-500" />
-                            ),
-                            description:
-                                "Successfully closed initial funding to validate concept, build MVP, and establish early traction.",
-                            position: "right",
-                            delay: 0.1,
-                        },
-                        {
-                            title: "Seed Round",
-                            time: "Q1-Q2 2025",
-                            status: "CURRENT OPPORTUNITY",
-                            statusClass: "bg-amber-100 text-amber-600",
-                            icon: (
-                                <Target className="w-5 h-5 text-amber-500" />
-                            ),
-                            amount: "₹10 Cr (~$1.1M)",
-                            description:
-                                "Fueling our next growth phase and positioning for a strong Series A raise in 2026.",
-                            position: "left",
-                            delay: 0.4,
-                        },
-                        {
-                            title: "Series A",
-                            time: "2026",
-                            status: "PLANNED",
-                            statusClass: "bg-slate-100 text-slate-600",
-                            icon: (
-                                <Rocket className="w-5 h-5 text-slate-500" />
-                            ),
-                            description:
-                                "With proven traction, we'll seek a significant Series A round to expand globally.",
-                            position: "right",
-                            delay: 0.7,
-                        },
-                    ].map((stage, index) => (
+                    {timelinEntries.map((stage, index) => (
                         <motion.div
                             key={stage.title}
                             initial={{ opacity: 0, y: 20 }}
@@ -112,17 +72,12 @@ export default function FundingRoadmapSection() {
                             {/* Timeline point */}
                             <div className="absolute sm:static flex items-center justify-center left-0 sm:left-auto transform sm:transform-none -translate-x-[12px] sm:translate-x-0">
                                 <div
-                                    className={`w-10 h-10 flex items-center justify-center rounded-full border-4 border-white ${index === 1
+                                    className={`w-12 h-12 flex items-center justify-center rounded-full border-4 border-white ${index === 1
                                         ? "bg-amber-500"
                                         : "bg-teal-500"
                                         } shadow-md`}
                                 >
-                                    {index === 1 && (
-                                        <span className="text-white text-xs font-bold">
-                                            $
-                                        </span>
-                                    )}
-
+                                    <stage.icon className="h-6 w-6 text-white" />
                                 </div>
                             </div>
 

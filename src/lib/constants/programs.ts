@@ -1,3 +1,5 @@
+import { Target, Sparkles, CheckCircle, ArrowUpRight, Rocket } from "lucide-react";
+
 export interface Module {
     month: string;
     title: string;
@@ -111,3 +113,120 @@ export const programFeatures: ProgramFeature[] = [
         imageUrl: "/placeholder.webp",
     },
 ];
+
+
+export const phaseContext = [
+    {
+        id: 1,
+        phase: "Phase 1",
+        title: "Awareness",
+        description: "Raising consciousness about the importance of lifestyle medicine and preventative wellness approaches.",
+        icon: Target,
+        iconBg: "bg-gradient-to-r from-teal-500 to-teal-400",
+        position: "right",
+        delay: 0.2,
+    },
+    {
+        id: 2,
+        phase: "Phase 2",
+        title: "Education",
+        description: "Providing evidence-informed knowledge and tools to empower individuals in their wellness journey.",
+        icon: Sparkles,
+        iconBg: "bg-gradient-to-r from-cyan-500 to-cyan-400",
+        position: "left",
+        delay: 0.4,
+    },
+    {
+        id: 3,
+        phase: "Phase 3",
+        title: "Integration",
+        description: "Seamlessly incorporating lifestyle changes into daily routines with technological support.",
+        icon: CheckCircle,
+        iconBg: "bg-gradient-to-r from-cyan-500 to-teal-400",
+        position: "right",
+        delay: 0.6,
+    },
+    {
+        id: 4,
+        phase: "Phase 4",
+        title: "Transformation",
+        description: "Achieving measurable improvements in biological age, energy levels, and overall wellness.",
+        icon: ArrowUpRight,
+        iconBg: "bg-gradient-to-r from-orange-500 to-orange-400",
+        position: "left",
+        delay: 0.8,
+    },
+]
+
+export const timelineImpact = [
+    {
+        title: "Immediate Impact",
+        period: "First 90 days",
+        color: "from-teal-500 to-teal-400",
+        textColor: "text-teal-600",
+        bullets: [
+            "Comprehensive wellness assessment and personalized planning",
+            "AI-guided daily interventions and habit formation",
+        ],
+        iconColor: "text-teal-500",
+    },
+    {
+        title: "Medium-Term Growth",
+        period: "6-12 months",
+        color: "from-cyan-500 to-cyan-400",
+        textColor: "text-teal-600",
+        bullets: [
+            "Measurable biological age reduction and energy improvement",
+            "Community integration and social accountability",
+        ],
+        iconColor: "text-cyan-500",
+    },
+    {
+        title: "Long-Term Vision",
+        period: "1-3 years",
+        color: "from-cyan-500 to-cyan-400",
+        textColor: "text-teal-600",
+        bullets: [
+            "Complete lifestyle transformation and wellness optimization",
+            "Becoming an advocate and mentor within the community",
+        ],
+        iconColor: "text-teal-500",
+    },
+];
+
+export const timelinEntries = [
+    {
+        title: "Pre-Seed Round",
+        time: "Q3 2024",
+        status: "COMPLETED",
+        statusClass: "bg-green-100 text-green-600",
+        icon: CheckCircle,
+        description:
+            "Successfully closed initial funding to validate concept, build MVP, and establish early traction.",
+        position: "right",
+        delay: 0.1,
+    },
+    {
+        title: "Seed Round",
+        time: "Q1-Q2 2025",
+        status: "CURRENT OPPORTUNITY",
+        statusClass: "bg-amber-100",
+        icon: Target,
+        amount: "₹10 Cr (~$1.1M)",
+        description:
+            "Fueling our next growth phase and positioning for a strong Series A raise in 2026.",
+        position: "left",
+        delay: 0.4,
+    },
+    {
+        title: "Series A",
+        time: "2026",
+        status: "PLANNED",
+        statusClass: "bg-slate-100 text-slate-600",
+        icon: Rocket,
+        description:
+            "With proven traction, we'll seek a significant Series A round to expand globally.",
+        position: "right",
+        delay: 0.7,
+    },
+]

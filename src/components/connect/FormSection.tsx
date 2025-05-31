@@ -10,7 +10,6 @@ import { inquiryTypes } from "@/lib/constants/contact";
 export default function ContactFormSection() {
     const formRef = useRef<HTMLDivElement>(null);
     const isFormInView = useInView(formRef, { once: true, amount: 0.3 });
-
     // Form state
     const [formState, setFormState] = useState({
         firstName: "",
@@ -22,29 +21,58 @@ export default function ContactFormSection() {
     const [selectedInquiry, setSelectedInquiry] = useState<string | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    // Generate WhatsApp message template
+    const generateWhatsAppMessage = () => {
+        const selectedInquiryData = inquiryTypes.find(inquiry => inquiry.id === selectedInquiry);
+        const inquiryLabel = selectedInquiryData ? selectedInquiryData.label : "General Inquiry";
+        let message = `*New Tefline Contact Form Submission*\n\n`;
+        message += `*Contact Details:*\n`;
+        message += `Name: ${formState.firstName} ${formState.lastName}\n`;
+        message += `Email: ${formState.email}\n`;
+        message += `Inquiry Type: ${inquiryLabel}\n\n`;
+        message += `*Message:*\n`;
+        message += `${formState.message}\n\n`;
+        message += `*Submitted via:* Tefline Contact Form\n`;
+        message += `*Date:* ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}`;
+        return encodeURIComponent(message);
+    };
+
     // Handle form submission
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        console.log("Form submitted:", { ...formState, inquiryType: selectedInquiry });
-        setFormSubmitted(true);
-        setIsSubmitting(false);
-
-        // Reset form after 3 seconds
+        // Validate required fields
+        if (!formState.firstName || !formState.lastName || !formState.email || !formState.message || !selectedInquiry) {
+            alert("Please fill in all required fields and select an inquiry type.");
+            setIsSubmitting(false);
+            return;
+        }
         setTimeout(() => {
-            setFormSubmitted(false);
-            setFormState({
-                firstName: "",
-                lastName: "",
-                email: "",
-                message: "",
-            });
-            setSelectedInquiry(null);
-        }, 3000);
+            if (typeof window !== "undefined" && (window as any).gtag) {
+                (window as any).gtag("event", "form_submit", {
+                    event_category: "engagement",
+                    event_label: "contact_form",
+                });
+            }
+            // Generate WhatsApp URL with the message
+            const whatsappUrl = `https://wa.me/9822296812?text=${generateWhatsAppMessage()}`;
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+            // Mark as submitted for UI feedback
+            setFormSubmitted(true);
+            setIsSubmitting(false);
+            // Reset form after 5 seconds
+            setTimeout(() => {
+                setFormSubmitted(false);
+                setFormState({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    message: "",
+                });
+                setSelectedInquiry(null);
+            }, 5000);
+        }, 1500);
     };
 
     // Handle input changes
@@ -136,7 +164,7 @@ export default function ContactFormSection() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6 }}
                     >
-                        Thank you for reaching out! Our team will review your message and get back to you as soon as possible.
+                        Thank you for reaching out! We've opened WhatsApp for you to send your message directly to our team.
                     </motion.p>
 
                     <motion.div
@@ -158,9 +186,9 @@ export default function ContactFormSection() {
                     {/* Inquiry Type Selector */}
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-4">
-                            What can we help you with?
+                            What can we help you with? *
                         </label>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="grid grid-cols-2 gap-3">
                             {inquiryTypes.map((inquiry) => {
                                 const IconComponent = inquiry.icon;
                                 return (
@@ -174,14 +202,14 @@ export default function ContactFormSection() {
                                             }`}
                                         onClick={() => setSelectedInquiry(inquiry.id)}
                                     >
-                                        <div className="flex items-center gap-3 mb-2">
+                                        <div className="flex items-center gap-2 mb-2">
                                             <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${selectedInquiry === inquiry.id
                                                 ? "bg-teal-500 text-white"
                                                 : "bg-gray-100 text-gray-500"
                                                 }`}>
                                                 <IconComponent className="w-4 h-4" />
                                             </div>
-                                            <span className={`font-medium ${selectedInquiry === inquiry.id
+                                            <span className={`font-medium text-xs sm:text-sm ${selectedInquiry === inquiry.id
                                                 ? "text-teal-700"
                                                 : "text-gray-700"
                                                 }`}>
@@ -195,6 +223,7 @@ export default function ContactFormSection() {
                                 );
                             })}
                         </div>
+                        <p className={`text-xs mt-2 text-red-500/70 ${!selectedInquiry ? "block" : "hidden"} `}>Please select an inquiry type</p>
                     </div>
 
                     {/* Name Fields */}
@@ -274,7 +303,7 @@ export default function ContactFormSection() {
                         <Button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-[14rem] primary-gradient hover:shadow-lg px-2 text-white font-semibold py-4 rounded-xl flex items-center justify-center group shadow-md shadow-teal-200/40 disabled:opacity-70 disabled:cursor-not-allowed"
+                            className="w-[10rem] primary-gradient hover:shadow-lg px-2 text-white font-semibold py-4 rounded-xl flex items-center justify-center group shadow-md shadow-teal-200/40 disabled:opacity-70 disabled:cursor-not-allowed"
                         >
                             {isSubmitting ? (
                                 <>

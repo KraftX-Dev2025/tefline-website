@@ -2,20 +2,39 @@
 
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { JSX, SVGProps, useRef, useState } from "react";
-import { teamMembers } from "@/lib/constants/team";
-import {
-    Users,
-    Brain,
-    ChevronRight,
-    Sparkles,
-    Shield,
-    Network,
-    Zap,
-} from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import { coreValues, teamMembers } from "@/lib/constants/team";
+import { Users, Brain, ChevronRight, Shield, Network } from "lucide-react";
 import Image from "next/image";
 
 export default function TeamPage() {
+    // State for client-side particles
+    const [particles, setParticles] = useState<Array<{
+        id: number;
+        width: number;
+        height: number;
+        top: number;
+        left: number;
+        duration: number;
+        delay: number;
+    }>>([]);
+    const [isClient, setIsClient] = useState(false);
+
+    // Initialize particles on client side only
+    useEffect(() => {
+        setIsClient(true);
+        const newParticles = Array.from({ length: 15 }).map((_, i) => ({
+            id: i,
+            width: Math.random() * 8 + 4,
+            height: Math.random() * 8 + 4,
+            top: Math.random() * 100,
+            left: Math.random() * 100,
+            duration: Math.random() * 8 + 8,
+            delay: Math.random() * 5,
+        }));
+        setParticles(newParticles);
+    }, []);
+
     // For parallax effects
     const pageRef = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -95,30 +114,32 @@ export default function TeamPage() {
                     <div className="absolute top-1/3 left-0 w-[25rem] h-[25rem] rounded-full bg-orange-400/10 blur-[80px] opacity-70"></div>
                 </motion.div>
 
-                {/* Floating DNA-like particles */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
-                    {Array.from({ length: 15 }).map((_, i) => (
-                        <motion.div
-                            key={i}
-                            className="absolute rounded-full bg-cyan-300/30"
-                            style={{
-                                width: Math.random() * 8 + 4 + "px",
-                                height: Math.random() * 8 + 4 + "px",
-                                top: Math.random() * 100 + "%",
-                                left: Math.random() * 100 + "%",
-                            }}
-                            animate={{
-                                y: [0, -100],
-                                opacity: [0, 0.8, 0],
-                            }}
-                            transition={{
-                                duration: Math.random() * 8 + 8,
-                                repeat: Infinity,
-                                delay: Math.random() * 5,
-                            }}
-                        />
-                    ))}
-                </div>
+                {/* Floating DNA-like particles - Only render on client side */}
+                {isClient && (
+                    <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
+                        {particles.map((particle) => (
+                            <motion.div
+                                key={particle.id}
+                                className="absolute rounded-full bg-cyan-300/30"
+                                style={{
+                                    width: particle.width + "px",
+                                    height: particle.height + "px",
+                                    top: particle.top + "%",
+                                    left: particle.left + "%",
+                                }}
+                                animate={{
+                                    y: [0, -100],
+                                    opacity: [0, 0.8, 0],
+                                }}
+                                transition={{
+                                    duration: particle.duration,
+                                    repeat: Infinity,
+                                    delay: particle.delay,
+                                }}
+                            />
+                        ))}
+                    </div>
+                )}
 
                 <div className="container mx-auto relative z-20">
                     {/* Hero Content */}
@@ -142,7 +163,7 @@ export default function TeamPage() {
                             TEAM TEFLINE
                         </motion.h1>
                         <motion.p
-                            className="text-lg md:text-xl text-teal-50 leading-relaxed text-white"
+                            className="text-lg md:text-xl text-teal-50 leading-relaxed"
                             variants={fadeIn}
                         >
                             Meet the visionaries behind Tefline's mission to
@@ -192,13 +213,8 @@ export default function TeamPage() {
                                                     >
                                                         <div className="w-full h-full rounded-full overflow-hidden bg-gray-100">
                                                             <Image
-                                                                src={
-                                                                    member.image ??
-                                                                    "/subramanium.webp"
-                                                                }
-                                                                alt={
-                                                                    member.name
-                                                                }
+                                                                src={member.image ?? "/subramanium.webp"}
+                                                                alt={member.name}
                                                                 className="w-full h-full object-cover filter group-hover:saturate-100 transition-all duration-500"
                                                                 width={400}
                                                                 height={400}
@@ -230,7 +246,7 @@ export default function TeamPage() {
 
                                             {/* Member Details */}
                                             <div className="text-center mb-4">
-                                                <h3 className="text-xl font-bold text-white group-hover:text-teal-200 transition-colors">
+                                                <h3 className="text-xl font-bold text-teal-800 group-hover:text-teal-200 transition-colors">
                                                     {member.name}
                                                 </h3>
                                                 <p
@@ -244,15 +260,13 @@ export default function TeamPage() {
                                             </div>
 
                                             {/* Member Bio */}
-                                            <p className="text-white/90 text-sm text-center mb-6 flex-grow">
+                                            <p className="text-teal-50 text-sm text-center mb-6 flex-grow">
                                                 {member.shortBio}
                                             </p>
 
                                             {/* Read More Link */}
                                             <div className="mt-auto text-center">
-                                                <span
-                                                    className={`inline-flex items-center text-teal-800 text-sm transition-colors text-white`}
-                                                >
+                                                <span className="inline-flex items-center underline  group-hover:text-teal-100 text-teal-800 text-sm transition-colors">
                                                     Read Full Bio
                                                     <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                                                 </span>
@@ -288,7 +302,6 @@ export default function TeamPage() {
                 </div>
             </section>
 
-            {/* Team Dynamics Section */}
             {/* Team Dynamics Section */}
             <section className="py-8 px-4 relative overflow-hidden bg-white">
                 {/* Blurred gradient background */}
@@ -440,48 +453,7 @@ export default function TeamPage() {
                                 </div>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                                    {[
-                                        {
-                                            title: "Evidence-Informed Excellence",
-                                            description:
-                                                "We ground our approach in scientific rigor and validated methodologies",
-                                            icon: (
-                                                <FileCheck className="w-5 h-5 text-white" />
-                                            ),
-                                            color: "from-cyan-500 to-teal-400",
-                                            delay: 0,
-                                        },
-                                        {
-                                            title: "Intelligent Wellness",
-                                            description:
-                                                "We leverage AI to personalize and optimize health journeys",
-                                            icon: (
-                                                <Zap className="w-5 h-5 text-white" />
-                                            ),
-                                            color: "from-teal-400 to-cyan-500",
-                                            delay: 0.1,
-                                        },
-                                        {
-                                            title: "Community Empowerment",
-                                            description:
-                                                "We believe in the power of social connection to drive lasting change",
-                                            icon: (
-                                                <Users className="w-5 h-5 text-white" />
-                                            ),
-                                            color: "from-cyan-500 to-teal-400",
-                                            delay: 0.2,
-                                        },
-                                        {
-                                            title: "Visionary Innovation",
-                                            description:
-                                                "We anticipate the future of healthcare rather than simply react to it",
-                                            icon: (
-                                                <Sparkles className="w-5 h-5 text-white" />
-                                            ),
-                                            color: "from-teal-400 to-cyan-500",
-                                            delay: 0.3,
-                                        },
-                                    ].map((value, i) => (
+                                    {coreValues.map((value, i) => (
                                         <motion.div
                                             key={value.title}
                                             custom={i}
@@ -498,7 +470,7 @@ export default function TeamPage() {
                                                 <div
                                                     className={`p-2 rounded-full bg-gradient-to-r ${value.color} mr-3 flex-shrink-0`}
                                                 >
-                                                    {value.icon}
+                                                    <value.icon className={value.className} />
                                                 </div>
                                                 <div>
                                                     <h4 className="font-semibold text-teal-600 text-sm mb-1">
@@ -518,27 +490,5 @@ export default function TeamPage() {
                 </div>
             </section>
         </div>
-    );
-}
-
-// These components don't exist in the codebase, creating them here as placeholders
-function FileCheck(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            {...props}
-        >
-            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-            <polyline points="14 2 14 8 20 8" />
-            <path d="m9 15 2 2 4-4" />
-        </svg>
     );
 }

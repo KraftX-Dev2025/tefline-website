@@ -3,8 +3,10 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { Target, TrendingUp, CheckCircle, Rocket, Brain } from "lucide-react";
+import { Target, TrendingUp } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { opportunitiesOptions, opportunitiesPara } from "@/lib/constants/services";
+import { title } from "process";
 
 export default function OpportunitySection() {
     const opportunityRef = useRef<HTMLDivElement>(null);
@@ -53,22 +55,11 @@ export default function OpportunitySection() {
                             FORWARD-LOOKING POSITIONING
                         </h2>
                         <div className="space-y-4 text-slate-700">
-                            <p>
-                                At Tefline, we are at the inflection point of
-                                the digital wellness revolution. Having
-                                successfully closed our pre-seed round, we are
-                                now deploying capital to drive product-market
-                                fit and revenue traction.
-                            </p>
-                            <p>
-                                With a powerful blend of AI, behavioral science
-                                and lifestyle medicine, we are poised to
-                                dominate the growing demand for preventive,
-                                data-driven health solutions. The next 6-12
-                                months will be a watershed moment for Tefline,
-                                as we transition from early traction to scalable
-                                growth.
-                            </p>
+                            {opportunitiesPara.map((para, index) => (
+                                <p key={`para-${index}`}>
+                                    {para.para}
+                                </p>
+                            ))}
                             <p className="font-medium text-teal-700">
                                 We are seeking strategic investors who recognize
                                 that momentum is everything—those who want to be
@@ -78,18 +69,16 @@ export default function OpportunitySection() {
                         </div>
 
                         <div className="mt-8 flex flex-wrap gap-4">
-                            <div className="bg-teal-50 py-2 px-4 rounded-full text-sm font-medium text-teal-600 flex items-center">
-                                <CheckCircle className="w-4 h-4 mr-2" />
-                                Pre-seed funded
-                            </div>
-                            <div className="bg-amber-50 py-2 px-4 rounded-full text-sm font-medium text-teal-600 flex items-center">
-                                <Rocket className="w-4 h-4 mr-2" />
-                                Primed for growth
-                            </div>
-                            <div className="bg-sky-50 py-2 px-4 rounded-full text-sm font-medium text-teal-600 flex items-center">
-                                <Brain className="w-4 h-4 mr-2" />
-                                AI-driven approach
-                            </div>
+                            {opportunitiesOptions.map((opportunity, index) => (
+                                <div
+                                    key={`opportunity-${index}-${opportunity.title}`}
+                                    
+                                    className="bg-teal-50 py-2 px-4 rounded-full text-sm font-medium text-teal-600 flex items-center hover:scale-105 cursor-pointer"
+                                >
+                                    <opportunity.icon className="w-4 h-4 mr-2" />
+                                    {opportunity.title}
+                                </div>
+                            ))}
                         </div>
                     </motion.div>
 

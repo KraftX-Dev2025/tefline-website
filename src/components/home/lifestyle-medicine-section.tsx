@@ -39,7 +39,7 @@ const LifestyleMedicineSection: React.FC = () => {
 
     return (
         <section
-            className="py-8 px-4 relative overflow-hidden primary-gradient"
+            className="py-12 px-4 relative overflow-hidden primary-gradient"
             ref={sectionRef}
         >
             <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full opacity-30 blur-[120px]"></div>
@@ -80,17 +80,17 @@ const LifestyleMedicineSection: React.FC = () => {
                         animate={isInView ? "visible" : "hidden"}
                         viewport={{ once: true, margin: "-100px" }}
                         variants={fadeInLeft}
-                        className="order-1 lg:order-2"
+                        className="order-1 lg:order-2 text-white"
                     >
                         <div className="badge-teal">
                             <Zap className="w-4 h-4 mr-2" />
                             Comprehensive Wellness Approach
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
                             <span>LIFESTYLE MEDICINE</span> Through AI-Driven
                             Intelligence
                         </h2>
-                        <p className="text-teal-100 mb-8 leading-relaxed text-lg text-white">
+                        <p className="text-teal-100 mb-8 leading-relaxed text-lg">
                             Tefline's flagship initiative, RxLifeMed, is your
                             lifelong companion offering curated content spanning
                             twelve evolving monthly modules in lifestyle
@@ -98,14 +98,14 @@ const LifestyleMedicineSection: React.FC = () => {
                             weekly check-ins and everything in between, incl.
                             The Doctor is IN.
                         </p>
-                        <p className="text-teal-100 mb-8 leading-relaxed text-lg text-white">
+                        <p className="text-teal-100 mb-8 leading-relaxed text-lg">
                             Particularly potent is patent-pending Lifestyle
                             Social, a tribe outreach platform that acts as a
                             springboard for social connections.
                         </p>
                         <Link
                             href="/modules"
-                            className="inline-flex items-center text-white font-semibold group px-5 py-2 rounded-lg transition-all duration-200 hover:scale-105 hover:text-amber-500 hover:bg-white bg-amber-500"
+                            className="inline-flex items-center font-semibold group px-5 py-2 rounded-lg transition-all duration-200 hover:scale-105 hover:text-amber-500 hover:bg-white bg-amber-500"
                         >
                             Learn More
                         </Link>

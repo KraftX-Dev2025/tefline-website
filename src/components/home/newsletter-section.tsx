@@ -27,7 +27,7 @@ const NewsletterSection: React.FC = () => {
   }
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <motion.div
         className="primary-gradient rounded-2xl p-8 border border-violet-500/20"
         initial={{ opacity: 0, y: 30 }}

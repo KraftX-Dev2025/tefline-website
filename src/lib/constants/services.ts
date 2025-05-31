@@ -1,3 +1,7 @@
+import { Brain, CheckCircle, Globe, LineChart, Rocket, Zap } from "lucide-react";
+import { title } from "process";
+
+
 export interface Service {
     title: string;
     description: string;
@@ -133,3 +137,75 @@ export const BACKGROUND_ELEMENTS = [
 
 // Chart data for consistent rendering
 export const CHART_DATA = [0.3, 0.45, 0.6, 0.5, 0.7, 0.65, 0.85];
+
+export const investCards = [
+    {
+        title: "Early Mover Advantage",
+        icon: Globe,
+        description: "Leading the Wellness Intelligence™ revolution before it becomes a crowded marketplace. Tefline has staked an early claim in this emerging space with proprietary technology.",
+        color: "primary-gradient",
+    },
+    {
+        title: "Subscription Model",
+        icon: LineChart,
+        description: "Our subscription-based approach ensures recurring revenue with high lifetime value. By focusing on retention and expanding services, we create long-term sustainable growth.",
+        color: "primary-gradient",
+    },
+    {
+        title: "Behavioral Health Market",
+        icon: Brain,
+        description: "The behavioral health market is experiencing exponential growth as digital well-being becomes a priority for consumers, employers, and healthcare providers alike.",
+        color: "primary-gradient",
+    },
+    {
+        title: "AI-Driven Approach",
+        icon: Zap,
+        description: "Our AI-powered decision-making framework ensures capital is deployed with maximum impact while safeguarding investor interests through predictive modeling.",
+        color: "primary-gradient",
+    },
+]
+
+export const preSeedUl = [
+    "High-margin SaaS business model",
+    "Validated market fit",
+    "Strong retention metrics",
+];
+
+export const globalEntryUl = [
+    "First-mover advantage in AI agenting",
+    "Category-defining approach",
+    "Patent-pending technology",
+]
+
+export const opportunitiesOptions = [
+    {
+        title: "Pre-seed funded",
+        icon: CheckCircle,
+    },
+    {
+        title: "Primed for growth",
+        icon: Rocket,
+    },
+    {
+        title: "AI-driven approach",
+        icon: Brain,
+    }
+]
+export const opportunitiesPara = [
+    {
+        para: `At Tefline, we are at the inflection point of
+                                the digital wellness revolution. Having
+                                successfully closed our pre-seed round, we are
+                                now deploying capital to drive product-market
+                                fit and revenue traction.`,
+    },
+    {
+        para: ` With a powerful blend of AI, behavioral science
+                                and lifestyle medicine, we are poised to
+                                dominate the growing demand for preventive,
+                                data-driven health solutions. The next 6-12
+                                months will be a watershed moment for Tefline,
+                                as we transition from early traction to scalable
+                                growth.`,
+    },
+]
