@@ -169,7 +169,7 @@ const WellnessIntelligenceSection = () => {
                       <p className="text-sm text-teal-200 mb-4">{module.description}</p>
                       <div className="flex justify-between items-center mt-auto">
                         <div
-                          className={`${module.lightColor} rounded-lg px-3 py-2 text-center border border-teal-500/30`}
+                          className={`${module.lightColor} rounded-lg px-3 py-2 text-center border`}
                         >
                           <div className={`text-sm font-bold ${module.textColor}`}>{module.stats[0]}</div>
                           <div className="text-xs text-teal-300">{module.stats[1]}</div>
